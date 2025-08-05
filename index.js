@@ -110,7 +110,9 @@
       var element = createInfoHotspotElement(hotspot);
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
-
+if (data.id === "0-plaza-botero-botero") {
+  createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3'); // Ajusta coordenadas y nombre del audio
+}
     return {
       data: data,
       scene: scene,
@@ -540,4 +542,44 @@ function createCameraHotspot(hotspot) {
 
   return element;
 }
+// FUNCIÓN: Crear hotspot de audio
+function createAudioHotspot(yaw, pitch, audioSrc) {
+  var hotspot = document.createElement('div');
+  hotspot.classList.add('hotspot-audio');
+
+  // Ícono del altavoz
+  var icon = document.createElement('img');
+  icon.src = 'img/audio-icon.png'; // Ruta del ícono
+  icon.style.width = '40px';
+  icon.style.cursor = 'pointer';
+  icon.style.transition = 'transform 0.2s'; // Efecto hover
+
+  // Efecto al pasar el mouse (sin usar style.css)
+  icon.addEventListener('mouseover', function () {
+    icon.style.transform = 'scale(1.2)';
+  });
+  icon.addEventListener('mouseout', function () {
+    icon.style.transform = 'scale(1)';
+  });
+
+  // Elemento de audio oculto
+  var audio = document.createElement('audio');
+  audio.src = audioSrc;
+  audio.preload = 'auto';
+
+  // Reproducir/pausar al hacer clic
+  icon.addEventListener('click', function () {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  hotspot.appendChild(icon);
+  hotspot.appendChild(audio);
+
+  viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw: yaw, pitch: pitch });
+}
+
 })();
