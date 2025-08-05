@@ -48,7 +48,7 @@ var APP_DATA = {
         {
           "pitch": -1.1623,
           "yaw": -0.2992,
-          "type": "Camera",
+          "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/RafaelUribeUribe.jpg",
           "title": "Rafael Uribe Uribe"
