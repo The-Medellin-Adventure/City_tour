@@ -1,123 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>Project Title</title>
-<meta charset="utf-8">
-<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-<style> @-ms-viewport { width: device-width; } </style>
-<link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>City Tour Hotspots</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #f4f4f4;
+    }
+    .hotspot {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.22);
+      overflow: hidden;
+      border: 3px solid #fff;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .hotspot:hover {
+      transform: scale(1.07);
+      z-index: 10;
+    }
+    .hotspot img.foto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .camera-icon {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 50%;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.20);
+    }
+    .camera-icon img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+  </style>
 </head>
-<body class="multiple-scenes view-control-buttons">
-
-<div id="pano"></div>
-
-<div id="sceneList">
-  <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
-        <li class="text">Plaza Botero Botero</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe">
-        <li class="text">Plaza Botero y Palacio Rafael Uribe Uribe</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="2-esculturas-y-tradicin">
-        <li class="text">Esculturas y tradición</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="3-palacio-rafael-uribe-uribe">
-        <li class="text">Palacio Rafael Uribe Uribe</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="4-parque-de-las-luces">
-        <li class="text">Parque de las Luces</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="5-antiguo-ferrocarril">
-        <li class="text">Antiguo Ferrocarril</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="6-antigua-estacin-medelln">
-        <li class="text">Antigua Estación Medellín</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="7-alpujarra">
-        <li class="text">Alpujarra</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="8-transicin-ciudad-a-naturaleza">
-        <li class="text">Transición ciudad a naturaleza</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="9-pies_descalzos">
-        <li class="text">Pies_descalzos</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="10-conexin-naturaleza">
-        <li class="text">Conexión Naturaleza</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="11-laberinto-de-bamb">
-        <li class="text">Laberinto de Bambú</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="12-edificio-inteligente-epm">
-        <li class="text">Edificio Inteligente EPM</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="13-centro-de-convenciones-y-teatro">
-        <li class="text">Centro de convenciones y Teatro</li>
-      </a>
-    
-  </ul>
-</div>
-
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
-
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
-</a>
-
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
-</a>
-
-<a href="javascript:void(0)" id="sceneListToggle">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
-</a>
-
-<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/up.png">
-</a>
-<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/down.png">
-</a>
-<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
-  <img class="icon" src="img/left.png">
-</a>
-<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
-  <img class="icon" src="img/right.png">
-</a>
-<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
-  <img class="icon" src="img/plus.png">
-</a>
-<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
-  <img class="icon" src="img/minus.png">
-</a>
-
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
-
-<script src="data.js"></script>
-<script src="index.js"></script>
-
+<body>
+  <!-- Hotspot 1: Hotel Nutibara, esquina superior izquierda -->
+  <div class="hotspot" style="top: 40px; left: 40px;">
+    <img class="foto" src="assets/img/HotelNutibara.jpg" alt="Hotel Nutibara">
+    <span class="camera-icon">
+      <img src="assets/img/Camara.png" alt="Cámara">
+    </span>
+  </div>
+  <!-- Hotspot 2: Estacion Berrio, esquina inferior derecha -->
+  <div class="hotspot" style="bottom: 40px; right: 40px;">
+    <img class="foto" src="assets/img/EstacionBerrio.jpg" alt="Estacion Berrio">
+    <span class="camera-icon">
+      <img src="assets/img/Camara.png" alt="Cámara">
+    </span>
+  </div>
+  <!-- Hotspot 3: Rafael Uribe Uribe, centro superior -->
+  <div class="hotspot" style="top: 60px; left: calc(50% - 85px);">
+    <img class="foto" src="assets/img/RafaelUribeUribe.jpg" alt="Rafael Uribe Uribe">
+    <span class="camera-icon">
+      <img src="assets/img/Camara.png" alt="Cámara">
+    </span>
+  </div>
 </body>
 </html>
