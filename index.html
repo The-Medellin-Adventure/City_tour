@@ -7,6 +7,8 @@
 <style> @-ms-viewport { width: device-width; } </style>
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
+<!-- Swiper CSS para carrusel -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body class="multiple-scenes view-control-buttons">
 
@@ -112,12 +114,52 @@
   <img class="icon" src="img/minus.png">
 </a>
 
+<!-- CARRUSEL MODAL - PUEDES CAMBIAR LOS NOMBRES DE IMAGEN SEGÚN TU CARPETA 'carrusel/' -->
+<div id="carruselModal" style="display:none; position:fixed; z-index:10000; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;">
+  <div style="position:relative; width:90vw; max-width:700px; margin:auto;">
+    <!-- Botón de cerrar -->
+    <button id="cerrarCarrusel" style="position:absolute; top:10px; right:10px; z-index:10; font-size:2rem; background:none; color:white; border:none; cursor:pointer;">&times;</button>
+    <!-- Swiper -->
+    <div class="swiper carrusel-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="carrusel/Maternidad.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Mujer_Vestida.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Hombre_Vestido.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Mujer_con_Espejo.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Eva.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Adan.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Cabeza.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Esfinge.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Gato.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Hombre_Caminante.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Mano.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Mujer_con_Fruta.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Mujer_Reclinada.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Mujer_Sentada.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Mujer.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Pensamiento.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Perro.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Rapto_de_Europa.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Soldado_Romano.jpg" style="width:100%;border-radius:10px;"></div>
+        <div class="swiper-slide"><img src="carrusel/Venus_Dormida.jpg" style="width:100%;border-radius:10px;"></div>
+
+        <!-- Agrega más imágenes aquí si lo deseas -->
+      </div>
+      <!-- Controles Swiper -->
+      <div class="swiper-button-next" style="color:#fff;"></div>
+      <div class="swiper-button-prev" style="color:#fff;"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>
 <script src="vendor/marzipano.js" ></script>
-
 <script src="data.js"></script>
 <script src="index.js"></script>
+<!-- Swiper JS para carrusel -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 </html>
