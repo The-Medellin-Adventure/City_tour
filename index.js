@@ -480,5 +480,64 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
+// --- CARRUSEL SWIPER PARA HOTSPOT DE CARRUSEL ---
 
+// Inicializa Swiper (carrusel)
+var carruselSwiper = new Swiper('.carrusel-swiper', {
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  }
+});
+
+// Función para mostrar el carrusel modal
+function mostrarCarrusel() {
+  var modal = document.getElementById('carruselModal');
+  modal.style.display = 'flex';
+  carruselSwiper.update();
+}
+
+// Función para ocultar el carrusel modal
+document.getElementById('cerrarCarrusel').onclick = function() {
+  document.getElementById('carruselModal').style.display = 'none';
+};
+
+// Para cerrar el modal haciendo clic en el fondo oscuro
+document.getElementById('carruselModal').addEventListener('click', function(e) {
+  if (e.target === this) this.style.display = 'none';
+});
+
+// MODIFICA tu función createCameraHotspot para que detecte el hotspot de carrusel
+// Busca la función y reemplázala por esta versión mejorada:
+function createCameraHotspot(hotspot) {
+  var element = document.createElement('img');
+  element.src = hotspot.image;
+  element.alt = hotspot.title || "Foto";
+  element.className = "camera-hotspot-icon";
+  element.style.width = "48px";
+  element.style.height = "48px";
+  element.style.cursor = "pointer";
+  element.style.borderRadius = "50%";
+  element.style.boxShadow = "0 2px 8px rgba(0,0,0,0.25)";
+  element.title = hotspot.title || "";
+
+  // Si es el hotspot del carrusel, abre el carrusel
+  if (hotspot.carrusel) {
+    element.addEventListener('click', function() {
+      mostrarCarrusel();
+    });
+  } else {
+    // Hotspot de foto normal
+    element.addEventListener('click', function() {
+      showImageModal(hotspot.photo, hotspot.title);
+    });
+  }
+
+  return element;
+}
 })();
