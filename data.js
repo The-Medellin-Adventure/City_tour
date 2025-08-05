@@ -33,7 +33,7 @@ var APP_DATA = {
           "pitch": 0.1,
           "yaw": 1.2,
           "type": "camera",
-          "image": "img/camara.png",
+          "image": "img/Camara.png",
           "photo": "img/HotelNutibara.jpg",
           "title": "Hotel Nutibara"
         },
@@ -41,15 +41,15 @@ var APP_DATA = {
           "pitch": -0.15,
           "yaw": 2.3,
           "type": "camera",
-          "image": "img/camara.png",
+          "image": "img/Camara.png",
           "photo": "img/EstacionBerrio.jpg",
           "title": "Estacion Berrio"
         },
         {
           "pitch": 0.22,
           "yaw": 0.7,
-          "type": "camera",
-          "image": "img/camara.png",
+          "type": "Camera",
+          "image": "img/Camara.png",
           "photo": "img/RafaelUribeUribe.jpg",
           "title": "Rafael Uribe Uribe"
         }
