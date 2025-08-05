@@ -122,50 +122,6 @@ var APP_DATA = {
         }
       ]
     },
-      "id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
-      "name": "Plaza Botero y Palacio Rafael Uribe Uribe",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 2048,
-      "initialViewParameters": {
-        "yaw": 2.9540833239767146,
-        "pitch": -0.32309682106539483,
-        "fov": 0.7680934518125859
-      },
-      "linkHotspots": [
-        {
-          "yaw": 0.2812835640726874,
-          "pitch": -0.130667924147728,
-          "rotation": 0,
-          "target": "2-esculturas-y-tradicin"
-        }
-      ],
-      "infoHotspots": [
-        {
-          "yaw": 2.8281957788055063,
-          "pitch": -0.2278310627368345,
-          "title": "🏛️ <strong data-start=\"616\" data-end=\"658\">Museo de Antioquia</strong>",
-          "text": "<p><strong>Fundado en</strong>&nbsp;1881, es uno de los museos más antiguos de\nColombia y el&nbsp;<span style=\"font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit;\">alma cultural del\ncentro de Medellín, ya que no solo custodia una valiosa\ncolección artística, sino que también cuenta la historia de la ciudad y la\nregión a través del arte.</span></p>"
-        }
-      ]
-    },
     {
       "id": "2-esculturas-y-tradicin",
       "name": "Esculturas y tradición",
