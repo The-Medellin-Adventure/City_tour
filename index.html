@@ -114,37 +114,77 @@
   <img class="icon" src="img/minus.png">
 </a>
 
-<!-- CARRUSEL MODAL - PUEDES CAMBIAR LOS NOMBRES DE IMAGEN SEGÚN TU CARPETA 'carrusel/' -->
-<div id="carruselModal" style="display:none; position:fixed; z-index:10000; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
-  <div style="position:relative; background:#fff; border-radius:12px; padding:20px; box-shadow:0 8px 32px rgba(0,0,0,0.32); max-width:90vw; max-height:90vh; width:700px; overflow:hidden;">
+<!-- CARRUSEL MODAL CON DISEÑO UNIFORME -->
+<div id="carruselModal" style="
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+">
+  <div style="
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.32);
+    max-width: 700px;
+    width: 90vw;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  ">
     <!-- Botón de cerrar -->
-    <button id="cerrarCarrusel" style="position:absolute; top:10px; right:10px; z-index:10; font-size:2rem; background:none; color:#333; border:none; cursor:pointer;">&times;</button>
-    <!-- Swiper -->
-    <div class="swiper carrusel-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="img/carrusel/Maternidad.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Mujer_Vestida.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Hombre_Vestido.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Mujer_con_Espejo.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Eva.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Adan.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Cabeza.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Esfinge.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Gato.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Hombre_Caminante.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Mano.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Mujer_con_Fruta.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Mujer_Reclinada.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Mujer_Sentada.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Mujer.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Pensamiento.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Perro.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Rapto_de_Europa.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Soldado_Romano.jpg" style="width:100%;border-radius:10px;"></div>
-        <div class="swiper-slide"><img src="img/carrusel/Venus_Dormida.jpg" style="width:100%;border-radius:10px;"></div>
+    <button id="cerrarCarrusel" style="
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+      font-size: 2rem;
+      background: none;
+      color: #333;
+      border: none;
+      cursor: pointer;
+    ">&times;</button>
 
-        <!-- Agrega más imágenes aquí si lo deseas -->
+    <!-- Swiper -->
+    <div class="swiper carrusel-swiper" style="width: 100%; height: 100%;">
+      <div class="swiper-wrapper">
+
+        <!-- IMÁGENES -->
+        <!-- Usa un contenedor con aspecto fijo para igualar el formato -->
+        <!-- Puedes reemplazar los nombres si cambian las imágenes -->
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Maternidad.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_Vestida.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Hombre_Vestido.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_con_Espejo.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Eva.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Adan.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Cabeza.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Esfinge.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Gato.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Hombre_Caminante.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mano.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_con_Fruta.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_Reclinada.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer_Sentada.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Mujer.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Pensamiento.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Perro.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Rapto_de_Europa.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Soldado_Romano.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+        <div class="swiper-slide"><div style="aspect-ratio: 3 / 2; display: flex; justify-content: center; align-items: center;"><img src="img/carrusel/Venus_Dormida.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;"></div></div>
+
       </div>
+
       <!-- Controles Swiper -->
       <div class="swiper-button-next" style="color:#fff;"></div>
       <div class="swiper-button-prev" style="color:#fff;"></div>
@@ -152,6 +192,7 @@
     </div>
   </div>
 </div>
+
 
 <script src="vendor/screenfull.min.js" ></script>
 <script src="vendor/bowser.min.js" ></script>
