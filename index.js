@@ -29,22 +29,25 @@
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
 
-  var viewer = new Marzipano.Viewer(panoElement, {
-    controls: { mouseViewMode: data.settings.mouseViewMode }
-  });
+  var viewerOpts = {
+    controls: {
+      mouseViewMode: data.settings.mouseViewMode
+    }
+  };
+  var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+  window.viewer = viewer;
 
   var scenes = data.scenes.map(function(data) {
     var urlPrefix = "tiles";
     var source = Marzipano.ImageUrlSource.fromString(
       urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
-      { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" }
-    );
+      { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
     var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 120*Math.PI/180);
     var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
     var scene = viewer.createScene({ source, geometry, view, pinFirstLevel: true });
 
-    if (data.hotSpots) {
+    if (data.hotSpots && data.hotSpots.length > 0) {
       data.hotSpots.forEach(function(hotspot) {
         if (hotspot.type === "camera") {
           var element = createCameraHotspot(hotspot);
@@ -64,35 +67,53 @@
     });
 
     if (data.id === "0-plaza-botero-botero") {
-      var audioElement = createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
-      scene.hotspotContainer().createHotspot(audioElement, { yaw: 1.0, pitch: 0.1 });
+      createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
     }
 
     return { data, scene, view };
   });
 
-  switchScene(scenes[0]);
+  function switchScene(scene) {
+    stopAutorotate();
+    scene.view.setParameters(scene.data.initialViewParameters);
+    scene.scene.switchTo();
+    updateSceneName(scene);
+    updateSceneList(scene);
+    startAutorotate();
+  }
+
+  function updateSceneName(scene) {
+    sceneNameElement.innerHTML = sanitize(scene.data.name);
+  }
+
+  function updateSceneList(scene) {
+    sceneElements.forEach(function(el) {
+      el.classList.toggle('current', el.getAttribute('data-id') === scene.data.id);
+    });
+  }
+
+  function sanitize(s) {
+    return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+  }
 
   function createLinkHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'link-hotspot');
-
     var icon = document.createElement('img');
     icon.src = 'img/link.png';
     icon.classList.add('link-hotspot-icon');
     icon.style.transform = 'rotate(' + hotspot.rotation + 'rad)';
-
-    wrapper.addEventListener('click', function() {
-      switchScene(findSceneById(hotspot.target));
-    });
+    wrapper.appendChild(icon);
 
     var tooltip = document.createElement('div');
     tooltip.classList.add('hotspot-tooltip', 'link-hotspot-tooltip');
     tooltip.innerHTML = findSceneDataById(hotspot.target).name;
-
-    wrapper.appendChild(icon);
     wrapper.appendChild(tooltip);
 
+    wrapper.addEventListener('click', function() {
+      switchScene(findSceneById(hotspot.target));
+    });
+    stopTouchAndScrollEventPropagation(wrapper);
     return wrapper;
   }
 
@@ -148,81 +169,53 @@
     wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
 
+    stopTouchAndScrollEventPropagation(wrapper);
     return wrapper;
   }
 
   function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
     element.src = hotspot.image;
-    element.alt = hotspot.title || "Foto";
-    element.className = "camera-hotspot-icon";
-    element.style.width = "48px";
-    element.style.height = "48px";
-    element.style.cursor = "pointer";
-    element.style.borderRadius = "50%";
-    element.style.boxShadow = "0 2px 8px rgba(0,0,0,0.25)";
+    element.className = 'camera-hotspot-icon';
+    element.style = "width:48px;height:48px;cursor:pointer;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.25);";
     element.title = hotspot.title || "";
 
-    if (hotspot.carrusel) {
-      element.addEventListener('click', mostrarCarrusel);
-    } else {
-      element.addEventListener('click', function() {
+    element.addEventListener('click', function() {
+      if (hotspot.carrusel) {
+        mostrarCarrusel();
+      } else {
         showImageModal(hotspot.photo, hotspot.title);
-      });
-    }
-
+      }
+    });
     return element;
   }
 
   function showImageModal(photoSrc, title) {
     var oldModal = document.getElementById('custom-image-modal');
     if (oldModal) oldModal.remove();
-
     var modal = document.createElement('div');
     modal.id = 'custom-image-modal';
-    modal.style.position = 'fixed';
-    modal.style.top = '0';
-    modal.style.left = '0';
-    modal.style.width = '100vw';
-    modal.style.height = '100vh';
-    modal.style.background = 'rgba(0,0,0,0.8)';
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
-    modal.style.zIndex = '10000';
+    modal.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:10000;';
 
     var content = document.createElement('div');
-    content.style.background = '#fff';
-    content.style.borderRadius = '10px';
-    content.style.padding = '20px';
-    content.style.boxShadow = '0 8px 32px rgba(0,0,0,0.32)';
-    content.style.position = 'relative';
+    content.style = 'background:#fff;border-radius:10px;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,0.32);position:relative;';
 
     var img = document.createElement('img');
     img.src = photoSrc;
     img.alt = title || "";
-    img.style.maxWidth = '90vw';
-    img.style.maxHeight = '80vh';
-    img.style.borderRadius = '8px';
+    img.style = 'max-width:90vw;max-height:80vh;border-radius:8px;';
     content.appendChild(img);
 
     if (title) {
       var caption = document.createElement('div');
       caption.textContent = title;
-      caption.style.marginTop = '10px';
-      caption.style.fontWeight = 'bold';
-      caption.style.textAlign = 'center';
+      caption.style = 'margin-top:10px;font-weight:bold;text-align:center;';
       content.appendChild(caption);
     }
 
     var close = document.createElement('span');
     close.textContent = '×';
-    close.style.position = 'absolute';
-    close.style.top = '8px';
-    close.style.right = '16px';
-    close.style.cursor = 'pointer';
-    close.style.fontSize = '2rem';
-    close.style.color = '#222';
+    close.style = 'position:absolute;top:8px;right:16px;cursor:pointer;font-size:2rem;color:#222;';
     close.addEventListener('click', function() {
       modal.remove();
     });
@@ -230,63 +223,137 @@
 
     modal.appendChild(content);
     document.body.appendChild(modal);
-
     modal.addEventListener('click', function(e) {
       if (e.target === modal) modal.remove();
     });
   }
 
-  function mostrarCarrusel() {
-    var modal = document.getElementById('carruselModal');
-    modal.style.display = 'flex';
-    carruselSwiper.update();
-  }
-
   function createAudioHotspot(yaw, pitch, audioSrc) {
     var hotspot = document.createElement('div');
     hotspot.classList.add('hotspot-audio');
-
     var icon = document.createElement('img');
     icon.src = 'img/audio-icon.png';
-    icon.style.width = '40px';
-    icon.style.cursor = 'pointer';
-    icon.style.transition = 'transform 0.2s';
-    icon.addEventListener('mouseover', function () {
-      icon.style.transform = 'scale(1.2)';
-    });
-    icon.addEventListener('mouseout', function () {
-      icon.style.transform = 'scale(1)';
-    });
+    icon.style = 'width:40px;cursor:pointer;transition:transform 0.2s;';
+
+    icon.addEventListener('mouseover', () => icon.style.transform = 'scale(1.2)');
+    icon.addEventListener('mouseout', () => icon.style.transform = 'scale(1)');
 
     var audio = document.createElement('audio');
     audio.src = audioSrc;
     audio.preload = 'auto';
-
-    icon.addEventListener('click', function () {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    });
+    icon.addEventListener('click', () => audio.paused ? audio.play() : audio.pause());
 
     hotspot.appendChild(icon);
     hotspot.appendChild(audio);
-    return hotspot;
+    viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw, pitch });
   }
 
-  function switchScene(scene) {
-    scene.view.setParameters(scene.data.initialViewParameters);
-    scene.scene.switchTo();
-    sceneNameElement.innerHTML = scene.data.name;
+  function mostrarCarrusel() {
+    document.getElementById('carruselModal').style.display = 'flex';
+    carruselSwiper.update();
+  }
+
+  document.getElementById('cerrarCarrusel').onclick = function() {
+    document.getElementById('carruselModal').style.display = 'none';
+  };
+
+  document.getElementById('carruselModal').addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+  });
+
+  var carruselSwiper = new Swiper('.carrusel-swiper', {
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  });
+
+  function stopTouchAndScrollEventPropagation(element) {
+    ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel']
+      .forEach(function(eventName) {
+        element.addEventListener(eventName, function(event) {
+          event.stopPropagation();
+        });
+      });
   }
 
   function findSceneById(id) {
-    return scenes.find(s => s.data.id === id);
+    return scenes.find(function(s) { return s.data.id === id; });
   }
 
   function findSceneDataById(id) {
-    return data.scenes.find(s => s.id === id);
+    return data.scenes.find(function(s) { return s.id === id; });
   }
 
+  scenes.forEach(function(scene) {
+    var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
+    el.addEventListener('click', function() {
+      switchScene(scene);
+      if (document.body.classList.contains('mobile')) {
+        hideSceneList();
+      }
+    });
+  });
+
+  if (screenfull.enabled && data.settings.fullscreenButton) {
+    document.body.classList.add('fullscreen-enabled');
+    fullscreenToggleElement.addEventListener('click', function() {
+      screenfull.toggle();
+    });
+    screenfull.on('change', function() {
+      fullscreenToggleElement.classList.toggle('enabled', screenfull.isFullscreen);
+    });
+  }
+
+  autorotateToggleElement.addEventListener('click', toggleAutorotate);
+
+  var autorotate = Marzipano.autorotate({ yawSpeed: 0.03, targetPitch: 0, targetFov: Math.PI/2 });
+  if (data.settings.autorotateEnabled) {
+    autorotateToggleElement.classList.add('enabled');
+  }
+
+  function toggleAutorotate() {
+    if (autorotateToggleElement.classList.contains('enabled')) {
+      autorotateToggleElement.classList.remove('enabled');
+      stopAutorotate();
+    } else {
+      autorotateToggleElement.classList.add('enabled');
+      startAutorotate();
+    }
+  }
+
+  function startAutorotate() {
+    if (!autorotateToggleElement.classList.contains('enabled')) return;
+    viewer.startMovement(autorotate);
+    viewer.setIdleMovement(3000, autorotate);
+  }
+
+  function stopAutorotate() {
+    viewer.stopMovement();
+    viewer.setIdleMovement(Infinity);
+  }
+
+  function showSceneList() {
+    sceneListElement.classList.add('enabled');
+    sceneListToggleElement.classList.add('enabled');
+  }
+
+  function hideSceneList() {
+    sceneListElement.classList.remove('enabled');
+    sceneListToggleElement.classList.remove('enabled');
+  }
+
+  function toggleSceneList() {
+    sceneListElement.classList.toggle('enabled');
+    sceneListToggleElement.classList.toggle('enabled');
+  }
+
+  if (!document.body.classList.contains('mobile')) showSceneList();
+
+  switchScene(scenes[0]);
 })();
