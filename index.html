@@ -1,110 +1,123 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>City Tour Hotspots</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: #f4f4f4;
-      position: relative;
-    }
-    .hotspot {
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.20);
-      overflow: hidden;
-      border: 4px solid #fff;
-      cursor: pointer;
-      transition: transform .18s, box-shadow .18s;
-      background: #e5e5e5;
-      display: flex;
-      align-items: flex-end;
-    }
-    .hotspot:hover {
-      transform: scale(1.09);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.28);
-      z-index: 10;
-    }
-    .hotspot img.foto {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .camera-icon {
-      position: absolute;
-      bottom: 14px;
-      right: 14px;
-      background: rgba(0,0,0,0.54);
-      border-radius: 50%;
-      padding: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    /* Tooltip */
-    .hotspot[data-tooltip]:hover:after {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: 110%;
-      transform: translateX(-50%);
-      background: #222;
-      color: #fff;
-      padding: 7px 17px;
-      border-radius: 6px;
-      white-space: nowrap;
-      font-size: 1rem;
-      opacity: 0.93;
-      pointer-events: none;
-      z-index: 99;
-    }
-    /* Responsive for small screens */
-    @media (max-width: 600px) {
-      .hotspot {
-        width: 120px;
-        height: 120px;
-      }
-      .camera-icon {
-        padding: 5px;
-      }
-    }
-  </style>
+<title>Project Title</title>
+<meta charset="utf-8">
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+<style> @-ms-viewport { width: device-width; } </style>
+<link rel="stylesheet" href="vendor/reset.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <!-- Hotspot 1: Hotel Nutibara, esquina superior izquierda -->
-  <div class="hotspot" data-tooltip="Hotel Nutibara" style="top: 40px; left: 40px;">
-    <img class="foto" src="assets/img/HotelNutibara.jpg" alt="Hotel Nutibara">
-    <span class="camera-icon">
-      <!-- SVG icon nítido, no necesitas archivo externo -->
-      <svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 24 24" fill="#fff">
-        <path d="M12 9.5A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5m7-2h-2.1l-.95-1.9A1 1 0 0 0 15 5h-6a1 1 0 0 0-.95.6l-.95 1.9H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-7 10A5 5 0 1 0 7 12a5 5 0 0 0 5 5zm0-8a3 3 0 1 1-3 3 3 3 0 0 1 3-3z"/>
-      </svg>
-    </span>
-  </div>
-  <!-- Hotspot 2: Estacion Berrio, esquina inferior derecha -->
-  <div class="hotspot" data-tooltip="Estacion Berrio" style="bottom: 40px; right: 40px;">
-    <img class="foto" src="assets/img/EstacionBerrio.jpg" alt="Estacion Berrio">
-    <span class="camera-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 24 24" fill="#fff">
-        <path d="M12 9.5A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5m7-2h-2.1l-.95-1.9A1 1 0 0 0 15 5h-6a1 1 0 0 0-.95.6l-.95 1.9H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-7 10A5 5 0 1 0 7 12a5 5 0 0 0 5 5zm0-8a3 3 0 1 1-3 3 3 3 0 0 1 3-3z"/>
-      </svg>
-    </span>
-  </div>
-  <!-- Hotspot 3: Rafael Uribe Uribe, centro superior -->
-  <div class="hotspot" data-tooltip="Rafael Uribe Uribe" style="top: 70px; left: calc(50% - 90px);">
-    <img class="foto" src="assets/img/RafaelUribeUribe.jpg" alt="Rafael Uribe Uribe">
-    <span class="camera-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 24 24" fill="#fff">
-        <path d="M12 9.5A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5m7-2h-2.1l-.95-1.9A1 1 0 0 0 15 5h-6a1 1 0 0 0-.95.6l-.95 1.9H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-7 10A5 5 0 1 0 7 12a5 5 0 0 0 5 5zm0-8a3 3 0 1 1-3 3 3 3 0 0 1 3-3z"/>
-      </svg>
-    </span>
-  </div>
+<body class="multiple-scenes view-control-buttons">
+
+<div id="pano"></div>
+
+<div id="sceneList">
+  <ul class="scenes">
+    
+      <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
+        <li class="text">Plaza Botero Botero</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe">
+        <li class="text">Plaza Botero y Palacio Rafael Uribe Uribe</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="2-esculturas-y-tradicin">
+        <li class="text">Esculturas y tradición</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="3-palacio-rafael-uribe-uribe">
+        <li class="text">Palacio Rafael Uribe Uribe</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="4-parque-de-las-luces">
+        <li class="text">Parque de las Luces</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="5-antiguo-ferrocarril">
+        <li class="text">Antiguo Ferrocarril</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="6-antigua-estacin-medelln">
+        <li class="text">Antigua Estación Medellín</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="7-alpujarra">
+        <li class="text">Alpujarra</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="8-transicin-ciudad-a-naturaleza">
+        <li class="text">Transición ciudad a naturaleza</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="9-pies_descalzos">
+        <li class="text">Pies_descalzos</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="10-conexin-naturaleza">
+        <li class="text">Conexión Naturaleza</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="11-laberinto-de-bamb">
+        <li class="text">Laberinto de Bambú</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="12-edificio-inteligente-epm">
+        <li class="text">Edificio Inteligente EPM</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="13-centro-de-convenciones-y-teatro">
+        <li class="text">Centro de convenciones y Teatro</li>
+      </a>
+    
+  </ul>
+</div>
+
+<div id="titleBar">
+  <h1 class="sceneName"></h1>
+</div>
+
+<a href="javascript:void(0)" id="autorotateToggle">
+  <img class="icon off" src="img/play.png">
+  <img class="icon on" src="img/pause.png">
+</a>
+
+<a href="javascript:void(0)" id="fullscreenToggle">
+  <img class="icon off" src="img/fullscreen.png">
+  <img class="icon on" src="img/windowed.png">
+</a>
+
+<a href="javascript:void(0)" id="sceneListToggle">
+  <img class="icon off" src="img/expand.png">
+  <img class="icon on" src="img/collapse.png">
+</a>
+
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+  <img class="icon" src="img/up.png">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+  <img class="icon" src="img/down.png">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img class="icon" src="img/left.png">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+  <img class="icon" src="img/right.png">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+  <img class="icon" src="img/plus.png">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+  <img class="icon" src="img/minus.png">
+</a>
+
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
+
+<script src="data.js"></script>
+<script src="index.js"></script>
+
 </body>
 </html>
