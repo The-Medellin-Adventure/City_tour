@@ -30,24 +30,24 @@ var APP_DATA = {
       },
       "hotSpots": [
         {
-          "pitch":  2.3533,
-          "yaw": -0.1624,
+          "pitch": -0.4299,
+          "yaw": 2.7905,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/HotelNutibara.jpg",
           "title": "Hotel Nutibara"
         },
         {
-          "pitch": 0.2972,
-          "yaw":  -1.1717,
+          "pitch": -0.0361,
+          "yaw":  -0.6538,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/EstacionBerrio.jpg",
           "title": "Estacion Berrio"
         },
         {
-          "pitch": -1.1623,
-          "yaw": -0.2992,
+          "pitch": -0.2992,
+          "yaw": -0.5973,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/RafaelUribeUribe.jpg",
