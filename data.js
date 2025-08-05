@@ -38,8 +38,8 @@ var APP_DATA = {
           "title": "Hotel Nutibara"
         },
         {
-          "pitch": -0.15,
-          "yaw": 2.3,
+          "pitch": -0.90,
+          "yaw": -0.85,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/EstacionBerrio.jpg",
