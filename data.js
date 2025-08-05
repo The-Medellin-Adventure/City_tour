@@ -52,6 +52,14 @@ var APP_DATA = {
           "image": "img/Camara.png",
           "photo": "img/RafaelUribeUribe.jpg",
           "title": "Rafael Uribe Uribe"
+        },
+        {
+          "pitch": 0, // Cambia la posición como prefieras
+          "yaw": 0,
+          "type": "camera",
+          "image": "img/Camara.png",
+          "title": "Carrusel de imágenes",
+          "carrusel": true // clave especial para el carrusel
         }
       ],
       "linkHotspots": [
