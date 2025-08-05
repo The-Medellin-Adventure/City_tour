@@ -70,7 +70,7 @@
     startAutorotate();
 
     if (scene.data.id === '0-plaza-botero-botero') {
-      createAudioHotspot(scene, 1.0, 0.1, 'audio/audio1.mp3');
+      createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
     }
   }
 
