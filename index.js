@@ -1,18 +1,3 @@
-/*
- * Copyright 2016 Google Inc. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 'use strict';
 
 (function() {
@@ -67,7 +52,10 @@
     });
 
     if (data.id === "0-plaza-botero-botero") {
-      createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
+      scene.scene.switchTo({ transitionDuration: 0 });
+      scene.scene.once('switch', function() {
+        createAudioHotspot(scene, 1.0, 0.1, 'audio/audio1.mp3');
+      });
     }
 
     return { data, scene, view };
@@ -80,6 +68,10 @@
     updateSceneName(scene);
     updateSceneList(scene);
     startAutorotate();
+
+    if (scene.data.id === '0-plaza-botero-botero') {
+      createAudioHotspot(scene, 1.0, 0.1, 'audio/audio1.mp3');
+    }
   }
 
   function updateSceneName(scene) {
@@ -228,7 +220,7 @@
     });
   }
 
-  function createAudioHotspot(yaw, pitch, audioSrc) {
+  function createAudioHotspot(scene, yaw, pitch, audioSrc) {
     var hotspot = document.createElement('div');
     hotspot.classList.add('hotspot-audio');
     var icon = document.createElement('img');
@@ -245,7 +237,7 @@
 
     hotspot.appendChild(icon);
     hotspot.appendChild(audio);
-    viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw, pitch });
+    scene.hotspotContainer().createHotspot(hotspot, { yaw, pitch });
   }
 
   function mostrarCarrusel() {
