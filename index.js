@@ -88,6 +88,16 @@
       pinFirstLevel: true
     });
 
+    // Custom camera hotspots (image/photo)
+    if (data.hotSpots && data.hotSpots.length > 0) {
+      data.hotSpots.forEach(function(hotspot) {
+        if (hotspot.type === "camera") {
+          var element = createCameraHotspot(hotspot);
+          scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
+        }
+      });
+    }
+
     // Create link hotspots.
     data.linkHotspots.forEach(function(hotspot) {
       var element = createLinkHotspotElement(hotspot);
@@ -269,7 +279,6 @@
     });
 
     // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
 
     // Create tooltip element.
@@ -351,10 +360,92 @@
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
 
     // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
 
     return wrapper;
+  }
+
+  // Custom: Create camera hotspot (photo modal)
+  function createCameraHotspot(hotspot) {
+    var element = document.createElement('img');
+    element.src = hotspot.image;
+    element.alt = hotspot.title || "Foto";
+    element.className = "camera-hotspot-icon";
+    element.style.width = "48px";
+    element.style.height = "48px";
+    element.style.cursor = "pointer";
+    element.style.borderRadius = "50%";
+    element.style.boxShadow = "0 2px 8px rgba(0,0,0,0.25)";
+    element.title = hotspot.title || "";
+
+    element.addEventListener('click', function() {
+      showImageModal(hotspot.photo, hotspot.title);
+    });
+
+    return element;
+  }
+
+  // Custom: Modal to show image
+  function showImageModal(photoSrc, title) {
+    var oldModal = document.getElementById('custom-image-modal');
+    if (oldModal) oldModal.remove();
+
+    var modal = document.createElement('div');
+    modal.id = 'custom-image-modal';
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.background = 'rgba(0,0,0,0.8)';
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.style.zIndex = '10000';
+
+    var content = document.createElement('div');
+    content.style.background = '#fff';
+    content.style.borderRadius = '10px';
+    content.style.padding = '20px';
+    content.style.boxShadow = '0 8px 32px rgba(0,0,0,0.32)';
+    content.style.position = 'relative';
+
+    var img = document.createElement('img');
+    img.src = photoSrc;
+    img.alt = title || "";
+    img.style.maxWidth = '90vw';
+    img.style.maxHeight = '80vh';
+    img.style.borderRadius = '8px';
+    content.appendChild(img);
+
+    if (title) {
+      var caption = document.createElement('div');
+      caption.textContent = title;
+      caption.style.marginTop = '10px';
+      caption.style.fontWeight = 'bold';
+      caption.style.textAlign = 'center';
+      content.appendChild(caption);
+    }
+
+    var close = document.createElement('span');
+    close.textContent = '×';
+    close.style.position = 'absolute';
+    close.style.top = '8px';
+    close.style.right = '16px';
+    close.style.cursor = 'pointer';
+    close.style.fontSize = '2rem';
+    close.style.color = '#222';
+    close.addEventListener('click', function() {
+      modal.remove();
+    });
+    content.appendChild(close);
+
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) modal.remove();
+    });
   }
 
   // Prevent touch and scroll events from reaching the parent element.
