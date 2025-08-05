@@ -58,7 +58,7 @@ var APP_DATA = {
           "yaw": 0,
           "type": "camera",
           "image": "img/Camara.png",
-          "title": "Carrusel de imágenes",
+          "title": "Esculturas de Botero",
           "carrusel": true // clave especial para el carrusel
         }
       ],
