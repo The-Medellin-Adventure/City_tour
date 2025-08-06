@@ -39,7 +39,7 @@ window.APP_DATA = {
         },
         {
           "pitch": -0.0806,
-          "yaw":  -0.9362,
+          "yaw":  -0.3362,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/EstacionBerrio.jpg",
