@@ -38,8 +38,8 @@ window.APP_DATA = {
           "title": "Hotel Nutibara"
         },
         {
-          "pitch": -0.2487,
-          "yaw":  -1.4500,
+          "pitch": -0.0806,
+          "yaw":  -0.9362,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/EstacionBerrio.jpg",
@@ -55,8 +55,8 @@ window.APP_DATA = {
         },
         // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
         {
-          "pitch": 0, // Cambia la posición como prefieras
-          "yaw": 0,
+          "pitch": 0.0122, // Cambia la posición como prefieras
+          "yaw": 0.7437,
           "type": "camera",
           "image": "img/Camara.png",
           "title": "Carrusel de imágenes",
