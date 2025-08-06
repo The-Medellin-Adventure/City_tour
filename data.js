@@ -22,7 +22,7 @@ window.APP_DATA = {
           "size": 2048
         }
       ],
-        "hotSpots": [
+"hotSpots": [
         {
           "pitch": -0.4299,
           "yaw": 2.7905,
