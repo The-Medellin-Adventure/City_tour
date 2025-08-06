@@ -22,7 +22,13 @@ window.APP_DATA = {
           "size": 2048
         }
       ],
-"hotSpots": [
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.11451431718835359,
+        "pitch": -0.28108895507963005,
+        "fov": 1.2812361540040014
+      },
+      "hotSpots": [
         {
           "pitch": -0.4299,
           "yaw": 2.7905,
