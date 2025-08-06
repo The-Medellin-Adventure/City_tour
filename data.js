@@ -38,16 +38,16 @@ window.APP_DATA = {
           "title": "Hotel Nutibara"
         },
         {
-          "pitch": -0.0806,
-          "yaw":  -0.3362,
+          "pitch": -0.2806,
+          "yaw":  -0.8813,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/EstacionBerrio.jpg",
           "title": "Estacion Berrio"
         },
         {
-          "pitch": -0.2992,
-          "yaw": -0.5973,
+          "pitch": -0.687523,
+          "yaw": -0.5749,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/RafaelUribeUribe.jpg",
