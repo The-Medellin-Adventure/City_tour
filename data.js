@@ -39,7 +39,7 @@ window.APP_DATA = {
         },
         {
           "pitch": -0.2806,
-          "yaw":  -0.8813,
+          "yaw":  -1.2813,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/EstacionBerrio.jpg",
@@ -47,7 +47,7 @@ window.APP_DATA = {
         },
         {
           "pitch": -0.687523,
-          "yaw": -0.5749,
+          "yaw": -0.3319,
           "type": "camera",
           "image": "img/Camara.png",
           "photo": "img/RafaelUribeUribe.jpg",
