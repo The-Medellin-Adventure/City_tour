@@ -22,12 +22,41 @@ window.APP_DATA = {
           "size": 2048
         }
       ],
-      "faceSize": 2048,
-      "initialViewParameters": {
-        "yaw": 0.11451431718835359,
-        "pitch": -0.28108895507963005,
-        "fov": 1.2812361540040014
-      },
+        "hotSpots": [
+        {
+          "pitch": -0.4299,
+          "yaw": 2.7905,
+          "type": "camera",
+          "image": "img/Camara.png",
+          "photo": "img/HotelNutibara.jpg",
+          "title": "Hotel Nutibara"
+        },
+        {
+          "pitch": -0.2487,
+          "yaw":  -1.4500,
+          "type": "camera",
+          "image": "img/Camara.png",
+          "photo": "img/EstacionBerrio.jpg",
+          "title": "Estacion Berrio"
+        },
+        {
+          "pitch": -0.2992,
+          "yaw": -0.5973,
+          "type": "camera",
+          "image": "img/Camara.png",
+          "photo": "img/RafaelUribeUribe.jpg",
+          "title": "Rafael Uribe Uribe"
+        },
+        // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
+        {
+          "pitch": 0, // Cambia la posición como prefieras
+          "yaw": 0,
+          "type": "camera",
+          "image": "img/Camara.png",
+          "title": "Carrusel de imágenes",
+          "carrusel": true // clave especial para el carrusel
+        }
+      ],
       "linkHotspots": [
         {
           "yaw": 0.4106533973529771,
