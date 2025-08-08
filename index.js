@@ -108,6 +108,27 @@
   // Hacer accesible globalmente (por si algún HTML o script externo lo llama)
   window.mostrarCarrusel = mostrarCarrusel;
 
+// Cambia el video según la escena
+function setVideoForScene(sceneId) {
+  const videoElement = document.querySelector("#videoCard video");
+  if (!videoElement) return;
+
+  let videoSrc = "";
+  if (sceneId === "0-plaza-botero-botero") {
+    videoSrc = "videos/video1.mp4";
+  } else if (sceneId === "1-plaza-botero-y-palacio-rafael-uribe-uribe") {
+    videoSrc = "videos/video2.mp4";
+  }
+  // Agrega más escenas si es necesario
+
+  if (videoSrc) {
+    videoElement.querySelector("source").src = videoSrc;
+    videoElement.load();
+    videoElement.play();
+  }
+}
+
+
   // =========================
   // CREAR ESCENAS
   // =========================
@@ -139,13 +160,6 @@
       }
     });
 
-    // Audio hotspot en primera escena (opcional)
-    if (sceneData.id === "0-plaza-botero-botero") {
-      setTimeout(function () {
-        createAudioHotspot(1.0, 0.1, 'audio/audio1.mp3');
-      }, 500);
-    }
-
     return { data: sceneData, scene: scene, view: view };
   }
 
@@ -162,6 +176,8 @@
     updateSceneName(scene);
     updateSceneList(scene);
     startAutorotate();
+// Cambiar video según escena
+  setVideoForScene(scene.data.id);
   }
 
   function updateSceneName(scene) {
@@ -318,33 +334,6 @@
     });
   }
 
-  // Hotspot audio
-  function createAudioHotspot(yaw, pitch, audioSrc) {
-    var hotspot = document.createElement('div');
-    hotspot.classList.add('hotspot-audio');
-
-    var icon = document.createElement('img');
-    icon.src = 'img/audio-icon.png';
-    icon.style = 'width:40px;cursor:pointer;transition:transform 0.2s;';
-
-    icon.addEventListener('mouseover', function () { icon.style.transform = 'scale(1.2)'; });
-    icon.addEventListener('mouseout', function () { icon.style.transform = 'scale(1)'; });
-
-    var audio = document.createElement('audio');
-    audio.src = audioSrc;
-    audio.preload = 'auto';
-
-    icon.addEventListener('click', function () {
-      if (audio.paused) audio.play(); else audio.pause();
-    });
-
-    hotspot.appendChild(icon);
-    hotspot.appendChild(audio);
-
-    if (viewer.scene()) {
-      viewer.scene().hotspotContainer().createHotspot(hotspot, { yaw: yaw, pitch: pitch });
-    }
-  }
 
   function stopTouchAndScrollEventPropagation(element) {
     ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
@@ -428,5 +417,40 @@
   el = document.getElementById('viewDown'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() - velocity); });
   el = document.getElementById('viewIn'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() - zoomSpeed); });
   el = document.getElementById('viewOut'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() + zoomSpeed); });
+
+
+// =========================
+// VIDEO FIJO POR ESCENA
+// =========================
+
+// Mapea ID de escena -> ruta de video
+const sceneVideos = {
+  "0-plaza-botero-botero": "videos/video1.mp4",
+  // agrega más según necesites
+};
+
+function updateVideoForScene(sceneId) {
+  const videoCard = document.getElementById("videoCard");
+  const sceneVideo = document.getElementById("sceneVideo");
+
+  if (sceneVideos[sceneId]) {
+    sceneVideo.src = sceneVideos[sceneId];
+    videoCard.style.display = "block";
+  } else {
+    videoCard.style.display = "none";
+  }
+}
+
+// Interceptar cuando se cambia de escena
+const originalSwitchScene = switchScene;
+switchScene = function(scene) {
+  originalSwitchScene(scene);
+  updateVideoForScene(scene.data.id);
+};
+
+// Inicializar video en la primera escena
+if (scenes.length > 0) {
+  updateVideoForScene(scenes[0].data.id);
+}
 
 })();

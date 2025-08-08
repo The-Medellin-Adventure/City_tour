@@ -21,6 +21,79 @@
       border-radius: 50%;
       padding: 10px;
     }
+/* Marca de agua grande al centro */
+#watermark-bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.15; /* Muy transparente */
+  pointer-events: none;
+  z-index: 1;
+}
+
+#watermark-bg img {
+  max-width: 450px;
+}
+
+/* Marca de agua inferior con texto */
+#watermark-footer {
+  position: fixed;
+  bottom: 15px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 8px 14px;
+  border-radius: 6px;
+  z-index: 9999;
+}
+
+#watermark-footer img {
+  height: 32px;
+}
+
+.watermark-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.watermark-text span {
+  font-size: 13px;
+  color: white;
+  font-weight: 500;
+}
+
+/* Tarjeta flotante para video vertical */
+#videoCard {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 180px;
+  height: 320px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  overflow: hidden;
+  z-index: 10000;
+}
+#videoCard video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+/* En móviles, que ocupe un poco más pero siga siendo vertical */
+@media (max-width: 768px) {
+  #videoCard {
+    max-width: 140px;
+    max-height: 260px;
+    bottom: 15px;
+    right: 15px;
+    padding: 4px;
+  }
+}
   </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
@@ -161,6 +234,33 @@
       <div class="swiper-button-next"></div>
       <div class="swiper-pagination"></div>
     </div>
+  </div>
+</div>
+<!-- Tarjeta de Video Fija -->
+<div id="videoCard" style="display: none;">
+  <video id="sceneVideo" controls muted playsinline>
+    <source src="" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+</div>
+
+
+<!-- Marca de agua centrada -->
+<div id="watermark-bg">
+  <img src="img/logo.png" alt="The Medellin Adventure">
+</div>
+
+<!-- Marca de agua inferior con texto -->
+<div id="watermark-footer">
+  <img src="img/logo.png" alt="The Medellin Adventure">
+  <div class="watermark-text">
+    <span>The Medellin Adventure Tour Operador</span>
+<a href="https://themedellinadventure-com.webnode.com.co/" 
+   target="_blank" 
+   style="color: white; text-decoration: underline;">
+  https://themedellinadventure-com.webnode.com.co/
+</a>
+    <span>📞 +57 3247615677</span>
   </div>
 </div>
 
