@@ -2,7 +2,7 @@ window.APP_DATA = {
   "scenes": [
     {
       "id": "0-plaza-botero-botero",
-      "name": "Plaza Botero Botero",
+      "name": "Plaza Botero",
       "levels": [
         {
           "tileSize": 256,
@@ -28,41 +28,88 @@ window.APP_DATA = {
         "pitch": -0.28108895507963005,
         "fov": 1.2812361540040014
       },
-      "hotSpots": [
-        {
-          "pitch": -0.4299,
-          "yaw": 2.7905,
-          "type": "camera",
-          "image": "img/Camara.png",
-          "photo": "img/HotelNutibara.jpg",
-          "title": "Hotel Nutibara"
-        },
-        {
-          "pitch": -0.2806,
-          "yaw":  -1.2813,
-          "type": "camera",
-          "image": "img/Camara.png",
-          "photo": "img/EstacionBerrio.jpg",
-          "title": "Estacion Berrio"
-        },
-        {
-          "pitch": -0.687523,
-          "yaw": -0.3319,
-          "type": "camera",
-          "image": "img/Camara.png",
-          "photo": "img/RafaelUribeUribe.jpg",
-          "title": "Rafael Uribe Uribe"
-        },
-        // <-- AÑADE ESTE NUEVO HOTSPOT PARA EL CARRUSEL
-        {
-          "pitch": 0.0122, // Cambia la posición como prefieras
-          "yaw": 0.7437,
-          "type": "camera",
-          "image": "img/Camara.png",
-          "title": "Carrusel de imágenes",
-          "carrusel": true // clave especial para el carrusel
-        }
-      ],
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4299,
+    "yaw": 2.7905,
+    "tooltip": "Hotel Nutibara",
+     "images": [
+      {
+        "src": "img/HotelNutibara_1965.jpg",
+        "caption": "Hotel Nutibara en año 1965"
+      },
+      {
+        "src": "img/HotelNutibara.jpg",
+        "caption": "Hotel Nutibara en la actualidad"
+      }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2806,
+    "yaw": -1.2813,
+    "tooltip": "Estación Berrío",
+    "images": [
+      {
+        "src": "img/EstacionBerrio.jpg",
+        "caption": "Interior estación Parque Berrio del metro"
+      }
+    ]
+  },
+{
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0122,
+    "yaw": 0.7437,
+    "tooltip": "Esculturas Maestro Fernando Botero",
+    "images": [
+      {
+        "src": "img/carrusel/Maternidad.jpg",
+        "caption": "Maternidad. Una de las obras más tiernas de Botero, Maternidad captura el vínculo entre madre e hijo, una representación de la protección y el amor maternal."
+      },
+      {
+        "src": "img/carrusel/Caballo.jpg",
+        "caption": "Caballo. El Caballo es otra pieza monumental que resalta el amor de Botero por los animales, representados en su estilo característico, con líneas suaves y voluminosas."
+      },
+      {
+        "src": "img/carrusel/Hombre_Vestido.jpg",
+"caption": "Hombre Vestido. Es una representación de un hombre robusto, completamente vestido, con una postura erguida que refleja el poder y la presencia masculina."
+      }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.687523,
+    "yaw": -0.3319,
+    "tooltip": "Rafael Uribe Uribe",
+    "images": [
+      {
+        "src": "img/RafaelUribeUribe.jpg",
+        "caption": "Fachada Palacio Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/RafaelUribeUribe_2.jpg",
+        "caption": "Fachada Palacio Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/Vistadesdecupula1.jpg",
+        "caption": "Vista Edificio Coltejer desde la cúpula del Palacio Uribe Uribe"
+      },
+      {
+        "src": "img/Vistadesdecupula.jpg",
+        "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
+     }
+    ]
+  }        
+ ],
       "linkHotspots": [
         {
           "yaw": 0.4106533973529771,
