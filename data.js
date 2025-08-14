@@ -203,19 +203,19 @@ window.APP_DATA = {
           "yaw": -0.6310376814969114,
           "pitch": -0.6875232116974992,
           "title": "Palacio de la Cultura Rafael Uribe Uribe",
-          "text": "<p>Este imponente edificio es uno de los íconos arquitectónicos de Medellín. Inspirado en los palacios europeos, este<span style=\"font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit;\">&nbsp;el palacio fue originalmente la sede del gobierno\ndepartamental. Hoy es un espacio cultural abierto a todos.</span></p>"
+          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto; line-height:normal\"><span style=\"font-size:12.0pt;font-family:\"Arial\",serif; mso-fareast-font-family:\"Arial\";mso-fareast-language:ES-CO\">Este imponente edificio es uno de los íconos arquitectónicos de Medellín. Su llamativa fachada en blanco y negro, inspirada en los palacios europeos, contrasta con la energía tropical de la ciudad.<br> Nombrado en honor a Rafael Uribe Uribe, líder liberal y defensor de los derechos civiles, el palacio fue originalmente la sede del gobierno departamental. Hoy es un espacio cultural abierto a todos.<br>🎨 ¿Qué puedes encontrar aquí?<br>• Galerías de arte y exposiciones temporales <br>• Sala de música y archivo histórico<br>• Biblioteca departamental<br> • Mirador con vista panorámica del centro de Medellín<br> 📸 Recomendación: No te pierdas la vista desde la cúpula ni los detalles góticos de sus pasillos interiores.</span></p>"
         },
         {
           "yaw": -0.2648259936791959,
           "pitch": -0.00779990571439626,
           "title": "Plaza Botero",
-          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Ubicada\nen el Corazón del centro de Medellín, donde se encuentran 23 esculturas\nmonumentales del maestro Fernando Botero<o:p></o:p></span></p>"
+          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto; line-height:normal\"><span style=\"font-size:12.0pt;font-family:\\\"Arial\\\",serif; mso-fareast-font-family:\\\"Arial\\\";mso-fareast-language:ES-CO\">Plaza Botero: Donde el arte abraza la ciudad”<br> En el corazón vibrante de Medellín te espera un lugar único en el mundo: 23 esculturas monumentales del maestro Fernando Botero, al aire libre y listas para que las observes, toques y tomes fotografias.<br> Aquí, el bronce cobra vida y las formas voluptuosas cuentan historias de cultura, orgullo y creatividad paisa.<br> Rodeada de arquitectura icónica y a pasos del Museo de Antioquia, la Plaza Botero no es solo una parada: es una experiencia sensorial que combina arte, historia y el calor de la gente de Medellín.<br> Aquí, el arte convive con el movimiento de la ciudad, creando un contraste entre lo clásico y lo cotidiano.<br><br>📸Tip local: Tocar las esculturas, especialmente en ciertas partes, se ha convertido en una tradición popular... ¡dicen que trae buena suerte!<br><br>Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medellín.</span></p>"
         }
       ]
     },
     {
       "id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
-      "name": "Plaza Botero y Palacio Rafael Uribe Uribe",
+      "name": "Museo de Antioquia y Plaza Botero",
       "levels": [
         {
           "tileSize": 256,
@@ -241,6 +241,131 @@ window.APP_DATA = {
         "pitch": -0.32309682106539483,
         "fov": 0.7680934518125859
       },
+
+
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3243,
+    "yaw": 2.9470,
+    "tooltip": "Museo de Antioquia",
+     "images": [
+      {
+        "src": "img/00_Museo/Museo1.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo2.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo3.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo4.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo5.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo6.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo7.jpg", "caption": ""}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0731,
+    "yaw": -1.4495,
+    "tooltip": "Esfinge",
+    "images": [
+      {"src": "img/carrusel/Esfinge.jpg", "caption": "1995. Bronce"}
+    ]
+  },     
+  {
+ "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0602,
+    "yaw": -0.5753,
+    "tooltip": "Mujer con Fruta",
+    "images": [
+      {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": "1996. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0663,
+    "yaw": -0.9806,
+    "tooltip": "Mano",
+    "images": [
+      {"src": "img/carrusel/Mano.jpg", "caption": "1992. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0917,
+    "yaw": -0.0550,
+    "tooltip": "Gato",
+    "images": [
+      {"src": "img/carrusel/Gato.jpg", "caption": "1993. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0694,
+    "yaw": 0.3503,
+    "tooltip": "Cabeza",
+    "images": [
+      {"src": "img/carrusel/Cabeza.jpg", "caption": "1999. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0476,
+    "yaw": 0.8948,
+    "tooltip": "Soldado Romano",
+    "images": [
+      {"src": "img/carrusel/Soldado_Romano.jpg", "caption": "1986. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0365,
+    "yaw": 1.7038,
+    "tooltip": "Venus Dormida",
+    "images": [
+      {"src": "img/carrusel/Venus_Dormida.jpg", "caption": "1994. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0887,
+    "yaw": 1.5813,
+    "tooltip": "Hombre Caminante",
+    "images": [
+      {"src": "img/carrusel/Hombre_Caminante.jpg", "caption": "1999. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0955,
+    "yaw": -1.6850,
+    "tooltip": "Rapto de Europa",
+    "images": [
+      {"src": "img/carrusel/Rapto_de_Europa.jpg", "caption": "1991. Bronce"}
+      ]
+    }
+  ],
+
+
+
       "linkHotspots": [
         {
           "yaw": 0.2812835640726874,
@@ -253,8 +378,8 @@ window.APP_DATA = {
         {
           "yaw": 2.8281957788055063,
           "pitch": -0.2278310627368345,
-          "title": "🏛️ <strong data-start=\"616\" data-end=\"658\">Museo de Antioquia</strong>",
-          "text": "<p><strong>Fundado en</strong>&nbsp;1881, es uno de los museos más antiguos de\nColombia y el&nbsp;<span style=\"font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit;\">alma cultural del\ncentro de Medellín, ya que no solo custodia una valiosa\ncolección artística, sino que también cuenta la historia de la ciudad y la\nregión a través del arte.</span></p>"
+          "title": "🏛️ <strong data-start=\"616\" data-end=\"658\"> Museo de Antioquia</strong>",
+          "text": "<p>🏛La puerta al alma artística de Medellín<br> A solo unos pasos de la Plaza Botero, se encuentra uno de los tesoros culturales más importantes de Colombia.<br>El Museo de Antioquia fue fundado en 1881, es uno de los museos más antiguos de Colombia, y el alma cultural del centro de Medellín, ya que no solo custodia más de 5.000 obras, sino que también cuenta la historia de la ciudad y la región a través del arte.<br> Este maravilloso lugar te espera para llevarte por un viaje a través de la historia, la identidad y el talento del país.<br> Entre pinturas, esculturas, fotografías y piezas precolombinas 🏺, cada sala es un diálogo entre arte y ciudad.<br> 💡 Tip viajero: Desde sus balcones, disfruta la mejor vista de la Plaza Botero, como si miraras un cuadro vivo en movimiento.</p>"
         }
       ]
     },

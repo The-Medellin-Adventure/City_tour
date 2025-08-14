@@ -7,6 +7,11 @@
   var screenfull = window.screenfull;
   var data = window.APP_DATA || {};
 
+  // ----------------------------
+  // Cambia esto si quieres otra primera escena en el futuro
+  // ----------------------------
+  const FIRST_SCENE_ID = "0-plaza-botero-botero";
+
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
   var sceneListElement = document.querySelector('#sceneList');
@@ -26,7 +31,12 @@
   // Mantener referencia al Swiper actual para destruirlo cuando se cierre / reabra
   var currentSwiper = null;
 
-  // Helper para escapar texto en HTML (evita inyección en captions)
+  // Vista activa (se actualiza cada vez que cambias de escena)
+  var activeView = null;
+
+  // =========================
+  // Helper para escapar texto en HTML
+  // =========================
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -38,7 +48,7 @@
   }
 
   // =========================
-  // FUNCIÓN MOSTRAR CARRUSEL
+  // FUNCIÓN MOSTRAR CARRUSEL (mantengo tu implementación)
   // =========================
   function mostrarCarrusel(imagenes, titulo) {
     imagenes = Array.isArray(imagenes) ? imagenes : [];
@@ -54,10 +64,9 @@
     // Título
     carruselTitulo.textContent = titulo || '';
 
-    // Limpiar diapositivas anteriores
+    // Limpiar
     swiperWrapper.innerHTML = '';
 
-    // Insertar diapositivas conservando formato (aspect-ratio, object-fit...)
     imagenes.forEach(function (img) {
       var src = img.src || img.url || '';
       var caption = img.caption || img.texto || '';
@@ -73,16 +82,13 @@
       swiperWrapper.appendChild(slide);
     });
 
-    // Mostrar contenedor
     carruselContainer.style.display = 'flex';
 
-    // Destruir swiper previo si existe (evita duplicados y warnings)
     if (currentSwiper) {
-      try { currentSwiper.destroy(true, true); } catch (e) { /* ignorar */ }
+      try { currentSwiper.destroy(true, true); } catch (e) {}
       currentSwiper = null;
     }
 
-    // Inicializar Swiper (solo loop si hay >1 slide)
     currentSwiper = new Swiper('.carrusel-swiper', {
       loop: imagenes.length > 1,
       slidesPerView: 1,
@@ -91,7 +97,6 @@
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
 
-    // Botón cerrar: ocultar y destruir swiper
     var cerrarBtn = document.getElementById('cerrarCarrusel');
     if (cerrarBtn) {
       cerrarBtn.onclick = function () {
@@ -105,29 +110,7 @@
     }
   }
 
-  // Hacer accesible globalmente (por si algún HTML o script externo lo llama)
   window.mostrarCarrusel = mostrarCarrusel;
-
-// Cambia el video según la escena
-function setVideoForScene(sceneId) {
-  const videoElement = document.querySelector("#videoCard video");
-  if (!videoElement) return;
-
-  let videoSrc = "";
-  if (sceneId === "0-plaza-botero-botero") {
-    videoSrc = "videos/video1.mp4";
-  } else if (sceneId === "1-plaza-botero-y-palacio-rafael-uribe-uribe") {
-    videoSrc = "videos/video2.mp4";
-  }
-  // Agrega más escenas si es necesario
-
-  if (videoSrc) {
-    videoElement.querySelector("source").src = videoSrc;
-    videoElement.load();
-    videoElement.play();
-  }
-}
-
 
   // =========================
   // CREAR ESCENAS
@@ -165,21 +148,134 @@ function setVideoForScene(sceneId) {
 
   var scenes = (data.scenes || []).map(createScene);
 
-  if (scenes.length > 0) {
-    switchScene(scenes[0]);
+
+  // =========================
+// VIDEO POR ESCENA — control independiente
+// =========================
+const sceneVideos = {
+  "0-plaza-botero-botero": "videos/video1.mp4",
+  // Aquí puedes agregar más escenas y videos:
+  // "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4",
+  // "2-otra-escena": "videos/video3.mp4"
+};
+
+let currentVideoSceneId = null;
+let currentVideoTimeout = null;
+
+function updateVideoForScene(sceneId) {
+  const videoCard = document.getElementById("videoCard");
+  const sceneVideo = document.getElementById("sceneVideo");
+  if (!videoCard || !sceneVideo) return;
+
+  // Limpiar cualquier timer anterior
+  if (currentVideoTimeout) {
+    clearTimeout(currentVideoTimeout);
+    currentVideoTimeout = null;
   }
 
-  function switchScene(scene) {
-    stopAutorotate();
+  // Detener video si se cambia de escena
+  if (currentVideoSceneId && currentVideoSceneId !== sceneId) {
+    sceneVideo.pause();
+    sceneVideo.currentTime = 0;
+  }
+
+  // Verificar si hay video para la escena
+  if (!sceneVideos[sceneId]) {
+    videoCard.style.display = "none";
+    currentVideoSceneId = null;
+    return;
+  }
+
+  // Configurar nuevo video
+  currentVideoSceneId = sceneId;
+  sceneVideo.src = sceneVideos[sceneId];
+  sceneVideo.load();
+
+  // Mostrar tarjeta del video
+  videoCard.style.display = "block";
+
+  // Esperar 3 segundos antes de reproducir
+  currentVideoTimeout = setTimeout(() => {
+    sceneVideo.play().catch(err => console.warn("No se pudo reproducir el video:", err));
+  }, 3000);
+
+  // Si el video termina y seguimos en la misma escena → Pausar y dejar último frame
+  sceneVideo.onended = function () {
+    if (currentVideoSceneId === sceneId) {
+      sceneVideo.pause();
+      sceneVideo.currentTime = sceneVideo.duration; // Último frame
+    }
+  };
+}
+
+// =========================
+// En tu función switchScene(scene) → después de cambiar de escena
+// =========================
+function switchScene(scene) {
+  if (!scene) return;
+  stopAutorotate();
+  try {
     scene.view.setParameters(scene.data.initialViewParameters);
+  } catch (e) { }
+  scene.scene.switchTo();
+  updateSceneName(scene);
+  updateSceneList(scene);
+
+  activeView = scene.view;
+
+  // ⬅ Aquí llamamos al video por escena
+  updateVideoForScene(scene.data.id);
+
+  if (scene.data && scene.data.id === FIRST_SCENE_ID) {
+    showSceneList();
+  } else {
+    hideSceneList();
+  }
+  startAutorotate();
+}
+
+
+  // =========================
+  // SWITCH SCENE (único, robusto)
+  // =========================
+  function switchScene(scene) {
+    if (!scene) return;
+    stopAutorotate();
+
+    // Ajustar parámetros iniciales de vista
+    try {
+      scene.view.setParameters(scene.data.initialViewParameters);
+    } catch (e) { /* ignore */ }
+
     scene.scene.switchTo();
     updateSceneName(scene);
     updateSceneList(scene);
+
+    // actualizar la vista activa (para los botones)
+    activeView = scene.view;
+
+    // Video por escena (lo hace visible/oculto según lo que exista)
+    updateVideoForScene(scene.data.id);
+
+    // Menú visible solo en la escena FIRST_SCENE_ID
+    if (scene.data && scene.data.id === FIRST_SCENE_ID) {
+      showSceneList();
+    } else {
+      hideSceneList();
+    }
+
     startAutorotate();
-// Cambiar video según escena
-  setVideoForScene(scene.data.id);
   }
 
+  // Inicializar en la primera escena si existe
+  if (scenes.length > 0) {
+    // Si prefieres que la primera escena abierta sea otra, cambia FIRST_SCENE_ID arriba.
+    switchScene(scenes[0]);
+  }
+
+  // =========================
+  // UI helpers (nombre y lista)
+  // =========================
   function updateSceneName(scene) {
     if (sceneNameElement) sceneNameElement.innerHTML = sanitize(scene.data.name || '');
   }
@@ -187,7 +283,7 @@ function setVideoForScene(sceneId) {
   function updateSceneList(scene) {
     Array.prototype.forEach.call(sceneElements || [], function (el) {
       if (!el) return;
-      el.classList.toggle('current', el.getAttribute('data-id') === scene.data.id);
+      el.classList.toggle('current', el.getAttribute('data-id') === (scene && scene.data && scene.data.id));
     });
   }
 
@@ -195,7 +291,9 @@ function setVideoForScene(sceneId) {
     return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
-  // Hotspot - link
+  // =========================
+  // HOTSPOTS (mantengo tus funciones, con mínimo cambio)
+  // =========================
   function createLinkHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'link-hotspot');
@@ -220,7 +318,6 @@ function setVideoForScene(sceneId) {
     return wrapper;
   }
 
-  // Hotspot - info
   function createInfoHotspotElement(hotspot) {
     var wrapper = document.createElement('div');
     wrapper.classList.add('hotspot', 'info-hotspot');
@@ -277,7 +374,6 @@ function setVideoForScene(sceneId) {
     return wrapper;
   }
 
-  // Hotspot - camera (imagen / carrusel)
   function createCameraHotspot(hotspot) {
     var element = document.createElement('img');
     element.src = hotspot.image || 'img/Camara.png';
@@ -295,7 +391,6 @@ function setVideoForScene(sceneId) {
     return element;
   }
 
-  // Modal imagen simple
   function showImageModal(photoSrc, title) {
     var oldModal = document.getElementById('custom-image-modal');
     if (oldModal) oldModal.remove();
@@ -334,7 +429,6 @@ function setVideoForScene(sceneId) {
     });
   }
 
-
   function stopTouchAndScrollEventPropagation(element) {
     ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'wheel', 'mousewheel'].forEach(function (eventName) {
       element.addEventListener(eventName, function (event) { event.stopPropagation(); });
@@ -349,7 +443,7 @@ function setVideoForScene(sceneId) {
     return (data.scenes || []).find(function (s) { return s.id === id; });
   }
 
-  // Events lista escenas (si existe el elemento)
+  // Asociar eventos a los elementos de la lista de escenas (DOM)
   scenes.forEach(function (scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
     if (!el) return;
@@ -359,7 +453,7 @@ function setVideoForScene(sceneId) {
     });
   });
 
-  // Fullscreen
+  // Fullscreen (mantengo tu lógica)
   if (screenfull && screenfull.enabled && data.settings && data.settings.fullscreenButton) {
     document.body.classList.add('fullscreen-enabled');
     if (fullscreenToggleElement) {
@@ -389,11 +483,11 @@ function setVideoForScene(sceneId) {
   }
   function stopAutorotate() { viewer.stopMovement(); viewer.setIdleMovement(Infinity); }
 
+  // Mostrar/ocultar lista escenas
   function showSceneList() { if (sceneListElement) sceneListElement.classList.add('enabled'); if (sceneListToggleElement) sceneListToggleElement.classList.add('enabled'); }
   function hideSceneList() { if (sceneListElement) sceneListElement.classList.remove('enabled'); if (sceneListToggleElement) sceneListToggleElement.classList.remove('enabled'); }
-  if (!document.body.classList.contains('mobile')) showSceneList();
 
-  // Toggle lista escenas
+  // Toggle lista escenas (botón)
   var sceneListToggle = document.getElementById("sceneListToggle");
   var sceneList = document.getElementById("sceneList");
   if (sceneListToggle && sceneList) {
@@ -406,51 +500,27 @@ function setVideoForScene(sceneId) {
     });
   }
 
-  // Controles de vista
-  var view = viewer.view();
+  // =========================
+  // BOTONES DE CONTROL — usan activeView para funcionar en cualquier escena
+  // =========================
   var velocity = 1;
   var zoomSpeed = 1;
+
   var el;
-  el = document.getElementById('viewLeft'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() - velocity); });
-  el = document.getElementById('viewRight'); if (el) el.addEventListener('click', function () { view.setYaw(view.yaw() + velocity); });
-  el = document.getElementById('viewUp'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() + velocity); });
-  el = document.getElementById('viewDown'); if (el) el.addEventListener('click', function () { view.setPitch(view.pitch() - velocity); });
-  el = document.getElementById('viewIn'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() - zoomSpeed); });
-  el = document.getElementById('viewOut'); if (el) el.addEventListener('click', function () { view.setFov(view.fov() + zoomSpeed); });
+  el = document.getElementById('viewLeft');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setYaw(activeView.yaw() - velocity); });
+  el = document.getElementById('viewRight');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setYaw(activeView.yaw() + velocity); });
+  el = document.getElementById('viewUp');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setPitch(activeView.pitch() + velocity); });
+  el = document.getElementById('viewDown');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setPitch(activeView.pitch() - velocity); });
+  el = document.getElementById('viewIn');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setFov(activeView.fov() - zoomSpeed); });
+  el = document.getElementById('viewOut');
+  if (el) el.addEventListener('click', function () { if (activeView) activeView.setFov(activeView.fov() + zoomSpeed); });
 
-
-// =========================
-// VIDEO FIJO POR ESCENA
-// =========================
-
-// Mapea ID de escena -> ruta de video
-const sceneVideos = {
-  "0-plaza-botero-botero": "videos/video1.mp4",
-  // agrega más según necesites
-};
-
-function updateVideoForScene(sceneId) {
-  const videoCard = document.getElementById("videoCard");
-  const sceneVideo = document.getElementById("sceneVideo");
-
-  if (sceneVideos[sceneId]) {
-    sceneVideo.src = sceneVideos[sceneId];
-    videoCard.style.display = "block";
-  } else {
-    videoCard.style.display = "none";
-  }
-}
-
-// Interceptar cuando se cambia de escena
-const originalSwitchScene = switchScene;
-switchScene = function(scene) {
-  originalSwitchScene(scene);
-  updateVideoForScene(scene.data.id);
-};
-
-// Inicializar video en la primera escena
-if (scenes.length > 0) {
-  updateVideoForScene(scenes[0].data.id);
-}
+  // Si no es mobile, mostramos la lista (pero switchScene la ocultará si no es la primera escena)
+  if (!document.body.classList.contains('mobile')) showSceneList();
 
 })();
