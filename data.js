@@ -38,11 +38,11 @@ window.APP_DATA = {
     "tooltip": "Hotel Nutibara",
      "images": [
       {
-        "src": "img/HotelNutibara_1965.jpg",
+        "src": "img/escena1/HotelNutibara_1965.jpg",
         "caption": "Hotel Nutibara en año 1965"
       },
       {
-        "src": "img/HotelNutibara.jpg",
+        "src": "img/escena1/HotelNutibara.jpg",
         "caption": "Hotel Nutibara en la actualidad"
       }
     ]
@@ -56,11 +56,15 @@ window.APP_DATA = {
     "tooltip": "Estación Berrío",
     "images": [
       {
-        "src": "img/EstacionBerrio.jpg",
+        "src": "img/escena1/antes.jpg",
+        "caption": "Un viaje en el tiempo: La primera imagen nos transporta al Medellín de mediados del siglo XX, con elegantes edificios que marcaban el ritmo de la ciudad. Abajo, vemos el presente con la Estación Parque Berrío del Metro de Medellín, símbolo de modernidad, movilidad y transformación urbana."
+     },
+      {
+        "src": "img/escena1/EstacionBerrio.jpg",
         "caption": "Interior estación Parque Berrio del metro"
      },
       {
-        "src": "img/Rutas_Metro.jpg",
+        "src": "img/escena1/Rutas_Metro.jpg",
         "caption": "Mapa rutas del Metro de Medellín."
       }
     ]
@@ -172,25 +176,34 @@ window.APP_DATA = {
     "tooltip": "Rafael Uribe Uribe",
     "images": [
       {
-        "src": "img/RafaelUribeUribe.jpg",
+        "src": "img/escena1/Entrada.jpg",
+        "caption": "Entrada Palacio de la Cultura Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/escena1/RafaelUribeUribe.jpg",
         "caption": "Fachada Palacio Rafael Uribe Uribe"
       },
       {
-        "src": "img/RafaelUribeUribe_2.jpg",
+        "src": "img/escena1/RafaelUribeUribe_2.jpg",
         "caption": "Fachada Palacio Rafael Uribe Uribe"
       },
       {
-        "src": "img/Vistadesdecupula1.jpg",
+        "src": "img/escena1/Vistadesdecupula1.jpg",
         "caption": "Vista Edificio Coltejer desde la cúpula del Palacio Uribe Uribe"
       },
       {
-        "src": "img/Vistadesdecupula.jpg",
+        "src": "img/escena1/Cupula.jpg",
         "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
+     },
+      {
+        "src": "img/escena1/Vistadesdecupula.jpg",
+        "caption": "Tendrás una panorámica del centro, la Plaza Botero y de una gran parte de la ciudad"
      }
     ]
   }        
  ],
-      "linkHotspots": [
+
+"linkHotspots": [
         {
           "yaw": 0.4106533973529771,
           "pitch": -0.29636833189372425,
@@ -198,7 +211,8 @@ window.APP_DATA = {
           "target": "1-plaza-botero-y-palacio-rafael-uribe-uribe"
         }
       ],
-      "infoHotspots": [
+
+"infoHotspots": [
         {
           "yaw": -0.6310376814969114,
           "pitch": -0.6875232116974992,
@@ -214,7 +228,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
+      
+
+"id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
       "name": "Museo de Antioquia y Plaza Botero",
       "levels": [
         {
@@ -241,9 +257,6 @@ window.APP_DATA = {
         "pitch": -0.32309682106539483,
         "fov": 0.7680934518125859
       },
-
-
-
 "hotSpots": [
   {
     "type": "camera",
@@ -273,7 +286,18 @@ window.APP_DATA = {
     "images": [
       {"src": "img/carrusel/Esfinge.jpg", "caption": "1995. Bronce"}
     ]
-  },     
+  },  
+{
+ "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1141,
+    "yaw": 0.1576,
+    "tooltip": "La alegría de nuestros visitantes",
+    "images": [
+      {"src": "img/00_Museo/Turistas.jpg", "caption": "Puedes hacer el recorrido y tomar todas las fotos que quieras"}
+    ]
+  },
   {
  "type": "camera",
     "carrusel": true,
@@ -364,9 +388,7 @@ window.APP_DATA = {
     }
   ],
 
-
-
-      "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": 0.2812835640726874,
           "pitch": -0.130667924147728,
@@ -374,7 +396,7 @@ window.APP_DATA = {
           "target": "2-esculturas-y-tradicin"
         }
       ],
-      "infoHotspots": [
+"infoHotspots": [
         {
           "yaw": 2.8281957788055063,
           "pitch": -0.2278310627368345,
@@ -384,8 +406,10 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "2-esculturas-y-tradicin",
-      "name": "Esculturas y tradición",
+     
+
+"id": "2-esculturas-y-tradicin",
+      "name": "Esculturas y Tradición",
       "levels": [
         {
           "tileSize": 256,
@@ -411,7 +435,34 @@ window.APP_DATA = {
         "pitch": -0.1250168795517812,
         "fov": 0.6087391224900204
       },
-      "linkHotspots": [
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1612,
+    "yaw": 0.4393,
+    "tooltip": "Vive el arte a cielo abierto",
+     "images": [
+      {
+        "src": "img/plaza/Fototuristas.jpg", "caption": ""},
+]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1140,
+    "yaw": -3.0319,
+    "tooltip": "Vive el arte",
+    "images": [
+      {"src": "img/plaza/arte.jpg", "caption": ""}
+      ]
+    }
+  ],
+
+"linkHotspots": [
         {
           "yaw": 0.9658128506179562,
           "pitch": -0.1893595887654591,
@@ -425,7 +476,7 @@ window.APP_DATA = {
           "target": "4-parque-de-las-luces"
         }
       ],
-      "infoHotspots": [
+"infoHotspots": [
         {
           "yaw": -0.5444300357094143,
           "pitch": -0.3131824056238166,
@@ -435,8 +486,10 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "3-palacio-rafael-uribe-uribe",
-      "name": "Palacio Rafael Uribe Uribe",
+      
+
+"id": "3-palacio-rafael-uribe-uribe",
+      "name": "Palacio de la Cultura Rafael Uribe Uribe",
       "levels": [
         {
           "tileSize": 256,
@@ -462,7 +515,89 @@ window.APP_DATA = {
         "pitch": -0.44384624272654705,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4170,
+    "yaw": -1.2292,
+    "tooltip": "Exterior",
+     "images": [
+      {
+        "src": "img/rafael/exterior.jpg", "caption": ""},
+]
+  },   
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1486,
+    "yaw": 2.6137,
+    "tooltip": "Interior",
+     "images": [
+      {
+        "src": "img/rafael/Escalas.jpg", "caption": ""},
+      { "src": "img/rafael/escalasinteriores.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""},
+      { "src": "img/rafael/Interior.jpg", "caption": ""},
+    ]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3979,
+    "yaw": 0.1519,
+    "tooltip": "Interior",
+     "images": [
+      {
+        "src": "img/rafael/salones.jpg", "caption": ""},
+      { "src": "img/rafael/salon.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""},      
+    ]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -1.0826,
+    "yaw": -0.3242,
+    "tooltip": "Terraza",
+     "images": [
+      {
+        "src": "img/rafael/Terraza.jpg", "caption": ""},
+      { "src": "img/rafael/vista.jpg", "caption": ""},
+      { "src": "img/rafael/Vistaterraza.jpg", "caption": ""},      
+    ]
+  },     
+{
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0106,
+    "yaw": 1.6506,
+    "tooltip": "Zona de descanso",
+     "images": [
+      {
+        "src": "img/rafael/Fuente _cafeteria.jpg", "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."},
+]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4915,
+    "yaw": 1.2040,
+    "tooltip": "Información",
+    "images": [
+      {"src": "img/rafael/Información.jpg", "caption": "El Palacio de la Cultura no es solo un edificio, es un viaje por la historia, el arte y la arquitectura que marcan la esencia de Medellín. Un lugar donde el pasado y el presente se encuentran para regalarnos una experiencia única en la ciudad de la eterna primavera. ¡Anímate a descubrirlo!"}
+      ]
+    }
+  ],
+
+"linkHotspots": [
         {
           "yaw": -1.4901274791616146,
           "pitch": -0.07462039719154134,
@@ -476,7 +611,7 @@ window.APP_DATA = {
           "target": "2-esculturas-y-tradicin"
         }
       ],
-      "infoHotspots": [
+"infoHotspots": [
         {
           "yaw": -2.070070925613887,
           "pitch": -0.3868519485230113,
@@ -486,7 +621,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "4-parque-de-las-luces",
+ 
+
+"id": "4-parque-de-las-luces",
       "name": "Parque de las Luces",
       "levels": [
         {
@@ -513,6 +650,97 @@ window.APP_DATA = {
         "pitch": -0.5207795914658391,
         "fov": 1.2812361540040014
       },
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3506,
+    "yaw": -0.9533,
+    "tooltip": "Antigua Plaza Cisneros",
+    "images": [
+      { "src": "img/cisneros/1Gal1Img2450.jpg", "caption": "" },
+      { "src": "img/cisneros/antiguaplaza.jpg", "caption": "" },
+      { "src": "img/cisneros/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },     
+      { "src": "img/cisneros/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2332,
+    "yaw": -0.2896,
+    "tooltip": "Historia",
+    "images": [
+      { "src": "img/cisneros/Plaza_de_Mercado.jpg", "caption": "Plaza de Mercado 1920" },
+      { "src": "img/cisneros/Plazacisneros_1905.jpg", "caption": "Plaza Cisneros, año 1905" },
+      { "src": "img/cisneros/Panormámica.jpg", "caption": "" },
+      { "src": "img/cisneros/noticiaincendio.png", "caption": "" },
+      { "src": "img/cisneros/antesyhoy.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1604,
+    "yaw": 0.1128,
+    "tooltip": "Edificios Vásquez y Carré",
+    "images": [
+      { "src": "img/cisneros/edificio-v__squez.jpg", "caption": "Los edificios mellizos Vásquez y Carré, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones más altas de la ciudad. Diseñados por el arquitecto francés Charles Émile Carré, " },
+      { "src": "img/cisneros/5111713-me.jpg", "caption": "" },
+      { "src": "img/cisneros/PANO_20250710_130603.jpg", "caption": "La fachada de estos edificios mellizos se asemeja a los secadores de café de las haciendas antioqueñas, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros años de las dos edificaciones. " }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3126,
+    "yaw": 0.9520,
+    "tooltip": "Parque de las Luces actualmente",
+    "images": [
+      { "src": "img/cisneros/5111749-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5111729-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5111733-me.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3875,
+    "yaw": 1.5500,
+    "tooltip": "Parque de las Luces",
+    "images": [
+      { "src": "img/cisneros/5088825-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5088837-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5088840-me.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1561,
+    "yaw": 3.0588,
+    "tooltip": "Biblioteca EPM",
+    "images": [
+      { "src": "img/cisneros/biblioteca-espacios.jpeg", "caption": "Es un espacio que logra una atmósfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio público en donde se posibilita el diálogo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitectónica y cultural, donde niños, jóvenes y adultos se acercan al universo del conocimiento y la cultura." }
+    ]
+  }
+],
+
+
+
+
+
+
+
+
+
       "linkHotspots": [
         {
           "yaw": 1.8468150583230543,
@@ -989,7 +1217,8 @@ window.APP_DATA = {
       ]
     }
   ],
-  "name": "Project Title",
+
+ "name": "Project Title",
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": false,
