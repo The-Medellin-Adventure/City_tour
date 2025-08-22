@@ -1,7 +1,7 @@
 window.APP_DATA = {
   "scenes": [
     {
-      "id": "0-plaza-botero-botero",
+"id": "0-plaza-botero-botero",
       "name": "Plaza Botero",
       "levels": [
         {
@@ -942,10 +942,9 @@ window.APP_DATA = {
         }
       ]
     },
-    {
-      
-
-"id": "7-alpujarra",
+   
+{
+   "id": "7-alpujarra",
       "name": "Alpujarra",
       "levels": [
         {
@@ -1040,9 +1039,9 @@ window.APP_DATA = {
           "title": "Monumento a la Raza Antioqueña",
           "text": "Este imponente monumento, diseñado por el maestro Rodrigo Arenas Betancourt e inaugurado en 1988, es una de las obras más grandes de Colombia. Con sus 38 metros de altura y figuras dinámicas en bronce y concreto, narra la historia de Antioquia: la conquista, la colonización, la independencia y el desarrollo de su pueblo.<br> Más que una escultura, es un símbolo de la identidad antioqueña, del esfuerzo colectivo y del espíritu de superación que caracteriza a Medellín y a su gente."
         }
-      ],
-    
-
+      ]
+    },     
+  { 
 
 "id": "8-transicin-ciudad-a-naturaleza",
       "name": "Transición ciudad a naturaleza",
@@ -1083,15 +1082,15 @@ window.APP_DATA = {
         {
           "yaw": -0.6680991859099557,
           "pitch": 0.024074036364826412,
-          "title": "<br>",
-          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Poco a\npoco, el concreto da paso al verde. El asfalto se suaviza, el ruido se apaga… y\nel cuerpo lo siente.<o:p></o:p></span></p>\n\n<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Llegas a\nun espacio que parece hecho para respirar diferente: el <b>Parque de los Pies\nDescalzos</b>. Aquí, la ciudad hace una pausa.<o:p></o:p></span></p>"
+          "title": "👣 Donde Medellín hace una pausa",
+          "text": "En este punto del recorrido comenzamos a sentir la magia de Medellín: la transición entre el bullicio urbano y la calma de la naturaleza. Poco a poco, el concreto se mezcla con el verde, el ruido del tráfico se atenúa y el aire se siente más fresco.<br> Desde este punto, llegamos al Parque de los Pies Descalzos.<br>Este espacio nos demuestra que Medellín no solo es ciudad, también es naturaleza integrada, y este lugar es la mejor muestra de ese equilibrio."
         }
       ]
     },
     {
      
  "id": "9-pies_descalzos",
-      "name": "Pies_descalzos",
+      "name": "Parque de los Piesdescalzos",
       "levels": [
         {
           "tileSize": 256,
@@ -1117,10 +1116,35 @@ window.APP_DATA = {
         "pitch": -0.12226933698328679,
         "fov": 0.41671472387466335
       },
-     
 
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0901,
+    "yaw": 0.1216,
+    "tooltip": "Descalza tus pies y siente la energía del planeta",
+    "images": [
+      { "src": "img/pies/el-parque.jpeg", "caption": "Un oasis en el centro de Medellín, donde el agua, la arena y los árboles de corcho invitan a relajarse y reconectar con la naturaleza. Aquí podrás caminar descalzo, sentir la frescura del agua y disfrutar un espacio único en medio de la ciudad. <br>✨ Tip viajero: lleva una toalla pequeña y disfruta la experiencia de caminar sin zapatos; la arena y el agua hacen que tu visita sea inolvidable."}
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0217,
+    "yaw": 0.7445,
+    "tooltip": "Descalza tus pies, siente la energía y disfruta",
+    "images": [
+      { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
+      { "src": "img/pies/pies.jpg", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
+      { "src": "img/alp/ParquePies.jpg", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
+    ]
+  }
+],
 
- "linkHotspots": [
+"linkHotspots": [
         {
           "yaw": -0.7857751453998638,
           "pitch": 0.06716930147777411,
@@ -1135,19 +1159,19 @@ window.APP_DATA = {
         }
       ],
       
-
-
 "infoHotspots": [
         {
           "yaw": -0.5511943870259728,
           "pitch": -0.10166670748687245,
-          "title": "Parque de los Pies Descalzos",
-          "text": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Uno de\nlos rincones más relajantes, simbólicos y sensoriales del centro de Medellín.<o:p></o:p></span></p>\n\n<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Este\nparque invita a algo muy simple… pero profundamente transformador: <b>quitarse\nlos zapatos</b> y reconectar con la tierra, el agua y la naturaleza.<o:p></o:p></span></p>"
+          "title": "🌳 Parque de los Pies Descalzos – Un oasis en Medellín",
+          "text": "En pleno corazón de Medellín, entre altos edificios y avenidas concurridas, se esconde un lugar único: el Parque de los Pies Descalzos. Más que un simple parque, es una invitación a volver a lo esencial, a reconectar con la naturaleza y a disfrutar la ciudad de una manera diferente.<br>Aquí, el agua se convierte en protagonista: fuentes y espejos de agua refrescan el ambiente y ofrecen un espacio para jugar, relajarse o simplemente contemplar. El sonido del agua corriendo genera una atmósfera tranquila, un respiro en medio del ritmo acelerado de la urbe. <br> Otro de sus encantos son los imponentes árboles de corcho que rodean el parque, con sus troncos suaves y texturas curiosas que invitan a tocar, abrazar y experimentar la naturaleza de cerca. Caminar bajo su sombra es como entrar en un bosque urbano donde la frescura y el verde lo envuelven todo. <br> El espacio también está diseñado para interactuar: caminar descalzo sobre la arena fina, sentir la textura del suelo, refrescar los pies en el agua… cada rincón del parque estimula los sentidos y nos recuerda la importancia de desconectarnos para volver a conectarnos con nosotros mismos y con la naturaleza.<br>El Parque de los Pies Descalzos no es solo un atractivo turístico: es una experiencia, un recordatorio de que Medellín sabe equilibrar modernidad y naturaleza, cemento y vida verde, ciudad y calma."
         }
       ]
     },
     {
-      "id": "10-conexin-naturaleza",
+
+
+"id": "10-conexin-naturaleza",
       "name": "Conexión Naturaleza",
       "levels": [
         {
@@ -1174,7 +1198,23 @@ window.APP_DATA = {
         "pitch": 0.05092995713399162,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+      
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0293,
+    "yaw": -1.3196 ,
+    "tooltip": "Despierta tus sentidos",
+    "images": [
+      { "src": "img/pies/turis.png", "caption": "Tip viajero: Los árboles de corcho son únicos en Medellín 🌳🤎. ¡Anímate a abrazarlos 🤗💚! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensación de calma y bienestar."}
+   ]
+  }
+],
+
+
+"linkHotspots": [
         {
           "yaw": 0.22883203254804485,
           "pitch": 0.0012346401954985708,
@@ -1182,12 +1222,13 @@ window.APP_DATA = {
           "target": "11-laberinto-de-bamb"
         }
       ],
-      "infoHotspots": [
+      
+"infoHotspots": [
         {
           "yaw": -0.744500712372604,
           "pitch": 0.31299920259097114,
           "title": "Despierta tus sentidos",
-          "text": "Al entrar, tus pies tocan la <strong data-start=\"414\" data-end=\"430\">arena blanca</strong>, cálida y suave, que invita a desconectarte de la rutina. Es un espacio creado para andar sin zapatos, dejar huellas y reconectar con la tierra de forma natural."
+          "text": "Al entrar, tus pies tocan la arena blanca, cálida y suave, que invita a desconectarte de la rutina. Es un espacio creado para andar sin zapatos, dejar huellas y reconectar con la tierra de forma natural."
         },
         {
           "yaw": 2.5903191843063818,
@@ -1198,7 +1239,9 @@ window.APP_DATA = {
       ]
     },
     {
-      "id": "11-laberinto-de-bamb",
+      
+
+"id": "11-laberinto-de-bamb",
       "name": "Laberinto de Bambú",
       "levels": [
         {
@@ -1225,7 +1268,23 @@ window.APP_DATA = {
         "yaw": 0,
         "fov": 1.5707963267948966
       },
-      "linkHotspots": [
+ 
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0293,
+    "yaw": -1.3196 ,
+    "tooltip": "Laberinto de Bambú",
+    "images": [
+      { "src": "img/pies/22.png", "caption": "No olvides tu cámara 📸. La luz entre el bambú regala fotos espectaculares, sobre todo en la mañana o al atardecer."}
+   ]
+  }
+],
+
+     
+"linkHotspots": [
         {
           "yaw": -0.9795396858947889,
           "pitch": -0.08437556136656355,
@@ -1233,18 +1292,26 @@ window.APP_DATA = {
           "target": "12-edificio-inteligente-epm"
         }
       ],
-      "infoHotspots": [
+      
+"infoHotspots": [
         {
           "yaw": -0.027987288919751663,
           "pitch": -0.13591470880965772,
-          "title": "Laberinto de Bambú",
-          "text": "<p data-start=\"941\" data-end=\"1062\">Este espacio fue inspirado en la filosofía zen, como una invitación a la pausa, a la contemplación… al aquí y ahora.</p>\n<p data-start=\"1069\" data-end=\"1184\">Es un rincón sagrado dentro de la ciudad, donde el concreto cede su lugar al verde, y el tiempo se vive distinto.</p>"
-        }
+          "title": "🎋 Laberinto de Bambú – Un rincón para perderse y encontrarse",
+          "text": "Dentro del Parque de los Pies Descalzos, uno de los espacios más emblemáticos de Medellín, se encuentra un rincón que sorprende a todos los visitantes: el Laberinto de Bambú. Este espacio, rodeado por altos y frondosos tallos de bambú, ofrece una experiencia diferente a cualquier otra en la ciudad.<br>Caminar por sus pasillos es dejarse envolver por la naturaleza. La altura del bambú crea un ambiente fresco y misterioso, donde la luz del sol se filtra suavemente entre las hojas y el viento genera un susurro relajante. Es un lugar perfecto para hacer una pausa, desconectarse del bullicio urbano y sentir que, por un instante, uno se traslada a un bosque encantado en medio de Medellín."
+         },
+         {
+          "yaw": -2.4049,
+          "pitch": 0.0384,
+          "title": "🎋 Laberinto de Bambú – Un rincón para perderse y encontrarse",
+          "text": "En el corazón del Parque de los Pies Descalzos se esconde un espacio mágico: el Laberinto de Bambú. Caminar entre sus altos tallos verdes es una experiencia única en Medellín, pues el bambú crea un ambiente fresco, silencioso y lleno de misterio.<br>Sus senderos invitan a perderse por un momento y dejarse envolver por la naturaleza. La luz se filtra suavemente entre los tallos, el sonido del viento roza las hojas, y el visitante siente que entra en un mundo apartado del bullicio de la ciudad.<br>Este rincón es perfecto para la reflexión, la calma y también para divertirse recorriendo sus pasadizos con amigos o familia. Además, es un espacio muy buscado por fotógrafos y turistas que encuentran aquí un escenario natural encantador.<br>✨ Tip viajero: no olvides tu cámara 📸; los pasillos del bambú ofrecen ángulos espectaculares para fotos originales y llenas de verde."}
       ]
     },
     {
-      "id": "12-edificio-inteligente-epm",
-      "name": "Edificio Inteligente EPM",
+      
+
+"id": "12-edificio-inteligente-epm",
+      "name": "🏢 Edificio Inteligente de las Empresas Públicas de Medellín",
       "levels": [
         {
           "tileSize": 256,
@@ -1270,7 +1337,55 @@ window.APP_DATA = {
         "pitch": -0.3328550986643233,
         "fov": 0.9712718897065276
       },
-      "linkHotspots": [
+ 
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw": -1.5084,
+    "tooltip": "🏢 Innovación y sostenibilidad en Medellín ",
+    "images": [
+      { "src": "img/epm/image.jpeg", "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
+      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0795,
+    "yaw": 2.6156,
+    "tooltip": "Una pausa para los sentidos",
+    "images": [
+      { "src": "img/pies/ParquePies.jpeg", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
+      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
+    ]
+  },
+
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "Edificio EPM",
+    "images": [
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
+      { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
+      { "src": "img/epm/25312.jpg", "caption": "" },
+      { "src": "img/epm/EPM.jpg", "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
+    ]
+  }
+],
+     
+
+
+
+"linkHotspots": [
         {
           "yaw": 2.6541000480451293,
           "pitch": -0.17727500579812094,
@@ -1278,24 +1393,21 @@ window.APP_DATA = {
           "target": "13-centro-de-convenciones-y-teatro"
         }
       ],
-      "infoHotspots": [
-        {
-          "yaw": -1.0883540674685168,
-          "pitch": -0.6728124486860132,
-          "title": "<p class=\"MsoNormal\" style=\"mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;\nline-height:normal\"><b><span style=\"font-size:12.0pt;font-family:&quot;Times New Roman&quot;,serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:ES-CO\">Edificio\nEPM y las fuentes de agua</span></b><span style=\"font-size:12.0pt;font-family:\n&quot;Times New Roman&quot;,serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:\nES-CO\"><o:p></o:p></span></p>",
-          "text": "<strong data-start=\"285\" data-end=\"316\">Edificio Inteligente de EPM</strong>, una de las construcciones más modernas y sostenibles de Medellín. Es la sede principal de <strong data-start=\"408\" data-end=\"441\">Empresas Públicas de Medellín</strong>, una compañía símbolo del desarrollo tecnológico, ambiental y social de la ciudad."
-        },
+      
+
+"infoHotspots": [
+        
         {
           "yaw": -1.0881964642481812,
           "pitch": -0.08079930952018621,
-          "title": "<br>",
-          "text": "Lo más encantador está justo afuera: un entorno lleno de <strong data-start=\"924\" data-end=\"981\">fuentes interactivas, espejos de agua y zonas húmedas</strong> que invitan a jugar, refrescarse o simplemente disfrutar."
+          "title": "Una breve pausa",
+          "text": "Lo más encantador está justo afuera: un entorno lleno de fuentes interactivas, espejos de agua y zonas húmedas que invitan a jugar, refrescarse o simplemente disfrutar."
         },
         {
           "yaw": -2.9044878547184716,
           "pitch": 0.10748410970518307,
           "title": "<br>",
-          "text": "Este espacio fue diseñado como un <strong data-start=\"1363\" data-end=\"1402\">puente entre lo urbano y lo natural</strong>, un respiro fresco dentro de la ciudad, donde el agua, la arquitectura y el paisaje dialogan en perfecta armonía."
+          "text": "Este espacio fue diseñado como un puente entre lo urbano y lo natural, un respiro fresco dentro de la ciudad, donde el agua, la arquitectura y el paisaje dialogan en perfecta armonía."
         }
       ]
     },
@@ -1334,18 +1446,20 @@ window.APP_DATA = {
         {
           "yaw": -1.3463471587051483,
           "pitch": 0.0027403894617243907,
-          "title": "<strong data-start=\"527\" data-end=\"580\">Plaza Mayor Centro de Convenciones y Exposiciones</strong>.",
-          "text": "Escenario de ferias internacionales, congresos, conciertos, exposiciones y eventos empresariales de todo tipo. Es el corazón de los negocios y el turismo de eventos en la ciudad."
+          "title": "Plaza Mayor Centro de Convenciones y Exposiciones.",
+          "text": "Plaza Mayor es el epicentro de los grandes eventos de Medellín. Allí se realizan ferias internacionales, congresos, conciertos y exposiciones de todo tipo. Su arquitectura moderna y funcional lo convierte en un referente del turismo de negocios y de eventos en Colombia.<br< Conectado estratégicamente al corazón de la ciudad, Plaza Mayor impulsa el desarrollo económico y cultural, acogiendo a miles de visitantes nacionales e internacionales cada año. <br> ✨ Tip viajero: Si visitas Medellín durante ferias como la Feria de las Flores 🌸 o Colombiamoda, este lugar se llena de vida, colores y actividades. ¡Un sitio ideal para vivir la ciudad desde otra perspectiva!."
         },
         {
           "yaw": -2.3877587140456047,
           "pitch": -0.4510192621363007,
-          "title": "<strong data-start=\"1120\" data-end=\"1165\">Teatro Metropolitano José Gutiérrez Gómez</strong>,&nbsp;",
-          "text": "<p data-start=\"1073\" data-end=\"1232\">Uno de los principales templos de las artes escénicas del país.</p>\n<p data-start=\"1239\" data-end=\"1464\">Su acústica perfecta y su capacidad para más de 1.600 espectadores lo han convertido en sede de la <strong data-start=\"1338\" data-end=\"1374\">Orquesta Filarmónica de Medellín</strong>, así como de importantes conciertos, óperas, festivales y espectáculos internacionales.</p>"
+          "title": "🎭 Teatro Metropolitano José Gutiérrez Gómez",
+          "text": "El Teatro Metropolitano es uno de los templos culturales más importantes de Medellín. Inaugurado en 1987, su diseño moderno y su acústica impecable lo han convertido en sede de la Orquesta Filarmónica de Medellín y en escenario de conciertos, óperas, obras de teatro y festivales internacionales.<br> Con capacidad para más de 1.600 personas, es un espacio donde el arte cobra vida y donde Medellín se abre al mundo con espectáculos de gran calidad.<br>✨ Tip viajero: Si tienes la oportunidad, disfruta de un concierto en este teatro 🎶. La acústica es tan perfecta que cada nota se siente única y envolvente."
         }
       ]
     }
   ],
+
+
  "name": "Medellín 360, Vive la Ciudad",
   "settings": {
     "mouseViewMode": "drag",
