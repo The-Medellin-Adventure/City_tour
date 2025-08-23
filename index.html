@@ -93,9 +93,29 @@
     right: 15px;
     padding: 4px;
   }
-  </style>
+    }
+
+    /* 🔹 Mostrar siempre el nombre de los linkHotspots debajo del ícono */
+    .link-hotspot-tooltip {
+      position: absolute;
+      top: 55px; /* coloca el texto debajo del ícono */
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1 !important;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+</style>
 
 <style> @-ms-viewport { width: device-width; } </style>
+
+
+
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
 <!-- Swiper CSS para carrusel -->
@@ -106,6 +126,9 @@
 <div id="pano"></div>
 
 <div id="sceneList">
+<h2 style="color:white; text-align:center; padding:10px; font-size:18px; background:rgba(0,0,0,0.6);">
+  🌆 Recorrido Virtual Medellín
+</h2>
   <ul class="scenes">
     
       <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
@@ -165,6 +188,25 @@
       </a>
     
   </ul>
+
+
+ <div style="
+     background: rgba(0,0,0,0.6);
+     color: white;
+     padding: 10px;
+     margin: 10px;
+     border-radius: 8px;
+     text-align: center;
+     font-size: 14px;
+  ">
+
+<div style="display:flex; justify-content:center; gap:15px; padding:10px;">
+  <img src="img/tecno.png" alt="TecnoParque SENA" style="height:40px;">
+</div>
+
+    ✅ Proyecto avalado por <strong>TECNOPARQUE - SENA</strong>
+  </div>
+
 </div>
 
 <div id="titleBar">
