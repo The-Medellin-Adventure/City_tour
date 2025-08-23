@@ -82,7 +82,7 @@ window.APP_DATA = {
         "caption": "Maternidad. Una de las obras más tiernas de Botero, Maternidad captura el vínculo entre madre e hijo, una representación de la protección y el amor maternal."
       },
       {
-        "src": "img/carrusel/Caballo.jpg",
+        "src": "img/carrusel/Caballo.JPG",
         "caption": "Caballo. El Caballo es otra pieza monumental que resalta el amor de Botero por los animales, representados en su estilo característico, con líneas suaves y voluminosas."
       },
       {
@@ -753,12 +753,13 @@ window.APP_DATA = {
           "target": "5-antiguo-ferrocarril"
         }
       ],
-      "infoHotspots": [
+      
+"infoHotspots": [
         {
           "yaw": 0.13940764139272765,
           "pitch": -0.3122330097451762,
-          "title": "Parque de las Luces",
-          "text": "<p data-start=\"348\" data-end=\"519\">Es uno de los lugares más sorprendentes del centro de Medellín. Aquí, donde antes solo había oscuridad y abandono, hoy con sus más de 300 torres de luz,&nbsp; brilla un símbolo de renovación y esperanza,&nbsp;</p>\n<p data-start=\"526\" data-end=\"770\">Por la noche, iluminan todo el parque y crean un espectáculo visual que no te puedes perder.</p>"
+          "title": "Plaza Cisneros – De las bodegas al Parque de las Luces",
+          "text": "La Plaza Cisneros, conocida también como el Parque de las Luces, es uno de los espacios que mejor reflejan la capacidad de transformación urbana de Medellín. Su nombre rinde homenaje a Francisco Javier Cisneros, ingeniero cubano que lideró la construcción del Ferrocarril de Antioquia a finales del siglo XIX, una obra que conectó la región con el resto del país y marcó un hito en su desarrollo económico.<br>En sus inicios, la plaza fue un centro de carga y bodegas del ferrocarril, rodeada de almacenes y con un marcado carácter industrial. Sin embargo, con el paso del tiempo, el lugar entró en deterioro y se convirtió en una zona poco atractiva para la ciudadanía.<br>La gran transformación llegó en el año 2005, cuando el espacio fue renovado como parte del plan de recuperación del centro de Medellín. El cambio más llamativo fue la instalación de 300 columnas luminosas, de hasta 24 metros de altura, que de día parecen un bosque metálico y de noche iluminan el espacio con un espectáculo de luces. Esta intervención no solo rescató un espacio urbano, sino que lo convirtió en un símbolo de la renovación cultural y social de Medellín."
         }
       ]
     },
@@ -867,7 +868,7 @@ window.APP_DATA = {
           "yaw": -0.36409705178894036,
           "pitch": 0.11974668427449231,
           "title": "Ferrocarril de Antioquia",
-          "text": "El <strong data-start=\"391\" data-end=\"419\">Ferrocarril de Antioquia</strong> fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."
+          "text": "El Ferrocarril de Antioquia fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."
        }
       ]
     },
@@ -944,7 +945,9 @@ window.APP_DATA = {
     },
    
 {
-   "id": "7-alpujarra",
+   
+
+"id": "7-alpujarra",
       "name": "Alpujarra",
       "levels": [
         {
@@ -982,6 +985,7 @@ window.APP_DATA = {
     "tooltip": "🌿 Muro Verde de Medellín",
     "images": [
       { "src": "img/alp/muro.jpg", "caption": "Una de las joyas urbanas de Medellín, considerado uno de los jardines verticales más grandes de Latinoamérica. Con más de 8.000 plantas vivas de diferentes especies, este muro no solo embellece la ciudad, sino que también ayuda a purificar el aire, reducir el calor y brindar un respiro natural en medio del paisaje urbano." },
+      { "src": "img/alp/AMVA.jpg", "caption": "" },
       { "src": "img/alp/muroverde.jpg", "caption": "📸 Tip viajero: es un lugar perfecto para tomar fotos. Te recomiendo visitarlo en la mañana o al final de la tarde, cuando la luz natural resalta los colores intensos de las plantas."}
     ]
   },
@@ -994,7 +998,12 @@ window.APP_DATA = {
     "tooltip": "Monumento a la raza",
     "images": [
       { "src": "img/alp/monumento.jpg", "caption": "" },
-      { "src": "img/alp/DSCN1654.jpg", "caption": "" }
+      { "src": "img/alp/ima1.png", "caption": "Esta monumental obra, diseñada por el maestro Rodrigo Arenas Betancur en 1988, se levanta en el corazón de La Alpujarra. Con sus 38 metros de altura y 40 metros de longitud, es una de las esculturas en bronce y concreto más grandes de América Latina. Representa la fuerza, el carácter y el espíritu de superación del pueblo antioqueño." },
+      { "src": "img/alp/ima2.png", "caption": "" },
+      { "src": "img/alp/ima3.png", "caption": "El monumento narra, en un solo conjunto escultórico, los principales hitos de la historia antioqueña: la conquista, la colonización, la independencia y el desarrollo del pueblo. Cada figura parece moverse, transmitiendo dinamismo y el esfuerzo colectivo que caracteriza la identidad paisa" },
+      { "src": "img/alp/ima4.png", "caption": "" },
+      { "src": "img/alp/ima5.png", "caption": "El Monumento a la Raza no solo es arte: es un símbolo vivo de Medellín. Alrededor de él, en la Plaza de La Alpujarra, se realizan manifestaciones sociales, encuentros culturales y actos cívicos. Es un espacio donde se mezcla la memoria histórica con la vida contemporánea de la ciudad." },
+      { "src": "img/alp/ima6.png", "caption": "" }
     ]
   }
 ],
@@ -1070,7 +1079,8 @@ window.APP_DATA = {
         "pitch": -0.020712824660577667,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+      
+"linkHotspots": [
         {
           "yaw": -0.6622238495674573,
           "pitch": 0.1297113999908408,
@@ -1078,7 +1088,8 @@ window.APP_DATA = {
           "target": "9-pies_descalzos"
         }
       ],
-      "infoHotspots": [
+      
+"infoHotspots": [
         {
           "yaw": -0.6680991859099557,
           "pitch": 0.024074036364826412,
@@ -1138,8 +1149,8 @@ window.APP_DATA = {
     "tooltip": "Descalza tus pies, siente la energía y disfruta",
     "images": [
       { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
-      { "src": "img/pies/pies.jpg", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
-      { "src": "img/alp/ParquePies.jpg", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
+      { "src": "img/pies/ima.png", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
+      { "src": "img/pies/ParquePies.JPG", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
     ]
   }
 ],
@@ -1348,7 +1359,7 @@ window.APP_DATA = {
     "tooltip": "🏢 Innovación y sostenibilidad en Medellín ",
     "images": [
       { "src": "img/epm/image.jpeg", "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
-      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/epm/interior.jpeg", "caption": "" },
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
     ]
   },
@@ -1360,8 +1371,8 @@ window.APP_DATA = {
     "yaw": 2.6156,
     "tooltip": "Una pausa para los sentidos",
     "images": [
-      { "src": "img/pies/ParquePies.jpeg", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
-      { "src": "img/epm/interior.jpg", "caption": "" },
+      { "src": "img/pies/ParquePies.JPG", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
     ]
   },
@@ -1376,7 +1387,7 @@ window.APP_DATA = {
     "images": [
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
       { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
-      { "src": "img/epm/25312.jpg", "caption": "" },
+      { "src": "img/epm/25312.png", "caption": "" },
       { "src": "img/epm/EPM.jpg", "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
     ]
   }
