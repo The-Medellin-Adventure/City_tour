@@ -93,6 +93,7 @@
       loop: imagenes.length > 1,
       slidesPerView: 1,
       spaceBetween: 10,
+      autoplay: { delay: 3500, disableOnInteraction: false },
       pagination: { el: '.swiper-pagination', clickable: true },
       navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
     });
@@ -206,7 +207,46 @@ function updateVideoForScene(sceneId) {
       sceneVideo.currentTime = sceneVideo.duration; // Último frame
     }
   };
+ }
+
+// ---- Controles personalizados de video ----
+const video = document.getElementById("sceneVideo");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const muteBtn = document.getElementById("muteBtn");
+const closeVideoBtn = document.getElementById("closeVideoCard");
+const videoCard = document.getElementById("videoCard");
+const videoIcon = document.getElementById("videoIcon");
+
+if (video && playPauseBtn && muteBtn && closeVideoBtn && videoCard && videoIcon) {
+  playPauseBtn.addEventListener("click", () => {
+    if (video.paused) {
+      video.play();
+      playPauseBtn.textContent = "⏸";
+    } else {
+      video.pause();
+      playPauseBtn.textContent = "▶";
+    }
+  });
+
+  muteBtn.addEventListener("click", () => {
+    video.muted = !video.muted;
+    muteBtn.textContent = video.muted ? "🔇" : "🔊";
+  });
+
+  // Cerrar tarjeta → mostrar icono flotante
+  closeVideoBtn.addEventListener("click", () => {
+    video.pause();
+    videoCard.style.display = "none";
+    videoIcon.style.display = "block";
+  });
+
+  // Reabrir tarjeta desde icono
+  videoIcon.addEventListener("click", () => {
+    videoCard.style.display = "block";
+    videoIcon.style.display = "none";
+  });
 }
+
 
 // =========================
 // En tu función switchScene(scene) → después de cambiar de escena
@@ -453,7 +493,7 @@ function switchScene(scene) {
     });
   });
 
-  // Fullscreen (mantengo tu lógica)
+  // Fullscreen 
   if (screenfull && screenfull.enabled && data.settings && data.settings.fullscreenButton) {
     document.body.classList.add('fullscreen-enabled');
     if (fullscreenToggleElement) {
@@ -464,7 +504,7 @@ function switchScene(scene) {
 
   // Autorotate
   if (autorotateToggleElement) autorotateToggleElement.addEventListener('click', toggleAutorotate);
-  var autorotate = Marzipano.autorotate({ yawSpeed: 0.03, targetPitch: 0, targetFov: Math.PI / 2 });
+  var autorotate = Marzipano.autorotate({ yawSpeed: 0.5, targetPitch: -0.3529, targetFov: Math.PI / 2 });
   if (data.settings && data.settings.autorotateEnabled) {
     if (autorotateToggleElement) autorotateToggleElement.classList.add('enabled');
   }

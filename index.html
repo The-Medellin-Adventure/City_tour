@@ -71,19 +71,21 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 180px;
-  height: 320px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  width: 320px;
+  border-radius: 10px;
   overflow: hidden;
-  z-index: 10000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
 }
+
 #videoCard video {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  display: block;
 }
+
+
 /* En móviles, que ocupe un poco más pero siga siendo vertical */
 @media (max-width: 768px) {
   #videoCard {
@@ -110,6 +112,97 @@
       white-space: nowrap;
       pointer-events: none;
     }
+
+/* 🔵 Animación de pulso para iconos de cámara y linkspots */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .25);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 16px rgba(0, 0, 0, .35);
+  }
+}
+
+/* Linkspots (los que llevan a otras escenas) */
+.link-hotspot-icon {
+  animation: pulse 2s ease-in-out infinite;
+  border-radius: 50%;
+  transition: transform .3s;
+}
+
+#whatsappLink {
+  color: #25D366;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-flex;       /* Para logo + texto en línea */
+  align-items: center;        /* Centrado vertical */
+  gap: 4px;                   /* Espacio mínimo entre logo y número */
+}
+
+#whatsappLink:hover {
+  text-decoration: underline;
+}
+
+/* Icono de WhatsApp tamaño */
+.whatsapp-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+}
+
+/* Logo de la marca en la tarjeta inferior */
+#watermark .brand-logo {
+  width: 160px;   /* cambia este valor tamaño de logo inferior */
+  height: auto;  /* mantiene la proporción correcta */
+  margin-bottom: 6px; /* separa un poco del texto */
+}
+
+/* Controles dentro del video */
+#videoControls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;              /* Toda la anchura del video */
+  display: flex;
+  justify-content: space-around; /* Espacia los botones uniformemente */
+  background: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
+  padding: 8px 0;
+  backdrop-filter: blur(6px);
+}
+
+#videoControls button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: transform 0.2s, color 0.2s;
+}
+
+#videoControls button:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+/* Icono flotante cuando el video está cerrado */
+#videoIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.25);
+  padding: 10px 14px;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
 </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
@@ -127,7 +220,7 @@
 
 <div id="sceneList">
 <h2 style="color:white; text-align:center; padding:10px; font-size:18px; background:rgba(0,0,0,0.6);">
-  🌆 Recorrido Virtual Medellín
+  🌆 Medellín 360°: Vive la Ciudad
 </h2>
   <ul class="scenes">
     
@@ -204,7 +297,7 @@
   <img src="img/tecno.png" alt="TecnoParque SENA" style="height:40px;">
 </div>
 
-    ✅ Proyecto avalado por <strong>TECNOPARQUE - SENA</strong>
+✅ Proyecto avalado por <strong>TECNOPARQUE - SENA</strong>
   </div>
 
 </div>
@@ -277,14 +370,25 @@
     </div>
   </div>
 </div>
-<!-- Tarjeta de Video Fija -->
+
+
+<!-- Tarjeta de Video flotante -->
 <div id="videoCard" style="display: none;">
-  <video id="sceneVideo" controls muted playsinline>
+  <video id="sceneVideo" muted playsinline>
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
+
+  <!-- Controles personalizados dentro del video -->
+  <div id="videoControls">
+    <button id="playPauseBtn">▶</button>
+    <button id="muteBtn">🔊</button>
+    <button id="closeVideoCard">✕</button>
+  </div>
 </div>
 
+<!-- Icono flotante cuando el video está cerrado -->
+<div id="videoIcon" style="display: none;">🎥</div>
 
 <!-- Marca de agua centrada -->
 <div id="watermark-bg">
@@ -301,8 +405,10 @@
    style="color: white; text-decoration: underline;">
   https://themedellinadventure-com.webnode.com.co/
 </a>
-    <span>📞 +57 3247615677</span>
-  </div>
+    <a href="https://wa.me/573247615677?text=Hola,%20quiero%20conocer%20más%20tours" target="_blank" id="whatsappLink">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">+57 324 761 5677
+    </a>     
+</div>
 </div>
 
 
