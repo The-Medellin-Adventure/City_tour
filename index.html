@@ -21,6 +21,7 @@
       border-radius: 50%;
       padding: 10px;
     }
+
 /* Marca de agua grande al centro */
 #watermark-bg {
   position: fixed;
@@ -43,15 +44,19 @@
   left: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.45);
-  padding: 8px 14px;
-  border-radius: 6px;
-  z-index: 9999;
+  background: rgba(0,0,0,0.7);
+  padding: 6px 10px;
+  border-radius: 10px;
+  z-index: 500;
 }
-
 #watermark-footer img {
-  height: 32px;
+  height: 32px; /* logo más pequeño */
+  margin-right: 8px;
+}
+#watermark-footer span {
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .watermark-text {
@@ -60,11 +65,59 @@
   line-height: 1.2;
 }
 
-.watermark-text span {
-  font-size: 13px;
-  color: white;
-  font-weight: 500;
+
+
+@media (max-width: 600px) {
+  #sceneList {
+    width: 90vw;        /* ocupa casi todo el ancho */
+    font-size: 13px;
+    max-height: 40vh;   /* no ocupa más de 40% vertical */
+  }
+  .tecnoparque-card {
+    font-size: 12px;
+  }
+  #watermark-footer {
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 8px;
+  }
+  #watermark-footer img {
+    height: 22px;
+  }
 }
+
+/* Tarjeta independiente de TecnoParque */
+#tecnoparque-card {
+  position: fixed;
+  top: 120px;   /* debajo del título y menú */
+  left: 20px;
+  width: 260px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 13px;
+  color: #f0f0f0;
+  z-index: 400;
+}
+
+/* Título y texto */
+#tecnoparque-card h3 {
+  margin: 0 0 5px;
+  font-size: 14px;
+  color: #ffd700;
+}
+#tecnoparque-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* Ocultar/mostrar igual que el menú */
+.hidden {
+  display: none;
+}
+
 
 /* Tarjeta flotante para video vertical */
 #videoCard {
@@ -89,13 +142,11 @@
 /* En móviles, que ocupe un poco más pero siga siendo vertical */
 @media (max-width: 768px) {
   #videoCard {
-    max-width: 140px;
-    max-height: 260px;
-    bottom: 15px;
-    right: 15px;
-    padding: 4px;
-  }
+   width: calc(90% + 20px); /* Ajuste para dispositivos móviles */
+        max-height: 260px;
     }
+}
+
 
     /* 🔹 Mostrar siempre el nombre de los linkHotspots debajo del ícono */
     .link-hotspot-tooltip {
@@ -203,6 +254,8 @@
   z-index: 9999;
 }
 
+
+
 </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
@@ -213,10 +266,131 @@
 <link rel="stylesheet" href="style.css">
 <!-- Swiper CSS para carrusel -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+
+<style id="responsive-layout-overrides">
+/* ==== Layout fixes: stack menu + info cards on the left, consistent across screen sizes ==== */
+
+/* Menú de escenas */
+#sceneList {
+  background: rgba(0,0,0,0.65);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+  width: clamp(220px, 25vw, 280px); /* se adapta a la pantalla */
+  max-height: 50vh;                /* nunca ocupa más de media pantalla */
+  overflow-y: auto;                /* scroll si hay muchas escenas */
+}
+#sceneList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#sceneList li {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+
+#sceneList .scenes {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#sceneList .scenes a.scene {
+  display: block !important;
+}
+
+#sceneList .scenes li.text {
+  display: block !important;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  background: rgba(255,255,255,0.08) !important;
+}
+
+/* Make any left info cards stack and stretch */
+#sceneList .side-card {
+  display: block !important;
+  margin: 0 !important;
+}
+
+/* ==== Video card: make it more discreet by default ==== */
+#videoCard {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 9999;
+  max-width: 280px;      /* 🔹 tamaño máximo en pantallas grandes */
+  width: 22vw;           /* 🔹 proporcional a la pantalla */
+  min-width: 200px;      /* 🔹 tamaño mínimo */
+}
+
+#videoCard video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Hide controls until hover to keep it subtle */
+#videoControls {
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+#videoCard:hover #videoControls {
+  opacity: 1;
+}
+
+/* Smaller control buttons for a cleaner look */
+#videoControls button {
+  font-size: 18px !important;
+  padding: 4px 8px !important;
+}
+
+/* Compact floating reopen icon */
+#videoIcon {
+  bottom: 14px !important;
+  right: 14px !important;
+  padding: 8px 10px !important;
+  font-size: 18px !important;
+}
+
+/* Mobile: keep the same stacked visual and compact video */
+@media (max-width: 600px) {
+  #videoCard {
+    bottom: 10px;
+    right: 10px;
+    width: 40vw;        /* más angosto en móviles */
+    min-width: 160px;
+    max-width: 200px;
+    padding: 5px;
+  }
+}
+  #videoCard {
+    width: clamp(160px, 44vw, 230px) !important;
+  }
+}
+</style>
+
+
+
 </head>
 <body class="multiple-scenes view-control-buttons">
 
 <div id="pano"></div>
+
+<div id="titleBar">
+  <h1 class="sceneName"></h1>
+</div>
 
 <div id="sceneList">
 <h2 style="color:white; text-align:center; padding:10px; font-size:18px; background:rgba(0,0,0,0.6);">
@@ -290,21 +464,23 @@
      margin: 10px;
      border-radius: 8px;
      text-align: center;
-     font-size: 14px;
-  ">
+     font-size: 10px;">
 
-<div style="display:flex; justify-content:center; gap:15px; padding:10px;">
+<div id="tecnoparque-card" class="hidden">
+  <h3>TecnoParque</h3>
+  <p>Centro de innovación y desarrollo donde nacen proyectos de tecnología,
+  ciencia y creatividad que transforman a Medellín.</p>
+</div>
+
+<div style= "✅ Proyecto avalado por">
   <img src="img/tecno.png" alt="TecnoParque SENA" style="height:40px;">
 </div>
 
-✅ Proyecto avalado por <strong>TECNOPARQUE - SENA</strong>
   </div>
 
 </div>
 
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
+
 
 <a href="javascript:void(0)" id="autorotateToggle">
   <img class="icon off" src="img/play.png">
@@ -322,10 +498,10 @@
 </a>
 
 <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/up.png">
+  <img class="icon" src="img/down.png">
 </a>
 <a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/down.png">
+  <img class="icon" src="img/up.png">
 </a>
 <a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
   <img class="icon" src="img/left.png">
