@@ -89,7 +89,7 @@
 /* Tarjeta independiente de TecnoParque */
 #tecnoparque-card {
   position: fixed;
-  top: 120px;   /* debajo del título y menú */
+  top: 350px;   /* debajo del título y menú */
   left: 20px;
   width: 260px;
   background: rgba(255,255,255,0.1);
@@ -101,23 +101,29 @@
   z-index: 400;
 }
 
-/* Título y texto */
-#tecnoparque-card h3 {
-  margin: 0 0 5px;
-  font-size: 14px;
-  color: #ffd700;
+#tecnoparque-card img {
+  width: 80%;
+  margin-top: 5px;
 }
-#tecnoparque-card p {
+
+.tecnoparque-texto {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.3;
+  font-size: 14px;
+  color: #ffffff;
 }
 
-/* Ocultar/mostrar igual que el menú */
-.hidden {
-  display: none;
+/* Ajuste responsive */
+@media (max-width: 600px) {
+  #tecnoparque-card {
+    top: 400px;
+    left: 10px;
+    width: 160px;
+    font-size: 11px;
+  }
+  #tecnoparque-card img {
+    width: 70%;
+  }
 }
-
 
 /* Tarjeta flotante para video vertical */
 #videoCard {
@@ -254,6 +260,78 @@
   z-index: 9999;
 }
 
+/* Backdrop oscuro */
+#bigVideoBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+
+/* Overlay grande */
+#bigVideoOverlay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(.98);
+  width: min(1100px, 85vw);
+  max-height: 80vh;
+  background: rgba(12,12,12,0.96);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity .35s ease, transform .35s ease;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Video dentro del overlay */
+#bigVideoOverlay video {
+  width: 100%;
+  height: auto;
+  max-height: calc(80vh - 56px);
+  object-fit: contain;
+  background: black;
+}
+
+/* Controles del overlay (barra abajo) */
+#bigVideoControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+}
+
+/* Botones */
+#bigVideoControls button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+#bigVideoControls button:hover { transform: scale(1.08); color: #ffd700; }
+
+/* Clase visible (activa animación entrada) */
+#bigVideoBackdrop.visible { opacity: 1; pointer-events: auto; }
+#bigVideoOverlay.visible { opacity: 1; transform: translate(-50%,-50%) scale(1); pointer-events: auto; }
+
+/* Animación para la tarjeta lateral (entradas suaves) */
+#videoCard { transition: opacity .35s ease, transform .35s ease; opacity: 0; transform: translateY(6px); pointer-events: none; }
+#videoCard.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+
 
 
 </style>
@@ -283,13 +361,11 @@
   max-height: 50vh;                /* nunca ocupa más de media pantalla */
   overflow-y: auto;                /* scroll si hay muchas escenas */
 }
-#sceneList ul {
-  list-style: none;
+#sceneList ul { list-style: none;
   padding: 0;
   margin: 0;
 }
-#sceneList li {
-  margin-bottom: 5px;
+#sceneList li { margin-bottom: 5px;
   cursor: pointer;
 }
 
@@ -314,11 +390,6 @@
   background: rgba(255,255,255,0.08) !important;
 }
 
-/* Make any left info cards stack and stretch */
-#sceneList .side-card {
-  display: block !important;
-  margin: 0 !important;
-}
 
 /* ==== Video card: make it more discreet by default ==== */
 #videoCard {
@@ -388,9 +459,10 @@
 
 <div id="pano"></div>
 
-<div id="titleBar">
-  <h1 class="sceneName"></h1>
-</div>
+   <!-- Título de la escena -->
+  <div id="titleBar">
+    <h1 id="sceneTitle"></h1>
+  </div>
 
 <div id="sceneList">
 <h2 style="color:white; text-align:center; padding:10px; font-size:18px; background:rgba(0,0,0,0.6);">
@@ -466,21 +538,15 @@
      text-align: center;
      font-size: 10px;">
 
-<div id="tecnoparque-card" class="hidden">
-  <h3>TecnoParque</h3>
-  <p>Centro de innovación y desarrollo donde nacen proyectos de tecnología,
-  ciencia y creatividad que transforman a Medellín.</p>
-</div>
-
-<div style= "✅ Proyecto avalado por">
-  <img src="img/tecno.png" alt="TecnoParque SENA" style="height:40px;">
-</div>
-
   </div>
 
 </div>
 
-
+<!-- Tarjeta TecnoParque -->
+<div id="tecnoparque-card">
+  <p class="tecnoparque-texto">🌎 Proyecto avalado por</p>
+  <img src="img/tecno.png" alt="Logo TecnoParque">
+</div>
 
 <a href="javascript:void(0)" id="autorotateToggle">
   <img class="icon off" src="img/play.png">
@@ -549,11 +615,32 @@
 
 
 <!-- Tarjeta de Video flotante -->
-<div id="videoCard" style="display: none;">
-  <video id="sceneVideo" muted playsinline>
+<div id="videoCard" style="display:none;">
+  <video id="sceneVideo" playsinline muted>
     <source src="" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
+  <div id="videoControls">
+    <button id="playPauseBtn">▶</button>
+    <button id="muteBtn">🔊</button>
+    <button id="closeBtn">✕</button>
+  </div>
+</div>
+
+<!-- >>> NUEVO: Backdrop y Overlay de Video Grande <<< -->
+<div id="bigVideoBackdrop" style="display:none;"></div>
+<div id="bigVideoOverlay" style="display:none;">
+  <video id="bigSceneVideo" playsinline muted>
+    <source src="videos/instrucciones_scene1.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+  <div id="bigVideoControls" aria-label="Controles video grande">
+    <button id="bigPlayPauseBtn">▶</button>
+    <button id="bigMuteBtn">🔊</button>
+    <button id="bigCloseBtn">✕</button>
+  </div>
+</div>
+
 
   <!-- Controles personalizados dentro del video -->
   <div id="videoControls">

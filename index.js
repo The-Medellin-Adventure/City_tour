@@ -47,6 +47,18 @@
       .replace(/'/g, '&#39;');
   }
 
+// VARIABLES GLOBALES
+// =========================================================
+var viewer = new Marzipano.Viewer(document.getElementById('pano'));
+var currentScene = null;
+var currentVideoSceneId = null;
+var currentVideoTimeout = null;
+
+// NUEVAS VARIABLES para el overlay grande
+let bigOverlayOpen = false;
+let smallStartTimeout = null;
+
+
   // =========================
   // FUNCIÓN MOSTRAR CARRUSEL 
   // =========================
@@ -160,7 +172,6 @@ const sceneVideos = {
   // "2-otra-escena": "videos/video3.mp4"
 };
 
-let currentVideoSceneId = null;
 let currentVideoTimeout = null;
 
 function updateVideoForScene(sceneId) {
@@ -178,6 +189,13 @@ function updateVideoForScene(sceneId) {
   if (currentVideoSceneId && currentVideoSceneId !== sceneId) {
     sceneVideo.pause();
     sceneVideo.currentTime = 0;
+  }
+
+// 🚨 NUEVO: si la escena tiene video grande y está abierto → no mostrar el pequeño
+  if (bigSceneVideos[sceneId] && bigOverlayOpen) {
+    videoCard.style.display = "none";
+    currentVideoSceneId = null;
+    return;
   }
 
   // Verificar si hay video para la escena
@@ -264,7 +282,8 @@ function switchScene(scene) {
   activeView = scene.view;
 
   // ⬅ Aquí llamamos al video por escena
-  updateVideoForScene(scene.data.id);
+showBigOverlayForScene(scene.data.id);
+updateVideoForScene(scene.data.id);
 
   if (scene.data && scene.data.id === FIRST_SCENE_ID) {
     showSceneList();
