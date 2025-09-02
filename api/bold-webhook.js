@@ -1,41 +1,31 @@
-// api/webhook-bold.js
-import { supabaseAdmin } from './_supabaseClient.js';
-import { customAlphabet } from 'nanoid';
-
-const nanoid = customAlphabet('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz', 22);
-
 export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Método no permitido" });
+  }
+
   try {
-    if (req.method !== 'POST') {
-      return res.status(405).json({ ok: false, error: 'Método no permitido' });
-    }
+    const event = req.body;
 
-    // Bold envía los datos del pedido aquí (ajusta según payload real)
-    const body = req.body || {};
-    console.log('Webhook recibido de Bold:', body);
+    // Verificar que Bold envía un estado aprobado
+    if (event.status && event.status === "APPROVED") {
+      // Generar un código único de acceso
+      const accessCode = Math.random().toString(36).substring(2, 10).toUpperCase();
 
-    const sb = supabaseAdmin();
-
-    // 📌 Extraer email u otros datos según Bold
-    const email = body?.customer?.email || null;
-
-    // Crear token único con caducidad (ejemplo: 24h)
-    const ttlHours = Number(process.env.ACCESS_TOKEN_TTL_HOURS || '24');
-    const exp = new Date(Date.now() + ttlHours * 60 * 60 * 1000).toISOString();
-    const token = nanoid();
-
-    // Guardar en Supabase
-    if (email) {
-      await sb.from('access_tokens').insert({
-        email,
-        token,
-        exp
+      // Aquí puedes guardar el código en una base de datos o archivo
+      // Por ahora solo lo devolvemos en la respuesta
+      return res.status(200).json({
+        message: "Pago recibido correctamente",
+        tourAccess: `https://citytour360.vercel.app/tour?code=${accessCode}`
       });
     }
 
-    return res.status(200).json({ ok: true });
-  } catch (err) {
-    console.error('Error en webhook Bold:', err);
-    return res.status(500).json({ ok: false, error: err.message });
+    // Si el pago aún no está aprobado
+    return res.status(200).json({
+      message: "Pago recibido pero aún no aprobado",
+      status: event.status
+    });
+  } catch (error) {
+    console.error("Error en webhook:", error);
+    return res.status(500).json({ message: "Error procesando webhook" });
   }
 }
