@@ -56,7 +56,7 @@ export default async function handler(req, res) {
     }
 
     // Devolver JSON con la URL
-    return res.status(200).json({ ok: true, url: signed.signedUrl });
+    return res.redirect(302, signed.signedUrl);
 
   } catch (e) {
     console.error('❌ Error en signed-url:', e);
