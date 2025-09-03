@@ -1,5 +1,5 @@
 {
-  "name": "bold-supabase-access",
+  "name": "citytour360",
   "version": "1.0.0",
   "description": "Proyecto con Bold webhook y acceso temporal usando Supabase",
   "main": "index.js",
