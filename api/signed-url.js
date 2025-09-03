@@ -55,8 +55,9 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // ✅ Enviar la URL firmada como JSON
-    return res.status(200).json({ url: signed.signedUrl });
+    // ✅ Redirección compatible con Vercel
+    res.writeHead(302, { Location: signed.signedUrl });
+    res.end();
 
   } catch (e) {
     console.error('❌ Error en signed-url:', e);
