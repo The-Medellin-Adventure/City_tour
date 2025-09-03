@@ -1,4 +1,11 @@
+// Obtener el token desde la URL (?token=XXXXX)
+const urlParams = new URLSearchParams(window.location.search);
+const token = urlParams.get("token");
 
+// Si no viene token en la URL, avisar en consola
+if (!token) {
+  console.error("❌ No se encontró token en la URL. Ejemplo: https://tusitio.vercel.app/tour?token=MI_TOKEN");
+}
 
 
 window.APP_DATA = {
