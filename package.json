@@ -4,9 +4,8 @@
   "description": "Proyecto con Bold webhook y acceso temporal usando Supabase",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "echo \"no build step\"",
+    "start": "echo \"no start step\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.7",
