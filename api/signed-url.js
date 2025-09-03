@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // Buscar token válido
+    // Validar token en la tabla
     const { data: tokenRow, error } = await sb
       .from('access_tokens')
       .select('*')
@@ -28,9 +28,8 @@ export default async function handler(req, res) {
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
     const userAgent = req.headers['user-agent'] || 'unknown';
 
-    // Si es el primer uso, registrar IP y User-Agent
     if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
-      const { error: updateError } = await sb
+      await sb
         .from('access_tokens')
         .update({
           first_ip: ip,
@@ -38,12 +37,7 @@ export default async function handler(req, res) {
           used_at: new Date().toISOString(),
         })
         .eq('token', token);
-
-      if (updateError) {
-        console.error('❌ Error registrando primer uso:', updateError);
-      }
     } else {
-      // Si ya tiene registro, comparar
       if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
         return res.status(403).json({
           ok: false,
@@ -52,20 +46,20 @@ export default async function handler(req, res) {
       }
     }
 
-    // Generar signed URL de Supabase
-    const { data, error: urlError } = await sb.storage
+    // Generar signed URL
+    const { data: signed, error: urlError } = await sb.storage
       .from('Tour')
       .createSignedUrl(file, 60 * 15); // 15 min
 
-    if (urlError || !data?.signedUrl) {
+    if (urlError || !signed?.signedUrl) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // Redirigir al recurso
-    return res.redirect(302, data.signedUrl);
+    // Devolver JSON con la URL
+    return res.status(200).json({ ok: true, url: signed.signedUrl });
 
   } catch (e) {
-    console.error('Error en signed-url:', e);
+    console.error('❌ Error en signed-url:', e);
     return res.status(500).json({ ok: false, error: e.message });
   }
 }
