@@ -167,7 +167,7 @@ var source = Marzipano.ImageUrlSource.fromString(
 
   // Video grande solo para la escena 1
   const bigSceneVideos = {
-    "0-plaza-botero-botero": "`/api/signed-url?token=${token}&file=videos/instrucciones.mp4`
+    "0-plaza-botero-botero": `/api/signed-url?token=${token}&file=videos/instrucciones.mp4`
   };
 
   // =========================
