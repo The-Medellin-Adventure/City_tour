@@ -760,25 +760,30 @@
 </div>
 
 
-<script src="vendor/screenfull.min.js" ></script>
-<script src="vendor/bowser.min.js" ></script>
-<script src="vendor/marzipano.js" ></script>
+<script src="vendor/screenfull.min.js"></script>
+<script src="vendor/bowser.min.js"></script>
+<script src="vendor/marzipano.js"></script>
+
+<!-- Inyectamos token ANTES de cargar data.js -->
+<script>
+  const token = new URLSearchParams(window.location.search).get("token");
+</script>
+<script src="data.js"></script>
+
 <!-- Swiper JS para carrusel -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="index.js"></script>
-<script src="data.js"></script>
-
 
 <!-- Script para abrir el video desde menú -->
 <script>
-document.getElementById("openInstructions").addEventListener("click", () => {
-  const overlay = document.getElementById("bigVideoOverlay");
-  const backdrop = document.getElementById("bigVideoBackdrop");
-  overlay.style.display = "flex";
-  backdrop.style.display = "block";
-  overlay.classList.add("visible");
-  backdrop.classList.add("visible");
-});
+  document.getElementById("openInstructions").addEventListener("click", () => {
+    const overlay = document.getElementById("bigVideoOverlay");
+    const backdrop = document.getElementById("bigVideoBackdrop");
+    overlay.style.display = "flex";
+    backdrop.style.display = "block";
+    overlay.classList.add("visible");
+    backdrop.classList.add("visible");
+  });
 </script>
 </body>
 </html>
