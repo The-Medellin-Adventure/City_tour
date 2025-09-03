@@ -28,7 +28,15 @@ export default async function handler(req, res) {
 
     // Detectar estado y email en payloads distintos
     const status = (body.status || body.event_type || body.type || '').toString().toUpperCase();
-    const email = body?.customer?.email || body?.buyer_email || body?.email || body?.customer?.email_address || null;
+   const email =
+  body?.customer?.email ||
+  body?.buyer_email ||
+  body?.email ||
+  body?.customer?.email_address ||
+  body?.payer_email ||               // 👈 directo en la raíz
+  body?.data?.payer_email ||         // 👈 dentro de data
+  null;
+
 
     // Consideramos aprobado si status contiene APPROV o PAID o SUCCESS
     const approved = /APPROV|PAID|SUCCESS/.test(status);
