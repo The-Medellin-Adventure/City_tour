@@ -1,3 +1,52 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  'https://TU_SUPABASE_URL',
+  'TU_SUPABASE_ANON_KEY'
+);
+
+async function validarAcceso() {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('token');
+
+  if (!token) {
+    alert('Acceso no válido');
+    window.location.href = '/';
+    return false;
+  }
+
+  const { data, error } = await supabase
+    .from('access_tokens')
+    .select('*')
+    .eq('token', token)
+    .eq('status', 'active')
+    .gt('expires_at', new Date().toISOString())
+    .single();
+
+  if (!data || error) {
+    alert('Acceso expirado o no válido');
+    window.location.href = '/';
+    return false;
+  }
+
+  // Opcional: marcar token como usado si quieres acceso único
+  await supabase.from('access_tokens').update({ status: 'used' }).eq('token', token);
+
+  return true;
+}
+
+// Ejecutar antes de cargar Marzipano
+validarAcceso().then(accesoValido => {
+  if (accesoValido) {
+    // Aquí inicializas tu tour Marzipano normalmente
+    initTour(); 
+  }
+});
+
+
+
+
+
 
 // index.js — versión corregida y robusta con videos grandes y pequeños
 'use strict';
