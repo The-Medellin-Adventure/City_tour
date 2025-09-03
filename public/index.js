@@ -137,7 +137,7 @@ var source = Marzipano.ImageUrlSource.fromString(
   urlPrefix + "/{z}/{f}/{y}/{x}.jpg",
   { cubeMapPreviewUrl: urlPrefix + "/preview.jpg" }
 );
-    );
+
     var geometry = new Marzipano.CubeGeometry(sceneData.levels);
     var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
     var view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);

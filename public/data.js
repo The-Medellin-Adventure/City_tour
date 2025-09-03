@@ -41,7 +41,7 @@ window.APP_DATA = {
     "tooltip": "Hotel Nutibara",
      "images": [
       {
-        "src": `/api/signed-url?token=${token}&file=img/escena1/HotelNutibara_1965.jpg`
+        "src": `/api/signed-url?token=${token}&file=img/escena1/HotelNutibara_1965.jpg`,
         "caption": "Hotel Nutibara en año 1965"
       },
       {
