@@ -1,3 +1,5 @@
+const token = new URLSearchParams(window.location.search).get("token");
+
 
 // index.js — versión corregida y robusta con videos grandes y pequeños
 'use strict';
@@ -164,27 +166,27 @@
 
   // Video grande solo para la escena 1
   const bigSceneVideos = {
-    "0-plaza-botero-botero": "videos/instrucciones.mp4"
+    "0-plaza-botero-botero": "`/api/signed-url?token=${token}&file=videos/instrucciones.mp4`
   };
 
   // =========================
   // VIDEO POR ESCENA — control independiente
   // =========================
   const sceneVideos = {
-  "0-plaza-botero-botero": "videos/video1.mp4",
-  "1-plaza-botero-y-palacio-rafael-uribe-uribe": "videos/video2.mp4",
-  "2-esculturas-y-tradicin": "videos/video3.mp4",
-  "3-palacio-rafael-uribe-uribe": "videos/video4.mp4",
-  "4-parque-de-las-luces": "videos/video5.mp4",
-  "5-antiguo-ferrocarril": "videos/video6.mp4",
-  "6-antigua-estacin-medelln": "videos/video7.mp4",
-  "7-alpujarra": "videos/video8.mp4",
-  "8-transicin-ciudad-a-naturaleza": "videos/video9.mp4",
-  "9-pies_descalzos": "videos/video10.mp4",
-  "10-conexin-naturaleza": "videos/video11.mp4",
-  "11-laberinto-de-bamb": "videos/video12.mp4",
-  "12-edificio-inteligente-epm": "videos/video13.mp4",
-  "13-centro-de-convenciones-y-teatro": "videos/video14.mp4"
+  "0-plaza-botero-botero": `/api/signed-url?token=${token}&file=videos/video1.mp4`,
+  "1-plaza-botero-y-palacio-rafael-uribe-uribe": `/api/signed-url?token=${token}&file=videos/video2.mp4`,
+  "2-esculturas-y-tradicin": `/api/signed-url?token=${token}&file=videos/video3.mp4`,
+  "3-palacio-rafael-uribe-uribe": `/api/signed-url?token=${token}&file=videos/video4.mp4`,
+  "4-parque-de-las-luces": `/api/signed-url?token=${token}&file=videos/video5.mp4`,
+  "5-antiguo-ferrocarril": `/api/signed-url?token=${token}&file=videos/video6.mp4`,
+  "6-antigua-estacin-medelln": `/api/signed-url?token=${token}&file=videos/video7.mp4`,
+  "7-alpujarra": `/api/signed-url?token=${token}&file=videos/video8.mp4`,
+  "8-transicin-ciudad-a-naturaleza": `/api/signed-url?token=${token}&file=videos/video9.mp4`,
+  "9-pies_descalzos": `/api/signed-url?token=${token}&file=videos/video10.mp4`,
+  "10-conexin-naturaleza": `/api/signed-url?token=${token}&file=videos/video11.mp4`,
+  "11-laberinto-de-bamb": `/api/signed-url?token=${token}&file=videos/video12.mp4`,
+  "12-edificio-inteligente-epm": `/api/signed-url?token=${token}&file=videos/video13.mp4`,
+  "13-centro-de-convenciones-y-teatro": `/api/signed-url?token=${token}&file=videos/video14.mp4`
 };
 
   // =========================
