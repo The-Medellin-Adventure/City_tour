@@ -1,4 +1,4 @@
-const token = new URLSearchParams(window.location.search).get("token");
+
 
 
 window.APP_DATA = {
