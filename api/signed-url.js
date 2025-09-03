@@ -55,8 +55,8 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // Devolver JSON con la URL
-    return res.redirect(302, signed.signedUrl);
+    // ✅ Enviar la URL firmada como JSON
+    return res.status(200).json({ url: signed.signedUrl });
 
   } catch (e) {
     console.error('❌ Error en signed-url:', e);
