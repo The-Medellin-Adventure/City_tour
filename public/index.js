@@ -1,4 +1,5 @@
-const token = new URLSearchParams(window.location.search).get("token");
+window.token = new URLSearchParams(window.location.search).get("token");
+
 
 
 // index.js — versión corregida y robusta con videos grandes y pequeños
