@@ -1,27 +1,39 @@
 // api/bold-webhook.js
 import { supabaseAdmin } from '../lib/_supabaseClient.js';
 import { customAlphabet } from 'nanoid';
-import sgMail from '@sendgrid/mail';
+// import sgMail from '@sendgrid/mail';  // ⬅️ lo dejamos comentado por ahora
 
 const nanoid = customAlphabet('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz', 22);
-if (process.env.SENDGRID_API_KEY) sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+// if (process.env.SENDGRID_API_KEY) sgMail.setApiKey(process.env.SENDGRID_API_KEY); // ⬅️ comentado
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Método no permitido' });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ ok: false, error: 'Método no permitido' });
+  }
 
   try {
-    const body = req.body || {};
-    console.log('Webhook recibido de Bold:', JSON.stringify(body).slice(0,1000));
+    // ✅ Parse defensivo del body
+    let body = req.body;
+    try {
+      if (typeof body === 'string') body = JSON.parse(body || '{}');
+      else if (Buffer.isBuffer(body)) body = JSON.parse(body.toString('utf8') || '{}');
+      else if (!body) body = {};
+    } catch (e) {
+      console.error('JSON inválido en body:', e);
+      body = {};
+    }
 
-    // Detectar estado y email en payloads distintos (por si Bold usa distinto nombre)
+    console.log('Webhook recibido de Bold:', JSON.stringify(body).slice(0, 1000));
+
+    // Detectar estado y email en payloads distintos
     const status = (body.status || body.event_type || body.type || '').toString().toUpperCase();
     const email = body?.customer?.email || body?.buyer_email || body?.email || body?.customer?.email_address || null;
 
-    // Consideramos aprobado si status contiene APPROV o PAID o SUCCESS (por seguridad)
+    // Consideramos aprobado si status contiene APPROV o PAID o SUCCESS
     const approved = /APPROV|PAID|SUCCESS/.test(status);
 
     if (!approved) {
-      // Solo registramos/acknowledge eventos que no sean aprobados
       return res.status(200).json({ ok: true, message: 'Evento recibido (no aprobado)', status });
     }
 
@@ -32,7 +44,7 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // Guardar en la tabla access_tokens (ajusta nombres si los cambiaste)
+    // Guardar en la tabla access_tokens
     const insertPayload = {
       token,
       status: 'active',
@@ -41,20 +53,22 @@ export default async function handler(req, res) {
       expires_at: expiresAt
     };
 
+    console.log("Payload listo para insertar:", insertPayload);
+
     const { error: insertError } = await sb.from('access_tokens').insert([insertPayload]);
 
     if (insertError) {
       console.error('Error guardando token en Supabase:', insertError);
-      // seguimos para no bloquear a Bold, pero retornamos error para logs
       return res.status(500).json({ ok: false, error: 'No se pudo guardar token' });
     }
 
     const appBase = (process.env.APP_BASE_URL || 'https://citytour360.vercel.app').replace(/\/$/, '');
     const accessLink = `${appBase}/?token=${token}`;
 
-    // Enviar email si tenemos configuración de SendGrid y email del comprador
+    /*
+    // Bloque de email (lo comentamos para descartar problemas de SendGrid)
     if (email && process.env.SENDGRID_API_KEY && process.env.SENDER_EMAIL) {
-      const ttlText = `${ttlHours} hora${ttlHours>1?'s':''}`;
+      const ttlText = `${ttlHours} hora${ttlHours > 1 ? 's' : ''}`;
       const msg = {
         to: email,
         from: process.env.SENDER_EMAIL,
@@ -67,9 +81,9 @@ export default async function handler(req, res) {
         console.log('Email enviado a', email);
       } catch (e) {
         console.error('Error enviando email:', e);
-        // no devolvemos error al webhook para que Bold no piense que falló la entrega
       }
     }
+    */
 
     // Respuesta (útil para pruebas)
     return res.status(200).json({ ok: true, token, accessLink, expires_at: expiresAt });
@@ -78,4 +92,3 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, error: err.message });
   }
 }
-
