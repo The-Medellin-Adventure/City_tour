@@ -1,0 +1,15 @@
+{
+  "name": "bold-supabase-access",
+  "version": "1.0.0",
+  "description": "Proyecto con Bold webhook y acceso temporal usando Supabase",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.7",
+    "@sendgrid/mail": "^7.7.0"
+  }
+}
