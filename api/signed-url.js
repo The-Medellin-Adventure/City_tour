@@ -24,13 +24,13 @@ export default async function handler(req, res) {
       return res.status(403).json({ ok: false, error: 'Token inválido o expirado' });
     }
 
-    // Capturar datos del cliente
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    // Capturar IP y User-Agent
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
     const userAgent = req.headers['user-agent'] || 'unknown';
 
-    // Si es la primera vez que se usa el token → registrar IP y User-Agent
-    if (!tokenRow.first_ip && !tokenRow.first_user_agent) {
-      await sb
+    // Si es el primer uso, registrar IP y User-Agent
+    if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
+      const { error: updateError } = await sb
         .from('access_tokens')
         .update({
           first_ip: ip,
@@ -38,23 +38,30 @@ export default async function handler(req, res) {
           used_at: new Date().toISOString(),
         })
         .eq('token', token);
+
+      if (updateError) {
+        console.error('❌ Error registrando primer uso:', updateError);
+      }
     } else {
-      // Si ya estaba usado → puedes decidir si bloquear si cambia de dispositivo
+      // Si ya tiene registro, comparar
       if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
-        return res.status(403).json({ ok: false, error: 'El token ya fue usado en otro dispositivo' });
+        return res.status(403).json({
+          ok: false,
+          error: 'El token ya fue usado en otro dispositivo o navegador',
+        });
       }
     }
 
-    // Generar signed URL temporal
+    // Generar signed URL de Supabase
     const { data, error: urlError } = await sb.storage
       .from('Tour')
-      .createSignedUrl(file, 60 * 15); // 15 minutos
+      .createSignedUrl(file, 60 * 15); // 15 min
 
     if (urlError || !data?.signedUrl) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // 🚀 Redirigir directo al recurso
+    // Redirigir al recurso
     return res.redirect(302, data.signedUrl);
 
   } catch (e) {
