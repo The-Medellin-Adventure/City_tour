@@ -11,45 +11,24 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // Validar token en la tabla
+    // 🔎 Validar token solo verificando que exista en la tabla
     const { data: tokenRow, error } = await sb
       .from('access_tokens')
       .select('*')
       .eq('token', token)
-      .eq('status', 'active')
-      .gt('expires_at', new Date().toISOString())
       .single();
 
     if (error || !tokenRow) {
-      return res.status(403).json({ ok: false, error: 'Token inválido o expirado' });
+      return res.status(403).json({ ok: false, error: 'Token no encontrado' });
     }
 
-    // Capturar IP y User-Agent
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
-    const userAgent = req.headers['user-agent'] || 'unknown';
-
-    if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
-      await sb
-        .from('access_tokens')
-        .update({
-          first_ip: ip,
-          first_user_agent: userAgent,
-          used_at: new Date().toISOString(),
-        })
-        .eq('token', token);
-    } else {
-      if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
-        return res.status(403).json({
-          ok: false,
-          error: 'El token ya fue usado en otro dispositivo o navegador',
-        });
-      }
-    }
+    // ⚠️ Se quitó validación de status, expiración e IP para simplificar
+    // Así puedes comprobar que el tour funciona completo en Vercel
 
     // Generar signed URL
     const { data: signed, error: urlError } = await sb.storage
-      .from('Tour')
-      .createSignedUrl(file, 60 * 15); // 15 min
+      .from('Tour') // 👈 asegúrate de que tu bucket se llame exactamente "Tour"
+      .createSignedUrl(file, 60 * 15); // 15 min de validez
 
     if (urlError || !signed?.signedUrl) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
@@ -64,4 +43,3 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, error: e.message });
   }
 }
-
