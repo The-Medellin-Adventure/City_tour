@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // 🔎 Validar token solo verificando que exista en la tabla
+    // Validar token en la tabla (solo existencia)
     const { data: tokenRow, error } = await sb
       .from('access_tokens')
       .select('*')
@@ -22,21 +22,17 @@ export default async function handler(req, res) {
       return res.status(403).json({ ok: false, error: 'Token no encontrado' });
     }
 
-    // ⚠️ Se quitó validación de status, expiración e IP para simplificar
-    // Así puedes comprobar que el tour funciona completo en Vercel
-
     // Generar signed URL
     const { data: signed, error: urlError } = await sb.storage
-      .from('Tour') // 👈 asegúrate de que tu bucket se llame exactamente "Tour"
-      .createSignedUrl(file, 60 * 15); // 15 min de validez
+      .from('Tour')
+      .createSignedUrl(file, 60 * 15); // 15 min
 
     if (urlError || !signed?.signedUrl) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // ✅ Redirección compatible con Vercel
-    res.writeHead(302, { Location: signed.signedUrl });
-    res.end();
+    // ✅ Devolver JSON con la URL firmada
+    return res.status(200).json({ url: signed.signedUrl });
 
   } catch (e) {
     console.error('❌ Error en signed-url:', e);
