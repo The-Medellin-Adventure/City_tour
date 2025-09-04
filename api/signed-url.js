@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // 🔑 Validar token en la tabla access_tokens
+    // 1. Validar token
     const { data: tokenRow, error } = await sb
       .from('access_tokens')
       .select('*')
@@ -24,12 +24,12 @@ export default async function handler(req, res) {
       return res.status(403).json({ ok: false, error: 'Token inválido o expirado' });
     }
 
-    // 📌 Verificar primer uso (IP + navegador)
+    // 2. Capturar IP y User-Agent
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
     const userAgent = req.headers['user-agent'] || 'unknown';
 
+    // 3. Bloquear segundo dispositivo/navegador
     if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
-      // Guardamos el primer dispositivo que lo usa
       await sb
         .from('access_tokens')
         .update({
@@ -39,7 +39,6 @@ export default async function handler(req, res) {
         })
         .eq('token', token);
     } else {
-      // Bloquear si intenta abrir en otro dispositivo o navegador
       if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
         return res.status(403).json({
           ok: false,
@@ -48,7 +47,7 @@ export default async function handler(req, res) {
       }
     }
 
-    // 🎟 Generar signed URL de Supabase Storage
+    // 4. Generar signed URL
     const { data: signed, error: urlError } = await sb.storage
       .from('Tour')
       .createSignedUrl(file, 60 * 15); // 15 minutos
@@ -57,8 +56,9 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // 🔄 Responder con JSON (no redirect)
-    return res.status(200).json({ url: signed.signedUrl });
+    // 5. Redirigir al archivo firmado (para que <img> y <video> funcionen sin cambios)
+    res.writeHead(302, { Location: signed.signedUrl });
+    res.end();
 
   } catch (e) {
     console.error('❌ Error en signed-url:', e);
