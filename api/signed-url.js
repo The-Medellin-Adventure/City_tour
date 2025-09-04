@@ -10,25 +10,25 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // Validar token: activo, no vencido
+    // Validar token: activo y no vencido
     const { data: tokenRow, error } = await sb
       .from('access_tokens')
       .select('*')
       .eq('token', token)
       .eq('status', 'active')
-      .gt('expires_at', new Date().toISOString()) // ✅ fecha válida
+      .gt('expires_at', new Date().toISOString())
       .single();
 
     if (error || !tokenRow) {
       return res.status(403).json({ ok: false, error: 'Token inválido o expirado' });
     }
 
-    // Limitar al primer dispositivo
+    // Capturar IP y navegador
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
     const userAgent = req.headers['user-agent'] || 'unknown';
 
     if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
-      // Primer uso → guardar huella
+      // 👉 Primer uso → guardar huella
       await sb
         .from('access_tokens')
         .update({
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
         })
         .eq('token', token);
     } else if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
-      // Segundo dispositivo → bloquear
+      // 👉 Intento desde otro dispositivo/navegador
       return res.status(403).json({ ok: false, error: 'El token ya fue usado en otro dispositivo' });
     }
 
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // ✅ Devolver redirect
+    // Redirección
     res.writeHead(302, { Location: signed.signedUrl });
     res.end();
   } catch (e) {
