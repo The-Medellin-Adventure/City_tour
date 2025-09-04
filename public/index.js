@@ -14,6 +14,8 @@ window.token = new URLSearchParams(window.location.search).get("token");
   // ----------------------------
   // Cambia esto si quieres otra primera escena en el futuro
   // ----------------------------
+   // Obtener el token desde la URL y guardarlo globalmente
+  window.token = new URLSearchParams(window.location.search).get("token");
   const FIRST_SCENE_ID = "0-plaza-botero-botero";
 
   var panoElement = document.querySelector('#pano');
