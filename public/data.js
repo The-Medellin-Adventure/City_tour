@@ -1521,7 +1521,6 @@ window.APP_DATA = {
         }
        ]
       }
-
   ],
 
 
