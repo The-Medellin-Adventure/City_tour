@@ -1472,10 +1472,9 @@ window.APP_DATA = {
         }
       ]
     },
-{
-      
 
-"id": "14-pueblito-paisa",
+{
+      "id": "14-pueblito-paisa",
       "name": "Pueblito Paisa",
       "levels": [
         {
@@ -1505,19 +1504,24 @@ window.APP_DATA = {
       "linkHotspots": [],
       "infoHotspots": [
       {
-          "yaw": -2.9044878547184716,
-          "pitch": 0.10748410970518307,
-          "title": "🏞️ Pueblito Paisa, Un rincón de tradición en la cima del Cerro Nutibara",
-          "text": "El Pueblito Paisa es uno de los lugares más visitados de Medellín y un símbolo de la identidad antioqueña. Construido en 1978 en la cima del Cerro Nutibara, este espacio es una réplica de un típico pueblo antioqueño del siglo XIX, pensado para preservar y mostrar las tradiciones de la región.<br> Al llegar, lo primero que encontrarás es su plaza central, adornada con una fuente de piedra y rodeada de casas coloridas con balcones de madera, que evocan la arquitectura colonial. Alrededor de la plaza se ubican espacios típicos de un pueblo tradicional:<br>🏠 La alcaldía y la escuela, que representan la vida comunitaria.<br>💈 La barbería y la botica, sitios de encuentro cotidiano.<br>⛪ Una iglesia blanca, sencilla pero hermosa, que refleja la importancia de la fe en la vida paisa.<br>🛍️ Varias tiendas de artesanías donde podrás adquirir sombreros, mochilas, piezas de cerámica y recuerdos hechos a mano.<br>🍴 Restaurantes y fondas que ofrecen platos típicos como la bandeja paisa, la arepa antioqueña, dulces tradicionales y hasta aguardiente para los más curiosos.<br>Además de este recorrido pintoresco, el Pueblito Paisa es famoso por su mirador panorámico en 360°. Desde allí tendrás una de las mejores vistas de Medellín: de día puedes observar la ciudad extendiéndose entre las montañas. 
-
-<br>El Cerro Nutibara, donde se encuentra el Pueblito, también es un atractivo en sí mismo. Es una de las reservas naturales más importantes dentro del área urbana, con senderos para caminar, espacios culturales y el Museo de Ciudad, donde se cuenta la historia y evolución de Medellín a lo largo de los años.<br><br>
+          "yaw": -1.3463471587051483,
+          "pitch": 0.0027403894617243907,
+          "title": "🏞️ Pueblito Paisa",
+          "text": "El Pueblito Paisa es uno de los lugares más visitados de Medellín y un símbolo de la identidad antioqueña. Construido en 1978 en la cima del Cerro Nutibara, este espacio es una réplica de un típico pueblo antioqueño del siglo XIX, pensado para preservar y mostrar las tradiciones de la región.<br> Al llegar, lo primero que encontrarás es su plaza central, adornada con una fuente de piedra y rodeada de casas coloridas con balcones de madera, que evocan la arquitectura colonial. Alrededor de la plaza se ubican espacios típicos de un pueblo tradicional:<br>🏠 La alcaldía y la escuela, que representan la vida comunitaria.<br>💈 La barbería y la botica, sitios de encuentro cotidiano.<br>⛪ Una iglesia blanca, sencilla pero hermosa, que refleja la importancia de la fe en la vida paisa.<br>🛍️ Varias tiendas de artesanías donde podrás adquirir sombreros, mochilas, piezas de cerámica y recuerdos hechos a mano.<br>🍴 Restaurantes y fondas que ofrecen platos típicos como la bandeja paisa, la arepa antioqueña, dulces tradicionales y hasta aguardiente para los más curiosos.<br>Además de este recorrido pintoresco, el Pueblito Paisa es famoso por su mirador panorámico en 360°. Desde allí tendrás una de las mejores vistas de Medellín: de día puedes observar la ciudad extendiéndose entre las montañas."
+        },
+        {
+          "yaw": -2.3877587140456047,
+          "pitch": -0.4510192621363007,
+          "title": "Un rincón de tradición en la cima del Cerro Nutibara",
+          "text": "El Cerro Nutibara, donde se encuentra el Pueblito, también es un atractivo en sí mismo. Es una de las reservas naturales más importantes dentro del área urbana, con senderos para caminar, espacios culturales y el Museo de Ciudad, donde se cuenta la historia y evolución de Medellín a lo largo de los años.<br><br>
 
 📖 Un poco de historia: El Pueblito Paisa fue inaugurado en 1978 como un homenaje a la cultura y tradición de Antioquia. Su diseño se inspiró en el desaparecido pueblo de El Peñol, que quedó bajo el embalse de Guatapé, y buscó rescatar esa esencia de los pueblos antiguos para que tanto locales como visitantes tuvieran siempre un rincón donde vivir la tradición.<br><br>
 
-✨ Tip viajero: Lleva tu cámara 📸, porque cada rincón es perfecto para una foto."
+✨ Tip viajero: No olvides tu cámara 📸, porque cada rincón es perfecto para una foto.""
         }
-      ]
-    }
+       ]
+      }
+
   ],
 
 
