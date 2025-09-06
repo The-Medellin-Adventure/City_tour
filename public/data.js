@@ -1471,7 +1471,45 @@ window.APP_DATA = {
           "text": "El Teatro Metropolitano es uno de los templos culturales más importantes de Medellín. Inaugurado en 1987, su diseño moderno y su acústica impecable lo han convertido en sede de la Orquesta Filarmónica de Medellín y en escenario de conciertos, óperas, obras de teatro y festivales internacionales.<br> Con capacidad para más de 1.600 personas, es un espacio donde el arte cobra vida y donde Medellín se abre al mundo con espectáculos de gran calidad.<br>✨ Tip viajero: Si tienes la oportunidad, disfruta de un concierto en este teatro 🎶. La acústica es tan perfecta que cada nota se siente única y envolvente."
         }
       ]
+    },
+{
+      
+
+"id": "14-pueblito-paisa",
+      "name": "Pueblito Paisa",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.6642757357556945,
+        "pitch": -0.11017891448759443,
+        "fov": 1.2812361540040014
+      },
+      "linkHotspots": [],
+      "infoHotspots": []
     }
+
+
+
+
+
   ],
 
 
