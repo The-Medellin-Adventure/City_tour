@@ -3,6 +3,10 @@ import { supabaseAdmin } from "../lib/_supabaseClient.js";
 import { nanoid } from "nanoid";
 import nodemailer from "nodemailer";
 
+/**
+ * 🚀 Punto de entrada del Webhook
+ * Bold llamará este endpoint cuando ocurra un pago.
+ */
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Método no permitido" });
@@ -10,36 +14,58 @@ export default async function handler(req, res) {
 
   try {
     const event = req.body;
+    console.log("📩 Evento recibido de Bold:", JSON.stringify(event, null, 2));
 
-    // 1. Validar que el pago en Bold fue aprobado
+    // ====================================
+    // 1️⃣ Validar que el pago fue aprobado
+    // ====================================
     if (!event || event.payment?.status !== "APPROVED") {
       return res.status(400).json({ error: "Pago no aprobado" });
     }
 
+    // ====================================
+    // 2️⃣ Filtrar que el producto sea "Medellín Virtual 360"
+    // (según cómo Bold envía los datos, puede estar en order.product.name o similar)
+    // ====================================
+    const productName = event.order?.product?.name || event.checkout?.name;
+    if (productName !== "Medellín Virtual 360") {
+      console.log("⚠️ Pago recibido pero no corresponde al tour:", productName);
+      return res
+        .status(200)
+        .json({ ok: true, message: "Pago recibido pero no es del tour" });
+    }
+
+    // ====================================
+    // 3️⃣ Obtener email del cliente
+    // ====================================
     const email = event.customer?.email;
     if (!email) {
       return res.status(400).json({ error: "No se recibió email del cliente" });
     }
 
-    // 2. Crear token único con expiración de 1 hora
+    // ====================================
+    // 4️⃣ Crear token único en Supabase
+    // (sin fecha de expiración fija aún, eso se maneja en signed-url.js)
+    // ====================================
     const token = nanoid();
-    const expiresAt = new Date(Date.now() + 60 * 60 * 1000).toISOString();
 
     const sb = supabaseAdmin();
-
     await sb.from("access_tokens").insert({
       token,
       email,
       status: "active",
-      expires_at: expiresAt,
     });
 
     console.log("✅ Token insertado en Supabase:", token);
 
-    // 3. Construir URL del tour
+    // ====================================
+    // 5️⃣ Construir URL de acceso al tour
+    // ====================================
     const tourUrl = `https://citytour360.vercel.app/?token=${token}`;
 
-    // 4. Configurar transporte SMTP con Nodemailer
+    // ====================================
+    // 6️⃣ Configurar transporte SMTP
+    // ====================================
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || "587"),
@@ -50,7 +76,9 @@ export default async function handler(req, res) {
       },
     });
 
-    // 5. Enviar correo al cliente
+    // ====================================
+    // 7️⃣ Enviar correo al cliente
+    // ====================================
     await transporter.sendMail({
       from: `"CityTour360" <${process.env.SENDER_EMAIL}>`,
       to: email,
@@ -59,7 +87,7 @@ export default async function handler(req, res) {
         <h2>¡Gracias por tu compra!</h2>
         <p>Puedes acceder a tu tour virtual en el siguiente enlace:</p>
         <p><a href="${tourUrl}" target="_blank">${tourUrl}</a></p>
-        <p><b>Importante:</b> este enlace solo se puede abrir en un dispositivo y estará activo durante 1 hora.</p>
+        <p><b>Importante:</b> este enlace solo se puede abrir en un dispositivo y estará activo durante 1 hora a partir del primer uso.</p>
         <br/>
         <p>Si tienes problemas con el acceso, responde a este correo.</p>
       `,
@@ -67,6 +95,9 @@ export default async function handler(req, res) {
 
     console.log("📧 Correo enviado a:", email);
 
+    // ====================================
+    // 8️⃣ Responder a Bold
+    // ====================================
     return res.status(200).json({ ok: true, token, email });
   } catch (e) {
     console.error("❌ Error en bold-webhook:", e);
