@@ -61,7 +61,7 @@ export default async function handler(req, res) {
         <p><a href="${tourUrl}" target="_blank">${tourUrl}</a></p>
         <p><b>Importante:</b> este enlace solo se puede abrir en un dispositivo y estará activo durante 1 hora.</p>
         <br/>
-        <p>Si tienes problemas con el acceso, responde a este correo.</p>
+        <p>Si tienes problemas con el acceso, puedes escribirnos a este correo o al WhatsApp +573247615677.</p>
       `,
     });
 
