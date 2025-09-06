@@ -1512,11 +1512,7 @@ window.APP_DATA = {
           "yaw": -2.3877587140456047,
           "pitch": -0.4510192621363007,
           "title": "Un rincón de tradición en la cima del Cerro Nutibara",
-          "text": "El Cerro Nutibara, donde se encuentra el Pueblito, también es un atractivo en sí mismo. Es una de las reservas naturales más importantes dentro del área urbana, con senderos para caminar, espacios culturales y el Museo de Ciudad, donde se cuenta la historia y evolución de Medellín a lo largo de los años.<br>
-
-📖 Un poco de historia: El Pueblito Paisa fue inaugurado en 1978 como un homenaje a la cultura y tradición de Antioquia. Su diseño se inspiró en el desaparecido pueblo de El Peñol, que quedó bajo el embalse de Guatapé, y buscó rescatar esa esencia de los pueblos antiguos para que tanto locales como visitantes tuvieran siempre un rincón donde vivir la tradición.<br>
-
-✨ Tip viajero: No olvides tu cámara 📸, porque cada rincón es perfecto para una foto."
+          "text": "El Cerro Nutibara, donde se encuentra el Pueblito, también es un atractivo en sí mismo. Es una de las reservas naturales más importantes dentro del área urbana, con senderos para caminar, espacios culturales y el Museo de Ciudad, donde se cuenta la historia y evolución de Medellín a lo largo de los años.<br>📖 Un poco de historia: El Pueblito Paisa fue inaugurado en 1978 como un homenaje a la cultura y tradición de Antioquia. Su diseño se inspiró en el desaparecido pueblo de El Peñol, que quedó bajo el embalse de Guatapé, y buscó rescatar esa esencia de los pueblos antiguos para que tanto locales como visitantes tuvieran siempre un rincón donde vivir la tradición.<br>✨ Tip viajero: No olvides tu cámara 📸, porque cada rincón es perfecto para una foto."
         }
        ]
       }
