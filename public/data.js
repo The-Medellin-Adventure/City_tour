@@ -450,8 +450,8 @@ window.APP_DATA = {
     "tooltip": "Siente el arte a cielo abierto",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/plaza/botero.jpg`, "caption": ""},
-]
+        "src": `/api/signed-url?token=${window.token}&file=img/plaza/botero.jpg`, "caption": ""}
+     ]
   },     
   {
     "type": "camera",
@@ -462,8 +462,8 @@ window.APP_DATA = {
     "tooltip": "Vive el arte a cielo abierto",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/plaza/Fototuristas.jpg`, "caption": ""},
-]
+        "src": `/api/signed-url?token=${window.token}&file=img/plaza/Fototuristas.jpg`, "caption": ""}
+      ]
   },     
   {
 "type": "camera",
@@ -542,7 +542,7 @@ window.APP_DATA = {
     "tooltip": "Exterior",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/exterior.jpg`, "caption": ""},
+        "src": `/api/signed-url?token=${window.token}&file=img/rafael/exterior.jpg`, "caption": ""}
 ]
   },   
   {
@@ -557,7 +557,7 @@ window.APP_DATA = {
         "src": `/api/signed-url?token=${window.token}&file=img/rafael/Escalas.jpg`, "caption": ""},
       { "src": `/api/signed-url?token=${window.token}&file=img/rafael/escalasinteriores.jpg`, "caption": ""},
       { "src": `/api/signed-url?token=${window.token}&file=img/rafael/corredores.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/Interior.jpg`, "caption": ""},
+      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/Interior.jpg`, "caption": ""}
     ]
   },     
   {
@@ -571,7 +571,7 @@ window.APP_DATA = {
       {
         "src": `/api/signed-url?token=${window.token}&file=img/rafael/salones.jpg`, "caption": ""},
       { "src": `/api/signed-url?token=${window.token}&file=img/rafael/salon.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/corredores.jpg`, "caption": ""},      
+      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/corredores.jpg`, "caption": ""}      
     ]
   },     
   {
@@ -585,7 +585,7 @@ window.APP_DATA = {
       {
         "src": `/api/signed-url?token=${window.token}&file=img/rafael/Terraza.jpg`, "caption": ""},
       { "src": `/api/signed-url?token=${window.token}&file=img/rafael/vista.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/Vistaterraza.jpg`, "caption": ""},      
+      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/Vistaterraza.jpg`, "caption": ""}      
     ]
   },     
 {
@@ -597,7 +597,7 @@ window.APP_DATA = {
     "tooltip": "Zona de descanso",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/Fuente_cafeteria.jpg`, "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."},
+        "src": `/api/signed-url?token=${window.token}&file=img/rafael/Fuente_cafeteria.jpg`, "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."}
 ]
   },     
   {
@@ -1364,7 +1364,7 @@ window.APP_DATA = {
     "images": [
       { "src": `/api/signed-url?token=${window.token}&file=img/epm/image.jpeg`, "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
       { "src": `/api/signed-url?token=${window.token}&file=img/epm/interior.jpeg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EDIFICIO.jpg`, "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
+      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EDIFICIO.jpg`, "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
     ]
   },
 {
@@ -1377,7 +1377,7 @@ window.APP_DATA = {
     "images": [
       { "src": `/api/signed-url?token=${window.token}&file=img/pies/ParquePies.JPG`, "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
       { "src": `/api/signed-url?token=${window.token}&file=img/epm/interior.jpeg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EDIFICIO.jpg`, "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." },
+      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EDIFICIO.jpg`, "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
     ]
   },
 
@@ -1397,8 +1397,6 @@ window.APP_DATA = {
   }
 ],
      
-
-
 
 "linkHotspots": [
         {
@@ -1474,7 +1472,8 @@ window.APP_DATA = {
     },
 
 {
-      "id": "14-pueblito-paisa",
+
+"id": "14-pueblito-paisa",
       "name": "Pueblito Paisa",
       "levels": [
         {
