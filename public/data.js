@@ -597,7 +597,7 @@ window.APP_DATA = {
     "tooltip": "Zona de descanso",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/Fuente _cafeteria.jpg`, "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."},
+        "src": `/api/signed-url?token=${window.token}&file=img/rafael/Fuente_cafeteria.jpg`, "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."},
 ]
   },     
   {
@@ -1517,7 +1517,7 @@ window.APP_DATA = {
 
 📖 Un poco de historia: El Pueblito Paisa fue inaugurado en 1978 como un homenaje a la cultura y tradición de Antioquia. Su diseño se inspiró en el desaparecido pueblo de El Peñol, que quedó bajo el embalse de Guatapé, y buscó rescatar esa esencia de los pueblos antiguos para que tanto locales como visitantes tuvieran siempre un rincón donde vivir la tradición.<br><br>
 
-✨ Tip viajero: No olvides tu cámara 📸, porque cada rincón es perfecto para una foto.""
+✨ Tip viajero: No olvides tu cámara 📸, porque cada rincón es perfecto para una foto."
         }
        ]
       }
