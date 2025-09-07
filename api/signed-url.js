@@ -30,15 +30,15 @@ export default async function handler(req, res) {
 
     // 3. Bloquear segundo dispositivo/navegador
     if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
-await sb
-  .from('access_tokens')
-  .update({
-    first_ip: ip,
-    first_user_agent: userAgent,
-    used_at: new Date().toISOString(),
-    expires_at: new Date(Date.now() + 60*60*1000).toISOString(), // expira en 1h
-  })
-  .eq('token', token);
+      await sb
+        .from('access_tokens')
+        .update({
+          first_ip: ip,
+          first_user_agent: userAgent,
+          used_at: new Date().toISOString(),
+          expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString(), // expira en 1h
+        })
+        .eq('token', token);
     } else {
       if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
         return res.status(403).json({
@@ -57,10 +57,16 @@ await sb
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-// 5. Devolver según tipo de petición
-if (req.headers.accept && req.headers.accept.includes('application/json')) {
-  return res.status(200).json({ ok: true, signedUrl: signed.signedUrl });
-} else {
-  res.writeHead(302, { Location: signed.signedUrl });
-  res.end();
+    // 5. Devolver según tipo de petición
+    if (req.headers.accept && req.headers.accept.includes('application/json')) {
+      return res.status(200).json({ ok: true, signedUrl: signed.signedUrl });
+    } else {
+      res.writeHead(302, { Location: signed.signedUrl });
+      res.end();
+    }
+
+  } catch (e) {
+    console.error('❌ Error en signed-url:', e);
+    return res.status(500).json({ ok: false, error: e.message });
+  }
 }
