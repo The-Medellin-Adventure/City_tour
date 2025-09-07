@@ -44,20 +44,22 @@ export default async function handler(req, res) {
     }
 
     // ====================================
-    // 4️⃣ Crear token único en Supabase
-    // (sin fecha de expiración fija aún, eso se maneja en signed-url.js)
-    // ====================================
-    const token = nanoid();
+// 4️⃣ Crear token único en Supabase
+const token = nanoid();
 
-    const sb = supabaseAdmin();
-    await sb.from("access_tokens").insert({
-    token,
-    email,
-    status: "active",
-    expires_at: new Date(Date.now() + 7*24*60*60*1000).toISOString(), // válido 7 días
-    });
+const sb = supabaseAdmin();
+const { data, error } = await sb.from("access_tokens").insert({
+  token,
+  email,
+  status: "active",
+  expires_at: new Date(Date.now() + 7*24*60*60*1000).toISOString(),
+}).select();
 
-    console.log("✅ Token insertado en Supabase:", token);
+if (error) {
+  console.error("❌ Error insertando token en Supabase:", error);
+} else {
+  console.log("✅ Token insertado en Supabase:", data);
+}
 
     // ====================================
     // 5️⃣ Construir URL de acceso al tour
