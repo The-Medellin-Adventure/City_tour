@@ -83,20 +83,27 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
     // Limpiar
     swiperWrapper.innerHTML = '';
 
-    imagenes.forEach(function (img) {
-      var src = img.src || img.url || '';
-      var caption = img.caption || img.texto || '';
+imagenes.forEach(function (img) {
+  var filePath = (img.src || '').replace(`/api/signed-url?token=${window.token}&file=`, '');
+  var caption = img.caption || img.texto || '';
+
+  fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)}`)
+    .then(res => res.json())
+    .then(json => {
+      if (!json.signedUrl) throw new Error(json.error || 'No signedUrl');
       var slide = document.createElement('div');
       slide.className = 'swiper-slide';
       slide.innerHTML = ''
         + '<div style="aspect-ratio:3/2;display:flex;justify-content:center;align-items:center;">'
-        +   '<img src="' + escapeHtml(src) + '" '
+        +   '<img src="' + escapeHtml(json.signedUrl) + '" '
         +       'style="max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;" '
         +       'alt="' + escapeHtml(caption) + '">'
         + '</div>'
         + '<p style="color:white;margin-top:8px;text-align:center;">' + escapeHtml(caption) + '</p>';
       swiperWrapper.appendChild(slide);
-    });
+    })
+    .catch(err => console.error('Error cargando imagen firmada:', err));
+});
 
     carruselContainer.style.display = 'flex';
 
