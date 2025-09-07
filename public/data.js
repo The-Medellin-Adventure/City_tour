@@ -1503,14 +1503,14 @@ window.APP_DATA = {
       "linkHotspots": [],
       "infoHotspots": [
       {
-          "yaw": -1.3463471587051483,
-          "pitch": 0.0027403894617243907,
+          "yaw": yaw: 0.0099,
+          "pitch": -0.3118,
           "title": "🏞️ Pueblito Paisa",
           "text": "El Pueblito Paisa es uno de los lugares más visitados de Medellín y un símbolo de la identidad antioqueña. Construido en 1978 en la cima del Cerro Nutibara, este espacio es una réplica de un típico pueblo antioqueño del siglo XIX, pensado para preservar y mostrar las tradiciones de la región.<br> Al llegar, lo primero que encontrarás es su plaza central, adornada con una fuente de piedra y rodeada de casas coloridas con balcones de madera, que evocan la arquitectura colonial. Alrededor de la plaza se ubican espacios típicos de un pueblo tradicional:<br>🏠 La alcaldía y la escuela, que representan la vida comunitaria.<br>💈 La barbería y la botica, sitios de encuentro cotidiano.<br>⛪ Una iglesia blanca, sencilla pero hermosa, que refleja la importancia de la fe en la vida paisa.<br>🛍️ Varias tiendas de artesanías donde podrás adquirir sombreros, mochilas, piezas de cerámica y recuerdos hechos a mano.<br>🍴 Restaurantes y fondas que ofrecen platos típicos como la bandeja paisa, la arepa antioqueña, dulces tradicionales y hasta aguardiente para los más curiosos.<br>Además de este recorrido pintoresco, el Pueblito Paisa es famoso por su mirador panorámico en 360°. Desde allí tendrás una de las mejores vistas de Medellín: de día puedes observar la ciudad extendiéndose entre las montañas."
         },
         {
-          "yaw": -2.3877587140456047,
-          "pitch": -0.4510192621363007,
+          "yaw": -0.8371,
+          "pitch": 0.1730,
           "title": "Un rincón de tradición en la cima del Cerro Nutibara",
           "text": "El Cerro Nutibara, donde se encuentra el Pueblito, también es un atractivo en sí mismo. Es una de las reservas naturales más importantes dentro del área urbana, con senderos para caminar, espacios culturales y el Museo de Ciudad, donde se cuenta la historia y evolución de Medellín a lo largo de los años.<br>
 
