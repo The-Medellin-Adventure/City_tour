@@ -56,11 +56,12 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-// 5. Devolver JSON con la URL firmada
-      return res.status(200).json({ ok: true, signedUrl: signed.signedUrl });
-
-  } catch (e) {
-    console.error('❌ Error en signed-url:', e);
-    return res.status(500).json({ ok: false, error: e.message });
-  }
+// 5. Devolver según tipo de petición
+if (req.headers.accept && req.headers.accept.includes('application/json')) {
+  // Peticiones hechas con fetch (carruseles)
+  return res.status(200).json({ ok: true, signedUrl: signed.signedUrl });
+} else {
+  // Peticiones hechas por <img> o <video> (escenas y videos)
+  res.writeHead(302, { Location: signed.signedUrl });
+  res.end();
 }
