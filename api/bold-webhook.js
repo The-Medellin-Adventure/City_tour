@@ -4,8 +4,10 @@ import { nanoid } from "nanoid";
 import nodemailer from "nodemailer";
 
 /**
- * 🚀 Punto de entrada del Webhook
- * Bold llamará este endpoint cuando ocurra un pago.
+ * 🚀 Webhook de Bold
+ * Este endpoint recibe las notificaciones de pago de Bold
+ * y, si el pago es aprobado, genera un token en Supabase
+ * y envía un correo al cliente con el acceso al tour.
  */
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -13,63 +15,76 @@ export default async function handler(req, res) {
   }
 
   try {
+    // ====================================
+    // 0️⃣ Log del evento completo
+    // ====================================
+    console.log("📩 Evento recibido de Bold (RAW body):", req.body);
     const event = req.body;
-    console.log("📩 Evento recibido de Bold:", JSON.stringify(event, null, 2));
+    console.log("📩 Evento recibido de Bold (JSON):", JSON.stringify(event, null, 2));
 
     // ====================================
     // 1️⃣ Validar que el pago fue aprobado
+    // Bold puede mandar el estado en distintos campos:
+    // - event.payment.status → "APPROVED"
+    // - event.type → "SALE_APPROVED" | "SALE_REJECTED"
+    // - event.data.status (en algunas integraciones)
     // ====================================
-const status = event.payment?.status || event.type;
-if (status !== "APPROVED" && status !== "SALE_APPROVED") {
-  console.log("⚠️ Pago rechazado o pendiente:", status);
-  return res.status(400).json({ error: "Pago no aprobado", status });
-}
+    const status = event.payment?.status || event.type || event.data?.status;
+
+    if (status !== "APPROVED" && status !== "SALE_APPROVED") {
+      console.log("⚠️ Pago rechazado o pendiente. Estado recibido:", status);
+      return res.status(400).json({ error: "Pago no aprobado", status });
+    }
+    console.log("✅ Pago aprobado con estado:", status);
 
     // ====================================
-    // 2️⃣ Filtrar que el producto sea "Medellín Virtual 360"
-    // (según cómo Bold envía los datos, puede estar en order.product.name o similar)
+    // 2️⃣ Validar que el producto corresponda al tour
+    // Según la integración puede estar en order.product.name o checkout.name
     // ====================================
     const productName = event.order?.product?.name || event.checkout?.name;
     if (productName !== "Medellín Virtual 360") {
       console.log("⚠️ Pago recibido pero no corresponde al tour:", productName);
-      return res
-        .status(200)
-        .json({ ok: true, message: "Pago recibido pero no es del tour" });
+      return res.status(200).json({ ok: true, message: "Pago recibido pero no es del tour" });
     }
+    console.log("✅ Producto validado:", productName);
 
     // ====================================
     // 3️⃣ Obtener email del cliente
     // ====================================
     const email = event.customer?.email;
     if (!email) {
+      console.error("❌ No se recibió email del cliente");
       return res.status(400).json({ error: "No se recibió email del cliente" });
     }
+    console.log("✅ Email del cliente:", email);
 
     // ====================================
-// 4️⃣ Crear token único en Supabase
-const token = nanoid();
+    // 4️⃣ Crear token único en Supabase
+    // ====================================
+    const token = nanoid();
 
-const sb = supabaseAdmin();
-const { data, error } = await sb.from("access_tokens").insert({
-  token,
-  email,
-  status: "active",
-  expires_at: new Date(Date.now() + 7*24*60*60*1000).toISOString(),
-}).select();
+    const sb = supabaseAdmin();
+    const { data, error } = await sb.from("access_tokens").insert({
+      token,
+      email,
+      status: "active",
+      expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // válido 7 días
+    }).select();
 
-if (error) {
-  console.error("❌ Error insertando token en Supabase:", error);
-} else {
-  console.log("✅ Token insertado en Supabase:", data);
-}
+    if (error) {
+      console.error("❌ Error insertando token en Supabase:", error);
+      return res.status(500).json({ error: "No se pudo crear token en Supabase", detail: error });
+    }
+    console.log("✅ Token insertado en Supabase:", data);
 
     // ====================================
     // 5️⃣ Construir URL de acceso al tour
+    // 👉 Cambia el dominio si usas un custom domain
     // ====================================
     const tourUrl = `https://citytour360.vercel.app/?token=${token}`;
 
     // ====================================
-    // 6️⃣ Configurar transporte SMTP
+    // 6️⃣ Configurar transporte SMTP (correo)
     // ====================================
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -101,7 +116,7 @@ if (error) {
     console.log("📧 Correo enviado a:", email);
 
     // ====================================
-    // 8️⃣ Responder a Bold
+    // 8️⃣ Responder a Bold (debe ser 200 para que no reintente)
     // ====================================
     return res.status(200).json({ ok: true, token, email });
   } catch (e) {
