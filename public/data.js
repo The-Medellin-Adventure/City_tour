@@ -68,7 +68,7 @@ window.APP_DATA = {
         "caption": "Interior estación Parque Berrio del metro"
      },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/escena1/Rutas_Metro.jpg`,
+        "src": "img/escena1/Rutas_Metro.jpg",
         "caption": "Mapa rutas del Metro de Medellín."
       }
     ]
@@ -82,91 +82,91 @@ window.APP_DATA = {
     "tooltip": "Esculturas Maestro Fernando Botero",
     "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Maternidad.jpg`,
+        "src": "img/carrusel/Maternidad.jpg",
         "caption": "Maternidad. Una de las obras más tiernas de Botero, Maternidad captura el vínculo entre madre e hijo, una representación de la protección y el amor maternal."
       },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Caballo.JPG`,
+        "src": "img/carrusel/Caballo.JPG",
         "caption": "Caballo. El Caballo es otra pieza monumental que resalta el amor de Botero por los animales, representados en su estilo característico, con líneas suaves y voluminosas."
       },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Hombre_Vestido.jpg`,
+        "src": "img/carrusel/Hombre_Vestido.jpg",
 "caption": "Hombre Vestido. Es una representación de un hombre robusto, completamente vestido, con una postura erguida que refleja el poder y la presencia masculina."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mujer_Vestida.jpg`,
+        "src": "img/carrusel/Mujer_Vestida.jpg",
 "caption": "Mujer Vestida. Esta figura muestra a una mujer con ropa, su volumen amplificado transmitiendo una sensación de plenitud y fortaleza."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mujer_con_Espejo.jpg`,
+        "src": "img/carrusel/Mujer_con_Espejo.jpg",
 "caption": "Mujer con Espejo. En esta escultura, una mujer sostiene un espejo, una obra que hace referencia tanto a la belleza femenina como a la introspección y el reflejo personal."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Adan.jpg`,
+        "src": "img/carrusel/Adan.jpg",
 "caption": "Adan."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Eva.jpg`,
+        "src": "img/carrusel/Eva.jpg",
 "caption": "Eva."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mujer_con_Espejo.jpg`,
+        "src": "img/carrusel/Mujer_con_Espejo.jpg",
 "caption": "Mujer con Espejo. Esta escultura muestra una mujer que sostiene una fruta, otra de las representaciones clásicas de Botero, que fusiona la figura humana con objetos de la vida cotidiana."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Gato.jpg`,
+        "src": "img/carrusel/Gato.jpg",
 "caption": "Una de las esculturas más emblemáticas, El Gato ha llegado a ser un ícono de la ciudad. Con sus orejas grandes y cuerpo voluminoso, el gato destaca por su tamaño y su invitación a la interacción del público."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Perro.jpg`,
+        "src": "img/carrusel/Perro.jpg",
 "caption": "Perro."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mujer_Sentada.jpg`,
+        "src": "img/carrusel/Mujer_Sentada.jpg",
 "caption": "Mujer Sentada. Esta figura de mujer sentada es una representación de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Pensamiento.jpg`,
+        "src": "img/carrusel/Pensamiento.jpg",
 "caption": "Pensamiento. Esta escultura muestra una mujer voluptuosa recostada sobre una gran cabeza masculina, simbolizando que las ideas y la reflexión reposan en la mente humana. Es una metáfora visual de la relación entre cuerpo, mente y pensamiento."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Cabeza.jpg`,
+        "src": "img/carrusel/Cabeza.jpg",
 "caption": "Cabeza. Esta figura de mujer sentada es una representación de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Esfinge.jpg`,
+        "src": "img/carrusel/Esfinge.jpg",
 "caption": "Esfinge. Figura mitológica transformada en su característico estilo voluminoso, con un aire de misterio y sabiduría."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Rapto_de_Europa.jpg`,
+        "src": "img/carrusel/Rapto_de_Europa.jpg",
 "caption": "Rapto de Europa. Una obra que hace alusión a la mitología clásica, donde Europa es raptada por Zeus transformado en toro."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mujer_Reclinada.jpg`,
+        "src": "img/carrusel/Mujer_Reclinada.jpg",
 "caption": "Mujer Reclinada."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Hombre_Caminante.jpg`,
+        "src": "img/carrusel/Hombre_Caminante.jpg",
 "caption": "Hombre Caminante. Muestra una figura humana en movimiento, capturando la fuerza y determinación de un ser humano que avanza en su camino."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Soldado_Romano.jpg`,
+        "src": "img/carrusel/Soldado_Romano.jpg",
 "caption": "Soldado Romano. Es una obra que hace alusión a los guerreros del Imperio Romano, representados con la fuerte presencia de las figuras de Botero."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Venus_Dormida.jpg`,
+        "src": "img/carrusel/Venus_Dormida.jpg",
 "caption": "Venus Dormida. Esta figura representa la figura típica de Venus (la diosa del amor), reclinada en actitud serena y sensual. Más que un símbolo mitológico, esta Venus parece invitarnos al disfrute tranquilo y contemplativo de la belleza en el espacio público"
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Hombre_a_Caballo.jpg`,
+        "src": "img/carrusel/Hombre_a_Caballo.jpg",
 "caption": "Hombre a caballo. Esta escultura presenta a un jinete y su montura en proporciones generosas y pausadas, invitando a la contemplación más que al movimiento. Es una metáfora del equilibrio entre fuerza y calma, enmarcada en un entorno urbano que dialoga entre arquitectura y naturaleza, memoria y renovación."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mujer.jpg`,
+        "src": "img/carrusel/Mujer.jpg",
 "caption": "Mujer. Una figura femenina de grandes proporciones, representando la sensualidad y la fortaleza femenina en la tradición boterista."
 },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mano.jpg`,
+        "src": "img/carrusel/Mano.jpg",
 "caption": "La Mano de Botero es una escultura que resalta la importancia de este órgano humano, representado de manera gigantesca y detallada, invitando a la reflexión sobre la acción humana."
       }
     ]
@@ -180,27 +180,27 @@ window.APP_DATA = {
     "tooltip": "Rafael Uribe Uribe",
     "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/escena1/Entrada.jpg`,
+        "src": "img/escena1/Entrada.jpg",
         "caption": "Entrada Palacio de la Cultura Rafael Uribe Uribe"
       },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/escena1/RafaelUribeUribe.jpg`,
+        "src": "img/escena1/RafaelUribeUribe.jpg",
         "caption": "Fachada Palacio Rafael Uribe Uribe"
       },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/escena1/RafaelUribeUribe_2.jpg`,
+        "src": "img/escena1/RafaelUribeUribe_2.jpg",
         "caption": "Fachada Palacio Rafael Uribe Uribe"
       },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/escena1/Vistadesdecupula1.jpg`,
+        "src": "img/escena1/Vistadesdecupula1.jpg",
         "caption": "Vista Edificio Coltejer desde la cúpula del Palacio Uribe Uribe"
       },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/escena1/Cupula.jpg`,
+        "src": "img/escena1/Cupula.jpg",
         "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
      },
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/escena1/Vistadesdecupula.jpg`,
+        "src": "img/escena1/Vistadesdecupula.jpg",
         "caption": "Tendrás una panorámica del centro, la Plaza Botero y de una gran parte de la ciudad"
      }
     ]
@@ -271,13 +271,13 @@ window.APP_DATA = {
     "tooltip": "Museo de Antioquia",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Museo1.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Museo2.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Museo3.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Museo4.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Museo5.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Museo6.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Museo7.jpg`, "caption": ""}
+        "src": "img/00_Museo/Museo1.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo2.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo3.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo4.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo5.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo6.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo7.jpg", "caption": ""}
     ]
   },     
   {
@@ -288,7 +288,7 @@ window.APP_DATA = {
     "yaw": -1.4495,
     "tooltip": "Esfinge",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Esfinge.jpg`, "caption": "1995. Bronce"}
+      {"src": "img/carrusel/Esfinge.jpg", "caption": "1995. Bronce"}
     ]
   },  
 {
@@ -299,7 +299,7 @@ window.APP_DATA = {
     "yaw": 0.1576,
     "tooltip": "La alegría de nuestros visitantes",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/00_Museo/Turistas.jpg`, "caption": "Puedes hacer el recorrido y tomar todas las fotos que quieras"}
+      {"src": "img/00_Museo/Turistas.jpg", "caption": "Puedes hacer el recorrido y tomar todas las fotos que quieras"}
     ]
   },
   {
@@ -310,7 +310,7 @@ window.APP_DATA = {
     "yaw": -0.5753,
     "tooltip": "Mujer con Fruta",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mujer_con_Fruta.jpg`, "caption": "1996. Bronce"}
+      {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": "1996. Bronce"}
     ]
   },     
   {
@@ -321,7 +321,7 @@ window.APP_DATA = {
     "yaw": -0.9806,
     "tooltip": "Mano",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Mano.jpg`, "caption": "1992. Bronce"}
+      {"src": "img/carrusel/Mano.jpg", "caption": "1992. Bronce"}
     ]
   },     
   {
@@ -332,7 +332,7 @@ window.APP_DATA = {
     "yaw": -0.0550,
     "tooltip": "Gato",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Gato.jpg`, "caption": "1993. Bronce"}
+      {"src": "img/carrusel/Gato.jpg", "caption": "1993. Bronce"}
     ]
   },     
   {
@@ -343,7 +343,7 @@ window.APP_DATA = {
     "yaw": 0.3503,
     "tooltip": "Cabeza",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Cabeza.jpg`, "caption": "1999. Bronce"}
+      {"src": "img/carrusel/Cabeza.jpg", "caption": "1999. Bronce"}
     ]
   },     
   {
@@ -354,7 +354,7 @@ window.APP_DATA = {
     "yaw": 0.8948,
     "tooltip": "Soldado Romano",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Soldado_Romano.jpg`, "caption": "1986. Bronce"}
+      {"src": "img/carrusel/Soldado_Romano.jpg", "caption": "1986. Bronce"}
     ]
   },     
   {
@@ -365,7 +365,7 @@ window.APP_DATA = {
     "yaw": 1.7038,
     "tooltip": "Venus Dormida",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Venus_Dormida.jpg`, "caption": "1994. Bronce"}
+      {"src": "img/carrusel/Venus_Dormida.jpg", "caption": "1994. Bronce"}
     ]
   },     
   {
@@ -376,7 +376,7 @@ window.APP_DATA = {
     "yaw": 1.5813,
     "tooltip": "Hombre Caminante",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Hombre_Caminante.jpg`, "caption": "1999. Bronce"}
+      {"src": "img/carrusel/Hombre_Caminante.jpg", "caption": "1999. Bronce"}
     ]
   },     
   {
@@ -387,7 +387,7 @@ window.APP_DATA = {
     "yaw": -1.6850,
     "tooltip": "Rapto de Europa",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/carrusel/Rapto_de_Europa.jpg`, "caption": "1991. Bronce"}
+      {"src": "img/carrusel/Rapto_de_Europa.jpg", "caption": "1991. Bronce"}
       ]
     }
   ],
@@ -450,7 +450,7 @@ window.APP_DATA = {
     "tooltip": "Siente el arte a cielo abierto",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/plaza/botero.jpg`, "caption": ""}
+        "src": "img/plaza/botero.jpg", "caption": ""}
      ]
   },     
   {
@@ -462,7 +462,7 @@ window.APP_DATA = {
     "tooltip": "Vive el arte a cielo abierto",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/plaza/Fototuristas.jpg`, "caption": ""}
+        "src": "img/plaza/Fototuristas.jpg", "caption": ""}
       ]
   },     
   {
@@ -473,7 +473,7 @@ window.APP_DATA = {
     "yaw": -3.0319,
     "tooltip": "Vive el arte",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/plaza/arte.jpg`, "caption": ""}
+      {"src": "img/plaza/arte.jpg", "caption": ""}
       ]
     }
   ],
@@ -542,7 +542,7 @@ window.APP_DATA = {
     "tooltip": "Exterior",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/exterior.jpg`, "caption": ""}
+        "src": "img/rafael/exterior.jpg", "caption": ""}
 ]
   },   
   {
@@ -554,10 +554,10 @@ window.APP_DATA = {
     "tooltip": "Interior",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/Escalas.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/escalasinteriores.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/corredores.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/Interior.jpg`, "caption": ""}
+        "src": "img/rafael/Escalas.jpg", "caption": ""},
+      { "src": "img/rafael/escalasinteriores.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""},
+      { "src": "img/rafael/Interior.jpg", "caption": ""}
     ]
   },     
   {
@@ -569,9 +569,9 @@ window.APP_DATA = {
     "tooltip": "Interior",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/salones.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/salon.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/corredores.jpg`, "caption": ""}      
+        "src": "img/rafael/salones.jpg", "caption": ""},
+      { "src": "img/rafael/salon.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""}      
     ]
   },     
   {
@@ -583,9 +583,9 @@ window.APP_DATA = {
     "tooltip": "Terraza",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/Terraza.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/vista.jpg`, "caption": ""},
-      { "src": `/api/signed-url?token=${window.token}&file=img/rafael/Vistaterraza.jpg`, "caption": ""}      
+        "src": "img/rafael/Terraza.jpg", "caption": ""},
+      { "src": "img/rafael/vista.jpg", "caption": ""},
+      { "src": "img/rafael/Vistaterraza.jpg", "caption": ""}      
     ]
   },     
 {
@@ -597,7 +597,7 @@ window.APP_DATA = {
     "tooltip": "Zona de descanso",
      "images": [
       {
-        "src": `/api/signed-url?token=${window.token}&file=img/rafael/Fuente_cafeteria.jpg`, "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."}
+        "src": "img/rafael/Fuente_cafeteria.jpg", "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."}
 ]
   },     
   {
@@ -608,7 +608,7 @@ window.APP_DATA = {
     "yaw": 1.2040,
     "tooltip": "Información",
     "images": [
-      {"src": `/api/signed-url?token=${window.token}&file=img/rafael/Información.jpg`, "caption": "El Palacio de la Cultura no es solo un edificio, es un viaje por la historia, el arte y la arquitectura que marcan la esencia de Medellín. Un lugar donde el pasado y el presente se encuentran para regalarnos una experiencia única en la ciudad de la eterna primavera. ¡Anímate a descubrirlo!"}
+      {"src": "img/rafael/Información.jpg", "caption": "El Palacio de la Cultura no es solo un edificio, es un viaje por la historia, el arte y la arquitectura que marcan la esencia de Medellín. Un lugar donde el pasado y el presente se encuentran para regalarnos una experiencia única en la ciudad de la eterna primavera. ¡Anímate a descubrirlo!"}
       ]
     }
   ],
@@ -676,10 +676,10 @@ window.APP_DATA = {
     "yaw": -0.9533,
     "tooltip": "Antigua Plaza Cisneros",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/1Gal1Img2450.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/antiguaplaza.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/plaza.jpg`, "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },     
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/comentario.jpg`, "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?" }
+      { "src": "img/cisneros/1Gal1Img2450.jpg", "caption": "" },
+      { "src": "img/cisneros/antiguaplaza.jpg", "caption": "" },
+      { "src": "img/cisneros/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },     
+      { "src": "img/cisneros/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?" }
     ]
   },
   {
@@ -690,11 +690,11 @@ window.APP_DATA = {
     "yaw": -0.2896,
     "tooltip": "Historia",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/Plaza_de_Mercado.jpg`, "caption": "Plaza de Mercado 1920" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/Plazacisneros_1905.jpg`, "caption": "Plaza Cisneros, año 1905" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/Panormámica.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/noticiaincendio.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/antesyhoy.jpg`, "caption": "" }
+      { "src": "img/cisneros/Plaza_de_Mercado.jpg", "caption": "Plaza de Mercado 1920" },
+      { "src": "img/cisneros/Plazacisneros_1905.jpg", "caption": "Plaza Cisneros, año 1905" },
+      { "src": "img/cisneros/Panormámica.jpg", "caption": "" },
+      { "src": "img/cisneros/noticiaincendio.png", "caption": "" },
+      { "src": "img/cisneros/antesyhoy.jpg", "caption": "" }
     ]
   },
   {
@@ -705,9 +705,9 @@ window.APP_DATA = {
     "yaw": 0.1128,
     "tooltip": "Edificios Vásquez y Carré",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/edificio-v__squez.jpg`, "caption": "Los edificios mellizos Vásquez y Carré, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones más altas de la ciudad. Diseñados por el arquitecto francés Charles Émile Carré, " },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/5111713-me.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/PANO_20250710_130603.jpg`, "caption": "La fachada de estos edificios mellizos se asemeja a los secadores de café de las haciendas antioqueñas, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros años de las dos edificaciones. " }
+      { "src": "img/cisneros/edificio-v__squez.jpg", "caption": "Los edificios mellizos Vásquez y Carré, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones más altas de la ciudad. Diseñados por el arquitecto francés Charles Émile Carré, " },
+      { "src": "img/cisneros/5111713-me.jpg", "caption": "" },
+      { "src": "img/cisneros/PANO_20250710_130603.jpg", "caption": "La fachada de estos edificios mellizos se asemeja a los secadores de café de las haciendas antioqueñas, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros años de las dos edificaciones. " }
     ]
   },
   {
@@ -718,9 +718,9 @@ window.APP_DATA = {
     "yaw": 0.9520,
     "tooltip": "Parque de las Luces actualmente",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/5111749-me.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/5111729-me.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/5111733-me.jpg`, "caption": "" }
+      { "src": "img/cisneros/5111749-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5111729-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5111733-me.jpg", "caption": "" }
     ]
   },
   {
@@ -731,9 +731,9 @@ window.APP_DATA = {
     "yaw": 1.5500,
     "tooltip": "Parque de las Luces",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/5088825-me.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/5088837-me.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/5088840-me.jpg`, "caption": "" }
+      { "src": "img/cisneros/5088825-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5088837-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5088840-me.jpg", "caption": "" }
     ]
   },
   {
@@ -744,7 +744,7 @@ window.APP_DATA = {
     "yaw": 3.0588,
     "tooltip": "Biblioteca EPM",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/cisneros/biblioteca-espacios.jpeg`, "caption": "Es un espacio que logra una atmósfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio público en donde se posibilita el diálogo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitectónica y cultural, donde niños, jóvenes y adultos se acercan al universo del conocimiento y la cultura." }
+      { "src": "img/cisneros/biblioteca-espacios.jpeg", "caption": "Es un espacio que logra una atmósfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio público en donde se posibilita el diálogo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitectónica y cultural, donde niños, jóvenes y adultos se acercan al universo del conocimiento y la cultura." }
     ]
   }
 ],
@@ -807,11 +807,11 @@ window.APP_DATA = {
     "yaw": -0.4738,
     "tooltip": "Ferrocarril de Antioquia",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/1(2).png`, "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/12).jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/1(4).png`, "caption": "" },     
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/1(1).png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/12(1).jpg`, "caption": "" }
+      { "src": "img/Ferrocarril/1(2).png", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
+      { "src": "img/Ferrocarril/12).jpg", "caption": "" },
+      { "src": "img/Ferrocarril/1(4).png", "caption": "" },     
+      { "src": "img/Ferrocarril/1(1).png", "caption": "" },
+      { "src": "img/Ferrocarril/12(1).jpg", "caption": "" }
     ]
   },
    {
@@ -822,10 +822,10 @@ window.APP_DATA = {
     "yaw": 0.8088,
     "tooltip": "Fotos Antiguas",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/Interior.jpg`, "caption": "Foto antigua coloreada del interior de un vagón Ferrocarril de Antioquia con sillas tapizadas, con las luces interiores encendidas. Año 1944. Foto de Francisco Mejía" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/31429.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/414.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/fotoantigua.jpg`, "caption": "Foto antigua coloreada de Ferrocarril de Antioquia años cincuenta." }
+      { "src": "img/Ferrocarril/Interior.jpg", "caption": "Foto antigua coloreada del interior de un vagón Ferrocarril de Antioquia con sillas tapizadas, con las luces interiores encendidas. Año 1944. Foto de Francisco Mejía" },
+      { "src": "img/Ferrocarril/31429.png", "caption": "" },
+      { "src": "img/Ferrocarril/414.png", "caption": "" },
+      { "src": "img/Ferrocarril/fotoantigua.jpg", "caption": "Foto antigua coloreada de Ferrocarril de Antioquia años cincuenta." }
     ]
   },
   {
@@ -836,10 +836,10 @@ window.APP_DATA = {
     "yaw": 1.8421,
     "tooltip": "Transformación",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/31705.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/2131E.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/2317.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/1518.png`, "caption": "" }
+      { "src": "img/Ferrocarril/31705.png", "caption": "" },
+      { "src": "img/Ferrocarril/2131E.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/2317.png", "caption": "" },
+      { "src": "img/Ferrocarril/1518.png", "caption": "" }
     ]
   },
   {
@@ -850,11 +850,11 @@ window.APP_DATA = {
     "yaw": 3.0588,
     "tooltip": "Estaciones del antiguo Ferrocarril",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/2131E.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/2021.png`, "caption": "" },     
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/2012.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/55.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/Ferrocarril/1920.png`, "caption": "" }
+      { "src": "img/Ferrocarril/2131E.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/2021.png", "caption": "" },     
+      { "src": "img/Ferrocarril/2012.png", "caption": "" },
+      { "src": "img/Ferrocarril/55.png", "caption": "" },
+      { "src": "img/Ferrocarril/1920.png", "caption": "" }
     ]
   }
 ],
@@ -914,12 +914,12 @@ window.APP_DATA = {
     "yaw": -2.5448,
     "tooltip": "Estación Medellín",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/est/estacioant.png`, "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/est/bautizo1.jpg`, "caption": "🚂 Durante décadas, la estación fue el punto de partida y llegada de viajeros, comerciantes y soñadores que transformaron la historia económica y social de Medellín." },
-      { "src": `/api/signed-url?token=${window.token}&file=img/est/estacionmed.jpg`, "caption": "" },     
-      { "src": `/api/signed-url?token=${window.token}&file=img/est/47148.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/est/estacion.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/est/50.jpg`, "caption": "Aunque hoy los trenes ya no circulan, el edificio permanece como testigo vivo de ese pasado de hierro y rieles" }
+      { "src": "img/est/estacioant.png", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
+      { "src": "img/est/bautizo1.jpg", "caption": "🚂 Durante décadas, la estación fue el punto de partida y llegada de viajeros, comerciantes y soñadores que transformaron la historia económica y social de Medellín." },
+      { "src": "img/est/estacionmed.jpg", "caption": "" },     
+      { "src": "img/est/47148.jpg", "caption": "" },
+      { "src": "img/est/estacion.jpg", "caption": "" },
+      { "src": "img/est/50.jpg", "caption": "Aunque hoy los trenes ya no circulan, el edificio permanece como testigo vivo de ese pasado de hierro y rieles" }
     ]
   }
 ],
@@ -988,9 +988,9 @@ window.APP_DATA = {
     "yaw": -2.2505,
     "tooltip": "🌿 Muro Verde de Medellín",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/muro.jpg`, "caption": "Una de las joyas urbanas de Medellín, considerado uno de los jardines verticales más grandes de Latinoamérica. Con más de 8.000 plantas vivas de diferentes especies, este muro no solo embellece la ciudad, sino que también ayuda a purificar el aire, reducir el calor y brindar un respiro natural en medio del paisaje urbano." },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/AMVA.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/muroverde.jpg`, "caption": "📸 Tip viajero: es un lugar perfecto para tomar fotos. Te recomiendo visitarlo en la mañana o al final de la tarde, cuando la luz natural resalta los colores intensos de las plantas."}
+      { "src": "img/alp/muro.jpg", "caption": "Una de las joyas urbanas de Medellín, considerado uno de los jardines verticales más grandes de Latinoamérica. Con más de 8.000 plantas vivas de diferentes especies, este muro no solo embellece la ciudad, sino que también ayuda a purificar el aire, reducir el calor y brindar un respiro natural en medio del paisaje urbano." },
+      { "src": "img/alp/AMVA.jpg", "caption": "" },
+      { "src": "img/alp/muroverde.jpg", "caption": "📸 Tip viajero: es un lugar perfecto para tomar fotos. Te recomiendo visitarlo en la mañana o al final de la tarde, cuando la luz natural resalta los colores intensos de las plantas."}
     ]
   },
   {
@@ -1001,13 +1001,13 @@ window.APP_DATA = {
     "yaw": -1.5501,
     "tooltip": "Monumento a la raza",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/monumento.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/ima1.png`, "caption": "Esta monumental obra, diseñada por el maestro Rodrigo Arenas Betancur en 1988, se levanta en el corazón de La Alpujarra. Con sus 38 metros de altura y 40 metros de longitud, es una de las esculturas en bronce y concreto más grandes de América Latina. Representa la fuerza, el carácter y el espíritu de superación del pueblo antioqueño." },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/ima2.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/ima3.png`, "caption": "El monumento narra, en un solo conjunto escultórico, los principales hitos de la historia antioqueña: la conquista, la colonización, la independencia y el desarrollo del pueblo. Cada figura parece moverse, transmitiendo dinamismo y el esfuerzo colectivo que caracteriza la identidad paisa" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/ima4.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/ima5.png`, "caption": "El Monumento a la Raza no solo es arte: es un símbolo vivo de Medellín. Alrededor de él, en la Plaza de La Alpujarra, se realizan manifestaciones sociales, encuentros culturales y actos cívicos. Es un espacio donde se mezcla la memoria histórica con la vida contemporánea de la ciudad." },
-      { "src": `/api/signed-url?token=${window.token}&file=img/alp/ima6.png`, "caption": "" }
+      { "src": "img/alp/monumento.jpg", "caption": "" },
+      { "src": "img/alp/ima1.png", "caption": "Esta monumental obra, diseñada por el maestro Rodrigo Arenas Betancur en 1988, se levanta en el corazón de La Alpujarra. Con sus 38 metros de altura y 40 metros de longitud, es una de las esculturas en bronce y concreto más grandes de América Latina. Representa la fuerza, el carácter y el espíritu de superación del pueblo antioqueño." },
+      { "src": "img/alp/ima2.png", "caption": "" },
+      { "src": "img/alp/ima3.png", "caption": "El monumento narra, en un solo conjunto escultórico, los principales hitos de la historia antioqueña: la conquista, la colonización, la independencia y el desarrollo del pueblo. Cada figura parece moverse, transmitiendo dinamismo y el esfuerzo colectivo que caracteriza la identidad paisa" },
+      { "src": "img/alp/ima4.png", "caption": "" },
+      { "src": "img/alp/ima5.png", "caption": "El Monumento a la Raza no solo es arte: es un símbolo vivo de Medellín. Alrededor de él, en la Plaza de La Alpujarra, se realizan manifestaciones sociales, encuentros culturales y actos cívicos. Es un espacio donde se mezcla la memoria histórica con la vida contemporánea de la ciudad." },
+      { "src": "img/alp/ima6.png", "caption": "" }
     ]
   }
 ],
@@ -1141,7 +1141,7 @@ window.APP_DATA = {
     "yaw": 0.1216,
     "tooltip": "Descalza tus pies y siente la energía del planeta",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/pies/el-parque.jpeg`, "caption": "Un oasis en el centro de Medellín, donde el agua, la arena y los árboles de corcho invitan a relajarse y reconectar con la naturaleza. Aquí podrás caminar descalzo, sentir la frescura del agua y disfrutar un espacio único en medio de la ciudad. <br>✨ Tip viajero: lleva una toalla pequeña y disfruta la experiencia de caminar sin zapatos; la arena y el agua hacen que tu visita sea inolvidable."}
+      { "src": "img/pies/el-parque.jpeg", "caption": "Un oasis en el centro de Medellín, donde el agua, la arena y los árboles de corcho invitan a relajarse y reconectar con la naturaleza. Aquí podrás caminar descalzo, sentir la frescura del agua y disfrutar un espacio único en medio de la ciudad. <br>✨ Tip viajero: lleva una toalla pequeña y disfruta la experiencia de caminar sin zapatos; la arena y el agua hacen que tu visita sea inolvidable."}
     ]
   },
   {
@@ -1152,9 +1152,9 @@ window.APP_DATA = {
     "yaw": 0.7445,
     "tooltip": "Descalza tus pies, siente la energía y disfruta",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/pies/parque.jpg`, "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/pies/ima.png`, "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/pies/ParquePies.JPG`, "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
+      { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
+      { "src": "img/pies/ima.png", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
+      { "src": "img/pies/ParquePies.JPG", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
     ]
   }
 ],
@@ -1223,7 +1223,7 @@ window.APP_DATA = {
     "yaw": -1.3196 ,
     "tooltip": "Despierta tus sentidos",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/pies/turis.png`, "caption": "Tip viajero: Los árboles de corcho son únicos en Medellín 🌳🤎. ¡Anímate a abrazarlos 🤗💚! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensación de calma y bienestar."}
+      { "src": "img/pies/turis.png", "caption": "Tip viajero: Los árboles de corcho son únicos en Medellín 🌳🤎. ¡Anímate a abrazarlos 🤗💚! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensación de calma y bienestar."}
    ]
   }
 ],
@@ -1293,7 +1293,7 @@ window.APP_DATA = {
     "yaw": -1.3196 ,
     "tooltip": "Laberinto de Bambú",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/pies/22.png`, "caption": "No olvides tu cámara 📸. La luz entre el bambú regala fotos espectaculares, sobre todo en la mañana o al atardecer."}
+      { "src": "img/pies/22.png", "caption": "No olvides tu cámara 📸. La luz entre el bambú regala fotos espectaculares, sobre todo en la mañana o al atardecer."}
    ]
   }
 ],
@@ -1362,9 +1362,9 @@ window.APP_DATA = {
     "yaw": -1.5084,
     "tooltip": "🏢 Innovación y sostenibilidad en Medellín ",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/image.jpeg`, "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/interior.jpeg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EDIFICIO.jpg`, "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
+      { "src": "img/epm/image.jpeg", "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
     ]
   },
 {
@@ -1375,9 +1375,9 @@ window.APP_DATA = {
     "yaw": 2.6156,
     "tooltip": "Una pausa para los sentidos",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/pies/ParquePies.JPG`, "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/interior.jpeg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EDIFICIO.jpg`, "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
+      { "src": "img/pies/ParquePies.JPG", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
     ]
   },
 
@@ -1389,10 +1389,10 @@ window.APP_DATA = {
     "yaw":-1.5084,
     "tooltip": "Edificio EPM",
     "images": [
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EDIFICIO.jpg`, "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/agua_urbanismo.jpg`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/25312.png`, "caption": "" },
-      { "src": `/api/signed-url?token=${window.token}&file=img/epm/EPM.jpg`, "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
+      { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
+      { "src": "img/epm/25312.png", "caption": "" },
+      { "src": "img/epm/EPM.jpg", "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
     ]
   }
 ],
