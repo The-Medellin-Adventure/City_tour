@@ -84,7 +84,7 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
     swiperWrapper.innerHTML = '';
 
 imagenes.forEach(function (img) {
-  var filePath = (img.src || '').replace(`/api/signed-url?token=${window.token}&file=`, '');
+  var filePath = img.src || img.url || '';
   var caption = img.caption || img.texto || '';
 
   fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)}`)
@@ -104,6 +104,7 @@ imagenes.forEach(function (img) {
     })
     .catch(err => console.error('Error cargando imagen firmada:', err));
 });
+
 
     carruselContainer.style.display = 'flex';
 
