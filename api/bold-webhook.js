@@ -19,9 +19,11 @@ export default async function handler(req, res) {
     // ====================================
     // 1️⃣ Validar que el pago fue aprobado
     // ====================================
-    if (!event || event.payment?.status !== "APPROVED") {
-      return res.status(400).json({ error: "Pago no aprobado" });
-    }
+const status = event.payment?.status || event.type;
+if (status !== "APPROVED" && status !== "SALE_APPROVED") {
+  console.log("⚠️ Pago rechazado o pendiente:", status);
+  return res.status(400).json({ error: "Pago no aprobado", status });
+}
 
     // ====================================
     // 2️⃣ Filtrar que el producto sea "Medellín Virtual 360"
