@@ -36,6 +36,7 @@ export default async function handler(req, res) {
           first_ip: ip,
           first_user_agent: userAgent,
           used_at: new Date().toISOString(),
+          expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString(), // expira en 1h
         })
         .eq('token', token);
     } else {
@@ -56,9 +57,13 @@ export default async function handler(req, res) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // 5. Redirigir al archivo firmado (para que <img> y <video> funcionen sin cambios)
-    res.writeHead(302, { Location: signed.signedUrl });
-    res.end();
+    // 5. Devolver según tipo de petición
+    if (req.headers.accept && req.headers.accept.includes('application/json')) {
+      return res.status(200).json({ ok: true, signedUrl: signed.signedUrl });
+    } else {
+      res.writeHead(302, { Location: signed.signedUrl });
+      res.end();
+    }
 
   } catch (e) {
     console.error('❌ Error en signed-url:', e);

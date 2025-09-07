@@ -51,9 +51,10 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
     await sb.from("access_tokens").insert({
-      token,
-      email,
-      status: "active",
+    token,
+    email,
+    status: "active",
+    expires_at: new Date(Date.now() + 7*24*60*60*1000).toISOString(), // válido 7 días
     });
 
     console.log("✅ Token insertado en Supabase:", token);
