@@ -520,9 +520,16 @@
     max-height: calc(400px - 70px - 10px);
     width: 90vw;     /* ya usas 90vw en móvil; mantenlo si prefieres */
   }
+
+#musicToggle img.off {
+  display: none;
+}
+#musicToggle.off img.on {
+  display: none;
+}    
 }
 
-
+    
 </style>
 
 <style> @-ms-viewport { width: device-width; } </style>
@@ -645,6 +652,20 @@
   <img class="icon on" src="img/windowed.png">
 </a>
 
+<!-- Botón de música -->
+<a href="javascript:void(0)" id="musicToggle">
+  <img class="icon on" src="img/sound-on.png">
+  <img class="icon off" src="img/sound-off.png">
+</a>
+
+<!-- 🎵 Audio global -->
+<audio id="bg-music" autoplay loop>
+  <source src="audio/fondo.mp3" type="audio/mpeg">
+</audio>
+
+
+
+    
 <a href="javascript:void(0)" id="sceneListToggle" class="scene-toggle-button">
   <img class="icon off" src="img/expand.png">
   <img class="icon on" src="img/collapse.png">
