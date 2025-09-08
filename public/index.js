@@ -699,7 +699,6 @@ musicToggle.addEventListener("click", () => {
     musicToggle.classList.add("off");
       }
   });
-}
 
 
  
