@@ -520,7 +520,15 @@
     max-height: calc(400px - 70px - 10px);
     width: 90vw;     /* ya usas 90vw en móvil; mantenlo si prefieres */
   }
+
+#musicToggle img.off {
+  display: none;
 }
+#musicToggle.off img.on {
+  display: none;
+}
+}
+
 
 
 </style>
@@ -644,9 +652,25 @@ HEAD
 
 <!-- Botones de Marzipano (play, fullscreen, etc.) -->
 <a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
+  <img class="icon off" src="img/play.jpg">
+  <img class="icon on" src="img/pause.jpg">
 </a>
+
+
+
+<!-- Botón de música -->
+<a href="javascript:void(0)" id="musicToggle">
+  <img class="icon on" src="img/sound-on.png">
+  <img class="icon off" src="img/sound-off.png">
+</a>
+
+<!-- 🎵 Audio global -->
+<audio id="bg-music" autoplay loop>
+  <source src="audio/fondo.mp3" type="audio/mpeg">
+</audio>
+
+
+
 
 <a href="javascript:void(0)" id="fullscreenToggle">
   <img class="icon off" src="img/fullscreen.png">
