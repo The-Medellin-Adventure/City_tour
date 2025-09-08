@@ -660,54 +660,57 @@ videoCard.style.display = "block";
     });
   }
 
-  // =========================
-  // BOTÓN DE PANTALLA COMPLETA
-  // =========================
-  if (document.fullscreenEnabled) {
-    const fsBtn = document.getElementById('fullscreenToggle');
-    if (fsBtn) {
-      fsBtn.addEventListener('click', function() {
-        if (document.fullscreenElement) {
-          document.exitFullscreen();
-        } else {
-          document.body.requestFullscreen();
-        }
-      });
-    }
-  } else {
-    const fsBtn = document.getElementById('fullscreenToggle');
-    if (fsBtn) fsBtn.style.display = 'none';
+// =========================
+// BOTÓN DE PANTALLA COMPLETA
+// =========================
+if (document.fullscreenEnabled) {
+  const fsBtn = document.getElementById('fullscreenToggle');
+  if (fsBtn) {
+    fsBtn.addEventListener('click', function() {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.body.requestFullscreen();
+      }
+    });
   }
+} else {
+  const fsBtn = document.getElementById('fullscreenToggle');
+  if (fsBtn) fsBtn.style.display = 'none';
+}
 
-
-  // 🎵 Música de fondo
+// =========================
+// BOTÓN DE MÚSICA GLOBAL
+// =========================
 const audio = document.getElementById("bg-music");
 const musicToggle = document.getElementById("musicToggle");
 
-// Volumen inicial bajo
-audio.volume = 0.25;
+if (musicToggle && audio) {
+  // Volumen inicial bajo
+  audio.volume = 0.25;
 
-// Control de mute/unmute
-musicToggle.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    musicToggle.classList.remove("off");
-    musicToggle.classList.add("on");
-  } else {
-    audio.pause();
-    musicToggle.classList.remove("on");
-    musicToggle.classList.add("off");
-      }
+  // Arranca como encendido
+  musicToggle.classList.add("on");
+
+  // Toggle de música
+  musicToggle.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      musicToggle.classList.remove("off");
+      musicToggle.classList.add("on");
+    } else {
+      audio.pause();
+      musicToggle.classList.remove("on");
+      musicToggle.classList.add("off");
+    }
   });
+}
 
-
- 
-
-  // =========================
-  // BOTONES DE CONTROL — usan activeView para funcionar en cualquier escena
-  // =========================
-  var velocity = 1;
-  var zoomSpeed = 1;
+// =========================
+// BOTONES DE CONTROL
+// =========================
+var velocity = 1;
+var zoomSpeed = 1;
 
   var el;
   el = document.getElementById('viewLeft');
