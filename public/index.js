@@ -679,6 +679,31 @@ videoCard.style.display = "block";
     if (fsBtn) fsBtn.style.display = 'none';
   }
 
+
+  // 🎵 Música de fondo
+const audio = document.getElementById("bg-music");
+const musicToggle = document.getElementById("musicToggle");
+
+// Volumen inicial bajo
+audio.volume = 0.25;
+
+// Control de mute/unmute
+musicToggle.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    musicToggle.classList.remove("off");
+    musicToggle.classList.add("on");
+  } else {
+    audio.pause();
+    musicToggle.classList.remove("on");
+    musicToggle.classList.add("off");
+      }
+  });
+}
+
+
+ 
+
   // =========================
   // BOTONES DE CONTROL — usan activeView para funcionar en cualquier escena
   // =========================
