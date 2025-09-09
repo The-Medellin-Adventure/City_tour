@@ -679,32 +679,6 @@ if (document.fullscreenEnabled) {
   if (fsBtn) fsBtn.style.display = 'none';
 }
 
-// =========================
-// BOTÓN DE MÚSICA GLOBAL
-// =========================
-const audio = document.getElementById("bg-music");
-const musicToggle = document.getElementById("musicToggle");
-
-if (musicToggle && audio) {
-  // Volumen inicial bajo
-  audio.volume = 0.25;
-
-  // Arranca como encendido
-  musicToggle.classList.add("on");
-
-  // Toggle de música
-  musicToggle.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      musicToggle.classList.remove("off");
-      musicToggle.classList.add("on");
-    } else {
-      audio.pause();
-      musicToggle.classList.remove("on");
-      musicToggle.classList.add("off");
-    }
-  });
-}
 
 // =========================
 // BOTONES DE CONTROL
