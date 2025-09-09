@@ -1505,7 +1505,7 @@ window.APP_DATA = {
       { "src": "img/convenciones/01plazam(8).png", "caption": "" },
       { "src": "img/convenciones/01plazam(9).png", "caption": "" },
       { "src": "img/convenciones/01plazam(10).png", "caption": "" },
-      { "src": "img/convenciones/01plazam(111).png", "caption": "" } 
+      { "src": "img/convenciones/01plazam(11).png", "caption": "" } 
     ]
   }
 ],
