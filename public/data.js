@@ -1,7 +1,3 @@
-
-
-
-
 window.APP_DATA = {
   "scenes": [
     {
@@ -292,7 +288,7 @@ window.APP_DATA = {
     ]
   },  
 {
- "type": "camera",
+"type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
     "pitch": -0.1141,
@@ -1391,7 +1387,6 @@ window.APP_DATA = {
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
     ]
   },
-
   {
     "type": "camera",
     "carrusel": true,
@@ -1407,7 +1402,6 @@ window.APP_DATA = {
     ]
   }
 ],
-     
 
 "linkHotspots": [
         {
@@ -1418,9 +1412,7 @@ window.APP_DATA = {
         }
       ],
       
-
-"infoHotspots": [
-        
+"infoHotspots": [    
         {
           "yaw": -1.0881964642481812,
           "pitch": -0.08079930952018621,
@@ -1435,8 +1427,7 @@ window.APP_DATA = {
         }
       ]
     },
-    {
-      
+    {   
 
 "id": "13-centro-de-convenciones-y-teatro",
       "name": "Centro de convenciones y Teatro",
@@ -1465,8 +1456,61 @@ window.APP_DATA = {
         "pitch": -0.18641169752651265,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [],
-      "infoHotspots": [
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw": -1.5084,
+    "tooltip": "🏢 Innovación y sostenibilidad en Medellín ",
+    "images": [
+      { "src": "img/epm/image.jpeg", "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0795,
+    "yaw": 2.6156,
+    "tooltip": "Una pausa para los sentidos",
+    "images": [
+      { "src": "img/pies/ParquePies.JPG", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "Edificio EPM",
+    "images": [
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
+      { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
+      { "src": "img/epm/25312.png", "caption": "" },
+      { "src": "img/epm/EPM.jpg", "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
+    ]
+  }
+],
+
+      
+"linkHotspots": [
+       {
+          "yaw":-0.3935,
+          "pitch": -0.4025,
+          "rotation": 0,
+          "target": "14-pueblito-paisa"
+        }
+      ],
+
+  "infoHotspots": [
         {
           "yaw": -1.3463471587051483,
           "pitch": 0.0027403894617243907,
