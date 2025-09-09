@@ -1414,8 +1414,7 @@ window.APP_DATA = {
           "yaw": -1.0881964642481812,
           "pitch": -0.08079930952018621,
           "title": "Una breve pausa",
-          "text": "Justo al frente se alza el imponente edificio EPM, símbolo de innovación y energía en Medellín. A su costado el Parque de los Pies Descalzos, un refugio urbano que sorprende con espacios únicos como el laberinto de bambú, ideal para perderse entre su frescura y silencio. <br>Detrás, descubrirás unos pozos inspirados en los antiguos baños romanos, diseñados para lavar los pies y reconectar con el agua como parte de una experiencia sensorial. <br>Muy cerca también se encuentra el Museo del Agua, un espacio interactivo que nos recuerda la importancia vital de este recurso y su relación con la vida cotidiana.<br>
-En este entorno, rodeado de fuentes lúdicas, espejos de agua y zonas húmedas, la invitación es clara: detenerse un momento, refrescarse, jugar o simplemente contemplar cómo la ciudad también sabe regalar instantes de calma y disfrute."
+          "text": "Justo al frente se alza el imponente edificio EPM, símbolo de innovación y energía en Medellín. A su costado el Parque de los Pies Descalzos, un refugio urbano que sorprende con espacios únicos como el laberinto de bambú, ideal para perderse entre su frescura y silencio. <br>Detrás, descubrirás unos pozos inspirados en los antiguos baños romanos, diseñados para lavar los pies y reconectar con el agua como parte de una experiencia sensorial. <br>Muy cerca también se encuentra el Museo del Agua, un espacio interactivo que nos recuerda la importancia vital de este recurso y su relación con la vida cotidiana.<br>En este entorno, rodeado de fuentes lúdicas, espejos de agua y zonas húmedas, la invitación es clara: detenerse un momento, refrescarse, jugar o simplemente contemplar cómo la ciudad también sabe regalar instantes de calma y disfrute."
             },
         {
           "yaw": -2.9044878547184716,
