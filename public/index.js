@@ -200,6 +200,7 @@ var source = Marzipano.ImageUrlSource.fromString(
   "11-laberinto-de-bamb": `/api/signed-url?token=${window.token}&file=videos/video12.mp4`,
   "12-edificio-inteligente-epm": `/api/signed-url?token=${window.token}&file=videos/video13.mp4`,
   "13-centro-de-convenciones-y-teatro": `/api/signed-url?token=${window.token}&file=videos/video14.mp4`
+  "14-pueblito-paisa": `/api/signed-url?token=${window.token}&file=videos/video15.mp4`
 };
 
   // =========================
