@@ -1516,6 +1516,8 @@ window.APP_DATA = {
       { "src": "img/convenciones/01plazam(9).png", "caption": "" },
       { "src": "img/convenciones/01plazam(10).png", "caption": "" },
       { "src": "img/convenciones/01plazam(11).png", "caption": "" }   
+     ]
+  }
 ],
       
 "linkHotspots": [
@@ -1542,7 +1544,6 @@ window.APP_DATA = {
         }
       ]
     },
-
 {
 
 "id": "14-pueblito-paisa",
