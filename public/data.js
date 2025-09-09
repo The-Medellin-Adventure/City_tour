@@ -398,6 +398,12 @@ window.APP_DATA = {
           "pitch": -0.130667924147728,
           "rotation": 0,
           "target": "2-esculturas-y-tradicin"
+        },
+         {
+          "yaw": -0.1240,
+          "pitch": -0.2417,
+          "rotation": 0,
+          "target": "0-plaza-botero-botero"
         }
       ],
 "infoHotspots": [
@@ -1500,7 +1506,15 @@ window.APP_DATA = {
         "pitch": -0.11017891448759443,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [],
+      "linkHotspots": [
+      {
+          "yaw": -1.3782,
+          "pitch": -0.1208,
+          "rotation": 0,
+          "target": "12-edificio-inteligente-epm"
+        }
+      ],
+  
       "infoHotspots": [
       {
           "yaw": 0.0099,
