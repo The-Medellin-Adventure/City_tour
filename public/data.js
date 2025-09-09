@@ -1243,7 +1243,7 @@ window.APP_DATA = {
           "yaw": -0.744500712372604,
           "pitch": 0.31299920259097114,
           "title": "Despierta tus sentidos",
-          "text": "Al entrar, tus pies tocan la arena blanca, cálida y suave, que invita a desconectarte de la rutina. Es un espacio creado para andar sin zapatos, dejar huellas y reconectar con la tierra de forma natural."
+          "text": "Al pasar de la dinámica y vibrante vida del centro de Medellín hacia este rincón especial, sentirás de inmediato un contraste encantador. Dejamos atrás el bullicio de la ciudad y, de repente, encontramos un espacio que nos invita a la calma y la contemplación. <br>Aquí, la arena blanca y suave acaricia tus pies, recordándote que este es un lugar hecho para andar descalzo, liberar tensiones y reencontrarte con lo natural. <br>Entre jardines de bambú, zonas de agua y espacios verdes, cada paso es una experiencia sensorial: el movimiento urbano se transforma en quietud, y la rutina diaria da paso a un momento de juego, descanso y conexión con la tierra.<br> En este parque no solo caminas, despiertas tus sentidos y te regalas la oportunidad de sentir la ciudad de otra manera: más serena, más humana, más cercana a la naturaleza."
         },
         {
           "yaw": 2.5903191843063818,
@@ -1414,8 +1414,9 @@ window.APP_DATA = {
           "yaw": -1.0881964642481812,
           "pitch": -0.08079930952018621,
           "title": "Una breve pausa",
-          "text": "Lo más encantador está justo afuera: un entorno lleno de fuentes interactivas, espejos de agua y zonas húmedas que invitan a jugar, refrescarse o simplemente disfrutar."
-        },
+          "text": "Justo al frente se alza el imponente edificio EPM, símbolo de innovación y energía en Medellín. A su costado el Parque de los Pies Descalzos, un refugio urbano que sorprende con espacios únicos como el laberinto de bambú, ideal para perderse entre su frescura y silencio. <br>Detrás, descubrirás unos pozos inspirados en los antiguos baños romanos, diseñados para lavar los pies y reconectar con el agua como parte de una experiencia sensorial. <br>Muy cerca también se encuentra el Museo del Agua, un espacio interactivo que nos recuerda la importancia vital de este recurso y su relación con la vida cotidiana.<br>
+En este entorno, rodeado de fuentes lúdicas, espejos de agua y zonas húmedas, la invitación es clara: detenerse un momento, refrescarse, jugar o simplemente contemplar cómo la ciudad también sabe regalar instantes de calma y disfrute."
+            },
         {
           "yaw": -2.9044878547184716,
           "pitch": 0.10748410970518307,
