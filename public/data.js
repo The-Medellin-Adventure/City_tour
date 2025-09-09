@@ -1461,8 +1461,8 @@ window.APP_DATA = {
    "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0378,
-    "yaw": -1.5084,
+    "pitch": -0.3960,
+    "yaw": -2.7794,
     "tooltip": "🎭 Teatro Metropolitano José Gutiérrez Gómez",
     "images": [
       { "src": "img/Teatro/01cteatro.jpeg", "caption": ""},
@@ -1476,8 +1476,8 @@ window.APP_DATA = {
    "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch":  0.0795,
-    "yaw": 2.6156,
+    "pitch":  0.0093,
+    "yaw": -1.2577,
     "tooltip": "🏢Centro de Eventos y Convenciones: Plaza Mayor",
     "images": [
       { "src": "img/convenciones/01plazam).png", "caption": ""},
@@ -1499,15 +1499,23 @@ window.APP_DATA = {
       { "src": "img/convenciones/01plazam(2).png", "caption": "" },
       { "src": "img/convenciones/01plazam(3).png", "caption": "" },
       { "src": "img/convenciones/01plazam(4).png", "caption": "" },
-      { "src": "img/convenciones/01plazam(5).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(5).png", "caption": "" }
+    ]
+  },
+   {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0380,
+    "yaw":1.7301,
+    "tooltip": "Eventos",
+    "images": [
       { "src": "img/convenciones/01plazam(6).png", "caption": "" },
       { "src": "img/convenciones/01plazam(7).png", "caption": "" },
       { "src": "img/convenciones/01plazam(8).png", "caption": "" },
       { "src": "img/convenciones/01plazam(9).png", "caption": "" },
       { "src": "img/convenciones/01plazam(10).png", "caption": "" },
-      { "src": "img/convenciones/01plazam(11).png", "caption": "" } 
-    ]
-  }
+      { "src": "img/convenciones/01plazam(11).png", "caption": "" }   
 ],
       
 "linkHotspots": [
