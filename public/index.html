@@ -547,21 +547,39 @@
 
 <div id="pano"></div>
 
-<!-- Aviso de error -->
-<div id="error-message" style="
-     display:none;
-     position:fixed;
-     top:20px;
-     left:50%;
-     transform:translateX(-50%);
-     background:rgba(200,0,0,0.9);
-     color:#fff;
-     padding:1rem 2rem;
-     border-radius:8px;
-     font-size:1.1rem;
-     z-index:99999;
-     text-align:center;">
+<!-- Tarjeta de Error -->
+<div id="errorOverlay" style="
+  display:none;
+  position:fixed;
+  top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.85);
+  z-index:20000;
+  justify-content:center;
+  align-items:center;
+">
+  <div style="
+    background:#b00020;
+    color:#fff;
+    padding:20px 30px;
+    border-radius:12px;
+    max-width:400px;
+    text-align:center;
+    font-size:16px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.5);
+  ">
+    <p style="margin-bottom:15px;">⚠️ Tu enlace ya no es válido. <br> Fue usado o expiró.</p>
+    <button onclick="document.getElementById('errorOverlay').style.display='none'" style="
+      background:#fff;
+      color:#000;
+      padding:8px 16px;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:bold;
+    ">Cerrar</button>
+  </div>
 </div>
+
    
 
    <!-- Título de la escena -->
