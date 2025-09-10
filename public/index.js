@@ -90,24 +90,25 @@ imagenes.forEach(function (img) {
 fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)}`, {
   headers: { Accept: "application/json" }
 })
-  .then(res => res.json())
-  .then(json => {
-    if (!json.signedUrl) throw new Error(json.error || 'No signedUrl');
-    var slide = document.createElement('div');
-    slide.className = 'swiper-slide';
-    slide.innerHTML = ''
-      + '<div style="aspect-ratio:3/2;display:flex;justify-content:center;align-items:center;">'
-      +   '<img src="' + escapeHtml(json.signedUrl) + '" '
-      +       'style="max-width:100%;max-height:100%;object-fit:contain;border-radius:10px;" '
-      +       'alt="' + escapeHtml(caption) + '">'
-      + '</div>'
-      + '<p style="color:white;margin-top:8px;text-align:center;">' + escapeHtml(caption) + '</p>';
-    swiperWrapper.appendChild(slide);
-  })
- .catch(function(err) {
-      console.error("Error cargando imagen firmada:", err);
-      var overlay = document.getElementById("errorOverlay") || document.getElementById("error-message");
-      if (overlay) { overlay.style.display = "flex"; }
+.then(res => {
+  if (res.status === 403) {
+    // 🚫 Token global inválido o expirado → mostramos tarjeta y ocultamos todo
+    showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
+    ocultarUI(); // <- función que desactiva iconos/menús
+    throw new Error("Token inválido o expirado");
+  }
+  if (!res.ok) {
+    // Otro error (500, 404, etc.) → no mostramos tarjeta
+    throw new Error("Error de servidor o recurso");
+  }
+  return res.json();
+})
+.then(json => {
+  if (!json.signedUrl) throw new Error(json.error || "No signedUrl");
+  // ... tu código para agregar slides ...
+})
+.catch(err => {
+  console.warn("Error cargando imagen firmada:", err.message);
     });
 });
 
