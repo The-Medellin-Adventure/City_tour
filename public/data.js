@@ -1603,6 +1603,18 @@ window.APP_DATA = {
     ]
   },
   {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0093,
+    "yaw": -1.2577,
+    "tooltip": "Cacique Nutibara",
+    "images": [
+      { "src": "img/paisa/cacique.jpg", "caption": "Nutibara fue un líder indígena de la etnia Nutabe, reconocido por su sabiduría y capacidad de diálogo durante la época de la conquista."},
+      { "src": "img/paisa/caciquemural.jpg", "caption": "Gobernaba las tierras del valle de Aburrá y es símbolo de resistencia y dignidad ancestral. Su legado vive en el Cerro Nutibara, que hoy lleva su nombre como homenaje a sus raíces indígenas."}
+    ]
+  },
+  {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
@@ -1610,11 +1622,23 @@ window.APP_DATA = {
     "yaw":-1.5084,
     "tooltip": "Visita y disfruta",
     "images": [
-      { "src": "img/paisa/Iglesia3.jpg", "caption": "" },
-      { "src": "img/paisa/Iglesia2.jpg", "caption": "" },
-      { "src": "img/paisa/balcones.jpg", "caption": "" },
+      { "src": "img/paisa/Iglesia3.jpg", "caption": "Expresada en iglesias, fiestas patronales y altares en casa, la fé antioqueña refleja una espiritualidad sencilla, fuerte y comunitaria." },
+      { "src": "img/paisa/Iglesia2.jpg", "caption": "La fe ha sido un pilar en la identidad antioqueña, profundamente arraigada en la vida cotidiana, la familia y las tradiciones." },
+      { "src": "img/paisa/balcones.jpg", "caption": "🌸 Balcones coloridos que miran al pasado, adornados con flores y llenos del encanto de los pueblos tradicionales antioqueños. 🏡🌺" },
       { "src": "img/paisa/calle 1.jpg", "caption": "" },
-      { "src": "img/paisa/calles.jpg", "caption": "" }
+      { "src": "img/paisa/calles.jpg", "caption": "Calles empedradas y fachadas coloridas que evocan la vida tranquila de los antiguos pueblos antioqueños, llenos de historia y tradición." }
+    ]
+  },
+  
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "Visita y disfruta",
+    "images": [
+      { "src": "img/paisa/fotopaisa.jpg", "caption": "" }
     ]
   },
    {
@@ -1629,6 +1653,7 @@ window.APP_DATA = {
       { "src": "img/paisa/museo2.jpg", "caption": "" },
       { "src": "img/paisa/museo3.jpg", "caption": "Típica sala antioqueña" },
       { "src": "img/paisa/0habitacion.jpg", "caption": "Habitación con tejidos elaborados por nuesras madres y abuelas" },
+      { "src": "img/paisa/museo4.jpg", "caption": "Tradición hecha hilo: las mujeres antioqueñas bordaban a mano delicados cuadros en punto de cruz o lomillo, decorando sus hogares con mensajes, flores y escenas cotidianas. Más que adornos, eran símbolos de dedicación, fe y cuidado por el hogar. 🪡💐" },
       { "src": "img/paisa/0comedor.jpg", "caption": "Comedores grandes, para familias grandes." },
       { "src": "img/paisa/0cocina.jpg", "caption": "" },
       { "src": "img/paisa/0corredor.jpg", "caption": "Estas casas eran amplias y ventiladas, con patios centrales, corredores generosos y zonas comunes pensadas para la vida en comunidad. Reflejan una época en la que la arquitectura respondía al clima, la cultura cafetera y el ritmo pausado de la vida rural." },   
@@ -1637,7 +1662,6 @@ window.APP_DATA = {
   }
 ],
   
-
 "linkHotspots": [
       {
           "yaw": -1.3782,
