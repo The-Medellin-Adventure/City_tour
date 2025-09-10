@@ -104,7 +104,9 @@ fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)
       + '<p style="color:white;margin-top:8px;text-align:center;">' + escapeHtml(caption) + '</p>';
     swiperWrapper.appendChild(slide);
   })
-  .catch(err => console.error('Error cargando imagen firmada:', err));
+  .catch(err => {
+  console.error('Error cargando imagen firmada:', err);
+  alert("⚠️ Tu enlace de acceso ya no es válido ⚠️ Este enlace ya fue usado o expiró. Por favor solicita uno nuevo.");
 });
 
 
