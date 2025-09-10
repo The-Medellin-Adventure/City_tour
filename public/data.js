@@ -1465,11 +1465,11 @@ window.APP_DATA = {
     "yaw": -2.7794,
     "tooltip": "🎭 Teatro Metropolitano José Gutiérrez Gómez",
     "images": [
-      { "src": "img/Teatro/01cteatro.jpeg", "caption": ""},
+      { "src": "img/Teatro/01cteatro.jpeg", "caption": "Uno de los escenarios más emblemáticos de la ciudad."},
       { "src": "img/Teatro/02Teatro.jpeg", "caption": "" },
-      { "src": "img/Teatro/02teatropanoram.png", "caption": "" },
+      { "src": "img/Teatro/02teatropanoram.png", "caption": "En su interior se viven conciertos inolvidables, obras de teatro, festivales culturales y eventos académicos" },
       { "src": "img/Teatro/03metropolitanomed.jpg", "caption": "" },  
-      { "src": "img/Teatro/258.png", "caption": "" }   
+      { "src": "img/Teatro/258.png", "caption": "Su arquitectura y acústica lo convierten en un lugar mágico para disfrutar el arte en todas sus formas" }   
     ]
   },
 {
@@ -1480,9 +1480,9 @@ window.APP_DATA = {
     "yaw": -1.2577,
     "tooltip": "🏢Centro de Eventos y Convenciones: Plaza Mayor",
     "images": [
-      { "src": "img/convenciones/01plazam).png", "caption": ""},
+      { "src": "img/convenciones/01plazam).png", "caption": "Un espacio versátil y moderno donde suceden ferias internacionales, exposiciones, congresos, conciertos y experiencias gastronómicas."},
       { "src": "img/convenciones/04plazam.png", "caption": ""},
-      { "src": "img/convenciones/02plazam.png", "caption": "" },
+      { "src": "img/convenciones/02plazam.png", "caption": "Su interior combina amplitud, diseño y tecnología, ideal para vivir Medellín desde su lado más innovador y vibrante" },
       { "src": "img/convenciones/03plazam.png", "caption": "" },
       { "src": "img/convenciones/05plazam.png", "caption": "" }
     ]
@@ -1495,11 +1495,11 @@ window.APP_DATA = {
     "yaw":-1.5084,
     "tooltip": "Eventos",
     "images": [
-      { "src": "img/convenciones/01plazam(1).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(1).png", "caption": "Un espacio versátil y moderno donde suceden ferias internacionales, exposiciones, congresos, conciertos y experiencias gastronómicas" },
       { "src": "img/convenciones/01plazam(2).png", "caption": "" },
-      { "src": "img/convenciones/01plazam(3).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(3).png", "caption": "El complejo Plaza Mayor ocupa unos 70 000 m² y recibe más de 1 .5 millones de visitantes al año, distribuidos en unos 500 eventos aproximadamente" },
       { "src": "img/convenciones/01plazam(4).png", "caption": "" },
-      { "src": "img/convenciones/01plazam(5).png", "caption": "" }
+      { "src": "img/convenciones/01plazam(5).png", "caption": "Sumando estos espacios principales, la capacidad máxima combinada podría acercarse o superar los 20.000 asistentes simultáneos." }
     ]
   },
    {
@@ -1510,9 +1510,9 @@ window.APP_DATA = {
     "yaw":1.7301,
     "tooltip": "Eventos",
     "images": [
-      { "src": "img/convenciones/01plazam(6).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(6).png", "caption": "Considerando que cada pabellón puede recibir entre 2.000 y 5.000 personas, el Gran Salón 3.000, plus otros salones con menores aforos." },
       { "src": "img/convenciones/01plazam(7).png", "caption": "" },
-      { "src": "img/convenciones/01plazam(8).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(8).png", "caption": "La capacidad máxima combinada podría acercarse o superar los 20.000 asistentes simultáneos." },
       { "src": "img/convenciones/01plazam(9).png", "caption": "" },
       { "src": "img/convenciones/01plazam(10).png", "caption": "" },
       { "src": "img/convenciones/01plazam(11).png", "caption": "" }   
@@ -1545,7 +1545,6 @@ window.APP_DATA = {
       ]
     },
 {
-
 "id": "14-pueblito-paisa",
       "name": "Pueblito Paisa",
       "levels": [
@@ -1573,7 +1572,73 @@ window.APP_DATA = {
         "pitch": -0.11017891448759443,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3960,
+    "yaw": -2.7794,
+    "tooltip": "Ingreso",
+    "images": [
+      { "src": "img/paisa/natura1.jpg", "caption": "La entrada al Cerro Nutibara ya te envuelve con naturaleza y vistas únicas de la ciudad."},
+      { "src": "img/paisa/natura2.jpg", "caption": "Podrás caminar por sus senderos" },
+      { "src": "img/paisa/natura.jpg", "caption": "Puedes subir caminando por senderos bien señalizados, también es común el ascenso en bicicleta, pero si prefieres algo más cómodo, puedes llegar en carro particular o taxi hasta la cima." }
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0093,
+    "yaw": -1.2577,
+    "tooltip": "El Pueblito Paisa",
+    "images": [
+      { "src": "img/paisa/IMG.jpg", "caption": ""},
+      { "src": "img/paisa/iglesia.jpg", "caption": ""},
+      { "src": "img/paisa/calle2.jpg", "caption": "" },
+      { "src": "img/paisa/balcones.jpg", "caption": "" },
+      { "src": "img/paisa/casapaisa.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "Visita y disfruta",
+    "images": [
+      { "src": "img/paisa/Iglesia3.jpg", "caption": "" },
+      { "src": "img/paisa/Iglesia2.jpg", "caption": "" },
+      { "src": "img/paisa/balcones.jpg", "caption": "" },
+      { "src": "img/paisa/calle 1.jpg", "caption": "" },
+      { "src": "img/paisa/calles.jpg", "" }
+    ]
+  },
+   {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0380,
+    "yaw":1.7301,
+    "tooltip": "Replica Casa Antioqueña",
+    "images": [
+      { "src": "img/paisa/Museociudad.jpg", "caption": "Un espacio que narra la transformación de Medellín a través de maquetas, fotos y arte urbano. Ubicado en la cima del cerro, ofrece historia y una vista panorámica espectacular. 🌆📸" },
+      { "src": "img/paisa/museo2.jpg", "caption": "" },
+      { "src": "img/paisa/museo3.jpg", "caption": "Típica sala antioqueña" },
+      { "src": "img/paisa/0habitacion.jpg", "caption": "Habitación con tejidos elaborados por nuesras madres y abuelas" },
+      { "src": "img/paisa/0comedor.jpg", "caption": "Comedores grandes, para familias grandes." },
+      { "src": "img/paisa/0cocina.jpg", "caption": "" },
+      { "src": "img/paisa/0corredor.jpg", "caption": "Estas casas eran amplias y ventiladas, con patios centrales, corredores generosos y zonas comunes pensadas para la vida en comunidad. Reflejan una época en la que la arquitectura respondía al clima, la cultura cafetera y el ritmo pausado de la vida rural." },   
+      { "src": "img/paisa/0patio.jpg", "caption": "Las puertas grandes facilitaban el ingreso de animales, herramientas y cargamentos de café, típicos de la vida rural.🌞🐴🌬️" }
+     ]
+  }
+],
+  
+
+"linkHotspots": [
       {
           "yaw": -1.3782,
           "pitch": -0.1208,
@@ -1582,7 +1647,7 @@ window.APP_DATA = {
         }
       ],
   
-      "infoHotspots": [
+"infoHotspots": [
       {
           "yaw": 0.0099,
           "pitch": -0.3118,
@@ -1600,7 +1665,7 @@ window.APP_DATA = {
   ],
 
 
- "name": "Medellín 360, Vive la Ciudad",
+ "name": "Medellín 360°, Vive la Ciudad",
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": false,
