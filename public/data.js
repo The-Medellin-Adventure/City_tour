@@ -1578,8 +1578,8 @@ window.APP_DATA = {
    "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.3960,
-    "yaw": -2.7794,
+    "pitch": -0.0449,
+    "yaw": 2.8445,
     "tooltip": "Ingreso",
     "images": [
       { "src": "img/paisa/natura1.jpg", "caption": "La entrada al Cerro Nutibara ya te envuelve con naturaleza y vistas únicas de la ciudad."},
@@ -1591,8 +1591,8 @@ window.APP_DATA = {
    "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch":  0.0093,
-    "yaw": -1.2577,
+    "pitch":  -0.2033,
+    "yaw": 0.3315,
     "tooltip": "El Pueblito Paisa",
     "images": [
       { "src": "img/paisa/IMG.jpg", "caption": ""},
@@ -1606,8 +1606,8 @@ window.APP_DATA = {
    "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch":  0.0093,
-    "yaw": -1.2577,
+    "pitch":  -0.1462,
+    "yaw": 2.2975,
     "tooltip": "Cacique Nutibara",
     "images": [
       { "src": "img/paisa/cacique.jpg", "caption": "Nutibara fue un líder indígena de la etnia Nutabe, reconocido por su sabiduría y capacidad de diálogo durante la época de la conquista."},
@@ -1618,8 +1618,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0378,
-    "yaw":-1.5084,
+    "pitch": -0.2393,
+    "yaw":0.6810,
     "tooltip": "Visita y disfruta",
     "images": [
       { "src": "img/paisa/Iglesia3.jpg", "caption": "Expresada en iglesias, fiestas patronales y altares en casa, la fé antioqueña refleja una espiritualidad sencilla, fuerte y comunitaria." },
@@ -1634,8 +1634,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0378,
-    "yaw":-1.5084,
+    "pitch": 0.1191,
+    "yaw":0.5205,
     "tooltip": "Visita y disfruta",
     "images": [
       { "src": "img/paisa/fotopaisa.jpg", "caption": "" }
@@ -1645,8 +1645,8 @@ window.APP_DATA = {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
-    "pitch": -0.0380,
-    "yaw":1.7301,
+    "pitch": 0.2190,
+    "yaw":-0.7734,
     "tooltip": "Replica Casa Antioqueña",
     "images": [
       { "src": "img/paisa/Museociudad.jpg", "caption": "Un espacio que narra la transformación de Medellín a través de maquetas, fotos y arte urbano. Ubicado en la cima del cerro, ofrece historia y una vista panorámica espectacular. 🌆📸" },
