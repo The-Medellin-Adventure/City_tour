@@ -137,7 +137,7 @@ fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)
         }
       };
     }
-  }
+});
 
   window.mostrarCarrusel = mostrarCarrusel;
 
