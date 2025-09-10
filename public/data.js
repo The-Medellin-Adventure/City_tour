@@ -1614,7 +1614,7 @@ window.APP_DATA = {
       { "src": "img/paisa/Iglesia2.jpg", "caption": "" },
       { "src": "img/paisa/balcones.jpg", "caption": "" },
       { "src": "img/paisa/calle 1.jpg", "caption": "" },
-      { "src": "img/paisa/calles.jpg", "" }
+      { "src": "img/paisa/calles.jpg", "caption": "" }
     ]
   },
    {
