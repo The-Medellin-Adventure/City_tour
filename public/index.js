@@ -53,6 +53,30 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
       .replace(/'/g, '&#39;');
   }
 
+  // =========================
+// Funciones de error y ocultar UI
+// =========================
+function ocultarUI() {
+  document.querySelectorAll(
+    '.link-hotspot-icon, .camera-hotspot, #sceneList, #titleBar, #videoCard'
+  ).forEach(el => {
+    if (el) el.style.display = 'none';
+  });
+}
+
+function showErrorMessage(titulo, mensaje) {
+  const overlay = document.getElementById("errorOverlay");
+  if (!overlay) return;
+  overlay.style.display = "flex";
+  overlay.innerHTML = `
+    <div style="background:#fff;color:#000;padding:20px;border-radius:10px;max-width:400px;text-align:center;">
+      <h2>${escapeHtml(titulo)}</h2>
+      <p>${escapeHtml(mensaje)}</p>
+      <p style="margin-top:12px;font-size:14px;color:#444;">The Medellín Adventure</p>
+    </div>
+  `;
+}
+
   // VARIABLES GLOBALES
   // =========================================================
   var currentScene = null;
@@ -105,7 +129,17 @@ fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)
 })
 .then(json => {
   if (!json.signedUrl) throw new Error(json.error || "No signedUrl");
-  // ... tu código para agregar slides ...
+
+  // Crear slide con imagen + caption
+  var slide = document.createElement('div');
+  slide.className = 'swiper-slide';
+  slide.innerHTML = `
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <img src="${json.signedUrl}" style="max-width:100%;border-radius:8px;" />
+      ${caption ? `<p style="margin-top:6px;color:#fff;font-size:14px;">${escapeHtml(caption)}</p>` : ""}
+    </div>
+  `;
+  swiperWrapper.appendChild(slide);
 })
 .catch(err => {
   console.warn("Error cargando imagen firmada:", err.message);
@@ -119,14 +153,22 @@ fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)
       currentSwiper = null;
     }
 
-    currentSwiper = new Swiper('.carrusel-swiper', {
-      loop: imagenes.length > 1,
-      slidesPerView: 1,
-      spaceBetween: 10,
-      autoplay: { delay: 3500, disableOnInteraction: false },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-    });
+Promise.all(
+  imagenes.map(img =>
+    fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(img.src)}`, {
+      headers: { Accept: "application/json" }
+    }).then(r => r.json())
+  )
+).finally(() => {
+  currentSwiper = new Swiper('.carrusel-swiper', {
+    loop: imagenes.length > 1,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+  });
+});
 
     var cerrarBtn = document.getElementById('cerrarCarrusel');
     if (cerrarBtn) {
