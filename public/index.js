@@ -104,12 +104,12 @@ fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)
       + '<p style="color:white;margin-top:8px;text-align:center;">' + escapeHtml(caption) + '</p>';
     swiperWrapper.appendChild(slide);
   })
-  .catch(function(err) {
-    console.error("Error cargando imagen firmada:", err);
-    // Muestra el overlay de error si existe
-    var overlay = document.getElementById("errorOverlay") || document.getElementById("error-message");
-    if (overlay) { overlay.style.display = "flex"; }
-  });
+ .catch(function(err) {
+      console.error("Error cargando imagen firmada:", err);
+      var overlay = document.getElementById("errorOverlay") || document.getElementById("error-message");
+      if (overlay) { overlay.style.display = "flex"; }
+    });
+});
 
     carruselContainer.style.display = 'flex';
 
