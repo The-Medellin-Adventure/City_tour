@@ -1610,6 +1610,7 @@ window.APP_DATA = {
     "yaw": 2.2975,
     "tooltip": "Cacique Nutibara",
     "images": [
+      { "src": "img/paisa/Museociudad.jpg", "caption": "Un espacio que narra la transformación de Medellín a través de maquetas, fotos y arte urbano. Ubicado en la cima del cerro, ofrece historia y una vista panorámica espectacular. 🌆📸" },
       { "src": "img/paisa/cacique.jpg", "caption": "Nutibara fue un líder indígena de la etnia Nutabe, reconocido por su sabiduría y capacidad de diálogo durante la época de la conquista."},
       { "src": "img/paisa/caciquemural.jpg", "caption": "Gobernaba las tierras del valle de Aburrá y es símbolo de resistencia y dignidad ancestral. Su legado vive en el Cerro Nutibara, que hoy lleva su nombre como homenaje a sus raíces indígenas."}
     ]
@@ -1626,22 +1627,11 @@ window.APP_DATA = {
       { "src": "img/paisa/Iglesia2.jpg", "caption": "La fe ha sido un pilar en la identidad antioqueña, profundamente arraigada en la vida cotidiana, la familia y las tradiciones." },
       { "src": "img/paisa/balcones.jpg", "caption": "🌸 Balcones coloridos que miran al pasado, adornados con flores y llenos del encanto de los pueblos tradicionales antioqueños. 🏡🌺" },
       { "src": "img/paisa/calle 1.jpg", "caption": "" },
-      { "src": "img/paisa/calles.jpg", "caption": "Calles empedradas y fachadas coloridas que evocan la vida tranquila de los antiguos pueblos antioqueños, llenos de historia y tradición." }
-    ]
-  },
-  
-  {
-    "type": "camera",
-    "carrusel": true,
-    "image": "img/Camara.png",
-    "pitch": 0.1191,
-    "yaw":0.5205,
-    "tooltip": "Visita y disfruta",
-    "images": [
+      { "src": "img/paisa/calles.jpg", "caption": "Calles empedradas y fachadas coloridas que evocan la vida tranquila de los antiguos pueblos antioqueños, llenos de historia y tradición." },
       { "src": "img/paisa/fotopaisa.jpg", "caption": "" }
     ]
   },
-   {
+  {
     "type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
@@ -1649,7 +1639,6 @@ window.APP_DATA = {
     "yaw":-0.7734,
     "tooltip": "Replica Casa Antioqueña",
     "images": [
-      { "src": "img/paisa/Museociudad.jpg", "caption": "Un espacio que narra la transformación de Medellín a través de maquetas, fotos y arte urbano. Ubicado en la cima del cerro, ofrece historia y una vista panorámica espectacular. 🌆📸" },
       { "src": "img/paisa/museo2.jpg", "caption": "" },
       { "src": "img/paisa/museo3.jpg", "caption": "Típica sala antioqueña" },
       { "src": "img/paisa/0habitacion.jpg", "caption": "Habitación con tejidos elaborados por nuesras madres y abuelas" },
