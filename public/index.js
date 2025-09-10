@@ -16,6 +16,28 @@ window.token = new URLSearchParams(window.location.search).get("token");
 window.token = new URLSearchParams(window.location.search).get("token");
 const FIRST_SCENE_ID = "0-plaza-botero-botero";
 
+// =========================
+// Verificación temprana del token
+// =========================
+if (window.token) {
+  fetch(`/api/verify-token?token=${window.token}`, { headers: { Accept: "application/json" } })
+    .then(res => {
+      if (res.status === 403) {
+        // 🚫 Token global inválido o expirado → mostramos tarjeta y ocultamos UI
+        showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
+        ocultarUI();
+        throw new Error("Token inválido o expirado");
+      }
+      if (!res.ok) {
+        throw new Error("Error verificando token");
+      }
+    })
+    .catch(err => {
+      console.warn("Error verificando token:", err.message);
+    });
+}
+  
+
   var panoElement = document.querySelector('#pano');
   // Intento de mantener compatibilidad con tu HTML: uso #sceneTitle si existe,
   // si no, caigo en el selector original.
