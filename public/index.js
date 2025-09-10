@@ -135,7 +135,7 @@ fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)
   slide.className = 'swiper-slide';
   slide.innerHTML = `
     <div style="display:flex;flex-direction:column;align-items:center;">
-      <img src="${json.signedUrl}" style="max-width:100%;border-radius:8px;" />
+      <img src="${json.signedUrl}" style="max-width:80%;max-height:60vh;object-fit:contain;border-radius:8px;" />
       ${caption ? `<p style="margin-top:6px;color:#fff;font-size:14px;">${escapeHtml(caption)}</p>` : ""}
     </div>
   `;
