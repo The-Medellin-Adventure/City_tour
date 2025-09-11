@@ -1,1 +1,1689 @@
-window.APP_DATA={scenes:[{id:"0-plaza-botero-botero",name:"Plaza Botero",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:.11451431718835359,pitch:-.28108895507963005,fov:1.2812361540040014},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.4299,yaw:2.7905,tooltip:"Hotel Nutibara",images:[{src:"img/escena1/HotelNutibara_1965.jpg",caption:"Hotel Nutibara en a\xf1o 1965"},{src:"img/escena1/HotelNutibara.jpg",caption:"Hotel Nutibara en la actualidad"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.2806,yaw:-1.2813,tooltip:"Estaci\xf3n Berr\xedo",images:[{src:"img/escena1/antes.jpg",caption:"Un viaje en el tiempo: La primera imagen nos transporta al Medell\xedn de mediados del siglo XX, con elegantes edificios que marcaban el ritmo de la ciudad. Abajo, vemos el presente con la Estaci\xf3n Parque Berr\xedo del Metro de Medell\xedn, s\xedmbolo de modernidad, movilidad y transformaci\xf3n urbana."},{src:"img/escena1/EstacionBerrio.jpg",caption:"Interior estaci\xf3n Parque Berrio del metro"},{src:"img/escena1/Rutas_Metro.jpg",caption:"Mapa rutas del Metro de Medell\xedn."}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:.0122,yaw:.7437,tooltip:"Esculturas Maestro Fernando Botero",images:[{src:"img/carrusel/Maternidad.jpg",caption:"Maternidad. Una de las obras m\xe1s tiernas de Botero, Maternidad captura el v\xednculo entre madre e hijo, una representaci\xf3n de la protecci\xf3n y el amor maternal."},{src:"img/carrusel/Caballo.JPG",caption:"Caballo. El Caballo es otra pieza monumental que resalta el amor de Botero por los animales, representados en su estilo caracter\xedstico, con l\xedneas suaves y voluminosas."},{src:"img/carrusel/Hombre_Vestido.jpg",caption:"Hombre Vestido. Es una representaci\xf3n de un hombre robusto, completamente vestido, con una postura erguida que refleja el poder y la presencia masculina."},{src:"img/carrusel/Mujer_Vestida.jpg",caption:"Mujer Vestida. Esta figura muestra a una mujer con ropa, su volumen amplificado transmitiendo una sensaci\xf3n de plenitud y fortaleza."},{src:"img/carrusel/Mujer_con_Espejo.jpg",caption:"Mujer con Espejo. En esta escultura, una mujer sostiene un espejo, una obra que hace referencia tanto a la belleza femenina como a la introspecci\xf3n y el reflejo personal."},{src:"img/carrusel/Adan.jpg",caption:"Adan."},{src:"img/carrusel/Eva.jpg",caption:"Eva."},{src:"img/carrusel/Mujer_con_Espejo.jpg",caption:"Mujer con Espejo. Esta escultura muestra una mujer que sostiene una fruta, otra de las representaciones cl\xe1sicas de Botero, que fusiona la figura humana con objetos de la vida cotidiana."},{src:"img/carrusel/Gato.jpg",caption:"Una de las esculturas m\xe1s emblem\xe1ticas, El Gato ha llegado a ser un \xedcono de la ciudad. Con sus orejas grandes y cuerpo voluminoso, el gato destaca por su tama\xf1o y su invitaci\xf3n a la interacci\xf3n del p\xfablico."},{src:"img/carrusel/Perro.jpg",caption:"Perro."},{src:"img/carrusel/Mujer_Sentada.jpg",caption:"Mujer Sentada. Esta figura de mujer sentada es una representaci\xf3n de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."},{src:"img/carrusel/Pensamiento.jpg",caption:"Pensamiento. Esta escultura muestra una mujer voluptuosa recostada sobre una gran cabeza masculina, simbolizando que las ideas y la reflexi\xf3n reposan en la mente humana. Es una met\xe1fora visual de la relaci\xf3n entre cuerpo, mente y pensamiento."},{src:"img/carrusel/Cabeza.jpg",caption:"Cabeza. Esta figura de mujer sentada es una representaci\xf3n de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."},{src:"img/carrusel/Esfinge.jpg",caption:"Esfinge. Figura mitol\xf3gica transformada en su caracter\xedstico estilo voluminoso, con un aire de misterio y sabidur\xeda."},{src:"img/carrusel/Rapto_de_Europa.jpg",caption:"Rapto de Europa. Una obra que hace alusi\xf3n a la mitolog\xeda cl\xe1sica, donde Europa es raptada por Zeus transformado en toro."},{src:"img/carrusel/Mujer_Reclinada.jpg",caption:"Mujer Reclinada."},{src:"img/carrusel/Hombre_Caminante.jpg",caption:"Hombre Caminante. Muestra una figura humana en movimiento, capturando la fuerza y determinaci\xf3n de un ser humano que avanza en su camino."},{src:"img/carrusel/Soldado_Romano.jpg",caption:"Soldado Romano. Es una obra que hace alusi\xf3n a los guerreros del Imperio Romano, representados con la fuerte presencia de las figuras de Botero."},{src:"img/carrusel/Venus_Dormida.jpg",caption:"Venus Dormida. Esta figura representa la figura t\xedpica de Venus (la diosa del amor), reclinada en actitud serena y sensual. M\xe1s que un s\xedmbolo mitol\xf3gico, esta Venus parece invitarnos al disfrute tranquilo y contemplativo de la belleza en el espacio p\xfablico"},{src:"img/carrusel/Hombre_a_Caballo.jpg",caption:"Hombre a caballo. Esta escultura presenta a un jinete y su montura en proporciones generosas y pausadas, invitando a la contemplaci\xf3n m\xe1s que al movimiento. Es una met\xe1fora del equilibrio entre fuerza y calma, enmarcada en un entorno urbano que dialoga entre arquitectura y naturaleza, memoria y renovaci\xf3n."},{src:"img/carrusel/Mujer.jpg",caption:"Mujer. Una figura femenina de grandes proporciones, representando la sensualidad y la fortaleza femenina en la tradici\xf3n boterista."},{src:"img/carrusel/Mano.jpg",caption:"La Mano de Botero es una escultura que resalta la importancia de este \xf3rgano humano, representado de manera gigantesca y detallada, invitando a la reflexi\xf3n sobre la acci\xf3n humana."}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.687523,yaw:-.3319,tooltip:"Rafael Uribe Uribe",images:[{src:"img/escena1/Entrada.jpg",caption:"Entrada Palacio de la Cultura Rafael Uribe Uribe"},{src:"img/escena1/RafaelUribeUribe.jpg",caption:"Fachada Palacio Rafael Uribe Uribe"},{src:"img/escena1/RafaelUribeUribe_2.jpg",caption:"Fachada Palacio Rafael Uribe Uribe"},{src:"img/escena1/Vistadesdecupula1.jpg",caption:"Vista Edificio Coltejer desde la c\xfapula del Palacio Uribe Uribe"},{src:"img/escena1/Cupula.jpg",caption:"Sube hasta la c\xfapula, disfruta y toma fotos incre\xedbles"},{src:"img/escena1/Vistadesdecupula.jpg",caption:"Tendr\xe1s una panor\xe1mica del centro, la Plaza Botero y de una gran parte de la ciudad"}]}],linkHotspots:[{yaw:.4106533973529771,pitch:-.29636833189372425,rotation:3.141592653589793,target:"1-plaza-botero-y-palacio-rafael-uribe-uribe"}],infoHotspots:[{yaw:-.6310376814969114,pitch:-.6875232116974992,title:"Palacio de la Cultura Rafael Uribe Uribe",text:"Este imponente edificio es uno de los \xedconos arquitect\xf3nicos de Medell\xedn. Su llamativa fachada en blanco y negro, inspirada en los palacios europeos, contrasta con la energ\xeda tropical de la ciudad.<br> Nombrado en honor a Rafael Uribe Uribe, l\xedder liberal y defensor de los derechos civiles, el palacio fue originalmente la sede del gobierno departamental. Hoy es un espacio cultural abierto a todos.<br>\uD83C\uDFA8 \xbfQu\xe9 puedes encontrar aqu\xed?<br>• Galer\xedas de arte y exposiciones temporales <br>• Sala de m\xfasica y archivo hist\xf3rico<br>• Biblioteca departamental<br> • Mirador con vista panor\xe1mica del centro de Medell\xedn<br> \uD83D\uDCF8 Recomendaci\xf3n: No te pierdas la vista desde la c\xfapula ni los detalles g\xf3ticos de sus pasillos interiores."},{yaw:-.2648259936791959,pitch:-.00779990571439626,title:"Plaza Botero",text:"Plaza Botero: Donde el arte abraza la ciudad”<br> En el coraz\xf3n vibrante de Medell\xedn te espera un lugar \xfanico en el mundo: 23 esculturas monumentales del maestro Fernando Botero, al aire libre y listas para que las observes, toques y tomes fotografias.<br> Aqu\xed, el bronce cobra vida y las formas voluptuosas cuentan historias de cultura, orgullo y creatividad paisa.<br> Rodeada de arquitectura ic\xf3nica y a pasos del Museo de Antioquia, la Plaza Botero no es solo una parada: es una experiencia sensorial que combina arte, historia y el calor de la gente de Medell\xedn.<br> Aqu\xed, el arte convive con el movimiento de la ciudad, creando un contraste entre lo cl\xe1sico y lo cotidiano.<br><br>\uD83D\uDCF8Tip local: Tocar las esculturas, especialmente en ciertas partes, se ha convertido en una tradici\xf3n popular... \xa1dicen que trae buena suerte!<br><br>Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medell\xedn."}]},{id:"1-plaza-botero-y-palacio-rafael-uribe-uribe",name:"Museo de Antioquia y Plaza Botero",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:2.9540833239767146,pitch:-.32309682106539483,fov:.7680934518125859},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.3243,yaw:2.947,tooltip:"Museo de Antioquia",images:[{src:"img/00_Museo/Museo1.jpg",caption:""},{src:"img/00_Museo/Museo2.jpg",caption:""},{src:"img/00_Museo/Museo3.jpg",caption:""},{src:"img/00_Museo/Museo4.jpg",caption:""},{src:"img/00_Museo/Museo5.jpg",caption:""},{src:"img/00_Museo/Museo6.jpg",caption:""},{src:"img/00_Museo/Museo7.jpg",caption:""}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0731,yaw:-1.4495,tooltip:"Esfinge",images:[{src:"img/carrusel/Esfinge.jpg",caption:"1995. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1141,yaw:.1576,tooltip:"La alegr\xeda de nuestros visitantes",images:[{src:"img/00_Museo/Turistas.jpg",caption:"Puedes hacer el recorrido y tomar todas las fotos que quieras"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0602,yaw:-.5753,tooltip:"Mujer con Fruta",images:[{src:"img/carrusel/Mujer_con_Fruta.jpg",caption:"1996. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0663,yaw:-.9806,tooltip:"Mano",images:[{src:"img/carrusel/Mano.jpg",caption:"1992. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0917,yaw:-.055,tooltip:"Gato",images:[{src:"img/carrusel/Gato.jpg",caption:"1993. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0694,yaw:.3503,tooltip:"Cabeza",images:[{src:"img/carrusel/Cabeza.jpg",caption:"1999. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0476,yaw:.8948,tooltip:"Soldado Romano",images:[{src:"img/carrusel/Soldado_Romano.jpg",caption:"1986. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0365,yaw:1.7038,tooltip:"Venus Dormida",images:[{src:"img/carrusel/Venus_Dormida.jpg",caption:"1994. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0887,yaw:1.5813,tooltip:"Hombre Caminante",images:[{src:"img/carrusel/Hombre_Caminante.jpg",caption:"1999. Bronce"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0955,yaw:-1.685,tooltip:"Rapto de Europa",images:[{src:"img/carrusel/Rapto_de_Europa.jpg",caption:"1991. Bronce"}]}],linkHotspots:[{yaw:.2812835640726874,pitch:-.130667924147728,rotation:0,target:"2-esculturas-y-tradicin"}],infoHotspots:[{yaw:2.8281957788055063,pitch:-.2278310627368345,title:'\uD83C\uDFDB️ <strong data-start="616" data-end="658"> Museo de Antioquia</strong>',text:"\uD83C\uDFDBLa puerta al alma art\xedstica de Medell\xedn<br> A solo unos pasos de la Plaza Botero, se encuentra uno de los tesoros culturales m\xe1s importantes de Colombia.<br>El Museo de Antioquia fue fundado en 1881, es uno de los museos m\xe1s antiguos de Colombia, y el alma cultural del centro de Medell\xedn, ya que no solo custodia m\xe1s de 5.000 obras, sino que tambi\xe9n cuenta la historia de la ciudad y la regi\xf3n a trav\xe9s del arte.<br> Este maravilloso lugar te espera para llevarte por un viaje a trav\xe9s de la historia, la identidad y el talento del pa\xeds.<br> Entre pinturas, esculturas, fotograf\xedas y piezas precolombinas \uD83C\uDFFA, cada sala es un di\xe1logo entre arte y ciudad.<br> \uD83D\uDCA1 Tip viajero: Desde sus balcones, disfruta la mejor vista de la Plaza Botero, como si miraras un cuadro vivo en movimiento."}]},{id:"2-esculturas-y-tradicin",name:"Esculturas y Tradici\xf3n",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:-.6354479046965569,pitch:-.1250168795517812,fov:.6087391224900204},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0971,yaw:-.7363,tooltip:"Siente el arte a cielo abierto",images:[{src:"img/plaza/botero.jpg",caption:""},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1612,yaw:.4393,tooltip:"Vive el arte a cielo abierto",images:[{src:"img/plaza/Fototuristas.jpg",caption:""},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.114,yaw:-3.0319,tooltip:"Vive el arte",images:[{src:"img/plaza/arte.jpg",caption:""}]}],linkHotspots:[{yaw:.9658128506179562,pitch:-.1893595887654591,rotation:3.141592653589793,target:"3-palacio-rafael-uribe-uribe"},{yaw:1.30800765975075,pitch:-.1490420071296903,rotation:1.5707963267948966,target:"4-parque-de-las-luces"}],infoHotspots:[{yaw:-.5444300357094143,pitch:-.3131824056238166,title:"Coraz\xf3n Plaza Botero",text:"Es com\xfan ver a los visitantes tocando las esculturas, una tradici\xf3n local dice que si lo haces, especialmente en ciertas partes, \xa1atraes la buena suerte!<br>Entre las obras, ver\xe1s bancas y zonas verdes donde puedes sentarte a descansar, tomar un respiro o simplemente disfrutar del arte al aire libre."}]},{id:"3-palacio-rafael-uribe-uribe",name:"Palacio de la Cultura Rafael Uribe Uribe",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:-1.0680169924406062,pitch:-.44384624272654705,fov:1.2812361540040014},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.417,yaw:-1.2292,tooltip:"Exterior",images:[{src:"img/rafael/exterior.jpg",caption:""},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1486,yaw:2.6137,tooltip:"Interior",images:[{src:"img/rafael/Escalas.jpg",caption:""},{src:"img/rafael/escalasinteriores.jpg",caption:""},{src:"img/rafael/corredores.jpg",caption:""},{src:"img/rafael/Interior.jpg",caption:""},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.3979,yaw:.1519,tooltip:"Interior",images:[{src:"img/rafael/salones.jpg",caption:""},{src:"img/rafael/salon.jpg",caption:""},{src:"img/rafael/corredores.jpg",caption:""},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-1.0826,yaw:-.3242,tooltip:"Terraza",images:[{src:"img/rafael/Terraza.jpg",caption:""},{src:"img/rafael/vista.jpg",caption:""},{src:"img/rafael/Vistaterraza.jpg",caption:""},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:.0106,yaw:1.6506,tooltip:"Zona de descanso",images:[{src:"img/rafael/Fuente _cafeteria.jpg",caption:"Aqu\xed te espera una de las cafeter\xedas m\xe1s tradicionales de Medell\xedn, ideal para relajarte en un ambiente tranquilo."},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.4915,yaw:1.204,tooltip:"Informaci\xf3n",images:[{src:"img/rafael/Informaci\xf3n.jpg",caption:"El Palacio de la Cultura no es solo un edificio, es un viaje por la historia, el arte y la arquitectura que marcan la esencia de Medell\xedn. Un lugar donde el pasado y el presente se encuentran para regalarnos una experiencia \xfanica en la ciudad de la eterna primavera. \xa1An\xedmate a descubrirlo!"}]}],linkHotspots:[{yaw:-1.4901274791616146,pitch:-.07462039719154134,rotation:4.71238898038469,target:"4-parque-de-las-luces"},{yaw:-.8827689414356072,pitch:-.08037533467373947,rotation:3.141592653589793,target:"2-esculturas-y-tradicin"}],infoHotspots:[{yaw:-2.070070925613887,pitch:-.3868519485230113,title:"Palacio Rafael Uribe Uribe",text:"Caminar por estos pasillos es como viajar en el tiempo. Sus paredes de piedra, techos altos y vitrales de colores revelan una arquitectura neog\xf3tica que poco se ve en Colombia.<br>Originalmente, este edificio fue sede del gobierno departamental de Antioquia. Hoy, es un espacio abierto para el arte, la cultura y la memoria.<br>En sus salas podr\xe1s explorar exposiciones de arte, colecciones fotogr\xe1ficas, archivos hist\xf3ricos y actividades culturales gratuitas."}]},{id:"4-parque-de-las-luces",name:"Parque de las Luces",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:.19153513858864812,pitch:-.5207795914658391,fov:1.2812361540040014},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.3506,yaw:-.9533,tooltip:"Antigua Plaza Cisneros",images:[{src:"img/cisneros/1Gal1Img2450.jpg",caption:""},{src:"img/cisneros/antiguaplaza.jpg",caption:""},{src:"img/cisneros/plaza.jpg",caption:"La Plaza de Cisneros, con el tranv\xeda municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carr\xe9. A\xf1os 20"},{src:"img/cisneros/comentario.jpg",caption:"El espacio que antes ocup\xf3 la Plaza de Mercado de Cisneros. Aqu\xed est\xe1 hoy el as\xed llamado Parque de las Luces. \xbfC\xf3mo tiene parece el cambio de este lugar a lo que es hoy?"}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.2332,yaw:-.2896,tooltip:"Historia",images:[{src:"img/cisneros/Plaza_de_Mercado.jpg",caption:"Plaza de Mercado 1920"},{src:"img/cisneros/Plazacisneros_1905.jpg",caption:"Plaza Cisneros, a\xf1o 1905"},{src:"img/cisneros/Panorm\xe1mica.jpg",caption:""},{src:"img/cisneros/noticiaincendio.png",caption:""},{src:"img/cisneros/antesyhoy.jpg",caption:""}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1604,yaw:.1128,tooltip:"Edificios V\xe1squez y Carr\xe9",images:[{src:"img/cisneros/edificio-v__squez.jpg",caption:"Los edificios mellizos V\xe1squez y Carr\xe9, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones m\xe1s altas de la ciudad. Dise\xf1ados por el arquitecto franc\xe9s Charles \xc9mile Carr\xe9, "},{src:"img/cisneros/5111713-me.jpg",caption:""},{src:"img/cisneros/PANO_20250710_130603.jpg",caption:"La fachada de estos edificios mellizos se asemeja a los secadores de caf\xe9 de las haciendas antioque\xf1as, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros a\xf1os de las dos edificaciones. "}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.3126,yaw:.952,tooltip:"Parque de las Luces actualmente",images:[{src:"img/cisneros/5111749-me.jpg",caption:""},{src:"img/cisneros/5111729-me.jpg",caption:""},{src:"img/cisneros/5111733-me.jpg",caption:""}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.3875,yaw:1.55,tooltip:"Parque de las Luces",images:[{src:"img/cisneros/5088825-me.jpg",caption:""},{src:"img/cisneros/5088837-me.jpg",caption:""},{src:"img/cisneros/5088840-me.jpg",caption:""}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1561,yaw:3.0588,tooltip:"Biblioteca EPM",images:[{src:"img/cisneros/biblioteca-espacios.jpeg",caption:"Es un espacio que logra una atm\xf3sfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio p\xfablico en donde se posibilita el di\xe1logo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitect\xf3nica y cultural, donde ni\xf1os, j\xf3venes y adultos se acercan al universo del conocimiento y la cultura."}]}],linkHotspots:[{yaw:1.8468150583230543,pitch:-.17417896287664014,rotation:0,target:"5-antiguo-ferrocarril"}],infoHotspots:[{yaw:.13940764139272765,pitch:-.3122330097451762,title:"Plaza Cisneros – De las bodegas al Parque de las Luces",text:"La Plaza Cisneros, conocida tambi\xe9n como el Parque de las Luces, es uno de los espacios que mejor reflejan la capacidad de transformaci\xf3n urbana de Medell\xedn. Su nombre rinde homenaje a Francisco Javier Cisneros, ingeniero cubano que lider\xf3 la construcci\xf3n del Ferrocarril de Antioquia a finales del siglo XIX, una obra que conect\xf3 la regi\xf3n con el resto del pa\xeds y marc\xf3 un hito en su desarrollo econ\xf3mico.<br>En sus inicios, la plaza fue un centro de carga y bodegas del ferrocarril, rodeada de almacenes y con un marcado car\xe1cter industrial. Sin embargo, con el paso del tiempo, el lugar entr\xf3 en deterioro y se convirti\xf3 en una zona poco atractiva para la ciudadan\xeda.<br>La gran transformaci\xf3n lleg\xf3 en el a\xf1o 2005, cuando el espacio fue renovado como parte del plan de recuperaci\xf3n del centro de Medell\xedn. El cambio m\xe1s llamativo fue la instalaci\xf3n de 300 columnas luminosas, de hasta 24 metros de altura, que de d\xeda parecen un bosque met\xe1lico y de noche iluminan el espacio con un espect\xe1culo de luces. Esta intervenci\xf3n no solo rescat\xf3 un espacio urbano, sino que lo convirti\xf3 en un s\xedmbolo de la renovaci\xf3n cultural y social de Medell\xedn."}]},{id:"5-antiguo-ferrocarril",name:"Antiguo Ferrocarril de Antioquia",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:.6204072967328074,pitch:-.07693334873926361,fov:1.2812361540040014},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1589,yaw:-.4738,tooltip:"Ferrocarril de Antioquia",images:[{src:"img/Ferrocarril/1(2).png",caption:"Ferrocarril de Antioquia en la Estaci\xf3n Medell\xedn"},{src:"img/Ferrocarril/12).jpg",caption:""},{src:"img/Ferrocarril/1(4).png",caption:""},{src:"img/Ferrocarril/1(1).png",caption:""},{src:"img/Ferrocarril/12(1).jpg",caption:""}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:.0828,yaw:.8088,tooltip:"Fotos Antiguas",images:[{src:"img/Ferrocarril/Interior.jpg",caption:"Foto antigua coloreada del interior de un vag\xf3n Ferrocarril de Antioquia con sillas tapizadas, con las luces interiores encendidas. A\xf1o 1944. Foto de Francisco Mej\xeda"},{src:"img/Ferrocarril/31429.png",caption:""},{src:"img/Ferrocarril/414.png",caption:""},{src:"img/Ferrocarril/fotoantigua.jpg",caption:"Foto antigua coloreada de Ferrocarril de Antioquia a\xf1os cincuenta."}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1311,yaw:1.8421,tooltip:"Transformaci\xf3n",images:[{src:"img/Ferrocarril/31705.png",caption:""},{src:"img/Ferrocarril/2131E.jpg",caption:""},{src:"img/Ferrocarril/2317.png",caption:""},{src:"img/Ferrocarril/1518.png",caption:""}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.1561,yaw:3.0588,tooltip:"Estaciones del antiguo Ferrocarril",images:[{src:"img/Ferrocarril/2131E.jpg",caption:""},{src:"img/Ferrocarril/2021.png",caption:""},{src:"img/Ferrocarril/2012.png",caption:""},{src:"img/Ferrocarril/55.png",caption:""},{src:"img/Ferrocarril/1920.png",caption:""}]}],linkHotspots:[{yaw:-2.4846729326953874,pitch:-.4630845139263542,rotation:0,target:"6-antigua-estacin-medelln"}],infoHotspots:[{yaw:-.36409705178894036,pitch:.11974668427449231,title:"Ferrocarril de Antioquia",text:"El Ferrocarril de Antioquia fue mucho m\xe1s que un medio de transporte. Fue el s\xedmbolo de una \xe9poca de progreso, conexi\xf3n y orgullo regional."}]},{id:"6-antigua-estacin-medelln",name:"\uD83D\uDE82 Antigua Estaci\xf3n del Ferrocarril de Antioquia",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:-2.5066120310948463,pitch:-.4758720363394744,fov:1.2812361540040014},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.3941,yaw:-2.5448,tooltip:"Estaci\xf3n Medell\xedn",images:[{src:"img/est/estacioant.png",caption:"Ferrocarril de Antioquia en la Estaci\xf3n Medell\xedn"},{src:"img/est/bautizo1.jpg",caption:"\uD83D\uDE82 Durante d\xe9cadas, la estaci\xf3n fue el punto de partida y llegada de viajeros, comerciantes y so\xf1adores que transformaron la historia econ\xf3mica y social de Medell\xedn."},{src:"img/est/estacionmed.jpg",caption:""},{src:"img/est/47148.jpg",caption:""},{src:"img/est/estacion.jpg",caption:""},{src:"img/est/50.jpg",caption:"Aunque hoy los trenes ya no circulan, el edificio permanece como testigo vivo de ese pasado de hierro y rieles"}]}],linkHotspots:[{yaw:2.009365567655193,pitch:-.4966668186781753,rotation:0,target:"7-alpujarra"}],infoHotspots:[{yaw:2.654780737992004,pitch:-.24380502008776261,title:"Antigua Estaci\xf3n Medell\xedn del Ferrocarril de Antioquia \uD83D\uDE82",text:"En pleno centro de la ciudad se conserva uno de los \xedconos hist\xf3ricos m\xe1s importantes de Medell\xedn: la Antigua Estaci\xf3n del Ferrocarril de Antioquia. Este majestuoso edificio, inaugurado a comienzos del siglo XX, fue la puerta de entrada al progreso y el desarrollo de la regi\xf3n.<br>\uD83C\uDFD7️ Su arquitectura combina elegancia y solidez, con detalles cl\xe1sicos que reflejan la grandeza de una \xe9poca en la que el ferrocarril uni\xf3 a Antioquia con el resto del pa\xeds, facilitando el comercio, la cultura y el intercambio de ideas.<br>\uD83C\uDF06 Actualmente, la estaci\xf3n hace parte del Complejo Administrativo de La Alpujarra, rodeada de edificios gubernamentales y espacios culturales, convirti\xe9ndose en un lugar ideal para comprender la evoluci\xf3n urbana de Medell\xedn.<br>\uD83D\uDCF8 Para los visitantes, es un escenario perfecto para tomar fotos \xfanicas: un contraste entre la memoria de los antiguos ferrocarriles y la modernidad de la ciudad que creci\xf3 a su alrededor.<br>\uD83D\uDCA1 Dato curioso: El Ferrocarril de Antioquia fue fundamental para la exportaci\xf3n del caf\xe9, principal motor econ\xf3mico de la regi\xf3n, y su estaci\xf3n en Medell\xedn es considerada un patrimonio arquitect\xf3nico y cultural de la ciudad.."},{yaw:1.9686240729634203,pitch:-.9771819737375758,title:"Palacio de la Justicia Jos\xe9 F\xe9lix de Restrepo ⚖️",text:"En el coraz\xf3n de Medell\xedn se levanta el Palacio de la Justicia, un edificio imponente que concentra gran parte de la vida jur\xeddica de la ciudad. Su dise\xf1o moderno, con l\xedneas sobrias y firmes, transmite la idea de orden, respeto y equilibrio, valores esenciales en la administraci\xf3n de justicia.<br>\uD83D\uDC69‍⚖️ Dentro de sus muros funcionan los principales tribunales de la ciudad, donde cada d\xeda se toman decisiones que impactan la vida de los ciudadanos y la historia misma de Colombia. <br>\uD83C\uDF06 Su ubicaci\xf3n lo convierte en un punto estrat\xe9gico dentro del recorrido urbano: frente al Parque de las Luces, a pocos pasos de la Plaza de La Alpujarra y rodeado de edificios gubernamentales y culturales, es un sitio ideal para entender c\xf3mo la justicia se articula con la vida social y pol\xedtica de Medell\xedn.<br>\uD83D\uDCF8 Para los visitantes, es un lugar perfecto para capturar im\xe1genes que reflejen el contraste entre la seriedad de la justicia y la energ\xeda vibrante del centro de la ciudad.<br>\uD83D\uDCA1 Dato curioso: El Palacio lleva el nombre de Jos\xe9 F\xe9lix de Restrepo, jurista antioque\xf1o del siglo XIX que impuls\xf3 la abolici\xf3n de la esclavitud en Colombia, convirti\xe9ndose en un s\xedmbolo de lucha por la libertad y los derechos humanos."}]},{id:"7-alpujarra",name:"Alpujarra",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:-.09784947297463731,pitch:-.36987186893880164,fov:1.2812361540040014},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.476,yaw:-2.2505,tooltip:"\uD83C\uDF3F Muro Verde de Medell\xedn",images:[{src:"img/alp/muro.jpg",caption:"Una de las joyas urbanas de Medell\xedn, considerado uno de los jardines verticales m\xe1s grandes de Latinoam\xe9rica. Con m\xe1s de 8.000 plantas vivas de diferentes especies, este muro no solo embellece la ciudad, sino que tambi\xe9n ayuda a purificar el aire, reducir el calor y brindar un respiro natural en medio del paisaje urbano."},{src:"img/alp/AMVA.jpg",caption:""},{src:"img/alp/muroverde.jpg",caption:"\uD83D\uDCF8 Tip viajero: es un lugar perfecto para tomar fotos. Te recomiendo visitarlo en la ma\xf1ana o al final de la tarde, cuando la luz natural resalta los colores intensos de las plantas."}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.2168,yaw:-1.5501,tooltip:"Monumento a la raza",images:[{src:"img/alp/monumento.jpg",caption:""},{src:"img/alp/ima1.png",caption:"Esta monumental obra, dise\xf1ada por el maestro Rodrigo Arenas Betancur en 1988, se levanta en el coraz\xf3n de La Alpujarra. Con sus 38 metros de altura y 40 metros de longitud, es una de las esculturas en bronce y concreto m\xe1s grandes de Am\xe9rica Latina. Representa la fuerza, el car\xe1cter y el esp\xedritu de superaci\xf3n del pueblo antioque\xf1o."},{src:"img/alp/ima2.png",caption:""},{src:"img/alp/ima3.png",caption:"El monumento narra, en un solo conjunto escult\xf3rico, los principales hitos de la historia antioque\xf1a: la conquista, la colonizaci\xf3n, la independencia y el desarrollo del pueblo. Cada figura parece moverse, transmitiendo dinamismo y el esfuerzo colectivo que caracteriza la identidad paisa"},{src:"img/alp/ima4.png",caption:""},{src:"img/alp/ima5.png",caption:"El Monumento a la Raza no solo es arte: es un s\xedmbolo vivo de Medell\xedn. Alrededor de \xe9l, en la Plaza de La Alpujarra, se realizan manifestaciones sociales, encuentros culturales y actos c\xedvicos. Es un espacio donde se mezcla la memoria hist\xf3rica con la vida contempor\xe1nea de la ciudad."},{src:"img/alp/ima6.png",caption:""}]}],linkHotspots:[{yaw:1.1760679495123547,pitch:-.10474936233410759,rotation:0,target:"8-transicin-ciudad-a-naturaleza"}],infoHotspots:[{yaw:.40646343409632735,pitch:-.32045917529061896,title:"\uD83C\uDFDB️ La Alpujarra",text:"La Alpujarra es uno de los lugares m\xe1s emblem\xe1ticos de Medell\xedn. Conocido como el <b>Centro Administrativo La Alpujarra</b>, este espacio concentra los principales edificios gubernamentales de la ciudad y el departamento: la Gobernaci\xf3n de Antioquia, la Alcald\xeda de Medell\xedn, el Edificio de la Asamblea Departamental y otras instituciones p\xfablicas.<br><br>Adem\xe1s de su importancia pol\xedtica y administrativa, La Alpujarra se ha convertido en un epicentro cultural, social y c\xedvico, donde la ciudadan\xeda se encuentra para manifestarse, celebrar y rendir homenaje a su historia. El espacio es amplio, rodeado de plazas y esculturas monumentales que representan la fuerza y el esp\xedritu del pueblo antioque\xf1o.<br><br>\uD83C\uDF0D <b>Dato curioso:</b> El Monumento a la Raza mide 38 metros de alto y 40 de largo, convirti\xe9ndolo en una de las esculturas en bronce y concreto m\xe1s grandes de Am\xe9rica Latina."},{yaw:-1.143712786078808,pitch:-.016293853927820123,title:"\uD83C\uDFE2 Gobernaci\xf3n de Antioquia",text:"El Edificio Jos\xe9 Mar\xeda C\xf3rdova, sede de la Gobernaci\xf3n de Antioquia, es uno de los rascacielos m\xe1s representativos de Medell\xedn. Su arquitectura moderna refleja la visi\xf3n de progreso del departamento y alberga las oficinas desde donde se gestionan pol\xedticas que impactan a millones de antioque\xf1os. <br>Desde aqu\xed se impulsan proyectos de innovaci\xf3n, cultura y desarrollo social que mantienen a Antioquia como un motor econ\xf3mico y cultural en Colombia."},{yaw:2.7126840568226713,pitch:-.2721696124618944,title:"\uD83C\uDFDB️ Alcald\xeda de Medell\xedn",text:"En el complejo tambi\xe9n se encuentra la sede principal de la Alcald\xeda de Medell\xedn, donde se lidera la transformaci\xf3n urbana y social de la ciudad.<br> Medell\xedn es reconocida internacionalmente como un ejemplo de resiliencia e innovaci\xf3n, y gran parte de esa visi\xf3n se gestiona desde este espacio."},{yaw:-2.0345,pitch:.3749,title:"\uD83C\uDFD9️ Plaza de La Alpujarra",text:"La plaza que rodea el complejo no solo es un espacio de tr\xe1nsito, sino tambi\xe9n un lugar de encuentro ciudadano. Aqu\xed se realizan actos culturales, manifestaciones sociales, conciertos y eventos p\xfablicos, lo que convierte a La Alpujarra en un escenario vivo, cargado de historia y significado colectivo."},{yaw:-1.8961,pitch:-.2958,title:"Monumento a la Raza Antioque\xf1a",text:"Este imponente monumento, dise\xf1ado por el maestro Rodrigo Arenas Betancourt e inaugurado en 1988, es una de las obras m\xe1s grandes de Colombia. Con sus 38 metros de altura y figuras din\xe1micas en bronce y concreto, narra la historia de Antioquia: la conquista, la colonizaci\xf3n, la independencia y el desarrollo de su pueblo.<br> M\xe1s que una escultura, es un s\xedmbolo de la identidad antioque\xf1a, del esfuerzo colectivo y del esp\xedritu de superaci\xf3n que caracteriza a Medell\xedn y a su gente."}]},{id:"8-transicin-ciudad-a-naturaleza",name:"Transici\xf3n ciudad a naturaleza",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:.33310458884982275,pitch:-.020712824660577667,fov:1.2812361540040014},linkHotspots:[{yaw:-.6622238495674573,pitch:.1297113999908408,rotation:3.141592653589793,target:"9-pies_descalzos"}],infoHotspots:[{yaw:-.6680991859099557,pitch:.024074036364826412,title:"\uD83D\uDC63 Donde Medell\xedn hace una pausa",text:"En este punto del recorrido comenzamos a sentir la magia de Medell\xedn: la transici\xf3n entre el bullicio urbano y la calma de la naturaleza. Poco a poco, el concreto se mezcla con el verde, el ruido del tr\xe1fico se aten\xfaa y el aire se siente m\xe1s fresco.<br> Desde este punto, llegamos al Parque de los Pies Descalzos.<br>Este espacio nos demuestra que Medell\xedn no solo es ciudad, tambi\xe9n es naturaleza integrada, y este lugar es la mejor muestra de ese equilibrio."}]},{id:"9-pies_descalzos",name:"Parque de los Piesdescalzos",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:.07785832038086049,pitch:-.12226933698328679,fov:.41671472387466335},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0901,yaw:.1216,tooltip:"Descalza tus pies y siente la energ\xeda del planeta",images:[{src:"img/pies/el-parque.jpeg",caption:"Un oasis en el centro de Medell\xedn, donde el agua, la arena y los \xe1rboles de corcho invitan a relajarse y reconectar con la naturaleza. Aqu\xed podr\xe1s caminar descalzo, sentir la frescura del agua y disfrutar un espacio \xfanico en medio de la ciudad. <br>✨ Tip viajero: lleva una toalla peque\xf1a y disfruta la experiencia de caminar sin zapatos; la arena y el agua hacen que tu visita sea inolvidable."}]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0217,yaw:.7445,tooltip:"Descalza tus pies, siente la energ\xeda y disfruta",images:[{src:"img/pies/parque.jpg",caption:"Nuestros visitantes se dejan llevar por esta pausa m\xe1gica, recargan energ\xedas y contagian el lugar con alegr\xeda"},{src:"img/pies/ima.png",caption:"En esta breve desconexi\xf3n, renovar\xe1s el esp\xedritu y estar\xe1s lleno de buena energ\xeda"},{src:"img/pies/ParquePies.JPG",caption:"No es solo caminar sobre la arena, tambi\xe9n podr\xe1s sentir la frescura del agua y rodearse de naturaleza."}]}],linkHotspots:[{yaw:-.7857751453998638,pitch:.06716930147777411,rotation:4.71238898038469,target:"11-laberinto-de-bamb"},{yaw:-.22817534947905216,pitch:-.11493432711867158,rotation:3.141592653589793,target:"10-conexin-naturaleza"}],infoHotspots:[{yaw:-.5511943870259728,pitch:-.10166670748687245,title:"\uD83C\uDF33 Parque de los Pies Descalzos – Un oasis en Medell\xedn",text:"En pleno coraz\xf3n de Medell\xedn, entre altos edificios y avenidas concurridas, se esconde un lugar \xfanico: el Parque de los Pies Descalzos. M\xe1s que un simple parque, es una invitaci\xf3n a volver a lo esencial, a reconectar con la naturaleza y a disfrutar la ciudad de una manera diferente.<br>Aqu\xed, el agua se convierte en protagonista: fuentes y espejos de agua refrescan el ambiente y ofrecen un espacio para jugar, relajarse o simplemente contemplar. El sonido del agua corriendo genera una atm\xf3sfera tranquila, un respiro en medio del ritmo acelerado de la urbe. <br> Otro de sus encantos son los imponentes \xe1rboles de corcho que rodean el parque, con sus troncos suaves y texturas curiosas que invitan a tocar, abrazar y experimentar la naturaleza de cerca. Caminar bajo su sombra es como entrar en un bosque urbano donde la frescura y el verde lo envuelven todo. <br> El espacio tambi\xe9n est\xe1 dise\xf1ado para interactuar: caminar descalzo sobre la arena fina, sentir la textura del suelo, refrescar los pies en el agua… cada rinc\xf3n del parque estimula los sentidos y nos recuerda la importancia de desconectarnos para volver a conectarnos con nosotros mismos y con la naturaleza.<br>El Parque de los Pies Descalzos no es solo un atractivo tur\xedstico: es una experiencia, un recordatorio de que Medell\xedn sabe equilibrar modernidad y naturaleza, cemento y vida verde, ciudad y calma."}]},{id:"10-conexin-naturaleza",name:"Conexi\xf3n Naturaleza",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:-.8565378012691287,pitch:.05092995713399162,fov:1.2812361540040014},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:.0293,yaw:-1.3196,tooltip:"Despierta tus sentidos",images:[{src:"img/pies/turis.png",caption:"Tip viajero: Los \xe1rboles de corcho son \xfanicos en Medell\xedn \uD83C\uDF33\uD83E\uDD0E. \xa1An\xedmate a abrazarlos \uD83E\uDD17\uD83D\uDC9A! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensaci\xf3n de calma y bienestar."}]}],linkHotspots:[{yaw:.22883203254804485,pitch:.0012346401954985708,rotation:0,target:"11-laberinto-de-bamb"}],infoHotspots:[{yaw:-.744500712372604,pitch:.31299920259097114,title:"Despierta tus sentidos",text:"Al entrar, tus pies tocan la arena blanca, c\xe1lida y suave, que invita a desconectarte de la rutina. Es un espacio creado para andar sin zapatos, dejar huellas y reconectar con la tierra de forma natural."},{yaw:2.5903191843063818,pitch:-.11060142384176253,title:"Majestuosos \xe1rboles de caucho",text:'<em data-start="794" data-end="904">Dicen que si abrazas un \xe1rbol de caucho, puedes liberar tus malas energ\xedas y recargarte de calma y bienestar</em>. No es ciencia… es conexi\xf3n.'}]},{id:"11-laberinto-de-bamb",name:"Laberinto de Bamb\xfa",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{pitch:0,yaw:0,fov:1.5707963267948966},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:.0293,yaw:-1.3196,tooltip:"Laberinto de Bamb\xfa",images:[{src:"img/pies/22.png",caption:"No olvides tu c\xe1mara \uD83D\uDCF8. La luz entre el bamb\xfa regala fotos espectaculares, sobre todo en la ma\xf1ana o al atardecer."}]}],linkHotspots:[{yaw:-.9795396858947889,pitch:-.08437556136656355,rotation:0,target:"12-edificio-inteligente-epm"}],infoHotspots:[{yaw:-.027987288919751663,pitch:-.13591470880965772,title:"\uD83C\uDF8B Laberinto de Bamb\xfa – Un rinc\xf3n para perderse y encontrarse",text:"Dentro del Parque de los Pies Descalzos, uno de los espacios m\xe1s emblem\xe1ticos de Medell\xedn, se encuentra un rinc\xf3n que sorprende a todos los visitantes: el Laberinto de Bamb\xfa. Este espacio, rodeado por altos y frondosos tallos de bamb\xfa, ofrece una experiencia diferente a cualquier otra en la ciudad.<br>Caminar por sus pasillos es dejarse envolver por la naturaleza. La altura del bamb\xfa crea un ambiente fresco y misterioso, donde la luz del sol se filtra suavemente entre las hojas y el viento genera un susurro relajante. Es un lugar perfecto para hacer una pausa, desconectarse del bullicio urbano y sentir que, por un instante, uno se traslada a un bosque encantado en medio de Medell\xedn."},{yaw:-2.4049,pitch:.0384,title:"\uD83C\uDF8B Laberinto de Bamb\xfa – Un rinc\xf3n para perderse y encontrarse",text:"En el coraz\xf3n del Parque de los Pies Descalzos se esconde un espacio m\xe1gico: el Laberinto de Bamb\xfa. Caminar entre sus altos tallos verdes es una experiencia \xfanica en Medell\xedn, pues el bamb\xfa crea un ambiente fresco, silencioso y lleno de misterio.<br>Sus senderos invitan a perderse por un momento y dejarse envolver por la naturaleza. La luz se filtra suavemente entre los tallos, el sonido del viento roza las hojas, y el visitante siente que entra en un mundo apartado del bullicio de la ciudad.<br>Este rinc\xf3n es perfecto para la reflexi\xf3n, la calma y tambi\xe9n para divertirse recorriendo sus pasadizos con amigos o familia. Adem\xe1s, es un espacio muy buscado por fot\xf3grafos y turistas que encuentran aqu\xed un escenario natural encantador.<br>✨ Tip viajero: no olvides tu c\xe1mara \uD83D\uDCF8; los pasillos del bamb\xfa ofrecen \xe1ngulos espectaculares para fotos originales y llenas de verde."}]},{id:"12-edificio-inteligente-epm",name:"\uD83C\uDFE2 Edificio Inteligente de las Empresas P\xfablicas de Medell\xedn",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:-1.472122748312989,pitch:-.3328550986643233,fov:.9712718897065276},hotSpots:[{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0378,yaw:-1.5084,tooltip:"\uD83C\uDFE2 Innovaci\xf3n y sostenibilidad en Medell\xedn ",images:[{src:"img/epm/image.jpeg",caption:"El Edificio EPM, inaugurado en 1997, marc\xf3 un antes y un despu\xe9s en la arquitectura de Medell\xedn. En su momento fue considerado uno de los edificios m\xe1s modernos de Colombia y un referente en Latinoam\xe9rica, gracias a su dise\xf1o innovador y a la tecnolog\xeda utilizada en su construcci\xf3n.<br>Su fachada de vidrio y acero no solo ofrece una est\xe9tica imponente, sino que tambi\xe9n aprovecha la luz natural y contribuye a la eficiencia energ\xe9tica, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilaci\xf3n e iluminaci\xf3n que reducen el consumo de energ\xeda y creando un entorno amigable con el medio ambiente."},{src:"img/epm/interior.jpeg",caption:""},{src:"img/epm/EDIFICIO.jpg",caption:"El Edificio Inteligente de EPM marc\xf3 un hito en la historia de Medell\xedn y del pa\xeds. En su momento fue la construcci\xf3n m\xe1s moderna de Colombia y una de las m\xe1s avanzadas de Latinoam\xe9rica, gracias a su dise\xf1o arquitect\xf3nico vanguardista y a los sistemas tecnol\xf3gicos integrados que lo convirtieron en un referente internacional."},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:.0795,yaw:2.6156,tooltip:"Una pausa para los sentidos",images:[{src:"img/pies/ParquePies.JPG",caption:"los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aqu\xed, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},{src:"img/epm/interior.jpeg",caption:""},{src:"img/epm/EDIFICIO.jpg",caption:"El Edificio Inteligente de EPM marc\xf3 un hito en la historia de Medell\xedn y del pa\xeds. En su momento fue la construcci\xf3n m\xe1s moderna de Colombia y una de las m\xe1s avanzadas de Latinoam\xe9rica, gracias a su dise\xf1o arquitect\xf3nico vanguardista y a los sistemas tecnol\xf3gicos integrados que lo convirtieron en un referente internacional."},]},{type:"camera",carrusel:!0,image:"img/Camara.png",pitch:-.0378,yaw:-1.5084,tooltip:"Edificio EPM",images:[{src:"img/epm/EDIFICIO.jpg",caption:"El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblem\xe1tico de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental."},{src:"img/epm/agua_urbanismo.jpg",caption:""},{src:"img/epm/25312.png",caption:""},{src:"img/epm/EPM.jpg",caption:"✨ Tip viajero: no olvides recorrer sus alrededores \uD83C\uDF3F. La plaza y sus jardines son un lugar ideal para descansar y tomar fotograf\xedas"}]}],linkHotspots:[{yaw:2.6541000480451293,pitch:-.17727500579812094,rotation:0,target:"13-centro-de-convenciones-y-teatro"}],infoHotspots:[{yaw:-1.0881964642481812,pitch:-.08079930952018621,title:"Una breve pausa",text:"Lo m\xe1s encantador est\xe1 justo afuera: un entorno lleno de fuentes interactivas, espejos de agua y zonas h\xfamedas que invitan a jugar, refrescarse o simplemente disfrutar."},{yaw:-2.9044878547184716,pitch:.10748410970518307,title:"<br>",text:"Este espacio fue dise\xf1ado como un puente entre lo urbano y lo natural, un respiro fresco dentro de la ciudad, donde el agua, la arquitectura y el paisaje dialogan en perfecta armon\xeda."}]},{id:"13-centro-de-convenciones-y-teatro",name:"Centro de convenciones y Teatro",levels:[{tileSize:256,size:256,fallbackOnly:!0},{tileSize:512,size:512},{tileSize:512,size:1024},{tileSize:512,size:2048}],faceSize:2048,initialViewParameters:{yaw:-1.6635286315328717,pitch:-.18641169752651265,fov:1.2812361540040014},linkHotspots:[],infoHotspots:[{yaw:-1.3463471587051483,pitch:.0027403894617243907,title:"Plaza Mayor Centro de Convenciones y Exposiciones.",text:"Plaza Mayor es el epicentro de los grandes eventos de Medell\xedn. All\xed se realizan ferias internacionales, congresos, conciertos y exposiciones de todo tipo. Su arquitectura moderna y funcional lo convierte en un referente del turismo de negocios y de eventos en Colombia.<br< Conectado estrat\xe9gicamente al coraz\xf3n de la ciudad, Plaza Mayor impulsa el desarrollo econ\xf3mico y cultural, acogiendo a miles de visitantes nacionales e internacionales cada a\xf1o. <br> ✨ Tip viajero: Si visitas Medell\xedn durante ferias como la Feria de las Flores \uD83C\uDF38 o Colombiamoda, este lugar se llena de vida, colores y actividades. \xa1Un sitio ideal para vivir la ciudad desde otra perspectiva!."},{yaw:-2.3877587140456047,pitch:-.4510192621363007,title:"\uD83C\uDFAD Teatro Metropolitano Jos\xe9 Guti\xe9rrez G\xf3mez",text:"El Teatro Metropolitano es uno de los templos culturales m\xe1s importantes de Medell\xedn. Inaugurado en 1987, su dise\xf1o moderno y su ac\xfastica impecable lo han convertido en sede de la Orquesta Filarm\xf3nica de Medell\xedn y en escenario de conciertos, \xf3peras, obras de teatro y festivales internacionales.<br> Con capacidad para m\xe1s de 1.600 personas, es un espacio donde el arte cobra vida y donde Medell\xedn se abre al mundo con espect\xe1culos de gran calidad.<br>✨ Tip viajero: Si tienes la oportunidad, disfruta de un concierto en este teatro \uD83C\uDFB6. La ac\xfastica es tan perfecta que cada nota se siente \xfanica y envolvente."}]}],name:"Medell\xedn 360, Vive la Ciudad",settings:{mouseViewMode:"drag",autorotateEnabled:!1,fullscreenButton:!0,viewControlButtons:!0}};
+window.APP_DATA = {
+  "scenes": [
+    {
+"id": "0-plaza-botero-botero",
+      "name": "Plaza Botero",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.11451431718835359,
+        "pitch": -0.28108895507963005,
+        "fov": 1.2812361540040014
+      },
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4299,
+    "yaw": 2.7905,
+    "tooltip": "Hotel Nutibara",
+     "images": [
+      {
+        "src": "img/escena1/HotelNutibara_1965.jpg",
+        "caption": "Hotel Nutibara en año 1965"
+      },
+      {
+        "src": "img/escena1/HotelNutibara.jpg",
+        "caption": "Hotel Nutibara en la actualidad"
+      }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2806,
+    "yaw": -1.2813,
+    "tooltip": "Estación Berrío",
+    "images": [
+      {
+        "src": "img/escena1/antes.jpg",
+        "caption": "Un viaje en el tiempo: La primera imagen nos transporta al Medellín de mediados del siglo XX, con elegantes edificios que marcaban el ritmo de la ciudad. Abajo, vemos el presente con la Estación Parque Berrío del Metro de Medellín, símbolo de modernidad, movilidad y transformación urbana."
+     },
+      {
+        "src": "img/escena1/EstacionBerrio.jpg",
+        "caption": "Interior estación Parque Berrio del metro"
+     },
+      {
+        "src": "img/escena1/Rutas_Metro.jpg",
+        "caption": "Mapa rutas del Metro de Medellín."
+      }
+    ]
+  },
+{
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0122,
+    "yaw": 0.7437,
+    "tooltip": "Esculturas Maestro Fernando Botero",
+    "images": [
+      {
+        "src": "img/carrusel/Maternidad.jpg",
+        "caption": "Maternidad. Una de las obras más tiernas de Botero, Maternidad captura el vínculo entre madre e hijo, una representación de la protección y el amor maternal."
+      },
+      {
+        "src": "img/carrusel/Caballo.JPG",
+        "caption": "Caballo. El Caballo es otra pieza monumental que resalta el amor de Botero por los animales, representados en su estilo característico, con líneas suaves y voluminosas."
+      },
+      {
+        "src": "img/carrusel/Hombre_Vestido.jpg",
+"caption": "Hombre Vestido. Es una representación de un hombre robusto, completamente vestido, con una postura erguida que refleja el poder y la presencia masculina."
+},
+      {
+        "src": "img/carrusel/Mujer_Vestida.jpg",
+"caption": "Mujer Vestida. Esta figura muestra a una mujer con ropa, su volumen amplificado transmitiendo una sensación de plenitud y fortaleza."
+},
+      {
+        "src": "img/carrusel/Mujer_con_Espejo.jpg",
+"caption": "Mujer con Espejo. En esta escultura, una mujer sostiene un espejo, una obra que hace referencia tanto a la belleza femenina como a la introspección y el reflejo personal."
+},
+      {
+        "src": "img/carrusel/Adan.jpg",
+"caption": "Adan."
+},
+      {
+        "src": "img/carrusel/Eva.jpg",
+"caption": "Eva."
+},
+      {
+        "src": "img/carrusel/Mujer_con_Espejo.jpg",
+"caption": "Mujer con Espejo. Esta escultura muestra una mujer que sostiene una fruta, otra de las representaciones clásicas de Botero, que fusiona la figura humana con objetos de la vida cotidiana."
+},
+      {
+        "src": "img/carrusel/Gato.jpg",
+"caption": "Una de las esculturas más emblemáticas, El Gato ha llegado a ser un ícono de la ciudad. Con sus orejas grandes y cuerpo voluminoso, el gato destaca por su tamaño y su invitación a la interacción del público."
+},
+      {
+        "src": "img/carrusel/Perro.jpg",
+"caption": "Perro."
+},
+      {
+        "src": "img/carrusel/Mujer_Sentada.jpg",
+"caption": "Mujer Sentada. Esta figura de mujer sentada es una representación de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."
+},
+      {
+        "src": "img/carrusel/Pensamiento.jpg",
+"caption": "Pensamiento. Esta escultura muestra una mujer voluptuosa recostada sobre una gran cabeza masculina, simbolizando que las ideas y la reflexión reposan en la mente humana. Es una metáfora visual de la relación entre cuerpo, mente y pensamiento."
+},
+      {
+        "src": "img/carrusel/Cabeza.jpg",
+"caption": "Cabeza. Esta figura de mujer sentada es una representación de la serenidad y el descanso, con las proporciones exageradas que dan cuenta de la sensualidad en la quietud."
+},
+      {
+        "src": "img/carrusel/Esfinge.jpg",
+"caption": "Esfinge. Figura mitológica transformada en su característico estilo voluminoso, con un aire de misterio y sabiduría."
+},
+      {
+        "src": "img/carrusel/Rapto_de_Europa.jpg",
+"caption": "Rapto de Europa. Una obra que hace alusión a la mitología clásica, donde Europa es raptada por Zeus transformado en toro."
+},
+      {
+        "src": "img/carrusel/Mujer_Reclinada.jpg",
+"caption": "Mujer Reclinada."
+},
+      {
+        "src": "img/carrusel/Hombre_Caminante.jpg",
+"caption": "Hombre Caminante. Muestra una figura humana en movimiento, capturando la fuerza y determinación de un ser humano que avanza en su camino."
+},
+      {
+        "src": "img/carrusel/Soldado_Romano.jpg",
+"caption": "Soldado Romano. Es una obra que hace alusión a los guerreros del Imperio Romano, representados con la fuerte presencia de las figuras de Botero."
+},
+      {
+        "src": "img/carrusel/Venus_Dormida.jpg",
+"caption": "Venus Dormida. Esta figura representa la figura típica de Venus (la diosa del amor), reclinada en actitud serena y sensual. Más que un símbolo mitológico, esta Venus parece invitarnos al disfrute tranquilo y contemplativo de la belleza en el espacio público"
+},
+      {
+        "src": "img/carrusel/Hombre_a_Caballo.jpg",
+"caption": "Hombre a caballo. Esta escultura presenta a un jinete y su montura en proporciones generosas y pausadas, invitando a la contemplación más que al movimiento. Es una metáfora del equilibrio entre fuerza y calma, enmarcada en un entorno urbano que dialoga entre arquitectura y naturaleza, memoria y renovación."
+},
+      {
+        "src": "img/carrusel/Mujer.jpg",
+"caption": "Mujer. Una figura femenina de grandes proporciones, representando la sensualidad y la fortaleza femenina en la tradición boterista."
+},
+      {
+        "src": "img/carrusel/Mano.jpg",
+"caption": "La Mano de Botero es una escultura que resalta la importancia de este órgano humano, representado de manera gigantesca y detallada, invitando a la reflexión sobre la acción humana."
+      }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.687523,
+    "yaw": -0.3319,
+    "tooltip": "Rafael Uribe Uribe",
+    "images": [
+      {
+        "src": "img/escena1/Entrada.jpg",
+        "caption": "Entrada Palacio de la Cultura Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/escena1/RafaelUribeUribe.jpg",
+        "caption": "Fachada Palacio Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/escena1/RafaelUribeUribe_2.jpg",
+        "caption": "Fachada Palacio Rafael Uribe Uribe"
+      },
+      {
+        "src": "img/escena1/Vistadesdecupula1.jpg",
+        "caption": "Vista Edificio Coltejer desde la cúpula del Palacio Uribe Uribe"
+      },
+      {
+        "src": "img/escena1/Cupula.jpg",
+        "caption": "Sube hasta la cúpula, disfruta y toma fotos increíbles"
+     },
+      {
+        "src": "img/escena1/Vistadesdecupula.jpg",
+        "caption": "Tendrás una panorámica del centro, la Plaza Botero y de una gran parte de la ciudad"
+     }
+    ]
+  }        
+ ],
+
+"linkHotspots": [
+        {
+          "yaw": 0.4106533973529771,
+          "pitch": -0.29636833189372425,
+          "rotation": 3.141592653589793,
+          "target": "1-plaza-botero-y-palacio-rafael-uribe-uribe"
+        }
+      ],
+
+"infoHotspots": [
+        {
+          "yaw": -0.6310376814969114,
+          "pitch": -0.6875232116974992,
+          "title": "Palacio de la Cultura Rafael Uribe Uribe",
+          "text": "Este imponente edificio es uno de los íconos arquitectónicos de Medellín. Su llamativa fachada en blanco y negro, inspirada en los palacios europeos, contrasta con la energía tropical de la ciudad.<br> Nombrado en honor a Rafael Uribe Uribe, líder liberal y defensor de los derechos civiles, el palacio fue originalmente la sede del gobierno departamental. Hoy es un espacio cultural abierto a todos.<br>🎨 ¿Qué puedes encontrar aquí?<br>• Galerías de arte y exposiciones temporales <br>• Sala de música y archivo histórico<br>• Biblioteca departamental<br> • Mirador con vista panorámica del centro de Medellín<br> 📸 Recomendación: No te pierdas la vista desde la cúpula ni los detalles góticos de sus pasillos interiores."
+        },
+        {
+          "yaw": -0.2648259936791959,
+          "pitch": -0.00779990571439626,
+          "title": "Plaza Botero",
+          "text": "Plaza Botero: Donde el arte abraza la ciudad”<br> En el corazón vibrante de Medellín te espera un lugar único en el mundo: 23 esculturas monumentales del maestro Fernando Botero, al aire libre y listas para que las observes, toques y tomes fotografias.<br> Aquí, el bronce cobra vida y las formas voluptuosas cuentan historias de cultura, orgullo y creatividad paisa.<br> Rodeada de arquitectura icónica y a pasos del Museo de Antioquia, la Plaza Botero no es solo una parada: es una experiencia sensorial que combina arte, historia y el calor de la gente de Medellín.<br> Aquí, el arte convive con el movimiento de la ciudad, creando un contraste entre lo clásico y lo cotidiano.<br><br>📸Tip local: Tocar las esculturas, especialmente en ciertas partes, se ha convertido en una tradición popular... ¡dicen que trae buena suerte!<br><br>Este es un lugar ideal para tomar fotos, disfrutar el arte al aire libre y conocer la esencia cultural de Medellín."
+        }
+      ]
+    },
+    {
+      
+
+"id": "1-plaza-botero-y-palacio-rafael-uribe-uribe",
+      "name": "Museo de Antioquia y Plaza Botero",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 2.9540833239767146,
+        "pitch": -0.32309682106539483,
+        "fov": 0.7680934518125859
+      },
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3243,
+    "yaw": 2.9470,
+    "tooltip": "Museo de Antioquia",
+     "images": [
+      {
+        "src": "img/00_Museo/Museo1.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo2.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo3.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo4.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo5.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo6.jpg", "caption": ""},
+      { "src": "img/00_Museo/Museo7.jpg", "caption": ""}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0731,
+    "yaw": -1.4495,
+    "tooltip": "Esfinge",
+    "images": [
+      {"src": "img/carrusel/Esfinge.jpg", "caption": "1995. Bronce"}
+    ]
+  },  
+{
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1141,
+    "yaw": 0.1576,
+    "tooltip": "La alegría de nuestros visitantes",
+    "images": [
+      {"src": "img/00_Museo/Turistas.jpg", "caption": "Puedes hacer el recorrido y tomar todas las fotos que quieras"}
+    ]
+  },
+  {
+ "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0602,
+    "yaw": -0.5753,
+    "tooltip": "Mujer con Fruta",
+    "images": [
+      {"src": "img/carrusel/Mujer_con_Fruta.jpg", "caption": "1996. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0663,
+    "yaw": -0.9806,
+    "tooltip": "Mano",
+    "images": [
+      {"src": "img/carrusel/Mano.jpg", "caption": "1992. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0917,
+    "yaw": -0.0550,
+    "tooltip": "Gato",
+    "images": [
+      {"src": "img/carrusel/Gato.jpg", "caption": "1993. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0694,
+    "yaw": 0.3503,
+    "tooltip": "Cabeza",
+    "images": [
+      {"src": "img/carrusel/Cabeza.jpg", "caption": "1999. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0476,
+    "yaw": 0.8948,
+    "tooltip": "Soldado Romano",
+    "images": [
+      {"src": "img/carrusel/Soldado_Romano.jpg", "caption": "1986. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0365,
+    "yaw": 1.7038,
+    "tooltip": "Venus Dormida",
+    "images": [
+      {"src": "img/carrusel/Venus_Dormida.jpg", "caption": "1994. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0887,
+    "yaw": 1.5813,
+    "tooltip": "Hombre Caminante",
+    "images": [
+      {"src": "img/carrusel/Hombre_Caminante.jpg", "caption": "1999. Bronce"}
+    ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0955,
+    "yaw": -1.6850,
+    "tooltip": "Rapto de Europa",
+    "images": [
+      {"src": "img/carrusel/Rapto_de_Europa.jpg", "caption": "1991. Bronce"}
+      ]
+    }
+  ],
+
+"linkHotspots": [
+        {
+          "yaw": 0.2812835640726874,
+          "pitch": -0.130667924147728,
+          "rotation": 0,
+          "target": "2-esculturas-y-tradicin"
+        },
+         {
+          "yaw": -0.1240,
+          "pitch": -0.2417,
+          "rotation": 0,
+          "target": "0-plaza-botero-botero"
+        }
+      ],
+"infoHotspots": [
+        {
+          "yaw": 2.8281957788055063,
+          "pitch": -0.2278310627368345,
+          "title": "🏛️ <strong data-start=\"616\" data-end=\"658\"> Museo de Antioquia</strong>",
+          "text": "🏛La puerta al alma artística de Medellín<br> A solo unos pasos de la Plaza Botero, se encuentra uno de los tesoros culturales más importantes de Colombia.<br>El Museo de Antioquia fue fundado en 1881, es uno de los museos más antiguos de Colombia, y el alma cultural del centro de Medellín, ya que no solo custodia más de 5.000 obras, sino que también cuenta la historia de la ciudad y la región a través del arte.<br> Este maravilloso lugar te espera para llevarte por un viaje a través de la historia, la identidad y el talento del país.<br> Entre pinturas, esculturas, fotografías y piezas precolombinas 🏺, cada sala es un diálogo entre arte y ciudad.<br> 💡 Tip viajero: Desde sus balcones, disfruta la mejor vista de la Plaza Botero, como si miraras un cuadro vivo en movimiento."
+        }
+      ]
+    },
+    {
+     
+
+"id": "2-esculturas-y-tradicin",
+      "name": "Esculturas y Tradición",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": -0.6354479046965569,
+        "pitch": -0.1250168795517812,
+        "fov": 0.6087391224900204
+      },
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0971,
+    "yaw": -0.7363,
+    "tooltip": "Siente el arte a cielo abierto",
+     "images": [
+      {
+        "src": "img/plaza/botero.jpg", "caption": ""}
+     ]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1612,
+    "yaw": 0.4393,
+    "tooltip": "Vive el arte a cielo abierto",
+     "images": [
+      {
+        "src": "img/plaza/Fototuristas.jpg", "caption": ""}
+      ]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1140,
+    "yaw": -3.0319,
+    "tooltip": "Vive el arte",
+    "images": [
+      {"src": "img/plaza/arte.jpg", "caption": ""}
+      ]
+    }
+  ],
+
+"linkHotspots": [
+        {
+          "yaw": 0.9658128506179562,
+          "pitch": -0.1893595887654591,
+          "rotation": 3.141592653589793,
+          "target": "3-palacio-rafael-uribe-uribe"
+        },
+        {
+          "yaw": 1.30800765975075,
+          "pitch": -0.1490420071296903,
+          "rotation": 1.5707963267948966,
+          "target": "4-parque-de-las-luces"
+        }
+      ],
+"infoHotspots": [
+        {
+          "yaw": -0.5444300357094143,
+          "pitch": -0.3131824056238166,
+          "title": "Corazón Plaza Botero",
+          "text": "Es común ver a los visitantes tocando las esculturas, una tradición local dice que si lo haces, especialmente en ciertas partes, ¡atraes la buena suerte!<br>Entre las obras, verás bancas y zonas verdes donde puedes sentarte a descansar, tomar un respiro o simplemente disfrutar del arte al aire libre."
+        }
+      ]
+    },
+    {
+      
+
+"id": "3-palacio-rafael-uribe-uribe",
+      "name": "Palacio de la Cultura Rafael Uribe Uribe",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": -1.0680169924406062,
+        "pitch": -0.44384624272654705,
+        "fov": 1.2812361540040014
+      },
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4170,
+    "yaw": -1.2292,
+    "tooltip": "Exterior",
+     "images": [
+      {
+        "src": "img/rafael/exterior.jpg", "caption": ""}
+]
+  },   
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1486,
+    "yaw": 2.6137,
+    "tooltip": "Interior",
+     "images": [
+      {
+        "src": "img/rafael/Escalas.jpg", "caption": ""},
+      { "src": "img/rafael/escalasinteriores.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""},
+      { "src": "img/rafael/Interior.jpg", "caption": ""}
+    ]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3979,
+    "yaw": 0.1519,
+    "tooltip": "Interior",
+     "images": [
+      {
+        "src": "img/rafael/salones.jpg", "caption": ""},
+      { "src": "img/rafael/salon.jpg", "caption": ""},
+      { "src": "img/rafael/corredores.jpg", "caption": ""}      
+    ]
+  },     
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -1.0826,
+    "yaw": -0.3242,
+    "tooltip": "Terraza",
+     "images": [
+      {
+        "src": "img/rafael/Terraza.jpg", "caption": ""},
+      { "src": "img/rafael/vista.jpg", "caption": ""},
+      { "src": "img/rafael/Vistaterraza.jpg", "caption": ""}      
+    ]
+  },     
+{
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0106,
+    "yaw": 1.6506,
+    "tooltip": "Zona de descanso",
+     "images": [
+      {
+        "src": "img/rafael/Fuente_cafeteria.jpg", "caption": "Aquí te espera una de las cafeterías más tradicionales de Medellín, ideal para relajarte en un ambiente tranquilo."}
+]
+  },     
+  {
+"type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4915,
+    "yaw": 1.2040,
+    "tooltip": "Información",
+    "images": [
+      {"src": "img/rafael/Información.jpg", "caption": "El Palacio de la Cultura no es solo un edificio, es un viaje por la historia, el arte y la arquitectura que marcan la esencia de Medellín. Un lugar donde el pasado y el presente se encuentran para regalarnos una experiencia única en la ciudad de la eterna primavera. ¡Anímate a descubrirlo!"}
+      ]
+    }
+  ],
+
+"linkHotspots": [
+        {
+          "yaw": -1.4901274791616146,
+          "pitch": -0.07462039719154134,
+          "rotation": 4.71238898038469,
+          "target": "4-parque-de-las-luces"
+        },
+        {
+          "yaw": -0.8827689414356072,
+          "pitch": -0.08037533467373947,
+          "rotation": 3.141592653589793,
+          "target": "2-esculturas-y-tradicin"
+        }
+      ],
+"infoHotspots": [
+        {
+          "yaw": -2.070070925613887,
+          "pitch": -0.3868519485230113,
+          "title": "Palacio Rafael Uribe Uribe",
+          "text": "Caminar por estos pasillos es como viajar en el tiempo. Sus paredes de piedra, techos altos y vitrales de colores revelan una arquitectura neogótica que poco se ve en Colombia.<br>Originalmente, este edificio fue sede del gobierno departamental de Antioquia. Hoy, es un espacio abierto para el arte, la cultura y la memoria.<br>En sus salas podrás explorar exposiciones de arte, colecciones fotográficas, archivos históricos y actividades culturales gratuitas."
+        }
+      ]
+    },
+    {
+ 
+
+"id": "4-parque-de-las-luces",
+      "name": "Parque de las Luces",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.19153513858864812,
+        "pitch": -0.5207795914658391,
+        "fov": 1.2812361540040014
+      },
+
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3506,
+    "yaw": -0.9533,
+    "tooltip": "Antigua Plaza Cisneros",
+    "images": [
+      { "src": "img/cisneros/1Gal1Img2450.jpg", "caption": "" },
+      { "src": "img/cisneros/antiguaplaza.jpg", "caption": "" },
+      { "src": "img/cisneros/plaza.jpg", "caption": "La Plaza de Cisneros, con el tranvía municipal y la Plaza de Mercado de Guayaquil, construida por Charles Carré. Años 20" },     
+      { "src": "img/cisneros/comentario.jpg", "caption": "El espacio que antes ocupó la Plaza de Mercado de Cisneros. Aquí está hoy el así llamado Parque de las Luces. ¿Cómo tiene parece el cambio de este lugar a lo que es hoy?" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2332,
+    "yaw": -0.2896,
+    "tooltip": "Historia",
+    "images": [
+      { "src": "img/cisneros/Plaza_de_Mercado.jpg", "caption": "Plaza de Mercado 1920" },
+      { "src": "img/cisneros/Plazacisneros_1905.jpg", "caption": "Plaza Cisneros, año 1905" },
+      { "src": "img/cisneros/Panormámica.jpg", "caption": "" },
+      { "src": "img/cisneros/noticiaincendio.png", "caption": "" },
+      { "src": "img/cisneros/antesyhoy.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1604,
+    "yaw": 0.1128,
+    "tooltip": "Edificios Vásquez y Carré",
+    "images": [
+      { "src": "img/cisneros/edificio-v__squez.jpg", "caption": "Los edificios mellizos Vásquez y Carré, fueron, a finales del siglo XIX y principios del siglo XX, las edificaciones más altas de la ciudad. Diseñados por el arquitecto francés Charles Émile Carré, " },
+      { "src": "img/cisneros/5111713-me.jpg", "caption": "" },
+      { "src": "img/cisneros/PANO_20250710_130603.jpg", "caption": "La fachada de estos edificios mellizos se asemeja a los secadores de café de las haciendas antioqueñas, atributo que sedujo a comerciantes  locales y extranjeros que se instalaron en sus pisos inferiores durantes los primeros años de las dos edificaciones. " }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3126,
+    "yaw": 0.9520,
+    "tooltip": "Parque de las Luces actualmente",
+    "images": [
+      { "src": "img/cisneros/5111749-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5111729-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5111733-me.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3875,
+    "yaw": 1.5500,
+    "tooltip": "Parque de las Luces",
+    "images": [
+      { "src": "img/cisneros/5088825-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5088837-me.jpg", "caption": "" },
+      { "src": "img/cisneros/5088840-me.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1561,
+    "yaw": 3.0588,
+    "tooltip": "Biblioteca EPM",
+    "images": [
+      { "src": "img/cisneros/biblioteca-espacios.jpeg", "caption": "Es un espacio que logra una atmósfera confortable y acogedora, un lugar que dinamiza la imagen urbana del sector y que, es un elemento integrador como espacio público en donde se posibilita el diálogo entre el pasado, el presente y el futuro, en medio de un entorno de gran firmeza arquitectónica y cultural, donde niños, jóvenes y adultos se acercan al universo del conocimiento y la cultura." }
+    ]
+  }
+],
+
+"linkHotspots": [
+        {
+          "yaw": 1.8468150583230543,
+          "pitch": -0.17417896287664014,
+          "rotation": 0,
+          "target": "5-antiguo-ferrocarril"
+        },
+          {
+          "yaw": -1.8206,
+          "pitch": -0.1468,
+          "rotation": 0,
+          "target": "0-plaza-botero-botero"
+        }  
+      ],
+      
+"infoHotspots": [
+        {
+          "yaw": 0.13940764139272765,
+          "pitch": -0.3122330097451762,
+          "title": "Plaza Cisneros – De las bodegas al Parque de las Luces",
+          "text": "La Plaza Cisneros, conocida también como el Parque de las Luces, es uno de los espacios que mejor reflejan la capacidad de transformación urbana de Medellín. Su nombre rinde homenaje a Francisco Javier Cisneros, ingeniero cubano que lideró la construcción del Ferrocarril de Antioquia a finales del siglo XIX, una obra que conectó la región con el resto del país y marcó un hito en su desarrollo económico.<br>En sus inicios, la plaza fue un centro de carga y bodegas del ferrocarril, rodeada de almacenes y con un marcado carácter industrial. Sin embargo, con el paso del tiempo, el lugar entró en deterioro y se convirtió en una zona poco atractiva para la ciudadanía.<br>La gran transformación llegó en el año 2005, cuando el espacio fue renovado como parte del plan de recuperación del centro de Medellín. El cambio más llamativo fue la instalación de 300 columnas luminosas, de hasta 24 metros de altura, que de día parecen un bosque metálico y de noche iluminan el espacio con un espectáculo de luces. Esta intervención no solo rescató un espacio urbano, sino que lo convirtió en un símbolo de la renovación cultural y social de Medellín."
+        }
+      ]
+    },
+    {
+      
+
+
+"id": "5-antiguo-ferrocarril",
+      "name": "Antiguo Ferrocarril de Antioquia",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.6204072967328074,
+        "pitch": -0.07693334873926361,
+        "fov": 1.2812361540040014
+      },
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1589,
+    "yaw": -0.4738,
+    "tooltip": "Ferrocarril de Antioquia",
+    "images": [
+      { "src": "img/Ferrocarril/1(2).png", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
+      { "src": "img/Ferrocarril/12).jpg", "caption": "" },
+      { "src": "img/Ferrocarril/1(4).png", "caption": "" },     
+      { "src": "img/Ferrocarril/1(1).png", "caption": "" },
+      { "src": "img/Ferrocarril/12(1).jpg", "caption": "" }
+    ]
+  },
+   {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0828,
+    "yaw": 0.8088,
+    "tooltip": "Fotos Antiguas",
+    "images": [
+      { "src": "img/Ferrocarril/Interior.jpg", "caption": "Foto antigua coloreada del interior de un vagón Ferrocarril de Antioquia con sillas tapizadas, con las luces interiores encendidas. Año 1944. Foto de Francisco Mejía" },
+      { "src": "img/Ferrocarril/31429.png", "caption": "" },
+      { "src": "img/Ferrocarril/414.png", "caption": "" },
+      { "src": "img/Ferrocarril/fotoantigua.jpg", "caption": "Foto antigua coloreada de Ferrocarril de Antioquia años cincuenta." }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1311,
+    "yaw": 1.8421,
+    "tooltip": "Transformación",
+    "images": [
+      { "src": "img/Ferrocarril/31705.png", "caption": "" },
+      { "src": "img/Ferrocarril/2131E.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/2317.png", "caption": "" },
+      { "src": "img/Ferrocarril/1518.png", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.1561,
+    "yaw": 3.0588,
+    "tooltip": "Estaciones del antiguo Ferrocarril",
+    "images": [
+      { "src": "img/Ferrocarril/2131E.jpg", "caption": "" },
+      { "src": "img/Ferrocarril/2021.png", "caption": "" },     
+      { "src": "img/Ferrocarril/2012.png", "caption": "" },
+      { "src": "img/Ferrocarril/55.png", "caption": "" },
+      { "src": "img/Ferrocarril/1920.png", "caption": "" }
+    ]
+  }
+],
+
+"linkHotspots": [
+        {
+          "yaw": -2.4846729326953874,
+          "pitch": -0.4630845139263542,
+          "rotation": 0,
+          "target": "6-antigua-estacin-medelln"
+        }          
+      ],
+"infoHotspots": [
+        {
+          "yaw": -0.36409705178894036,
+          "pitch": 0.11974668427449231,
+          "title": "Ferrocarril de Antioquia",
+          "text": "El Ferrocarril de Antioquia fue mucho más que un medio de transporte. Fue el símbolo de una época de progreso, conexión y orgullo regional."
+       }
+      ]
+    },
+    {
+     
+ "id": "6-antigua-estacin-medelln",
+      "name": "🚂 Antigua Estación del Ferrocarril de Antioquia",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": -2.5066120310948463,
+        "pitch": -0.4758720363394744,
+        "fov": 1.2812361540040014
+      },
+"hotSpots": [
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3941,
+    "yaw": -2.5448,
+    "tooltip": "Estación Medellín",
+    "images": [
+      { "src": "img/est/estacioant.png", "caption": "Ferrocarril de Antioquia en la Estación Medellín" },
+      { "src": "img/est/bautizo1.jpg", "caption": "🚂 Durante décadas, la estación fue el punto de partida y llegada de viajeros, comerciantes y soñadores que transformaron la historia económica y social de Medellín." },
+      { "src": "img/est/estacionmed.jpg", "caption": "" },     
+      { "src": "img/est/47148.jpg", "caption": "" },
+      { "src": "img/est/estacion.jpg", "caption": "" },
+      { "src": "img/est/50.jpg", "caption": "Aunque hoy los trenes ya no circulan, el edificio permanece como testigo vivo de ese pasado de hierro y rieles" }
+    ]
+  }
+],
+
+"linkHotspots": [
+        {
+          "yaw": 2.009365567655193,
+          "pitch": -0.4966668186781753,
+          "rotation": 0,
+          "target": "7-alpujarra"
+        }
+      ],
+ "infoHotspots": [
+        {
+          "yaw": 2.654780737992004,
+          "pitch": -0.24380502008776261,
+          "title": "Antigua Estación Medellín del Ferrocarril de Antioquia 🚂",
+          "text": "En pleno centro de la ciudad se conserva uno de los íconos históricos más importantes de Medellín: la Antigua Estación del Ferrocarril de Antioquia. Este majestuoso edificio, inaugurado a comienzos del siglo XX, fue la puerta de entrada al progreso y el desarrollo de la región.<br>🏗️ Su arquitectura combina elegancia y solidez, con detalles clásicos que reflejan la grandeza de una época en la que el ferrocarril unió a Antioquia con el resto del país, facilitando el comercio, la cultura y el intercambio de ideas.<br>🌆 Actualmente, la estación hace parte del Complejo Administrativo de La Alpujarra, rodeada de edificios gubernamentales y espacios culturales, convirtiéndose en un lugar ideal para comprender la evolución urbana de Medellín.<br>📸 Para los visitantes, es un escenario perfecto para tomar fotos únicas: un contraste entre la memoria de los antiguos ferrocarriles y la modernidad de la ciudad que creció a su alrededor.<br>💡 Dato curioso: El Ferrocarril de Antioquia fue fundamental para la exportación del café, principal motor económico de la región, y su estación en Medellín es considerada un patrimonio arquitectónico y cultural de la ciudad.."
+        },
+        {
+          "yaw": 1.5361,
+          "pitch": -0.7933,
+          "title": "Palacio de la Justicia José Félix de Restrepo ⚖️",
+          "text": "En el corazón de Medellín se levanta el Palacio de la Justicia, un edificio imponente que concentra gran parte de la vida jurídica de la ciudad. Su diseño moderno, con líneas sobrias y firmes, transmite la idea de orden, respeto y equilibrio, valores esenciales en la administración de justicia.<br>👩‍⚖️ Dentro de sus muros funcionan los principales tribunales de la ciudad, donde cada día se toman decisiones que impactan la vida de los ciudadanos y la historia misma de Colombia. <br>🌆 Su ubicación lo convierte en un punto estratégico dentro del recorrido urbano: frente al Parque de las Luces, a pocos pasos de la Plaza de La Alpujarra y rodeado de edificios gubernamentales y culturales, es un sitio ideal para entender cómo la justicia se articula con la vida social y política de Medellín.<br>📸 Para los visitantes, es un lugar perfecto para capturar imágenes que reflejen el contraste entre la seriedad de la justicia y la energía vibrante del centro de la ciudad.<br>💡 Dato curioso: El Palacio lleva el nombre de José Félix de Restrepo, jurista antioqueño del siglo XIX que impulsó la abolición de la esclavitud en Colombia, convirtiéndose en un símbolo de lucha por la libertad y los derechos humanos."
+        }
+      ]
+    },  
+
+   
+{
+"id": "7-alpujarra",
+      "name": "Alpujarra",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": -0.09784947297463731,
+        "pitch": -0.36987186893880164,
+        "fov": 1.2812361540040014
+      },
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.4760,
+    "yaw": -2.2505,
+    "tooltip": "🌿 Muro Verde de Medellín",
+    "images": [
+      { "src": "img/alp/muro.jpg", "caption": "Una de las joyas urbanas de Medellín, considerado uno de los jardines verticales más grandes de Latinoamérica. Con más de 8.000 plantas vivas de diferentes especies, este muro no solo embellece la ciudad, sino que también ayuda a purificar el aire, reducir el calor y brindar un respiro natural en medio del paisaje urbano." },
+      { "src": "img/alp/AMVA.jpg", "caption": "" },
+      { "src": "img/alp/muroverde.jpg", "caption": "📸 Tip viajero: es un lugar perfecto para tomar fotos. Te recomiendo visitarlo en la mañana o al final de la tarde, cuando la luz natural resalta los colores intensos de las plantas."}
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2168,
+    "yaw": -1.5501,
+    "tooltip": "Monumento a la raza",
+    "images": [
+      { "src": "img/alp/monumento.jpg", "caption": "" },
+      { "src": "img/alp/ima1.png", "caption": "Esta monumental obra, diseñada por el maestro Rodrigo Arenas Betancur en 1988, se levanta en el corazón de La Alpujarra. Con sus 38 metros de altura y 40 metros de longitud, es una de las esculturas en bronce y concreto más grandes de América Latina. Representa la fuerza, el carácter y el espíritu de superación del pueblo antioqueño." },
+      { "src": "img/alp/ima2.png", "caption": "" },
+      { "src": "img/alp/ima3.png", "caption": "El monumento narra, en un solo conjunto escultórico, los principales hitos de la historia antioqueña: la conquista, la colonización, la independencia y el desarrollo del pueblo. Cada figura parece moverse, transmitiendo dinamismo y el esfuerzo colectivo que caracteriza la identidad paisa" },
+      { "src": "img/alp/ima4.png", "caption": "" },
+      { "src": "img/alp/ima5.png", "caption": "El Monumento a la Raza no solo es arte: es un símbolo vivo de Medellín. Alrededor de él, en la Plaza de La Alpujarra, se realizan manifestaciones sociales, encuentros culturales y actos cívicos. Es un espacio donde se mezcla la memoria histórica con la vida contemporánea de la ciudad." },
+      { "src": "img/alp/ima6.png", "caption": "" }
+    ]
+  }
+],
+
+"linkHotspots": [
+        {
+          "yaw": 1.1760679495123547,
+          "pitch": -0.10474936233410759,
+          "rotation": 0,
+          "target": "8-transicin-ciudad-a-naturaleza"
+        }
+      ],
+
+"infoHotspots": [
+        {
+          "yaw": 0.40646343409632735,
+          "pitch": -0.32045917529061896,
+          "title": "🏛️ La Alpujarra",
+          "text": "La Alpujarra es uno de los lugares más emblemáticos de Medellín. Conocido como el <b>Centro Administrativo La Alpujarra</b>, este espacio concentra los principales edificios gubernamentales de la ciudad y el departamento: la Gobernación de Antioquia, la Alcaldía de Medellín, el Edificio de la Asamblea Departamental y otras instituciones públicas.<br><br>Además de su importancia política y administrativa, La Alpujarra se ha convertido en un epicentro cultural, social y cívico, donde la ciudadanía se encuentra para manifestarse, celebrar y rendir homenaje a su historia. El espacio es amplio, rodeado de plazas y esculturas monumentales que representan la fuerza y el espíritu del pueblo antioqueño.<br><br>🌍 <b>Dato curioso:</b> El Monumento a la Raza mide 38 metros de alto y 40 de largo, convirtiéndolo en una de las esculturas en bronce y concreto más grandes de América Latina."
+        },
+        {
+          "yaw": -1.143712786078808,
+          "pitch": -0.016293853927820123,
+          "title": "🏢 Gobernación de Antioquia",
+          "text": "El Edificio José María Córdova, sede de la Gobernación de Antioquia, es uno de los rascacielos más representativos de Medellín. Su arquitectura moderna refleja la visión de progreso del departamento y alberga las oficinas desde donde se gestionan políticas que impactan a millones de antioqueños. <br>Desde aquí se impulsan proyectos de innovación, cultura y desarrollo social que mantienen a Antioquia como un motor económico y cultural en Colombia."
+        },
+        {
+          "yaw": 2.7126840568226713,
+          "pitch": -0.2721696124618944,
+          "title": "🏛️ Alcaldía de Medellín",
+          "text": "En el complejo también se encuentra la sede principal de la Alcaldía de Medellín, donde se lidera la transformación urbana y social de la ciudad.<br> Medellín es reconocida internacionalmente como un ejemplo de resiliencia e innovación, y gran parte de esa visión se gestiona desde este espacio."
+        },
+        {
+          "yaw": -2.0345,
+          "pitch": 0.3749,
+          "title": "🏙️ Plaza de La Alpujarra",
+          "text": "La plaza que rodea el complejo no solo es un espacio de tránsito, sino también un lugar de encuentro ciudadano. Aquí se realizan actos culturales, manifestaciones sociales, conciertos y eventos públicos, lo que convierte a La Alpujarra en un escenario vivo, cargado de historia y significado colectivo."
+        },
+        {
+          "yaw": -1.8961,
+          "pitch": -0.2958,
+          "title": "Monumento a la Raza Antioqueña",
+          "text": "Este imponente monumento, diseñado por el maestro Rodrigo Arenas Betancourt e inaugurado en 1988, es una de las obras más grandes de Colombia. Con sus 38 metros de altura y figuras dinámicas en bronce y concreto, narra la historia de Antioquia: la conquista, la colonización, la independencia y el desarrollo de su pueblo.<br> Más que una escultura, es un símbolo de la identidad antioqueña, del esfuerzo colectivo y del espíritu de superación que caracteriza a Medellín y a su gente."
+        }
+      ]
+    },     
+  { 
+
+"id": "8-transicin-ciudad-a-naturaleza",
+      "name": "Transición ciudad a naturaleza",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.33310458884982275,
+        "pitch": -0.020712824660577667,
+        "fov": 1.2812361540040014
+      },
+      
+"linkHotspots": [
+        {
+          "yaw": -0.6622238495674573,
+          "pitch": 0.1297113999908408,
+          "rotation": 3.141592653589793,
+          "target": "9-pies_descalzos"
+        }
+      ],
+      
+"infoHotspots": [
+        {
+          "yaw": -0.6680991859099557,
+          "pitch": 0.024074036364826412,
+          "title": "👣 Donde Medellín hace una pausa",
+          "text": "En este punto del recorrido comenzamos a sentir la magia de Medellín: la transición entre el bullicio urbano y la calma de la naturaleza. Poco a poco, el concreto se mezcla con el verde, el ruido del tráfico se atenúa y el aire se siente más fresco.<br> Desde este punto, llegamos al Parque de los Pies Descalzos.<br>Este espacio nos demuestra que Medellín no solo es ciudad, también es naturaleza integrada, y este lugar es la mejor muestra de ese equilibrio."
+        }
+      ]
+    },
+    {
+     
+ "id": "9-pies_descalzos",
+      "name": "Parque de los Piesdescalzos",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.07785832038086049,
+        "pitch": -0.12226933698328679,
+        "fov": 0.41671472387466335
+      },
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0901,
+    "yaw": 0.1216,
+    "tooltip": "Descalza tus pies y siente la energía del planeta",
+    "images": [
+      { "src": "img/pies/el-parque.jpeg", "caption": "Un oasis en el centro de Medellín, donde el agua, la arena y los árboles de corcho invitan a relajarse y reconectar con la naturaleza. Aquí podrás caminar descalzo, sentir la frescura del agua y disfrutar un espacio único en medio de la ciudad. <br>✨ Tip viajero: lleva una toalla pequeña y disfruta la experiencia de caminar sin zapatos; la arena y el agua hacen que tu visita sea inolvidable."}
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0217,
+    "yaw": 0.7445,
+    "tooltip": "Descalza tus pies, siente la energía y disfruta",
+    "images": [
+      { "src": "img/pies/parque.jpg", "caption": "Nuestros visitantes se dejan llevar por esta pausa mágica, recargan energías y contagian el lugar con alegría" },
+      { "src": "img/pies/ima.png", "caption": "En esta breve desconexión, renovarás el espíritu y estarás lleno de buena energía" },
+      { "src": "img/pies/ParquePies.JPG", "caption": "No es solo caminar sobre la arena, también podrás sentir la frescura del agua y rodearse de naturaleza." }
+    ]
+  }
+],
+
+"linkHotspots": [
+        {
+          "yaw": -0.7857751453998638,
+          "pitch": 0.06716930147777411,
+          "rotation": 4.71238898038469,
+          "target": "11-laberinto-de-bamb"
+        },
+        {
+          "yaw": -0.22817534947905216,
+          "pitch": -0.11493432711867158,
+          "rotation": 3.141592653589793,
+          "target": "10-conexin-naturaleza"
+        }
+      ],
+      
+"infoHotspots": [
+        {
+          "yaw": -0.5511943870259728,
+          "pitch": -0.10166670748687245,
+          "title": "🌳 Parque de los Pies Descalzos – Un oasis en Medellín",
+          "text": "En pleno corazón de Medellín, entre altos edificios y avenidas concurridas, se esconde un lugar único: el Parque de los Pies Descalzos. Más que un simple parque, es una invitación a volver a lo esencial, a reconectar con la naturaleza y a disfrutar la ciudad de una manera diferente.<br>Aquí, el agua se convierte en protagonista: fuentes y espejos de agua refrescan el ambiente y ofrecen un espacio para jugar, relajarse o simplemente contemplar. El sonido del agua corriendo genera una atmósfera tranquila, un respiro en medio del ritmo acelerado de la urbe. <br> Otro de sus encantos son los imponentes árboles de corcho que rodean el parque, con sus troncos suaves y texturas curiosas que invitan a tocar, abrazar y experimentar la naturaleza de cerca. Caminar bajo su sombra es como entrar en un bosque urbano donde la frescura y el verde lo envuelven todo. <br> El espacio también está diseñado para interactuar: caminar descalzo sobre la arena fina, sentir la textura del suelo, refrescar los pies en el agua… cada rincón del parque estimula los sentidos y nos recuerda la importancia de desconectarnos para volver a conectarnos con nosotros mismos y con la naturaleza.<br>El Parque de los Pies Descalzos no es solo un atractivo turístico: es una experiencia, un recordatorio de que Medellín sabe equilibrar modernidad y naturaleza, cemento y vida verde, ciudad y calma."
+        }
+      ]
+    },
+    {
+
+
+"id": "10-conexin-naturaleza",
+      "name": "Conexión Naturaleza",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": -0.8565378012691287,
+        "pitch": 0.05092995713399162,
+        "fov": 1.2812361540040014
+      },
+      
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0293,
+    "yaw": -1.3196 ,
+    "tooltip": "Despierta tus sentidos",
+    "images": [
+      { "src": "img/pies/turis.png", "caption": "Tip viajero: Los árboles de corcho son únicos en Medellín 🌳🤎. ¡Anímate a abrazarlos 🤗💚! Su corteza suave y esponjosa te conecta con la naturaleza y transmite una sensación de calma y bienestar."}
+   ]
+  }
+],
+
+
+"linkHotspots": [
+        {
+          "yaw": 0.22883203254804485,
+          "pitch": 0.0012346401954985708,
+          "rotation": 0,
+          "target": "11-laberinto-de-bamb"
+        }
+      ],
+      
+"infoHotspots": [
+        {
+          "yaw": -0.744500712372604,
+          "pitch": 0.31299920259097114,
+          "title": "Despierta tus sentidos",
+          "text": "Al pasar de la dinámica y vibrante vida del centro de Medellín hacia este rincón especial, sentirás de inmediato un contraste encantador. Dejamos atrás el bullicio de la ciudad y, de repente, encontramos un espacio que nos invita a la calma y la contemplación. <br>Aquí, la arena blanca y suave acaricia tus pies, recordándote que este es un lugar hecho para andar descalzo, liberar tensiones y reencontrarte con lo natural. <br>Entre jardines de bambú, zonas de agua y espacios verdes, cada paso es una experiencia sensorial: el movimiento urbano se transforma en quietud, y la rutina diaria da paso a un momento de juego, descanso y conexión con la tierra.<br> En este parque no solo caminas, despiertas tus sentidos y te regalas la oportunidad de sentir la ciudad de otra manera: más serena, más humana, más cercana a la naturaleza."
+        },
+        {
+          "yaw": 2.5903191843063818,
+          "pitch": -0.11060142384176253,
+          "title": "Majestuosos árboles de caucho",
+          "text": "<em data-start=\"794\" data-end=\"904\">Dicen que si abrazas un árbol de caucho, puedes liberar tus malas energías y recargarte de calma y bienestar</em>. No es ciencia… es conexión."
+        }
+      ]
+    },
+    {
+      
+
+"id": "11-laberinto-de-bamb",
+      "name": "Laberinto de Bambú",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+ 
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.0293,
+    "yaw": -1.3196 ,
+    "tooltip": "Laberinto de Bambú",
+    "images": [
+      { "src": "img/pies/22.png", "caption": "No olvides tu cámara 📸. La luz entre el bambú regala fotos espectaculares, sobre todo en la mañana o al atardecer."}
+   ]
+  }
+],
+
+     
+"linkHotspots": [
+        {
+          "yaw": -0.9795396858947889,
+          "pitch": -0.08437556136656355,
+          "rotation": 0,
+          "target": "12-edificio-inteligente-epm"
+        }
+      ],
+      
+"infoHotspots": [
+        {
+          "yaw": -0.027987288919751663,
+          "pitch": -0.13591470880965772,
+          "title": "🎋 Laberinto de Bambú – Un rincón para perderse y encontrarse",
+          "text": "Dentro del Parque de los Pies Descalzos, uno de los espacios más emblemáticos de Medellín, se encuentra un rincón que sorprende a todos los visitantes: el Laberinto de Bambú. Este espacio, rodeado por altos y frondosos tallos de bambú, ofrece una experiencia diferente a cualquier otra en la ciudad.<br>Caminar por sus pasillos es dejarse envolver por la naturaleza. La altura del bambú crea un ambiente fresco y misterioso, donde la luz del sol se filtra suavemente entre las hojas y el viento genera un susurro relajante. Es un lugar perfecto para hacer una pausa, desconectarse del bullicio urbano y sentir que, por un instante, uno se traslada a un bosque encantado en medio de Medellín."
+         },
+         {
+          "yaw": -2.4049,
+          "pitch": 0.0384,
+          "title": "🎋 Laberinto de Bambú – Un rincón para perderse y encontrarse",
+          "text": "En el corazón del Parque de los Pies Descalzos se esconde un espacio mágico: el Laberinto de Bambú. Caminar entre sus altos tallos verdes es una experiencia única en Medellín, pues el bambú crea un ambiente fresco, silencioso y lleno de misterio.<br>Sus senderos invitan a perderse por un momento y dejarse envolver por la naturaleza. La luz se filtra suavemente entre los tallos, el sonido del viento roza las hojas, y el visitante siente que entra en un mundo apartado del bullicio de la ciudad.<br>Este rincón es perfecto para la reflexión, la calma y también para divertirse recorriendo sus pasadizos con amigos o familia. Además, es un espacio muy buscado por fotógrafos y turistas que encuentran aquí un escenario natural encantador.<br>✨ Tip viajero: no olvides tu cámara 📸; los pasillos del bambú ofrecen ángulos espectaculares para fotos originales y llenas de verde."}
+      ]
+    },
+    {
+      
+
+"id": "12-edificio-inteligente-epm",
+      "name": "🏢 Edificio Inteligente de las Empresas Públicas de Medellín",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": -1.472122748312989,
+        "pitch": -0.3328550986643233,
+        "fov": 0.9712718897065276
+      },
+ 
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw": -1.5084,
+    "tooltip": "🏢 Innovación y sostenibilidad en Medellín ",
+    "images": [
+      { "src": "img/epm/image.jpeg", "caption": "El Edificio EPM, inaugurado en 1997, marcó un antes y un después en la arquitectura de Medellín. En su momento fue considerado uno de los edificios más modernos de Colombia y un referente en Latinoamérica, gracias a su diseño innovador y a la tecnología utilizada en su construcción.<br>Su fachada de vidrio y acero no solo ofrece una estética imponente, sino que también aprovecha la luz natural y contribuye a la eficiencia energética, algo adelantado para su tiempo. El edificio fue concebido como un espacio sostenible, incorporando sistemas de ventilación e iluminación que reducen el consumo de energía y creando un entorno amigable con el medio ambiente."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0795,
+    "yaw": 2.6156,
+    "tooltip": "Una pausa para los sentidos",
+    "images": [
+      { "src": "img/pies/ParquePies.JPG", "caption": "los espejos y canales de agua que refrescan el ambiente y ofrecen un lugar perfecto para descansar, jugar y sumergirse en la calma. Aquí, tanto turistas como locales se animan a quitarse los zapatos, caminar descalzos, mojar los pies y disfrutar de un momento de tranquilidad."},
+      { "src": "img/epm/interior.jpeg", "caption": "" },
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "Edificio EPM",
+    "images": [
+      { "src": "img/epm/EDIFICIO.jpg", "caption": "El edificio y su entorno con jardines, fuentes y plazas abiertas se han consolidado como un espacio emblemático de la ciudad, donde la modernidad se encuentra con la cultura y el compromiso ambiental." },
+      { "src": "img/epm/agua_urbanismo.jpg", "caption": "" },
+      { "src": "img/epm/25312.png", "caption": "" },
+      { "src": "img/epm/EPM.jpg", "caption": "✨ Tip viajero: no olvides recorrer sus alrededores 🌿. La plaza y sus jardines son un lugar ideal para descansar y tomar fotografías" }
+    ]
+  }
+],
+
+"linkHotspots": [
+        {
+          "yaw": 2.6541000480451293,
+          "pitch": -0.17727500579812094,
+          "rotation": 0,
+          "target": "13-centro-de-convenciones-y-teatro"
+        }
+      ],
+      
+"infoHotspots": [    
+        {
+          "yaw": -1.0881964642481812,
+          "pitch": -0.08079930952018621,
+          "title": "Una breve pausa",
+          "text": "Justo al frente se alza el imponente edificio EPM, símbolo de innovación y energía en Medellín. A su costado el Parque de los Pies Descalzos, un refugio urbano que sorprende con espacios únicos como el laberinto de bambú, ideal para perderse entre su frescura y silencio. <br>Detrás, descubrirás unos pozos inspirados en los antiguos baños romanos, diseñados para lavar los pies y reconectar con el agua como parte de una experiencia sensorial. <br>Muy cerca también se encuentra el Museo del Agua, un espacio interactivo que nos recuerda la importancia vital de este recurso y su relación con la vida cotidiana.<br>En este entorno, rodeado de fuentes lúdicas, espejos de agua y zonas húmedas, la invitación es clara: detenerse un momento, refrescarse, jugar o simplemente contemplar cómo la ciudad también sabe regalar instantes de calma y disfrute."
+            },
+        {
+          "yaw": -2.9044878547184716,
+          "pitch": 0.10748410970518307,
+          "title": "<br>",
+          "text": "Este espacio fue diseñado como un puente entre lo urbano y lo natural, un respiro fresco dentro de la ciudad, donde el agua, la arquitectura y el paisaje dialogan en perfecta armonía."
+        }
+      ]
+    },
+{   
+"id": "13-centro-de-convenciones-y-teatro",
+      "name": "Centro de convenciones y Teatro",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": -1.6635286315328717,
+        "pitch": -0.18641169752651265,
+        "fov": 1.2812361540040014
+      },
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3960,
+    "yaw": -2.7794,
+    "tooltip": "🎭 Teatro Metropolitano José Gutiérrez Gómez",
+    "images": [
+      { "src": "img/Teatro/01cteatro.jpeg", "caption": "Uno de los escenarios más emblemáticos de la ciudad."},
+      { "src": "img/Teatro/02Teatro.jpeg", "caption": "" },
+      { "src": "img/Teatro/02teatropanoram.png", "caption": "En su interior se viven conciertos inolvidables, obras de teatro, festivales culturales y eventos académicos" },
+      { "src": "img/Teatro/03metropolitanomed.jpg", "caption": "" },  
+      { "src": "img/Teatro/258.png", "caption": "Su arquitectura y acústica lo convierten en un lugar mágico para disfrutar el arte en todas sus formas" }   
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0093,
+    "yaw": -1.2577,
+    "tooltip": "🏢Centro de Eventos y Convenciones: Plaza Mayor",
+    "images": [
+      { "src": "img/convenciones/01plazam).png", "caption": "Un espacio versátil y moderno donde suceden ferias internacionales, exposiciones, congresos, conciertos y experiencias gastronómicas."},
+      { "src": "img/convenciones/04plazam.png", "caption": ""},
+      { "src": "img/convenciones/02plazam.png", "caption": "Su interior combina amplitud, diseño y tecnología, ideal para vivir Medellín desde su lado más innovador y vibrante" },
+      { "src": "img/convenciones/03plazam.png", "caption": "" },
+      { "src": "img/convenciones/05plazam.png", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "Eventos",
+    "images": [
+      { "src": "img/convenciones/01plazam(1).png", "caption": "Un espacio versátil y moderno donde suceden ferias internacionales, exposiciones, congresos, conciertos y experiencias gastronómicas" },
+      { "src": "img/convenciones/01plazam(2).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(3).png", "caption": "El complejo Plaza Mayor ocupa unos 70 000 m² y recibe más de 1 .5 millones de visitantes al año, distribuidos en unos 500 eventos aproximadamente" },
+      { "src": "img/convenciones/01plazam(4).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(5).png", "caption": "Sumando estos espacios principales, la capacidad máxima combinada podría acercarse o superar los 20.000 asistentes simultáneos." }
+    ]
+  },
+   {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0380,
+    "yaw":1.7301,
+    "tooltip": "Eventos",
+    "images": [
+      { "src": "img/convenciones/01plazam(6).png", "caption": "Considerando que cada pabellón puede recibir entre 2.000 y 5.000 personas, el Gran Salón 3.000, plus otros salones con menores aforos." },
+      { "src": "img/convenciones/01plazam(7).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(8).png", "caption": "La capacidad máxima combinada podría acercarse o superar los 20.000 asistentes simultáneos." },
+      { "src": "img/convenciones/01plazam(9).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(10).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(11).png", "caption": "" }   
+     ]
+  }
+],
+      
+"linkHotspots": [
+       {
+          "yaw":-0.3935,
+          "pitch": -0.4025,
+          "rotation": 0,
+          "target": "14-pueblito-paisa"
+        }
+      ],
+
+"infoHotspots": [
+        {
+          "yaw": -1.3463471587051483,
+          "pitch": 0.0027403894617243907,
+          "title": "Plaza Mayor Centro de Convenciones y Exposiciones.",
+          "text": "Plaza Mayor es el epicentro de los grandes eventos de Medellín. Allí se realizan ferias internacionales, congresos, conciertos y exposiciones de todo tipo. Su arquitectura moderna y funcional lo convierte en un referente del turismo de negocios y de eventos en Colombia.<br< Conectado estratégicamente al corazón de la ciudad, Plaza Mayor impulsa el desarrollo económico y cultural, acogiendo a miles de visitantes nacionales e internacionales cada año. <br> ✨ Tip viajero: Si visitas Medellín durante ferias como la Feria de las Flores 🌸 o Colombiamoda, este lugar se llena de vida, colores y actividades. ¡Un sitio ideal para vivir la ciudad desde otra perspectiva!."
+        },
+        {
+          "yaw": -2.3877587140456047,
+          "pitch": -0.4510192621363007,
+          "title": "🎭 Teatro Metropolitano José Gutiérrez Gómez",
+          "text": "El Teatro Metropolitano es uno de los templos culturales más importantes de Medellín. Inaugurado en 1987, su diseño moderno y su acústica impecable lo han convertido en sede de la Orquesta Filarmónica de Medellín y en escenario de conciertos, óperas, obras de teatro y festivales internacionales.<br> Con capacidad para más de 1.600 personas, es un espacio donde el arte cobra vida y donde Medellín se abre al mundo con espectáculos de gran calidad.<br>✨ Tip viajero: Si tienes la oportunidad, disfruta de un concierto en este teatro 🎶. La acústica es tan perfecta que cada nota se siente única y envolvente."
+        }
+      ]
+    },
+{
+"id": "14-pueblito-paisa",
+      "name": "Pueblito Paisa",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2048,
+      "initialViewParameters": {
+        "yaw": 0.6642757357556945,
+        "pitch": -0.11017891448759443,
+        "fov": 1.2812361540040014
+      },
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0449,
+    "yaw": 2.8445,
+    "tooltip": "Ingreso",
+    "images": [
+      { "src": "img/paisa/natura1.jpg", "caption": "La entrada al Cerro Nutibara ya te envuelve con naturaleza y vistas únicas de la ciudad."},
+      { "src": "img/paisa/natura2.jpg", "caption": "Podrás caminar por sus senderos" },
+      { "src": "img/paisa/natura.jpg", "caption": "Puedes subir caminando por senderos bien señalizados, también es común el ascenso en bicicleta, pero si prefieres algo más cómodo, puedes llegar en carro particular o taxi hasta la cima." }
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  -0.2033,
+    "yaw": 0.3315,
+    "tooltip": "El Pueblito Paisa",
+    "images": [
+      { "src": "img/paisa/IMG.jpg", "caption": ""},
+      { "src": "img/paisa/iglesia.jpg", "caption": ""},
+      { "src": "img/paisa/calle2.jpg", "caption": "" },
+      { "src": "img/paisa/balcones.jpg", "caption": "" },
+      { "src": "img/paisa/casapaisa.jpg", "caption": "" }
+    ]
+  },
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  -0.1462,
+    "yaw": 2.2975,
+    "tooltip": "Cacique Nutibara",
+    "images": [
+      { "src": "img/paisa/Museociudad.jpg", "caption": "Un espacio que narra la transformación de Medellín a través de maquetas, fotos y arte urbano. Ubicado en la cima del cerro, ofrece historia y una vista panorámica espectacular. 🌆📸" },
+      { "src": "img/paisa/cacique.jpg", "caption": "Nutibara fue un líder indígena de la etnia Nutabe, reconocido por su sabiduría y capacidad de diálogo durante la época de la conquista."},
+      { "src": "img/paisa/caciquemural.jpg", "caption": "Gobernaba las tierras del valle de Aburrá y es símbolo de resistencia y dignidad ancestral. Su legado vive en el Cerro Nutibara, que hoy lleva su nombre como homenaje a sus raíces indígenas."}
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2393,
+    "yaw":0.6810,
+    "tooltip": "Visita y disfruta",
+    "images": [
+      { "src": "img/paisa/Iglesia3.jpg", "caption": "Expresada en iglesias, fiestas patronales y altares en casa, la fé antioqueña refleja una espiritualidad sencilla, fuerte y comunitaria." },
+      { "src": "img/paisa/Iglesia2.jpg", "caption": "La fe ha sido un pilar en la identidad antioqueña, profundamente arraigada en la vida cotidiana, la familia y las tradiciones." },
+      { "src": "img/paisa/balcones.jpg", "caption": "🌸 Balcones coloridos que miran al pasado, adornados con flores y llenos del encanto de los pueblos tradicionales antioqueños. 🏡🌺" },
+      { "src": "img/paisa/calle 1.jpg", "caption": "" },
+      { "src": "img/paisa/calles.jpg", "caption": "Calles empedradas y fachadas coloridas que evocan la vida tranquila de los antiguos pueblos antioqueños, llenos de historia y tradición." },
+      { "src": "img/paisa/fotopaisa.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.2190,
+    "yaw":-0.7734,
+    "tooltip": "Replica Casa Antioqueña",
+    "images": [
+      { "src": "img/paisa/museo2.jpg", "caption": "" },
+      { "src": "img/paisa/museo3.jpg", "caption": "Típica sala antioqueña" },
+      { "src": "img/paisa/0habitacion.jpg", "caption": "Habitación con tejidos elaborados por nuesras madres y abuelas" },
+      { "src": "img/paisa/museo4.jpg", "caption": "Tradición hecha hilo: las mujeres antioqueñas bordaban a mano delicados cuadros en punto de cruz o lomillo, decorando sus hogares con mensajes, flores y escenas cotidianas. Más que adornos, eran símbolos de dedicación, fe y cuidado por el hogar. 🪡💐" },
+      { "src": "img/paisa/0comedor.jpg", "caption": "Comedores grandes, para familias grandes." },
+      { "src": "img/paisa/0cocina.jpg", "caption": "" },
+      { "src": "img/paisa/0corredor.jpg", "caption": "Estas casas eran amplias y ventiladas, con patios centrales, corredores generosos y zonas comunes pensadas para la vida en comunidad. Reflejan una época en la que la arquitectura respondía al clima, la cultura cafetera y el ritmo pausado de la vida rural." },   
+      { "src": "img/paisa/0patio.jpg", "caption": "Las puertas grandes facilitaban el ingreso de animales, herramientas y cargamentos de café, típicos de la vida rural.🌞🐴🌬️" }
+     ]
+  }
+],
+  
+"linkHotspots": [
+      {
+          "yaw": -1.3782,
+          "pitch": -0.1208,
+          "rotation": 0,
+          "target": "12-edificio-inteligente-epm"
+        }
+      ],
+  
+"infoHotspots": [
+      {
+          "yaw": 0.0099,
+          "pitch": -0.3118,
+          "title": "🏞️ Pueblito Paisa",
+          "text": "El Pueblito Paisa es uno de los lugares más visitados de Medellín y un símbolo de la identidad antioqueña. Construido en 1978 en la cima del Cerro Nutibara, este espacio es una réplica de un típico pueblo antioqueño del siglo XIX, pensado para preservar y mostrar las tradiciones de la región.<br> Al llegar, lo primero que encontrarás es su plaza central, adornada con una fuente de piedra y rodeada de casas coloridas con balcones de madera, que evocan la arquitectura colonial. Alrededor de la plaza se ubican espacios típicos de un pueblo tradicional:<br>🏠 La alcaldía y la escuela, que representan la vida comunitaria.<br>💈 La barbería y la botica, sitios de encuentro cotidiano.<br>⛪ Una iglesia blanca, sencilla pero hermosa, que refleja la importancia de la fe en la vida paisa.<br>🛍️ Varias tiendas de artesanías donde podrás adquirir sombreros, mochilas, piezas de cerámica y recuerdos hechos a mano.<br>🍴 Restaurantes y fondas que ofrecen platos típicos como la bandeja paisa, la arepa antioqueña, dulces tradicionales y hasta aguardiente para los más curiosos.<br>Además de este recorrido pintoresco, el Pueblito Paisa es famoso por su mirador panorámico en 360°. Desde allí tendrás una de las mejores vistas de Medellín: de día puedes observar la ciudad extendiéndose entre las montañas."
+        },
+        {
+          "yaw": 1.5184,
+          "pitch": -0.3699,
+          "title": "Un rincón de tradición en la cima del Cerro Nutibara",
+          "text": "El Cerro Nutibara, donde se encuentra el Pueblito, también es un atractivo en sí mismo. Es una de las reservas naturales más importantes dentro del área urbana, con senderos para caminar, espacios culturales y el Museo de Ciudad, donde se cuenta la historia y evolución de Medellín a lo largo de los años.<br>📖 Un poco de historia: El Pueblito Paisa fue inaugurado en 1978 como un homenaje a la cultura y tradición de Antioquia. Su diseño se inspiró en el desaparecido pueblo de El Peñol, que quedó bajo el embalse de Guatapé, y buscó rescatar esa esencia de los pueblos antiguos para que tanto locales como visitantes tuvieran siempre un rincón donde vivir la tradición.<br>✨ Tip viajero: No olvides tu cámara 📸, porque cada rincón es perfecto para una foto."
+        }
+       ]
+      }
+  ],
+
+
+ "name": "Medellín 360°, Vive la Ciudad",
+  "settings": {
+    "mouseViewMode": "drag",
+    "autorotateEnabled": false,
+    "fullscreenButton": true,
+    "viewControlButtons": true
+  }
+};
+
