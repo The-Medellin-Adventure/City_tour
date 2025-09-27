@@ -23,7 +23,7 @@ if (window.token) {
   fetch(`/api/verify-token?token=${window.token}`, { headers: { Accept: "application/json" } })
 .then(async res => {
   const data = await res.json().catch(() => ({}));
-  console.log("🔎 Respuesta verify-token:", res.status, data);
+   console.log("🔎 VERIFY-TOKEN RESPUESTA:", res.status, JSON.stringify(data, null, 2));
 
   if (res.status === 403 || data.error === "Token caducado") {
     showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
