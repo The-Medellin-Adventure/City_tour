@@ -21,17 +21,19 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
 // =========================
 if (window.token) {
   fetch(`/api/verify-token?token=${window.token}`, { headers: { Accept: "application/json" } })
-    .then(res => {
-      if (res.status === 403) {
-        // 🚫 Token global inválido o expirado → mostramos tarjeta y ocultamos UI
-        showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
-        ocultarUI();
-        throw new Error("Token inválido o expirado");
-      }
-      if (!res.ok) {
-        throw new Error("Error verificando token");
-      }
-    })
+.then(async res => {
+  const data = await res.json().catch(() => ({}));
+  console.log("🔎 Respuesta verify-token:", res.status, data);
+
+  if (res.status === 403 || data.error === "Token caducado") {
+    showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
+    ocultarUI();
+    throw new Error("Token inválido o expirado");
+  }
+  if (!res.ok || data.ok === false) {
+    throw new Error(data.error || "Error verificando token");
+  }
+})
     .catch(err => {
       console.warn("Error verificando token:", err.message);
     });
