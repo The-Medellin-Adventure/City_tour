@@ -45,9 +45,16 @@ return res.json({ ok: true });
 
 // Primer uso: marcamos como usado y registramos IP/UA
 await sb
-.from('access_tokens')
-.update({ used_at: new Date().toISOString(), first_ip: ip, first_user_agent: ua, status: 'used' })
-.eq('id', row.id);
+  .from('access_tokens')
+  .update({ 
+    used_at: new Date().toISOString(), 
+    first_ip: ip, 
+    first_user_agent: ua, 
+    status: 'used',
+    // 👇 nuevo campo: expira 1 hora después del primer uso
+    expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString()
+  })
+  .eq('id', row.id);
 
 
 return res.json({ ok: true });
