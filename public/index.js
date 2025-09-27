@@ -20,20 +20,24 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
 // Verificación temprana del token
 // =========================
 if (window.token) {
-  fetch(`/api/verify-token?token=${window.token}`, { headers: { Accept: "application/json" } })
-.then(async res => {
-  const data = await res.json().catch(() => ({}));
-   console.log("🔎 VERIFY-TOKEN RESPUESTA:", res.status, JSON.stringify(data, null, 2));
+  fetch(`https://citytour360.vercel.app/api/verify-token?token=${window.token}`, { headers: { Accept: "application/json" } })
+    .then(async res => {
+      const data = await res.json().catch(() => ({}));
+      console.log("🔎 VERIFY-TOKEN RESPUESTA:", res.status, JSON.stringify(data, null, 2));
 
-  if (res.status === 403 || data.error === "Token caducado") {
-    showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
-    ocultarUI();
-    throw new Error("Token inválido o expirado");
-  }
-  if (!res.ok || data.ok === false) {
-    throw new Error(data.error || "Error verificando token");
-  }
-})
+      // Si API devuelve error
+      if (res.status === 403 || data.ok === false) {
+        showErrorMessage("🚫 Acceso denegado", data.error || "Este enlace ya fue usado o expiró.");
+        ocultarUI();
+        throw new Error("Token inválido o expirado");
+      }
+
+      // Si API devuelve ok: true
+      if (data.ok === true) {
+        console.log("✅ Token válido, mostrar tour");
+        mostrarUI();
+      }
+    })
     .catch(err => {
       console.warn("Error verificando token:", err.message);
     });
@@ -87,7 +91,15 @@ function ocultarUI() {
     if (el) el.style.display = 'none';
   });
 }
+function mostrarUI() {
+  // Revertir lo que hace ocultarUI()
+  document.querySelectorAll('.link-hotspot-icon, .camera-hotspot, #sceneList, #titleBar, #videoCard')
+    .forEach(el => { if (el) el.style.display = ''; });
 
+  // Ocultar overlay de error si existe
+  const overlay = document.getElementById("errorOverlay");
+  if (overlay) overlay.style.display = 'none';
+}
 function showErrorMessage(titulo, mensaje) {
   const overlay = document.getElementById("errorOverlay");
   if (!overlay) return;
