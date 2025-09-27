@@ -11,35 +11,66 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // 1. Validar token
+    // 1️⃣ Buscar token
     const { data: tokenRow, error } = await sb
       .from('access_tokens')
       .select('*')
       .eq('token', token)
-      .eq('status', 'active')
-      .gt('expires_at', new Date().toISOString())
       .single();
 
     if (error || !tokenRow) {
-      return res.status(403).json({ ok: false, error: 'Token inválido o expirado' });
+      return res.status(403).json({ ok: false, error: 'Token inválido' });
     }
 
-    // 2. Capturar IP y User-Agent
+    const now = new Date();
+
+    // ===============================
+    // 2️⃣ Excepción: token "democris"
+    // ===============================
+    if (tokenRow.token === 'democris') {
+      // Token permanente, multi-dispositivo
+      const { data: signed, error: urlError } = await sb.storage
+        .from('Tour')
+        .createSignedUrl(file, 60 * 15); // 15 min
+
+      if (urlError || !signed?.signedUrl) {
+        return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
+      }
+
+      return res.status(200).json({ ok: true, signedUrl: signed.signedUrl });
+    }
+
+    // ===============================
+    // 3️⃣ Verificar expiración
+    // ===============================
+    if (tokenRow.expires_at) {
+      const exp = new Date(tokenRow.expires_at);
+      if (now > exp || tokenRow.status === 'expired') {
+        return res.status(403).json({ ok: false, error: 'Token caducado' });
+      }
+    }
+
+    // ===============================
+    // 4️⃣ Bloquear segundo dispositivo/navegador
+    // ===============================
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
     const userAgent = req.headers['user-agent'] || 'unknown';
 
-    // 3. Bloquear segundo dispositivo/navegador
     if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
+      // Primer uso → asignar IP, navegador y expiración dinámica
       await sb
         .from('access_tokens')
         .update({
           first_ip: ip,
           first_user_agent: userAgent,
           used_at: new Date().toISOString(),
-          expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString(), // expira en 1h
+          status: 'used',
+          // Expira 1 hora desde el primer uso
+          expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString()
         })
         .eq('token', token);
     } else {
+      // Ya usado → verificar que sea el mismo dispositivo/navegador
       if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
         return res.status(403).json({
           ok: false,
@@ -48,16 +79,20 @@ export default async function handler(req, res) {
       }
     }
 
-    // 4. Generar signed URL
+    // ===============================
+    // 5️⃣ Generar signed URL temporal (15 minutos)
+    // ===============================
     const { data: signed, error: urlError } = await sb.storage
       .from('Tour')
-      .createSignedUrl(file, 60 * 15); // 15 minutos
+      .createSignedUrl(file, 60 * 15); // 15 min
 
     if (urlError || !signed?.signedUrl) {
       return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
     }
 
-    // 5. Devolver según tipo de petición
+    // ===============================
+    // 6️⃣ Devolver respuesta
+    // ===============================
     if (req.headers.accept && req.headers.accept.includes('application/json')) {
       return res.status(200).json({ ok: true, signedUrl: signed.signedUrl });
     } else {
