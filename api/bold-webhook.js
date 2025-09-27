@@ -31,13 +31,12 @@ export default async function handler(req, res) {
 
     // ====================================
     // 2️⃣ Obtener email del cliente
-    // Bold puede enviar el correo en distintos lugares según método de pago
     // ====================================
     const email =
       event.customer?.email ||
       event.data?.customer_email ||
       event.data?.payer?.email ||
-      event.data?.payer_email; // 👈 caso real visto en tus logs
+      event.data?.payer_email;
 
     if (!email) {
       console.error("❌ No se encontró email en el evento:", event);
@@ -51,15 +50,15 @@ export default async function handler(req, res) {
     const token = nanoid();
     const sb = supabaseAdmin();
 
- const { data, error } = await sb
-  .from("access_tokens")
-  .insert({
-    token,
-    email,
-    status: "active",
-    expires_at: null  // 👈 dejamos vacío al inicio
-  })
-  .select();
+    const { data, error } = await sb
+      .from("access_tokens")
+      .insert({
+        token,
+        email,
+        status: "active",
+        expires_at: null // 👈 ahora no caduca hasta que se use por primera vez
+      })
+      .select();
 
     if (error) {
       console.error("❌ Error insertando token en Supabase:", error);
@@ -96,7 +95,7 @@ export default async function handler(req, res) {
         <h2>¡Gracias por tu compra!</h2>
         <p>Puedes acceder a tu tour virtual en el siguiente enlace:</p>
         <p><a href="${tourUrl}" target="_blank">${tourUrl}</a></p>
-        <p><b>Importante:</b> este enlace solo se puede abrir en un dispositivo y estará activo durante 7 días.</p>
+        <p><b>Importante:</b> este enlace solo se puede abrir en un dispositivo y estará activo durante 1 hora después de que lo uses por primera vez.</p>
         <br/>
         <p>Si tienes problemas con el acceso, responde a este correo.</p>
       `,
@@ -113,3 +112,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: e.message });
   }
 }
+
