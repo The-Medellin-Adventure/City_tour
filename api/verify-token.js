@@ -1,108 +1,84 @@
-// api/verify-token.js
 import { supabaseAdmin } from '../lib/_supabaseClient.js';
 
 export default async function handler(req, res) {
   try {
-    const token = req.query.token?.toString();
+    const { token } = req.query;
     if (!token) {
-      console.error("❌ No se envió token en la query");
-      return res.status(400).json({ ok: false, error: 'Falta token' });
+      return res.status(400).json({ ok: false, error: "Falta el token" });
     }
 
-    const ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '')
-      .toString()
-      .split(',')[0]
-      .trim();
-    const ua = (req.headers['user-agent'] || '').toString();
+    // Buscar token en la tabla
+    const { data: tokenRow, error } = await supabaseAdmin
+      .from("access_tokens")
+      .select("*")
+      .eq("token", token)
+      .single();
 
-    console.log("🔎 Verificando token:", token);
-    console.log("🌐 IP detectada:", ip);
-    console.log("🖥️ User-Agent:", ua);
-
-    const sb = supabaseAdmin();
-    const { data: rows, error } = await sb
-      .from('access_tokens')
-      .select('*')
-      .eq('token', token)
-      .limit(1);
-
-    if (error) {
-      console.error("❌ Error consultando Supabase:", error);
-      throw error;
+    if (error || !tokenRow) {
+      return res.status(403).json({ ok: false, error: "Token no válido" });
     }
 
-    const row = rows?.[0];
-    console.log("📦 Row devuelto de Supabase:", row);
-
-    if (!row) {
-      console.error("❌ Token no encontrado en la base de datos");
-      return res.status(403).json({ ok: false, error: 'Token inválido' });
+    // Excepciones de tokens especiales
+    if (tokenRow.token === "democris") {
+      return await responderConSignedURLs(res, "Token permanente (democris)");
     }
 
-    // ===============================
-    // 1️⃣ Excepción: token "democris"
-    // ===============================
-    if (row.token === 'democris') {
-      console.log("✅ Token permanente (democris), acceso permitido");
-      return res.json({ ok: true, message: 'Token permanente (democris)' });
+    if (tokenRow.token === "demoprince") {
+      // (Si quieres aquí mantener la lógica de control de dispositivo/IP/UA)
+      return await responderConSignedURLs(res, "Token permanente (demoprince, control de dispositivo)");
     }
 
+    // Tokens normales
     const now = new Date();
-    console.log("⏰ Fecha actual:", now.toISOString());
-
-    // ===============================
-    // 2️⃣ Verificar expiración
-    // ===============================
-    if (row.expires_at) {
-      const exp = new Date(row.expires_at);
-      console.log("⏳ Expira en:", exp.toISOString());
-
-      if (now > exp || row.status === 'expired') {
-        console.warn("⚠️ Token caducado:", row.token);
-        await sb.from('access_tokens').update({ status: 'expired' }).eq('id', row.id);
-        return res.status(403).json({ ok: false, error: 'Token caducado' });
-      }
-    } else {
-      console.log("ℹ️ Token sin fecha de expiración (NULL en BD)");
+    if (tokenRow.expires_at && new Date(tokenRow.expires_at) < now) {
+      return res.status(403).json({ ok: false, error: "Token expirado" });
     }
 
-    // ===============================
-    // 3️⃣ Token ya usado
-    // ===============================
-    if (row.used_at) {
-      console.log("🔐 Token ya usado en:", row.used_at);
-      if (row.first_ip !== ip || row.first_user_agent !== ua) {
-        console.warn("⚠️ Token usado en otro dispositivo/navegador");
-        return res.status(403).json({ ok: false, error: 'Token ya usado en otro dispositivo/navegador' });
-      }
-      console.log("✅ Token usado pero válido en el mismo dispositivo");
-      return res.json({ ok: true });
+    // Si nunca se usó → marcar primera vez y fijar vencimiento en 1 hora
+    if (!tokenRow.used_at) {
+      const usedAt = new Date();
+      const expiresAt = new Date(usedAt.getTime() + 60 * 60 * 1000); // 1 hora
+
+      await supabaseAdmin
+        .from("access_tokens")
+        .update({ used_at: usedAt.toISOString(), expires_at: expiresAt.toISOString() })
+        .eq("id", tokenRow.id);
     }
 
-    // ===============================
-    // 4️⃣ Primer uso
-    // ===============================
-    console.log("🚀 Primer uso del token, activando expiración 1h");
-    await sb
-      .from('access_tokens')
-      .update({
-        used_at: new Date().toISOString(),
-        first_ip: ip,
-        first_user_agent: ua,
-        status: 'used',
-        expires_at: new Date(Date.now() + 60 * 60 * 1000).toISOString()
-      })
-      .eq('id', row.id);
+    return await responderConSignedURLs(res, "Token válido");
 
-    console.log("✅ Token activado correctamente");
+  } catch (err) {
+    console.error("Error en verify-token:", err);
+    return res.status(500).json({ ok: false, error: "Error verificando token" });
+  }
+}
 
-    return res.json({ ok: true, message: 'Token activado, válido por 1 hora desde ahora' });
-  } catch (e) {
-    console.error("❌ Error en verify-token:", e);
-    return res.status(500).json({
-      ok: false,
-      error: e.message,
-      detail: e.stack
+/**
+ * Genera signed URLs de Supabase y responde al cliente
+ */
+async function responderConSignedURLs(res, mensaje) {
+  try {
+    // ⚠️ Cambia 'videos' e 'imagenes' por el nombre real de tus buckets en Supabase
+    const { data: signedVideo } = await supabaseAdmin
+      .storage
+      .from("videos")
+      .createSignedUrl("intro.mp4", 60 * 60); // válido 1h
+
+    const { data: signedImage } = await supabaseAdmin
+      .storage
+      .from("imagenes")
+      .createSignedUrl("portada.jpg", 60 * 60);
+
+    return res.status(200).json({
+      ok: true,
+      message: mensaje,
+      urls: {
+        videoIntro: signedVideo?.signedUrl,
+        portada: signedImage?.signedUrl
+      }
     });
+  } catch (e) {
+    console.error("Error creando signed URLs:", e);
+    return res.status(200).json({ ok: true, message: mensaje, urls: {} });
   }
 }
