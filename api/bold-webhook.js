@@ -3,6 +3,7 @@ import { supabaseAdmin } from "./_supabaseClient.js";
 import { nanoid } from "nanoid";
 import nodemailer from "nodemailer";
 
+
 /**
  * 🚀 Webhook de Bold
  * Procesa cualquier pago aprobado, genera un token en Supabase
