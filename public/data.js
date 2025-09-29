@@ -1193,7 +1193,7 @@ window.APP_DATA = {
     {
 
 
-"id": "10-conexin-naturaleza",
+"id": "10-conexion-naturaleza",
       "name": "Conexión Naturaleza",
       "levels": [
         {
