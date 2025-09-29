@@ -1,4 +1,5 @@
 ```js
+```js
 // api/verify-token.js
 import { supabaseAdmin } from '../lib/_supabaseClient.js';
 
@@ -18,24 +19,28 @@ export default async function handler(req, res) {
       .single();
 
     if (error || !tokenRow) {
-      return res.status(403).json({ ok: false, error: "Token inválido" });
+      return res.status(403).json({ ok: false, error: "Token inválido o no existe" });
     }
 
-    // Token DEMOCRIS → válido siempre
+    // ✅ Token DEMOCRIS → válido siempre
     if (tokenRow.token === "democris") {
       return res.status(200).json({ ok: true, type: "democris" });
     }
 
-    // Token DEMOPRINCE → válido siempre en el mismo equipo
+    // ✅ Token DEMOPRINCE → válido siempre en el mismo equipo
     if (tokenRow.token === "demoprince") {
       return res.status(200).json({ ok: true, type: "demoprince" });
     }
 
-    // Token normal → debe estar vigente
+    // ✅ Tokens normales
+    if (tokenRow.status !== "active") {
+      return res.status(403).json({ ok: false, error: "Token no está activo" });
+    }
+
     if (tokenRow.expires_at) {
       const now = new Date();
       const exp = new Date(tokenRow.expires_at);
-      if (now > exp || tokenRow.status === "expired") {
+      if (now > exp) {
         return res.status(403).json({ ok: false, error: "Token caducado" });
       }
     }
@@ -44,8 +49,10 @@ export default async function handler(req, res) {
 
   } catch (e) {
     console.error("❌ Error en verify-token:", e);
-    return res.status(500).json({ ok: false, error: e.message });
+    return res.status(500).json({ ok: false, error: "Error interno en verify-token" });
   }
 }
+```
+
 ```
 
