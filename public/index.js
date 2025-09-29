@@ -96,10 +96,13 @@ var viewInElement = document.getElementById('viewIn');
 var viewOutElement = document.getElementById('viewOut');
 // ======================================================================
 
-  // NUEVAS VARIABLES para el overlay grande
-  let bigOverlayOpen = false;
-  let smallStartTimeout = null;
+// NUEVAS VARIABLES para el overlay grande
+let bigOverlayOpen = false;
+let smallStartTimeout = null;
 
+// Variables globales para video
+let currentVideoTimeout = null;
+let currentVideoSceneId = null;
 
 function escapeHtml(str) {
   return String(str)
