@@ -1,5 +1,4 @@
 ```js
-// api/signed-url.js
 import { supabaseAdmin } from '../lib/_supabaseClient.js';
 
 export default async function handler(req, res) {
@@ -32,7 +31,7 @@ export default async function handler(req, res) {
     if (tokenRow.token === 'democris') {
       const { data: signed, error: urlError } = await sb.storage
         .from('Tour')
-        .createSignedUrl(file, 60 * 15); // 15 min
+        .createSignedUrl(file, 60 * 15);
 
       if (urlError || !signed?.signedUrl) {
         return res.status(500).json({ ok: false, error: 'No se pudo generar signedUrl' });
@@ -46,7 +45,6 @@ export default async function handler(req, res) {
     // ===============================
     if (tokenRow.token === 'demoprince') {
       if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
-        // Primer uso: registrar dispositivo pero NO expira nunca
         await sb
           .from('access_tokens')
           .update({
@@ -57,7 +55,6 @@ export default async function handler(req, res) {
           })
           .eq('token', token);
       } else {
-        // Ya usado: validar que sea el mismo dispositivo/navegador
         if (tokenRow.first_ip !== ip || tokenRow.first_user_agent !== userAgent) {
           return res.status(403).json({
             ok: false,
@@ -90,7 +87,6 @@ export default async function handler(req, res) {
     }
 
     if (!tokenRow.first_ip || !tokenRow.first_user_agent) {
-      // Primer uso: asignar dispositivo y expiración a 1h
       await sb
         .from('access_tokens')
         .update({
