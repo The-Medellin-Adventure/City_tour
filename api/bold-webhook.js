@@ -56,6 +56,7 @@ export default async function handler(req, res) {
         token,
         email,
         status: "active",
+        type: "single",   // 👈 ahora marcamos que es de un solo uso
         expires_at: null // 👈 ahora no caduca hasta que se use por primera vez
       })
       .select();
