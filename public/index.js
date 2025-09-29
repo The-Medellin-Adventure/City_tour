@@ -75,9 +75,10 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
   }
   // VARIABLES GLOBALES
   // =========================================================
-  var currentScene = null;
-  var currentVideoSceneId = null;
-  var currentVideoTimeout = null;
+var currentScene = null;
+var currentVideoSceneId = null;
+var currentVideoTimeout = null;
+var activeView = null;   // 🔥 Nuevo: para evitar ReferenceError
 
   // NUEVAS VARIABLES para el overlay grande
   let bigOverlayOpen = false;
