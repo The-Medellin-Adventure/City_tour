@@ -1,5 +1,5 @@
 // api/bold-webhook.js
-import { supabaseAdmin } from "../lib/_supabaseClient.js";
+import { supabaseAdmin } from "./_supabaseClient.js";
 import { nanoid } from "nanoid";
 import nodemailer from "nodemailer";
 
