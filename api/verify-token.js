@@ -1,6 +1,4 @@
-```js
-// api/signed-url.js
-import { supabaseAdmin } from './_supabaseClient.js';
+import { supabaseAdmin } from '../lib/_supabaseClient.js';
 
 export default async function handler(req, res) {
   console.log("📥 signed-url invocado:", req.query);
