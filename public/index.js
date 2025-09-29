@@ -183,6 +183,10 @@ Promise.all(
 
   window.mostrarCarrusel = mostrarCarrusel;
 
+var panoElement = document.querySelector('#pano');
+var viewer = new Marzipano.Viewer(panoElement, {
+  controls: { mouseViewMode: (data.settings && data.settings.mouseViewMode) || 'drag' }
+});
   // =========================
   // CREAR ESCENAS
   // =========================
