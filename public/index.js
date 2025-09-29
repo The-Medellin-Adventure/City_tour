@@ -1,5 +1,3 @@
-window.token = new URLSearchParams(window.location.search).get("token");
-
 // index.js — versión corregida y robusta con videos grandes y pequeños
 'use strict';
 
@@ -16,103 +14,65 @@ window.token = new URLSearchParams(window.location.search).get("token");
 window.token = new URLSearchParams(window.location.search).get("token");
 const FIRST_SCENE_ID = "0-plaza-botero-botero";
 
-// =========================
-// Verificación temprana del token
-// =========================
-if (window.token) {
-  fetch(`https://citytour360.vercel.app/api/verify-token?token=${window.token}`, { headers: { Accept: "application/json" } })
-    .then(async res => {
-      const data = await res.json().catch(() => ({}));
-      console.log("🔎 VERIFY-TOKEN RESPUESTA:", res.status, JSON.stringify(data, null, 2));
-
-      // Si API devuelve error
-      if (res.status === 403 || data.ok === false) {
-        showErrorMessage("🚫 Acceso denegado", data.error || "Este enlace ya fue usado o expiró.");
-        ocultarUI();
-        throw new Error("Token inválido o expirado");
-      }
-
-      // Si API devuelve ok: true
-      if (data.ok === true) {
-        console.log("✅ Token válido, mostrar tour");
-        mostrarUI();
-      }
-    })
-    .catch(err => {
-      console.warn("Error verificando token:", err.message);
-    });
-}
-  
-
-  var panoElement = document.querySelector('#pano');
-  // Intento de mantener compatibilidad con tu HTML: uso #sceneTitle si existe,
-  // si no, caigo en el selector original.
-  var sceneNameElement = document.getElementById('sceneTitle') || document.querySelector('#titleBar .sceneName');
-  var sceneListElement = document.querySelector('#sceneList');
-  var sceneElements = document.querySelectorAll('#sceneList .scene');
-  var sceneListToggleElement = document.querySelector('#sceneListToggle');
-  var autorotateToggleElement = document.querySelector('#autorotateToggle');
-  var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
-
-  var viewerOpts = {
-    controls: {
-      mouseViewMode: (data.settings && data.settings.mouseViewMode) || 'drag'
-    }
-  };
-  var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
-  window.viewer = viewer;
-
-  // Mantener referencia al Swiper actual para destruirlo cuando se cierre / reabra
-  var currentSwiper = null;
-
-  // Vista activa (se actualiza cada vez que cambias de escena)
-  var activeView = null;
+  // ----------------------------
+  // Obtener el token desde la URL
+  // ----------------------------
+  window.token = new URLSearchParams(window.location.search).get("token");
 
   // =========================
-  // Helper para escapar texto en HTML
+  // Verificación del token
   // =========================
-  function escapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
+  if (window.token === "democris") {
+    console.log("🔓 Token DEMO abierto (DEMOCRIS), sin verificación de API");
+    mostrarUI();
+  } else if (window.token) {
+    fetch(`/api/verify-token?token=${window.token}`, { headers: { Accept: "application/json" } })
+      .then(async res => {
+        const data = await res.json().catch(() => ({}));
+        console.log("🔎 VERIFY-TOKEN RESPUESTA:", res.status, JSON.stringify(data, null, 2));
+
+        if (res.status === 403 || data.ok === false) {
+          showErrorMessage("🚫 Acceso denegado", data.error || "Este enlace ya fue usado o expiró.");
+          ocultarUI();
+          throw new Error("Token inválido o expirado");
+        }
+
+        if (data.ok === true) {
+          console.log("✅ Token válido, mostrar tour");
+          mostrarUI();
+        }
+      })
+      .catch(err => {
+        console.warn("Error verificando token:", err.message);
+      });
   }
 
   // =========================
-// Funciones de error y ocultar UI
-// =========================
-function ocultarUI() {
-  document.querySelectorAll(
-    '.link-hotspot-icon, .camera-hotspot, #sceneList, #titleBar, #videoCard'
-  ).forEach(el => {
-    if (el) el.style.display = 'none';
-  });
-}
-function mostrarUI() {
-  // Revertir lo que hace ocultarUI()
-  document.querySelectorAll('.link-hotspot-icon, .camera-hotspot, #sceneList, #titleBar, #videoCard')
-    .forEach(el => { if (el) el.style.display = ''; });
+  // Helpers de UI y errores
+  // =========================
+  function ocultarUI() {
+    document.querySelectorAll('.link-hotspot-icon, .camera-hotspot, #sceneList, #titleBar, #videoCard')
+      .forEach(el => { if (el) el.style.display = 'none'; });
+  }
+  function mostrarUI() {
+    document.querySelectorAll('.link-hotspot-icon, .camera-hotspot, #sceneList, #titleBar, #videoCard')
+      .forEach(el => { if (el) el.style.display = ''; });
 
-  // Ocultar overlay de error si existe
-  const overlay = document.getElementById("errorOverlay");
-  if (overlay) overlay.style.display = 'none';
-}
-function showErrorMessage(titulo, mensaje) {
-  const overlay = document.getElementById("errorOverlay");
-  if (!overlay) return;
-  overlay.style.display = "flex";
-  overlay.innerHTML = `
-    <div style="background:#fff;color:#000;padding:20px;border-radius:10px;max-width:400px;text-align:center;">
-      <h2>${escapeHtml(titulo)}</h2>
-      <p>${escapeHtml(mensaje)}</p>
-      <p style="margin-top:12px;font-size:14px;color:#444;">The Medellín Adventure</p>
-    </div>
-  `;
-}
-
+    const overlay = document.getElementById("errorOverlay");
+    if (overlay) overlay.style.display = 'none';
+  }
+  function showErrorMessage(titulo, mensaje) {
+    const overlay = document.getElementById("errorOverlay");
+    if (!overlay) return;
+    overlay.style.display = "flex";
+    overlay.innerHTML = `
+      <div style="background:#fff;color:#000;padding:20px;border-radius:10px;max-width:400px;text-align:center;">
+        <h2>${titulo}</h2>
+        <p>${mensaje}</p>
+        <p style="margin-top:12px;font-size:14px;color:#444;">The Medellín Adventure</p>
+      </div>
+    `;
+  }
   // VARIABLES GLOBALES
   // =========================================================
   var currentScene = null;
@@ -123,7 +83,18 @@ function showErrorMessage(titulo, mensaje) {
   let bigOverlayOpen = false;
   let smallStartTimeout = null;
 
-  // =========================
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+ 
+
+ // =========================
   // FUNCIÓN MOSTRAR CARRUSEL
   // =========================
   function mostrarCarrusel(imagenes, titulo) {
@@ -143,44 +114,6 @@ function showErrorMessage(titulo, mensaje) {
     // Limpiar
     swiperWrapper.innerHTML = '';
 
-imagenes.forEach(function (img) {
-  var filePath = img.src || img.url || '';
-  var caption = img.caption || img.texto || '';
-
-fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)}`, {
-  headers: { Accept: "application/json" }
-})
-.then(res => {
-  if (res.status === 403) {
-    // 🚫 Token global inválido o expirado → mostramos tarjeta y ocultamos todo
-    showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
-    ocultarUI(); // <- función que desactiva iconos/menús
-    throw new Error("Token inválido o expirado");
-  }
-  if (!res.ok) {
-    // Otro error (500, 404, etc.) → no mostramos tarjeta
-    throw new Error("Error de servidor o recurso");
-  }
-  return res.json();
-})
-.then(json => {
-  if (!json.signedUrl) throw new Error(json.error || "No signedUrl");
-
-  // Crear slide con imagen + caption
-  var slide = document.createElement('div');
-  slide.className = 'swiper-slide';
-  slide.innerHTML = `
-    <div style="display:flex;flex-direction:column;align-items:center;">
-      <img src="${json.signedUrl}" style="max-width:80%;max-height:60vh;object-fit:contain;border-radius:8px;" />
-      ${caption ? `<p style="margin-top:6px;color:#fff;font-size:14px;">${escapeHtml(caption)}</p>` : ""}
-    </div>
-  `;
-  swiperWrapper.appendChild(slide);
-})
-.catch(err => {
-  console.warn("Error cargando imagen firmada:", err.message);
-    });
-});
 
     carruselContainer.style.display = 'flex';
 
@@ -190,21 +123,50 @@ fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)
     }
 
 Promise.all(
-  imagenes.map(img =>
-    fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(img.src)}`, {
+  imagenes.map(img => {
+    var filePath = img.src || img.url || '';
+    var caption = img.caption || img.texto || '';
+
+    return fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)}`, {
       headers: { Accept: "application/json" }
-    }).then(r => r.json())
-  )
-).finally(() => {
-  currentSwiper = new Swiper('.carrusel-swiper', {
-    loop: imagenes.length > 1,
-    slidesPerView: 1,
-    spaceBetween: 10,
-    autoplay: { delay: 3500, disableOnInteraction: false },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
-  });
+    })
+      .then(res => res.json())
+      .then(json => {
+        if (!json.signedUrl) throw new Error(json.error || "No signedUrl");
+        var slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <img src="${json.signedUrl}" 
+                 style="max-width:80%;max-height:60vh;object-fit:contain;border-radius:8px;" />
+            ${caption ? `<p style="margin-top:6px;color:#fff;font-size:14px;">${escapeHtml(caption)}</p>` : ""}
+          </div>
+        `;
+        return slide;
+      })
+      .catch(err => {
+        console.warn("Error cargando imagen firmada:", err.message);
+        return null;
+      });
+  })
+).then(slides => {
+  slides.filter(Boolean).forEach(slide => swiperWrapper.appendChild(slide));
+
+  // Iniciar Swiper solo si hay imágenes
+  if (slides.length > 0) {
+    currentSwiper = new Swiper('.carrusel-swiper', {
+      loop: slides.length > 1,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: { delay: 3500, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+  }
+
+  carruselContainer.style.display = 'flex';
 });
+
 
     var cerrarBtn = document.getElementById('cerrarCarrusel');
     if (cerrarBtn) {
@@ -786,3 +748,4 @@ var zoomSpeed = 1;
   if (!document.body.classList.contains('mobile')) showSceneList();
 
 })();
+
