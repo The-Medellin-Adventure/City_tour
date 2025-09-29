@@ -75,10 +75,26 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
   }
   // VARIABLES GLOBALES
   // =========================================================
-var currentScene = null;
-var currentVideoSceneId = null;
-var currentVideoTimeout = null;
-var activeView = null;   // 🔥 Nuevo: para evitar ReferenceError
+// ======= REFERENCIAS UI (mover arriba para que existan antes de usarse) =======
+var sceneNameElement = document.querySelector('#sceneName');
+var sceneElements = document.querySelectorAll('#sceneList .scenes li');
+var sceneListElement = document.getElementById('sceneList');
+var sceneListToggleElement = document.getElementById('sceneListToggle');
+
+var autorotateToggleElement = document.getElementById('autorotateToggle');
+var fullscreenToggleElement = document.getElementById('fullscreenToggle');
+
+// Swiper / carrusel
+var currentSwiper = null;
+
+// Controles de vista (IDs que ya tienes en el HTML: viewLeft, viewRight, viewUp, viewDown, viewIn, viewOut)
+var viewLeftElement = document.getElementById('viewLeft');
+var viewRightElement = document.getElementById('viewRight');
+var viewUpElement = document.getElementById('viewUp');
+var viewDownElement = document.getElementById('viewDown');
+var viewInElement = document.getElementById('viewIn');
+var viewOutElement = document.getElementById('viewOut');
+// ======================================================================
 
   // NUEVAS VARIABLES para el overlay grande
   let bigOverlayOpen = false;
