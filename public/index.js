@@ -667,15 +667,6 @@ var sceneListToggleElement = document.getElementById('sceneListToggle');
     });
   });
 
-  // Fullscreen
-  if (screenfull && screenfull.enabled && data.settings && data.settings.fullscreenButton) {
-    document.body.classList.add('fullscreen-enabled');
-    if (fullscreenToggleElement) {
-      fullscreenToggleElement.addEventListener('click', function () { screenfull.toggle(); });
-      screenfull.on('change', function () { fullscreenToggleElement.classList.toggle('enabled', screenfull.isFullscreen); });
-    }
-  }
-
   // Autorotate
   if (autorotateToggleElement) autorotateToggleElement.addEventListener('click', toggleAutorotate);
   var autorotate = Marzipano.autorotate({ yawSpeed: 0.5, targetPitch: -0.3529, targetFov: Math.PI / 2 });
