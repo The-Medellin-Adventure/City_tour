@@ -485,6 +485,7 @@ videoCard.style.display = "block";
   // UI helpers (nombre y lista)
   // =========================
   var sceneNameElement = document.querySelector('#sceneName');
+  var sceneElements = document.querySelectorAll('#sceneList .scenes li');
   function updateSceneName(scene) {
     if (sceneNameElement) sceneNameElement.innerHTML = sanitize(scene.data.name || '');
   }
