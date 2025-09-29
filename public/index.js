@@ -473,9 +473,6 @@ videoCard.style.display = "block";
     updateSceneName(scene);
     updateSceneList(scene);
 
-    // actualizar la vista activa (para los botones)
-    activeView = scene.view;
-
     // Video por escena y overlay
     showBigOverlayForScene(scene.data.id);
     // Si el overlay está activo, updateVideoForScene ocultará el pequeño. El inicio real
@@ -492,11 +489,11 @@ videoCard.style.display = "block";
     startAutorotate();
   }
 
-  // Inicializar en la primera escena si existe (intento abrir FIRST_SCENE_ID si está presente)
-  if (scenes.length > 0) {
-    var start = scenes.find(s => s.data && s.data.id === FIRST_SCENE_ID) || scenes[0];
-    switchScene(start);
-  }
+ // Inicializar en la primera escena si existe (intento abrir FIRST_SCENE_ID si está presente)
+if (scenes.length > 0) {
+  var start = scenes.find(s => s.data && s.data.id === FIRST_SCENE_ID) || scenes[0];
+  switchScene(start);
+}
 
   // =========================
   // UI helpers (nombre y lista)
