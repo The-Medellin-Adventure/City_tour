@@ -485,8 +485,11 @@ videoCard.style.display = "block";
   // =========================
   // UI helpers (nombre y lista)
   // =========================
-  var sceneNameElement = document.querySelector('#sceneName');
-  var sceneElements = document.querySelectorAll('#sceneList .scenes li');
+  // Referencias UI
+var sceneNameElement = document.querySelector('#sceneName');
+var sceneElements = document.querySelectorAll('#sceneList .scenes li');
+var sceneListElement = document.getElementById('sceneList');
+var sceneListToggleElement = document.getElementById('sceneListToggle');
   function updateSceneName(scene) {
     if (sceneNameElement) sceneNameElement.innerHTML = sanitize(scene.data.name || '');
   }
@@ -720,12 +723,14 @@ if (document.fullscreenEnabled) {
     fsBtn.addEventListener('click', function() {
       if (document.fullscreenElement) {
         document.exitFullscreen();
-      } else {
+      } 
+      else {
         document.body.requestFullscreen();
       }
     });
   }
-} else {
+} 
+else {
   const fsBtn = document.getElementById('fullscreenToggle');
   if (fsBtn) fsBtn.style.display = 'none';
 }
