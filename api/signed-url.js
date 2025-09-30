@@ -6,20 +6,24 @@ export default async function handler(req, res) {
     const { file, token } = req.query;
 
     if (!file || !token) {
-      return res.status(400).json({ ok: false, error: "Faltan parámetros" });
+      return res.status(400).send("Faltan parámetros");
     }
 
     const sb = supabaseAdmin();
 
-    // 🔑 DEMOCRIS → acceso libre
+    // ======================================
+    // 🔑 DEMOCRIS → acceso libre, multi-equipo
+    // ======================================
     if (token === "democris") {
       console.log("✅ DEMOCRIS acceso libre:", file);
       const { data, error } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
       if (error) return res.status(500).send("Error al generar URL");
-      return res.redirect(302, data.signedUrl); // 🚀 Redirige directo a la imagen
+      return res.redirect(302, data.signedUrl);
     }
 
-    // 🔑 DEMOPRINCE → mismo dispositivo
+    // ======================================
+    // 🔑 DEMOPRINCE → un solo dispositivo
+    // ======================================
     if (token === "demoprince") {
       console.log("✅ DEMOPRINCE acceso único equipo:", file);
       const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "unknown";
@@ -44,7 +48,9 @@ export default async function handler(req, res) {
       return res.redirect(302, data.signedUrl);
     }
 
-    // ⬇️ Tokens normales
+    // ======================================
+    // ⬇️ TOKENS NORMALES (pagados)
+    // ======================================
     const { data: tokenRow, error } = await sb
       .from("access_tokens")
       .select("*")
@@ -55,11 +61,16 @@ export default async function handler(req, res) {
       return res.status(403).send("Token inválido");
     }
 
+    // Verificar expiración
     const now = new Date();
     if (tokenRow.expires_at && now > new Date(tokenRow.expires_at)) {
       return res.status(403).send("Token caducado");
     }
+    if (tokenRow.status === "expired") {
+      return res.status(403).send("Token expirado");
+    }
 
+    // Generar URL firmada
     const { data, error: urlError } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
     if (urlError) return res.status(500).send("Error al generar URL");
 
