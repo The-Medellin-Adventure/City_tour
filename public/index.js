@@ -209,23 +209,25 @@ function createScene(sceneData) {
   function createSignedSource(sceneData) {
     return Marzipano.ImageUrlSource.fromString(function (tile) {
       try {
-        var id = sceneData.id || '';
-        var level = (tile.z === 0 ? 1 : tile.z) || 1;
-        var face = tile.face || 'f';
-        var y = (typeof tile.y !== 'undefined') ? tile.y : 0;
-        var x = (typeof tile.x !== 'undefined') ? tile.x : 0;
+        var id = String(sceneData.id || '');
+        var level = String((tile.z === 0 ? 1 : tile.z) || 1);
+        var face = String(tile.face || 'f');
+        var y = String((typeof tile.y !== 'undefined') ? tile.y : 0);
+        var x = String((typeof tile.x !== 'undefined') ? tile.x : 0);
 
         if (!id) {
           console.error("⚠️ Escena sin id:", sceneData);
-          return "about:blank"; // <-- devuelve siempre string
+          return "about:blank";
         }
 
         var originalPath = `tiles/${id}/${level}/${face}/${y}/${x}.jpg`;
-        var url = `/api/signed-url?token=${encodeURIComponent(window.token)}&file=${encodeURIComponent(originalPath)}`;
-        return url;
+
+        return String(
+          `/api/signed-url?token=${encodeURIComponent(window.token)}&file=${encodeURIComponent(originalPath)}`
+        );
       } catch (e) {
         console.error("Error generando URL firmada:", e);
-        return "about:blank"; // <-- siempre string válido
+        return "about:blank";
       }
     });
   }
@@ -241,7 +243,6 @@ function createScene(sceneData) {
     pinFirstLevel: true
   });
 
-  // Hotspots
   (sceneData.linkHotspots || []).forEach(function (hotspot) {
     var element = createLinkHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
@@ -261,6 +262,7 @@ function createScene(sceneData) {
 
   return { data: sceneData, scene: sceneObj, view: view };
 }
+
 
 
 
