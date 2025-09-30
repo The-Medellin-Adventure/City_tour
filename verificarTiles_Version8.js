@@ -2,8 +2,8 @@
 const { createClient } = require('@supabase/supabase-js');
 const fs = require('fs');
 
-const SUPABASE_URL = 'TU_SUPABASE_URL';
-const SUPABASE_SERVICE_ROLE_KEY = 'TU_SERVICE_ROLE_KEY';
+const SUPABASE_URL = 'https://mvygkqueffafllfeiztm.supabase.co';
+const SUPABASE_SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12eWdrcXVlZmZhZmxsZmVpenRtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1Njg0NjMzNiwiZXhwIjoyMDcyNDIyMzM2fQ.1Ge_qv6V5kX-dWShobMDLUF-6x-q-o-pPssk6JSQZvE';
 const BUCKET = 'Tour';
 
 // Lee el archivo de configuración de escenas (ajusta el path si es necesario)
