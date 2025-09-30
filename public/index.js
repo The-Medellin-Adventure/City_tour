@@ -206,19 +206,20 @@ Promise.all(
 // CREAR ESCENAS
 // =========================
 function createScene(sceneData) {
-  // 🔑 Fuente de imágenes usando nuestra API de signed-url
+  // Fuente de imágenes que usa la API de signed-url
   function createSignedSource(sceneData) {
     return Marzipano.ImageUrlSource.fromString(function (tile) {
-      // Ruta original dentro del bucket
-      const originalPath = `tiles/${sceneData.id}/${tile.z}/${tile.face}/${tile.y}/${tile.x}.jpg`;
+      // FORZAR nivel mínimo 1 (tu bucket no tiene carpeta "0")
+      var level = tile.z === 0 ? 1 : tile.z;
 
-      // URL que pasa por nuestra API para firmar
-      const url = `/api/signed-url?token=${window.token}&file=${encodeURIComponent(originalPath)}`;
+      // caras en Marzipano usan nombres como 'f','b','l','r','u','d' (tile.face)
+      var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + tile.face + '/' + tile.y + '/' + tile.x + '.jpg';
 
-      // 👀 DEBUG: mostrar en consola cada URL generada
-      console.log("👉 URL generada para tile:", url);
+      // Pasamos la petición por nuestra API para que firme la URL
+      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
 
-      return url; // 🔥 Siempre devolver un string (no objeto)
+      // DEVOLVER SIEMPRE un string (nunca JSON)
+      return url;
     });
   }
 
@@ -233,17 +234,19 @@ function createScene(sceneData) {
     pinFirstLevel: true
   });
 
-  // Hotspots
+  // linkHotspots
   (sceneData.linkHotspots || []).forEach(function (hotspot) {
     var element = createLinkHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
+  // infoHotspots
   (sceneData.infoHotspots || []).forEach(function (hotspot) {
     var element = createInfoHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
+  // hotSpots (cámaras u otros)
   (sceneData.hotSpots || []).forEach(function (hotspot) {
     if (hotspot.type === "camera") {
       var element = createCameraHotspot(hotspot);
