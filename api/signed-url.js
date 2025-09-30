@@ -1,4 +1,3 @@
-// api/signed-url.js
 import { supabaseAdmin } from '../lib/_supabaseClient.js';
 
 export default async function handler(req, res) {
@@ -11,19 +10,18 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // ======================================
-    // 🔑 DEMOCRIS → acceso libre, multi-equipo
-    // ======================================
+    // DEMOCRIS → acceso libre
     if (token === "democris") {
       console.log("✅ DEMOCRIS acceso libre:", file);
       const { data, error } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
-      if (error) return res.status(500).send("Error al generar URL");
+      if (error || !data || !data.signedUrl) {
+        console.error("❌ Error DEMOCRIS signed-url:", error);
+        return res.status(500).send("Error al generar URL DEMOCRIS");
+      }
       return res.redirect(302, data.signedUrl);
     }
 
-    // ======================================
-    // 🔑 DEMOPRINCE → un solo dispositivo
-    // ======================================
+    // DEMOPRINCE → un solo dispositivo
     if (token === "demoprince") {
       console.log("✅ DEMOPRINCE acceso único equipo:", file);
       const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "unknown";
@@ -44,13 +42,14 @@ export default async function handler(req, res) {
       }
 
       const { data, error } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
-      if (error) return res.status(500).send("Error al generar URL");
+      if (error || !data || !data.signedUrl) {
+        console.error("❌ Error DEMOPRINCE signed-url:", error);
+        return res.status(500).send("Error al generar URL DEMOPRINCE");
+      }
       return res.redirect(302, data.signedUrl);
     }
 
-    // ======================================
-    // ⬇️ TOKENS NORMALES (pagados)
-    // ======================================
+    // TOKENS NORMALES
     const { data: tokenRow, error } = await sb
       .from("access_tokens")
       .select("*")
@@ -70,14 +69,16 @@ export default async function handler(req, res) {
       return res.status(403).send("Token expirado");
     }
 
-    // Generar URL firmada
     const { data, error: urlError } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
-    if (urlError) return res.status(500).send("Error al generar URL");
+    if (urlError || !data || !data.signedUrl) {
+      console.error("❌ Error NORMAL signed-url:", urlError);
+      return res.status(500).send("Error al generar URL");
+    }
 
     return res.redirect(302, data.signedUrl);
 
   } catch (e) {
-    console.error("❌ Error en signed-url:", e);
+    console.error("❌ Error general en signed-url:", e);
     return res.status(500).send("Error interno del servidor");
   }
 }
