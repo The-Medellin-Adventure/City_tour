@@ -207,22 +207,20 @@ Promise.all(
 // =========================
 function createScene(sceneData) {
   // Fuente de imágenes que usa la API de signed-url
-  function createSignedSource(sceneData) {
-    return Marzipano.ImageUrlSource.fromString(function (tile) {
-      // FORZAR nivel mínimo 1 (tu bucket no tiene carpeta "0")
-      var level = tile.z === 0 ? 1 : tile.z;
+function createSignedSource(sceneData) {
++    return Marzipano.ImageUrlSource.fromString(function (tile) {
++      // Forzar nivel mínimo 1
++      var level = tile.z === 0 ? 1 : tile.z;
++      var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + tile.face + '/' + tile.y + '/' + tile.x + '.jpg';
++      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
++      // Log para pruebas
++      console.log("[SIGNED-TILE-URL]", url, "sceneData.id:", sceneData.id, "tile:", tile);
++      return url; // SIEMPRE string
++    });
++  }
 
-      // caras en Marzipano usan nombres como 'f','b','l','r','u','d' (tile.face)
-      var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + tile.face + '/' + tile.y + '/' + tile.x + '.jpg';
 
-      // Pasamos la petición por nuestra API para que firme la URL
-      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
-
-      // DEVOLVER SIEMPRE un string (nunca JSON)
-      return url;
-    });
-  }
-
+  
   var source = createSignedSource(sceneData);
   var geometry = new Marzipano.CubeGeometry(sceneData.levels);
   var view = new Marzipano.RectilinearView(sceneData.initialViewParameters);
