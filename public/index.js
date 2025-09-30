@@ -208,18 +208,25 @@ Promise.all(
 function createScene(sceneData) {
   function createSignedSource(sceneData) {
     return Marzipano.ImageUrlSource.fromString(function (tile) {
-      var id = sceneData.id || '';
-      var level = (tile.z === 0 ? 1 : tile.z) || 1;
-      var face = tile.face || 'f';
-      var y = (typeof tile.y !== 'undefined') ? tile.y : 0;
-      var x = (typeof tile.x !== 'undefined') ? tile.x : 0;
-      if (!id || !level || !face || y === undefined || x === undefined) {
-        console.error("Tile params inválidos", { id, level, face, y, x, tile, sceneData });
-        return "";
+      try {
+        var id = sceneData.id || '';
+        var level = (tile.z === 0 ? 1 : tile.z) || 1;
+        var face = tile.face || 'f';
+        var y = (typeof tile.y !== 'undefined') ? tile.y : 0;
+        var x = (typeof tile.x !== 'undefined') ? tile.x : 0;
+
+        if (!id) {
+          console.error("⚠️ Escena sin id:", sceneData);
+          return "about:blank"; // <-- devuelve siempre string
+        }
+
+        var originalPath = `tiles/${id}/${level}/${face}/${y}/${x}.jpg`;
+        var url = `/api/signed-url?token=${encodeURIComponent(window.token)}&file=${encodeURIComponent(originalPath)}`;
+        return url;
+      } catch (e) {
+        console.error("Error generando URL firmada:", e);
+        return "about:blank"; // <-- siempre string válido
       }
-      var originalPath = `tiles/${id}/${level}/${face}/${y}/${x}.jpg`;
-      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
-      return url;
     });
   }
 
@@ -234,19 +241,17 @@ function createScene(sceneData) {
     pinFirstLevel: true
   });
 
-  // linkHotspots
+  // Hotspots
   (sceneData.linkHotspots || []).forEach(function (hotspot) {
     var element = createLinkHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
-  // infoHotspots
   (sceneData.infoHotspots || []).forEach(function (hotspot) {
     var element = createInfoHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
-  // hotSpots (cámaras u otros)
   (sceneData.hotSpots || []).forEach(function (hotspot) {
     if (hotspot.type === "camera") {
       var element = createCameraHotspot(hotspot);
@@ -256,6 +261,7 @@ function createScene(sceneData) {
 
   return { data: sceneData, scene: sceneObj, view: view };
 }
+
 
 
 
