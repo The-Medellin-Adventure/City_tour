@@ -1,3 +1,4 @@
+// api/signed-url.js
 import { supabaseAdmin } from '../lib/_supabaseClient.js';
 
 export default async function handler(req, res) {
@@ -10,15 +11,15 @@ export default async function handler(req, res) {
 
     const sb = supabaseAdmin();
 
-    // 🔑 Bypass DEMOCRIS → acceso libre, multi-equipo
+    // 🔑 DEMOCRIS → acceso libre
     if (token === "democris") {
       console.log("✅ DEMOCRIS acceso libre:", file);
       const { data, error } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
-      if (error) return res.status(500).json({ ok: false, error: error.message });
-      return res.status(200).json({ ok: true, signedUrl: data.signedUrl });
+      if (error) return res.status(500).send("Error al generar URL");
+      return res.redirect(302, data.signedUrl); // 🚀 Redirige directo a la imagen
     }
 
-    // 🔑 Bypass DEMOPRINCE → sin límite de tiempo, un solo equipo
+    // 🔑 DEMOPRINCE → mismo dispositivo
     if (token === "demoprince") {
       console.log("✅ DEMOPRINCE acceso único equipo:", file);
       const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress || "unknown";
@@ -28,7 +29,7 @@ export default async function handler(req, res) {
 
       if (row && row.first_ip && row.first_user_agent) {
         if (row.first_ip !== ip || row.first_user_agent !== ua) {
-          return res.status(403).json({ ok: false, error: "Token en otro dispositivo" });
+          return res.status(403).send("Token en otro dispositivo");
         }
       } else {
         await sb.from("access_tokens").update({
@@ -39,11 +40,11 @@ export default async function handler(req, res) {
       }
 
       const { data, error } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
-      if (error) return res.status(500).json({ ok: false, error: error.message });
-      return res.status(200).json({ ok: true, signedUrl: data.signedUrl });
+      if (error) return res.status(500).send("Error al generar URL");
+      return res.redirect(302, data.signedUrl);
     }
 
-    // ⬇️ Para los demás, validación normal
+    // ⬇️ Tokens normales
     const { data: tokenRow, error } = await sb
       .from("access_tokens")
       .select("*")
@@ -51,22 +52,21 @@ export default async function handler(req, res) {
       .single();
 
     if (error || !tokenRow) {
-      return res.status(403).json({ ok: false, error: "Token inválido" });
+      return res.status(403).send("Token inválido");
     }
 
-    // Validar expiración
     const now = new Date();
     if (tokenRow.expires_at && now > new Date(tokenRow.expires_at)) {
-      return res.status(403).json({ ok: false, error: "Token caducado" });
+      return res.status(403).send("Token caducado");
     }
 
     const { data, error: urlError } = await sb.storage.from("Tour").createSignedUrl(file, 3600);
-    if (urlError) return res.status(500).json({ ok: false, error: urlError.message });
+    if (urlError) return res.status(500).send("Error al generar URL");
 
-    return res.status(200).json({ ok: true, signedUrl: data.signedUrl });
+    return res.redirect(302, data.signedUrl);
 
   } catch (e) {
     console.error("❌ Error en signed-url:", e);
-    return res.status(500).json({ ok: false, error: e.message });
+    return res.status(500).send("Error interno del servidor");
   }
 }
