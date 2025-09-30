@@ -199,7 +199,54 @@ Promise.all(
         }
       };
     }
+  }// =========================
+// CREAR ESCENAS
+// =========================
+function createScene(sceneData) {
+  // 🔑 Función para crear un Source que pide las imágenes firmadas
+  function createSignedSource(sceneData) {
+    return Marzipano.ImageUrlSource.fromString(function (tile) {
+      // Ruta original que usaría Marzipano
+      const originalPath = `tiles/${sceneData.id}/${tile.z}/${tile.face}/${tile.y}/${tile.x}.jpg`;
+
+      // En lugar de devolverla directa, pasamos por la API de signed-url
+      return `/api/signed-url?token=${window.token}&file=${encodeURIComponent(originalPath)}`;
+    });
   }
+
+  // 🔄 Ahora, al crear la escena:
+  var source = createSignedSource(sceneData);
+  var geometry = new Marzipano.CubeGeometry(sceneData.levels);
+  var view = new Marzipano.RectilinearView(sceneData.initialViewParameters);
+
+  var sceneObj = viewer.createScene({
+    source: source,
+    geometry: geometry,
+    view: view,
+    pinFirstLevel: true
+  });
+
+  // Hotspots
+  (sceneData.linkHotspots || []).forEach(function (hotspot) {
+    var element = createLinkHotspotElement(hotspot);
+    sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
+  });
+
+  (sceneData.infoHotspots || []).forEach(function (hotspot) {
+    var element = createInfoHotspotElement(hotspot);
+    sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
+  });
+
+  (sceneData.hotSpots || []).forEach(function (hotspot) {
+    if (hotspot.type === "camera") {
+      var element = createCameraHotspot(hotspot);
+      sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
+    }
+  });
+
+  return { data: sceneData, scene: sceneObj, view: view };
+}
+
 
   window.mostrarCarrusel = mostrarCarrusel;
 
@@ -207,56 +254,10 @@ var panoElement = document.querySelector('#pano');
 var viewer = new Marzipano.Viewer(panoElement, {
   controls: { mouseViewMode: (data.settings && data.settings.mouseViewMode) || 'drag' }
 });
-  // =========================
-  // CREAR ESCENAS
-  // =========================
-  function createScene(sceneData) {
-var urlPrefix = `/api/signed-url?token=${window.token}&file=tiles/${sceneData.id}`;
 
-// 🔑 Función para crear un Source que pide las imágenes firmadas
-function createSignedSource(scene) {
-  return Marzipano.ImageUrlSource.fromString(
-    function (tile) {
-      // Ruta original que usaría Marzipano
-      const originalPath = `tiles/${scene.data.id}/${tile.z}/${tile.face}/${tile.y}/${tile.x}.jpg`;
 
-      // En lugar de devolverla directa, pasamos por la API de signed-url
-      return `/api/signed-url?token=${window.token}&file=${encodeURIComponent(originalPath)}`;
-    }
-  );
-}
 
-// 🔄 Ahora, al crear la escena:
-var source = createSignedSource(scene);
-var geometry = new Marzipano.CubeGeometry(scene.data.levels);
-var view = new Marzipano.RectilinearView(scene.data.initialViewParameters);
-
-var sceneObj = viewer.createScene({
-  source: source,
-  geometry: geometry,
-  view: view,
-  pinFirstLevel: true
-});
-
-    (sceneData.linkHotspots || []).forEach(function (hotspot) {
-      var element = createLinkHotspotElement(hotspot);
-      scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-    });
-
-    (sceneData.infoHotspots || []).forEach(function (hotspot) {
-      var element = createInfoHotspotElement(hotspot);
-      scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-    });
-
-    (sceneData.hotSpots || []).forEach(function (hotspot) {
-      if (hotspot.type === "camera") {
-        var element = createCameraHotspot(hotspot);
-        scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
-      }
-    });
-
-    return { data: sceneData, scene: scene, view: view };
-  }
+  
 
   var scenes = (data.scenes || []).map(createScene);
 
