@@ -206,18 +206,23 @@ Promise.all(
 // CREAR ESCENAS
 // =========================
 function createScene(sceneData) {
-  // Fuente de imágenes que usa la API de signed-url
-function createSignedSource(sceneData) {
-  return Marzipano.ImageUrlSource.fromString(function (tile) {
-    var level = tile.z === 0 ? 1 : tile.z;
-    var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + tile.face + '/' + tile.y + '/' + tile.x + '.jpg';
-    var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
-    return url;
-  });
-}
+  function createSignedSource(sceneData) {
+    return Marzipano.ImageUrlSource.fromString(function (tile) {
+      var id = sceneData.id || '';
+      var level = (tile.z === 0 ? 1 : tile.z) || 1;
+      var face = tile.face || 'f';
+      var y = (typeof tile.y !== 'undefined') ? tile.y : 0;
+      var x = (typeof tile.x !== 'undefined') ? tile.x : 0;
+      if (!id || !level || !face || y === undefined || x === undefined) {
+        console.error("Tile params inválidos", { id, level, face, y, x, tile, sceneData });
+        return "";
+      }
+      var originalPath = `tiles/${id}/${level}/${face}/${y}/${x}.jpg`;
+      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
+      return url;
+    });
+  }
 
-
-  
   var source = createSignedSource(sceneData);
   var geometry = new Marzipano.CubeGeometry(sceneData.levels);
   var view = new Marzipano.RectilinearView(sceneData.initialViewParameters);
