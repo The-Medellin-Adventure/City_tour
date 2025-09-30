@@ -202,14 +202,23 @@ Promise.all(
   }
 
   
-  // =========================
+// =========================
 // CREAR ESCENAS
 // =========================
 function createScene(sceneData) {
+  // 🔑 Fuente de imágenes usando nuestra API de signed-url
   function createSignedSource(sceneData) {
     return Marzipano.ImageUrlSource.fromString(function (tile) {
+      // Ruta original dentro del bucket
       const originalPath = `tiles/${sceneData.id}/${tile.z}/${tile.face}/${tile.y}/${tile.x}.jpg`;
-      return `/api/signed-url?token=${window.token}&file=${encodeURIComponent(originalPath)}`;
+
+      // URL que pasa por nuestra API para firmar
+      const url = `/api/signed-url?token=${window.token}&file=${encodeURIComponent(originalPath)}`;
+
+      // 👀 DEBUG: mostrar en consola cada URL generada
+      console.log("👉 URL generada para tile:", url);
+
+      return url; // 🔥 Siempre devolver un string (no objeto)
     });
   }
 
@@ -224,6 +233,7 @@ function createScene(sceneData) {
     pinFirstLevel: true
   });
 
+  // Hotspots
   (sceneData.linkHotspots || []).forEach(function (hotspot) {
     var element = createLinkHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
@@ -243,6 +253,7 @@ function createScene(sceneData) {
 
   return { data: sceneData, scene: sceneObj, view: view };
 }
+
 
 
 
