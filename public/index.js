@@ -208,16 +208,13 @@ Promise.all(
 function createScene(sceneData) {
   // Fuente de imágenes que usa la API de signed-url
 function createSignedSource(sceneData) {
-+    return Marzipano.ImageUrlSource.fromString(function (tile) {
-+      // Forzar nivel mínimo 1
-+      var level = tile.z === 0 ? 1 : tile.z;
-+      var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + tile.face + '/' + tile.y + '/' + tile.x + '.jpg';
-+      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
-+      // Log para pruebas
-+      console.log("[SIGNED-TILE-URL]", url, "sceneData.id:", sceneData.id, "tile:", tile);
-+      return url; // SIEMPRE string
-+    });
-+  }
+  return Marzipano.ImageUrlSource.fromString(function (tile) {
+    var level = tile.z === 0 ? 1 : tile.z;
+    var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + tile.face + '/' + tile.y + '/' + tile.x + '.jpg';
+    var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
+    return url;
+  });
+}
 
 
   
