@@ -199,22 +199,20 @@ Promise.all(
         }
       };
     }
-  }// =========================
+  }
+
+  
+  // =========================
 // CREAR ESCENAS
 // =========================
 function createScene(sceneData) {
-  // 🔑 Función para crear un Source que pide las imágenes firmadas
   function createSignedSource(sceneData) {
     return Marzipano.ImageUrlSource.fromString(function (tile) {
-      // Ruta original que usaría Marzipano
       const originalPath = `tiles/${sceneData.id}/${tile.z}/${tile.face}/${tile.y}/${tile.x}.jpg`;
-
-      // En lugar de devolverla directa, pasamos por la API de signed-url
       return `/api/signed-url?token=${window.token}&file=${encodeURIComponent(originalPath)}`;
     });
   }
 
-  // 🔄 Ahora, al crear la escena:
   var source = createSignedSource(sceneData);
   var geometry = new Marzipano.CubeGeometry(sceneData.levels);
   var view = new Marzipano.RectilinearView(sceneData.initialViewParameters);
@@ -226,7 +224,6 @@ function createScene(sceneData) {
     pinFirstLevel: true
   });
 
-  // Hotspots
   (sceneData.linkHotspots || []).forEach(function (hotspot) {
     var element = createLinkHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
@@ -246,6 +243,7 @@ function createScene(sceneData) {
 
   return { data: sceneData, scene: sceneObj, view: view };
 }
+
 
 
   window.mostrarCarrusel = mostrarCarrusel;
