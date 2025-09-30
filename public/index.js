@@ -212,15 +212,31 @@ var viewer = new Marzipano.Viewer(panoElement, {
   // =========================
   function createScene(sceneData) {
 var urlPrefix = `/api/signed-url?token=${window.token}&file=tiles/${sceneData.id}`;
-var source = Marzipano.ImageUrlSource.fromString(
-  urlPrefix + "/{z}/{f}/{y}/{x}.jpg",
-  { cubeMapPreviewUrl: urlPrefix + "/preview.jpg" }
-);
 
-    var geometry = new Marzipano.CubeGeometry(sceneData.levels);
-    var limiter = Marzipano.RectilinearView.limit.traditional(sceneData.faceSize, 100 * Math.PI / 180, 120 * Math.PI / 180);
-    var view = new Marzipano.RectilinearView(sceneData.initialViewParameters, limiter);
-    var scene = viewer.createScene({ source: source, geometry: geometry, view: view, pinFirstLevel: true });
+// 🔑 Función para crear un Source que pide las imágenes firmadas
+function createSignedSource(scene) {
+  return Marzipano.ImageUrlSource.fromString(
+    function (tile) {
+      // Ruta original que usaría Marzipano
+      const originalPath = `tiles/${scene.data.id}/${tile.z}/${tile.face}/${tile.y}/${tile.x}.jpg`;
+
+      // En lugar de devolverla directa, pasamos por la API de signed-url
+      return `/api/signed-url?token=${window.token}&file=${encodeURIComponent(originalPath)}`;
+    }
+  );
+}
+
+// 🔄 Ahora, al crear la escena:
+var source = createSignedSource(scene);
+var geometry = new Marzipano.CubeGeometry(scene.data.levels);
+var view = new Marzipano.RectilinearView(scene.data.initialViewParameters);
+
+var sceneObj = viewer.createScene({
+  source: source,
+  geometry: geometry,
+  view: view,
+  pinFirstLevel: true
+});
 
     (sceneData.linkHotspots || []).forEach(function (hotspot) {
       var element = createLinkHotspotElement(hotspot);
