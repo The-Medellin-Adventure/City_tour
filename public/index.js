@@ -207,27 +207,33 @@ function createScene(sceneData) {
   function createSignedSource(sceneData) {
   return Marzipano.ImageUrlSource.fromString(function (tile) {
     try {
-      var face = tile.face || "f";
-      var level = (typeof tile.z !== "undefined") ? tile.z : 0;
+      var face = String(tile.face || "f");
+      var level = String(typeof tile.z !== "undefined" ? tile.z : 0);
       var id = sceneData && sceneData.id ? String(sceneData.id) : "unknown";
+      var y = String(typeof tile.y !== "undefined" ? tile.y : 0);
+      var x = String(typeof tile.x !== "undefined" ? tile.x : 0);
 
-      // Archivo dentro de la cara (0.jpg, 1.jpg, 2.jpg, ...)
-      var filename = (typeof tile.x !== "undefined") ? String(tile.x) + ".jpg" : "0.jpg";
+      // Ruta exacta
+      var originalPath = "tiles/" + id + "/" + level + "/" + face + "/" + y + "/" + x + ".jpg";
 
-      // Ruta final según tu bucket Supabase
-      var originalPath = "tiles/" + id + "/" + level + "/" + face + "/" + filename;
+      var url = "/api/signed-url?token=" + encodeURIComponent(window.token) +
+                "&file=" + encodeURIComponent(originalPath);
 
-      // Devuelve SIEMPRE un string
-      return "/api/signed-url?token=" + encodeURIComponent(window.token) +
-             "&file=" + encodeURIComponent(originalPath);
+      // 🔎 Log obligatorio
+      console.log("✅ URL generada:", url);
+
+      return String(url);
     } catch (err) {
-      console.error("❌ createSignedSource - excepción:", err, sceneData, tile);
+      console.error("❌ createSignedSource - excepción:", err, "sceneData:", sceneData, "tile:", tile);
       var fallback = "tiles/" + (sceneData && sceneData.id ? sceneData.id : "unknown") + "/preview.jpg";
-      return "/api/signed-url?token=" + encodeURIComponent(window.token) +
-             "&file=" + encodeURIComponent(fallback);
+      var fbUrl = "/api/signed-url?token=" + encodeURIComponent(window.token) +
+                  "&file=" + encodeURIComponent(fallback);
+      console.log("⚠️ URL fallback:", fbUrl);
+      return String(fbUrl);
     }
   });
 }
+
 
 
   // Crear source/geometry/view y la escena en Marzipano
