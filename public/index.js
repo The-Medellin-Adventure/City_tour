@@ -795,4 +795,3 @@ var zoomSpeed = 1;
   if (!document.body.classList.contains('mobile')) showSceneList();
 
 })();
-
