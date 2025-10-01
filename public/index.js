@@ -205,78 +205,66 @@ Promise.all(
 // =========================
 // CREAR ESCENAS
 // =========================
+// =========================
+// CREAR ESCENAS
+// =========================
 function createScene(sceneData) {
-  // 🔑 Función para crear un Source que pide las imágenes firmadas
-  function createSignedSource(scene) {
+  function createSignedSource(sceneData) {
     return Marzipano.ImageUrlSource.fromString(function (tile) {
-      // En tu bucket los tiles están numerados (0.jpg, 1.jpg, etc.)
-      // Marzipano manda "tile.face" como f/b/l/r/u/d → lo convertimos a número
-      const faceMap = { f: 0, r: 1, b: 2, l: 3, u: 4, d: 5 };
-      const faceIndex = faceMap[tile.face] !== undefined ? faceMap[tile.face] : 0;
+      try {
+        // Mapeo de caras a índices (como están en tu bucket)
+        var faceMap = { f: "0", r: "1", b: "2", l: "3", u: "4", d: "5" };
+        var faceIndex = faceMap[tile.face] || "0";
 
-      const originalPath =
-        "tiles/" +
-        scene.data.id +
-        "/" +
-        tile.z +
-        "/" +
-        faceIndex +
-        ".jpg";
+        // Forzar nivel mínimo 1 si tu bucket no tiene 0 (seguro)
+        var z = (typeof tile.z !== 'undefined') ? tile.z : 1;
+        var level = (z === 0 ? 1 : z);
 
-      return (
-        "/api/signed-url?token=" +
-        encodeURIComponent(window.token) +
-        "&file=" +
-        encodeURIComponent(originalPath)
-      );
+        // Ruta final del archivo en Supabase (ajustada a tu estructura)
+        var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + faceIndex + '.jpg';
+
+        // URL a nuestra API que debe redirigir al recurso firmado
+        var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
+
+        // Forzar string defensivamente
+        return String(url);
+      } catch (err) {
+        console.error('❌ createSignedSource - excepción:', err, 'sceneData:', sceneData, 'tile:', tile);
+        return '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent('tiles/' + (sceneData && sceneData.id ? sceneData.id : 'unknown') + '/preview.jpg');
+      }
     });
   }
 
-  // 🔄 Crear Source, Geometry y View
   var source = createSignedSource(sceneData);
   var geometry = new Marzipano.CubeGeometry(sceneData.levels);
   var view = new Marzipano.RectilinearView(sceneData.initialViewParameters);
 
-  // Crear escena en el visor
-  var scene = viewer.createScene({
+  var sceneObj = viewer.createScene({
     source: source,
     geometry: geometry,
     view: view,
-    pinFirstLevel: true,
+    pinFirstLevel: true
   });
 
-  // Hotspots de navegación
   (sceneData.linkHotspots || []).forEach(function (hotspot) {
     var element = createLinkHotspotElement(hotspot);
-    scene.hotspotContainer().createHotspot(element, {
-      yaw: hotspot.yaw,
-      pitch: hotspot.pitch,
-    });
+    sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
-  // Hotspots de info
   (sceneData.infoHotspots || []).forEach(function (hotspot) {
     var element = createInfoHotspotElement(hotspot);
-    scene.hotspotContainer().createHotspot(element, {
-      yaw: hotspot.yaw,
-      pitch: hotspot.pitch,
-    });
+    sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
-  // Hotspots de cámara
   (sceneData.hotSpots || []).forEach(function (hotspot) {
     if (hotspot.type === "camera") {
       var element = createCameraHotspot(hotspot);
-      scene.hotspotContainer().createHotspot(element, {
-        yaw: hotspot.yaw,
-        pitch: hotspot.pitch,
-      });
+      sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     }
   });
 
-  return { data: sceneData, scene: scene, view: view };
+  return { data: sceneData, scene: sceneObj, view: view };
 }
-
 
 
 
