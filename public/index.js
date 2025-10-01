@@ -201,39 +201,28 @@ Promise.all(
     }
   }
 
-  
-// =========================
-// CREAR ESCENAS
-// =========================
 // =========================
 // CREAR ESCENAS
 // =========================
 function createScene(sceneData) {
   function createSignedSource(sceneData) {
-    return Marzipano.ImageUrlSource.fromString(function (tile) {
-      try {
-        // Mapeo de caras a índices (como están en tu bucket)
-        var faceMap = { f: "0", r: "1", b: "2", l: "3", u: "4", d: "5" };
-        var faceIndex = faceMap[tile.face] || "0";
+  return Marzipano.ImageUrlSource.fromString(function (tile) {
+    try {
+      // Usamos directamente la cara (f, r, b, l, u, d)
+      var face = tile.face;
 
-        // Forzar nivel mínimo 1 si tu bucket no tiene 0 (seguro)
-        var z = (typeof tile.z !== 'undefined') ? tile.z : 1;
-        var level = (z === 0 ? 1 : z);
+      // Nivel (usa 0 si existe, si no, puedes forzar mínimo 1)
+      var level = (typeof tile.z !== 'undefined') ? tile.z : 0;
 
-        // Ruta final del archivo en Supabase (ajustada a tu estructura)
-        var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + faceIndex + '.jpg';
+      // Ruta final de Supabase
+      var originalPath = 'tiles/' + sceneData.id + '/' + level + '/' + face + '/' + tile.y + '/' + tile.x + '.jpg';
 
-        // URL a nuestra API que debe redirigir al recurso firmado
-        var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
+      // Pasamos por la API signed-url
+      return '/api/signed-url?token=' + encodeURIComponent(window.token) +
+             '&file=' + encodeURIComponent(originalPath);
 
-        // Forzar string defensivamente
-        return String(url);
-      } catch (err) {
-        console.error('❌ createSignedSource - excepción:', err, 'sceneData:', sceneData, 'tile:', tile);
-        return '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent('tiles/' + (sceneData && sceneData.id ? sceneData.id : 'unknown') + '/preview.jpg');
-      }
-    });
-  }
+    } catch (err) {
+ 
 
   var source = createSignedSource(sceneData);
   var geometry = new Marzipano.CubeGeometry(sceneData.levels);
