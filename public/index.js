@@ -261,7 +261,7 @@ function createScene(sceneData) {
   });
 
   return { data: sceneData, scene: sceneObj, view: view };
-}
+  });
 
 
 
