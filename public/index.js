@@ -201,42 +201,39 @@ Promise.all(
   }
 
 // =========================
-// CREAR ESCENAS
+// SOURCE CON SIGNED-URL
 // =========================
-function createScene(sceneData) {
-  function createSignedSource(sceneData) {
+function createSignedSource(sceneData) {
   return Marzipano.ImageUrlSource.fromString(function (tile) {
     try {
-      var face = String(tile.face || "f");
-      var level = String(typeof tile.z !== "undefined" ? tile.z : 0);
-      var id = sceneData && sceneData.id ? String(sceneData.id) : "unknown";
-      var y = String(typeof tile.y !== "undefined" ? tile.y : 0);
-      var x = String(typeof tile.x !== "undefined" ? tile.x : 0);
+      var face = String(tile.face || "f");   // cara: f, b, l, r, u, d
+      var level = String(tile.z || 0);       // nivel de zoom
+      var id = String(sceneData.id || "unknown");
 
-      // Ruta exacta
-      var originalPath = "tiles/" + id + "/" + level + "/" + face + "/" + y + "/" + x + ".jpg";
+      // Índice simple (0.jpg, 1.jpg, ...)
+      var index = String(tile.x || 0) + ".jpg";
+
+      // Ruta final en Supabase
+      var originalPath = "tiles/" + id + "/" + level + "/" + face + "/" + index;
 
       var url = "/api/signed-url?token=" + encodeURIComponent(window.token) +
                 "&file=" + encodeURIComponent(originalPath);
 
-      // 🔎 Log obligatorio
       console.log("✅ URL generada:", url);
-
-      return String(url);
+      return url;
     } catch (err) {
-      console.error("❌ createSignedSource - excepción:", err, "sceneData:", sceneData, "tile:", tile);
-      var fallback = "tiles/" + (sceneData && sceneData.id ? sceneData.id : "unknown") + "/preview.jpg";
-      var fbUrl = "/api/signed-url?token=" + encodeURIComponent(window.token) +
-                  "&file=" + encodeURIComponent(fallback);
-      console.log("⚠️ URL fallback:", fbUrl);
-      return String(fbUrl);
+      console.error("❌ createSignedSource - excepción:", err, sceneData, tile);
+      var fallback = "tiles/" + (sceneData.id || "unknown") + "/preview.jpg";
+      return "/api/signed-url?token=" + encodeURIComponent(window.token) +
+             "&file=" + encodeURIComponent(fallback);
     }
   });
 }
 
-
-
-  // Crear source/geometry/view y la escena en Marzipano
+// =========================
+// CREAR ESCENAS
+// =========================
+function createScene(sceneData) {
   var source = createSignedSource(sceneData);
   var geometry = new Marzipano.CubeGeometry(sceneData.levels);
   var view = new Marzipano.RectilinearView(sceneData.initialViewParameters);
@@ -248,19 +245,16 @@ function createScene(sceneData) {
     pinFirstLevel: true
   });
 
-  // linkHotspots
   (sceneData.linkHotspots || []).forEach(function (hotspot) {
     var element = createLinkHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
-  // infoHotspots
   (sceneData.infoHotspots || []).forEach(function (hotspot) {
     var element = createInfoHotspotElement(hotspot);
     sceneObj.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
   });
 
-  // hotSpots (cámaras u otros)
   (sceneData.hotSpots || []).forEach(function (hotspot) {
     if (hotspot.type === "camera") {
       var element = createCameraHotspot(hotspot);
