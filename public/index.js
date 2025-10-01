@@ -225,8 +225,7 @@ function createScene(sceneData) {
       return String('/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(fallback));
     }
   });
-};
-  }
+ }
 
   // Crear source/geometry/view y la escena en Marzipano
   var source = createSignedSource(sceneData);
@@ -261,7 +260,7 @@ function createScene(sceneData) {
   });
 
   return { data: sceneData, scene: sceneObj, view: view };
-  });
+}
 
 
 
