@@ -206,31 +206,27 @@ Promise.all(
 // =========================
 function createScene(sceneData) {
   function createSignedSource(sceneData) {
-    return Marzipano.ImageUrlSource.fromString(function (tile) {
-      try {
-        // Usamos la cara (f,r,b,l,u,d) y el nivel z tal como lo manda Marzipano
-        var face = tile.face || 'f';
-        var z = (typeof tile.z !== 'undefined') ? tile.z : 0;
-        var level = z; // si en tu bucket el nivel 0 existe, lo usamos directamente
+  return Marzipano.ImageUrlSource.fromString(function (tile) {
+    try {
+      var face = tile.face || 'f';
+      var z = (typeof tile.z !== 'undefined') ? tile.z : 0;
+      var level = z;
 
-        // Asegurar valores por seguridad
-        var id = sceneData && sceneData.id ? String(sceneData.id) : 'unknown';
-        var yy = (typeof tile.y !== 'undefined') ? String(tile.y) : '0';
-        var xx = (typeof tile.x !== 'undefined') ? String(tile.x) : '0';
+      var id = sceneData && sceneData.id ? String(sceneData.id) : 'unknown';
+      var yy = (typeof tile.y !== 'undefined') ? String(tile.y) : '0';
+      var xx = (typeof tile.x !== 'undefined') ? String(tile.x) : '0';
 
-        // Ruta final que corresponde a la estructura del bucket (tiles/{sceneId}/{level}/{face}/{y}/{x}.jpg)
-        var originalPath = 'tiles/' + id + '/' + level + '/' + face + '/' + yy + '/' + xx + '.jpg';
+      var originalPath = 'tiles/' + id + '/' + level + '/' + face + '/' + yy + '/' + xx + '.jpg';
 
-        // Devolver SIEMPRE un string que apunte a nuestra API (la API hará redirect a Supabase)
-        return '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
-
-      } catch (err) {
-        // En caso de excepción devolvemos un fallback: el preview de la escena (también vía signed-url)
-        console.error('❌ createSignedSource - excepción:', err, 'sceneData:', sceneData, 'tile:', tile);
-        var fallback = 'tiles/' + (sceneData && sceneData.id ? sceneData.id : 'unknown') + '/preview.jpg';
-        return '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(fallback);
-      }
-    });
+      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
+      return String(url);
+    } catch (err) {
+      console.error('❌ createSignedSource - excepción:', err, 'sceneData:', sceneData, 'tile:', tile);
+      var fallback = 'tiles/' + (sceneData && sceneData.id ? sceneData.id : 'unknown') + '/preview.jpg';
+      return String('/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(fallback));
+    }
+  });
+});
   }
 
   // Crear source/geometry/view y la escena en Marzipano
