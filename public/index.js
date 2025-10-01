@@ -126,100 +126,77 @@ function showErrorMessage(titulo, mensaje) {
   // =========================
   // FUNCIÓN MOSTRAR CARRUSEL
   // =========================
-  function mostrarCarrusel(imagenes, titulo) {
-    imagenes = Array.isArray(imagenes) ? imagenes : [];
-    const carruselContainer = document.getElementById('carruselContainer');
-    const carruselTitulo = document.getElementById('carruselTitulo');
-    const swiperWrapper = document.querySelector('#carrusel .swiper-wrapper');
+// =========================
+// FUNCIÓN MOSTRAR CARRUSEL
+// =========================
+function mostrarCarrusel(imagenes, titulo) {
+  imagenes = Array.isArray(imagenes) ? imagenes : [];
+  const carruselContainer = document.getElementById('carruselContainer');
+  const carruselTitulo = document.getElementById('carruselTitulo');
+  const swiperWrapper = document.querySelector('#carrusel .swiper-wrapper');
 
-    if (!carruselContainer || !swiperWrapper) {
-      console.error("No se encontró el contenedor del carrusel en el HTML");
-      return;
-    }
-
-    // Título
-    carruselTitulo.textContent = titulo || '';
-
-    // Limpiar
-    swiperWrapper.innerHTML = '';
-
-imagenes.forEach(function (img) {
-  var filePath = img.src || img.url || '';
-  var caption = img.caption || img.texto || '';
-
-fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)}`, {
-  headers: { Accept: "application/json" }
-})
-.then(res => {
-  if (res.status === 403) {
-    // 🚫 Token global inválido o expirado → mostramos tarjeta y ocultamos todo
-    showErrorMessage("🚫 Acceso denegado", "Este enlace ya fue usado o expiró.");
-    ocultarUI(); // <- función que desactiva iconos/menús
-    throw new Error("Token inválido o expirado");
+  if (!carruselContainer || !swiperWrapper) {
+    console.error("No se encontró el contenedor del carrusel en el HTML");
+    return;
   }
-  if (!res.ok) {
-    // Otro error (500, 404, etc.) → no mostramos tarjeta
-    throw new Error("Error de servidor o recurso");
-  }
-  return res.json();
-})
-.then(json => {
-  if (!json.signedUrl) throw new Error(json.error || "No signedUrl");
 
-  // Crear slide con imagen + caption
-  var slide = document.createElement('div');
-  slide.className = 'swiper-slide';
-  slide.innerHTML = `
-    <div style="display:flex;flex-direction:column;align-items:center;">
-      <img src="${json.signedUrl}" style="max-width:80%;max-height:60vh;object-fit:contain;border-radius:8px;" />
-      ${caption ? `<p style="margin-top:6px;color:#fff;font-size:14px;">${escapeHtml(caption)}</p>` : ""}
-    </div>
-  `;
-  swiperWrapper.appendChild(slide);
-})
-.catch(err => {
-  console.warn("Error cargando imagen firmada:", err.message);
-    });
-});
+  // Título
+  carruselTitulo.textContent = titulo || '';
 
-    carruselContainer.style.display = 'flex';
+  // Limpiar
+  swiperWrapper.innerHTML = '';
 
-    if (currentSwiper) {
-      try { currentSwiper.destroy(true, true); } catch (e) {}
-      currentSwiper = null;
-    }
+  imagenes.forEach(function (img) {
+    var filePath = img.src || img.url || '';
+    var caption = img.caption || img.texto || '';
 
-Promise.all(
-  imagenes.map(img =>
-    fetch(`/api/signed-url?token=${window.token}&file=${encodeURIComponent(img.src)}`, {
-      headers: { Accept: "application/json" }
-    }).then(r => r.json())
-  )
-).finally(() => {
-  currentSwiper = new Swiper('.carrusel-swiper', {
-    loop: imagenes.length > 1,
-    slidesPerView: 1,
-    spaceBetween: 10,
-    autoplay: { delay: 3500, disableOnInteraction: false },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    // Crear slide con imagen + caption
+    var slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;">
+        <img src="/api/signed-url?token=${window.token}&file=${encodeURIComponent(filePath)}"
+             style="max-width:80%;max-height:60vh;object-fit:contain;border-radius:8px;" />
+        ${caption ? `<p style="margin-top:6px;color:#fff;font-size:14px;">${escapeHtml(caption)}</p>` : ""}
+      </div>
+    `;
+    swiperWrapper.appendChild(slide);
   });
-});
 
-    var cerrarBtn = document.getElementById('cerrarCarrusel');
-    if (cerrarBtn) {
-      cerrarBtn.onclick = function () {
-        carruselContainer.style.display = 'none';
-        swiperWrapper.innerHTML = '';
-        if (currentSwiper) {
-          try { currentSwiper.destroy(true, true); } catch (e) {}
-          currentSwiper = null;
-        }
-      };
-    }
+  carruselContainer.style.display = 'flex';
+
+  if (currentSwiper) {
+    try { currentSwiper.destroy(true, true); } catch (e) {}
+    currentSwiper = null;
   }
 
-  window.mostrarCarrusel = mostrarCarrusel;
+  // Inicializar el carrusel sin esperar JSON
+  Promise.resolve().finally(() => {
+    currentSwiper = new Swiper('.carrusel-swiper', {
+      loop: imagenes.length > 1,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      autoplay: { delay: 3500, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+    });
+  });
+
+  var cerrarBtn = document.getElementById('cerrarCarrusel');
+  if (cerrarBtn) {
+    cerrarBtn.onclick = function () {
+      carruselContainer.style.display = 'none';
+      swiperWrapper.innerHTML = '';
+      if (currentSwiper) {
+        try { currentSwiper.destroy(true, true); } catch (e) {}
+        currentSwiper = null;
+      }
+    };
+  }
+}
+
+window.mostrarCarrusel = mostrarCarrusel;
+
 
   // =========================
   // CREAR ESCENAS
