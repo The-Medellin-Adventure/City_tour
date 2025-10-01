@@ -17,7 +17,6 @@ const FIRST_SCENE_ID = "0-plaza-botero-botero";
   // ----------------------------
   // Obtener el token desde la URL
   // ----------------------------
-  window.token = new URLSearchParams(window.location.search).get("token");
 
   // =========================
   // Verificación del token
