@@ -207,33 +207,28 @@ function createScene(sceneData) {
   function createSignedSource(sceneData) {
   return Marzipano.ImageUrlSource.fromString(function (tile) {
     try {
-      // Cara (f, r, b, l, u, d)
-      var face = tile.face || 'f';
+      var face = tile.face || "f";
+      var level = (typeof tile.z !== "undefined") ? tile.z : 0;
+      var id = sceneData && sceneData.id ? String(sceneData.id) : "unknown";
 
-      // Nivel de zoom
-      var level = (typeof tile.z !== 'undefined') ? tile.z : 0;
+      // Archivo dentro de la cara (0.jpg, 1.jpg, 2.jpg, ...)
+      var filename = (typeof tile.x !== "undefined") ? String(tile.x) + ".jpg" : "0.jpg";
 
-      // ID de la escena
-      var id = sceneData && sceneData.id ? String(sceneData.id) : 'unknown';
+      // Ruta final según tu bucket Supabase
+      var originalPath = "tiles/" + id + "/" + level + "/" + face + "/" + filename;
 
-      // En tu bucket, los archivos están como 0.jpg, 1.jpg, 2.jpg... dentro de la carpeta de cada cara
-      var filename = (typeof tile.x !== 'undefined') ? String(tile.x) + '.jpg' : '0.jpg';
-
-      // Construcción de la ruta correcta según tu estructura en Supabase
-      var originalPath = 'tiles/' + id + '/' + level + '/' + face + '/' + filename;
-
-      // Pasar siempre por la API firmada
-      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) +
-                '&file=' + encodeURIComponent(originalPath);
-
-      return url;
+      // Devuelve SIEMPRE un string
+      return "/api/signed-url?token=" + encodeURIComponent(window.token) +
+             "&file=" + encodeURIComponent(originalPath);
     } catch (err) {
-      console.error('❌ createSignedSource - excepción:', err, 'sceneData:', sceneData, 'tile:', tile);
-      var fallback = 'tiles/' + (sceneData && sceneData.id ? sceneData.id : 'unknown') + '/preview.jpg';
-      return '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(fallback);
+      console.error("❌ createSignedSource - excepción:", err, sceneData, tile);
+      var fallback = "tiles/" + (sceneData && sceneData.id ? sceneData.id : "unknown") + "/preview.jpg";
+      return "/api/signed-url?token=" + encodeURIComponent(window.token) +
+             "&file=" + encodeURIComponent(fallback);
     }
   });
 }
+
 
   // Crear source/geometry/view y la escena en Marzipano
   var source = createSignedSource(sceneData);
