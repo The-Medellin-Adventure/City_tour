@@ -207,25 +207,33 @@ function createScene(sceneData) {
   function createSignedSource(sceneData) {
   return Marzipano.ImageUrlSource.fromString(function (tile) {
     try {
+      // Cara (f, r, b, l, u, d)
       var face = tile.face || 'f';
-      var z = (typeof tile.z !== 'undefined') ? tile.z : 0;
-      var level = z;
 
+      // Nivel de zoom
+      var level = (typeof tile.z !== 'undefined') ? tile.z : 0;
+
+      // ID de la escena
       var id = sceneData && sceneData.id ? String(sceneData.id) : 'unknown';
-      var yy = (typeof tile.y !== 'undefined') ? String(tile.y) : '0';
-      var xx = (typeof tile.x !== 'undefined') ? String(tile.x) : '0';
 
-      var originalPath = 'tiles/' + id + '/' + level + '/' + face + '/' + yy + '/' + xx + '.jpg';
+      // En tu bucket, los archivos están como 0.jpg, 1.jpg, 2.jpg... dentro de la carpeta de cada cara
+      var filename = (typeof tile.x !== 'undefined') ? String(tile.x) + '.jpg' : '0.jpg';
 
-      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(originalPath);
-      return String(url);
+      // Construcción de la ruta correcta según tu estructura en Supabase
+      var originalPath = 'tiles/' + id + '/' + level + '/' + face + '/' + filename;
+
+      // Pasar siempre por la API firmada
+      var url = '/api/signed-url?token=' + encodeURIComponent(window.token) +
+                '&file=' + encodeURIComponent(originalPath);
+
+      return url;
     } catch (err) {
       console.error('❌ createSignedSource - excepción:', err, 'sceneData:', sceneData, 'tile:', tile);
       var fallback = 'tiles/' + (sceneData && sceneData.id ? sceneData.id : 'unknown') + '/preview.jpg';
-      return String('/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(fallback));
+      return '/api/signed-url?token=' + encodeURIComponent(window.token) + '&file=' + encodeURIComponent(fallback);
     }
   });
- }
+}
 
   // Crear source/geometry/view y la escena en Marzipano
   var source = createSignedSource(sceneData);
