@@ -832,16 +832,8 @@ body.view-control-buttons .viewControlButton {
 
 
 /* =========================================================
-   🇨🇴 ESTILO FINAL PROFESIONAL, ELEGANTE Y ATRACTIVO PARA TURISTAS
+   🎨 ESTILO FINAL V3 - PROFESIONAL, ELEGANTE Y TURÍSTICO
    ========================================================= */
-
-/* === GENERAL === */
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  overflow: hidden;
-}
 
 /* === BARRA DE TÍTULO === */
 #titleBar {
@@ -850,7 +842,7 @@ body {
   left: 0;
   right: 0;
   z-index: 600;
-  background: linear-gradient(90deg, rgba(0,87,184,0.85), rgba(0,0,0,0.4), transparent);
+  background: linear-gradient(90deg, rgba(255,122,0,0.85), rgba(0,0,0,0.5), transparent);
   backdrop-filter: blur(4px);
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   padding: 12px 18px;
@@ -858,47 +850,52 @@ body {
 }
 
 #sceneTitle {
-  color: #FFD700; /* amarillo dorado */
-  text-shadow: 0 2px 8px rgba(239,51,64,0.6); /* sombra roja suave */
+  color: #FFD700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
   font-size: clamp(18px, 3vw, 28px);
   font-weight: 700;
   letter-spacing: .3px;
 }
 
-/* === MENÚ DE ESCENAS === */
+/* === MENÚ DE ESCENAS (DESLIZANTE) === */
 #sceneList {
-  position: fixed;
-  top: 70px;
-  left: 20px;
+  position: absolute;
+  top: 0;
+  left: -260px; /* oculto por defecto */
+  padding-top: 60px;
   width: 260px;
-  background: rgba(10,10,10,0.75);
-  border: 1px solid rgba(0,87,184,0.3);
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  backdrop-filter: blur(8px);
-  color: #fff;
-  font-size: 14px;
-  max-height: 45vh;
+  max-height: 80%;
+  overflow-x: hidden;
   overflow-y: auto;
+  background: linear-gradient(180deg, rgba(255,122,0,0.9), rgba(0,0,0,0.85));
+  border-right: 1px solid rgba(255,255,255,0.15);
+  border-radius: 0 10px 10px 0;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  -webkit-transition: margin-left 0.5s ease-in-out;
+  transition: margin-left 0.5s ease-in-out;
   z-index: 500;
-  transition: all 0.4s ease-in-out;
+}
+
+#sceneList.enabled {
+  margin-left: 260px; /* se desliza desde la izquierda */
 }
 
 #sceneList li.text {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.08);
   border-left: 3px solid transparent;
   border-radius: 8px;
   padding: 8px 10px;
-  margin-bottom: 6px;
+  margin: 5px 0;
   transition: all 0.3s ease;
 }
 
 #sceneList li.text:hover {
-  background: linear-gradient(90deg, rgba(255,215,0,0.85), rgba(239,51,64,0.85));
+  background: linear-gradient(90deg, rgba(255,122,0,0.9), rgba(255,200,0,0.7));
   border-left: 3px solid #FFD700;
   transform: translateX(4px);
-  box-shadow: 0 2px 10px rgba(255,215,0,0.4);
+  box-shadow: 0 2px 10px rgba(255,122,0,0.4);
 }
 
 /* === TARJETA TECNOPARQUE === */
@@ -906,19 +903,19 @@ body {
   position: fixed;
   top: 340px;
   left: 20px;
-  width: 260px;
+  width: 240px;
   background: rgba(0,0,0,0.6);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px;
   box-shadow: inset 0 0 12px rgba(255,255,255,0.08), 0 4px 16px rgba(0,0,0,0.4);
   color: #f8f8f8;
-  font-size: 14px;
+  font-size: 13px;
   z-index: 400;
 }
 #tecnoparque-card img {
   width: 85%;
-  margin-top: 8px;
+  margin-top: 6px;
   border-radius: 8px;
 }
 .tecnoparque-texto {
@@ -934,7 +931,7 @@ body {
   left: 20px;
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg, rgba(0,87,184,0.9), rgba(0,0,0,0.8));
+  background: linear-gradient(90deg, rgba(255,122,0,0.9), rgba(0,0,0,0.8));
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 4px 20px rgba(0,0,0,0.6);
   padding: 6px 10px;
@@ -943,7 +940,7 @@ body {
   color: white;
 }
 #watermark-footer img {
-  height: 28px;
+  height: 26px;
   margin-right: 8px;
 }
 #watermark-footer a {
@@ -952,43 +949,39 @@ body {
   text-decoration: none;
 }
 #watermark-footer a:hover {
-  color: #EF3340;
+  color: #FF7A00;
   text-decoration: underline;
 }
 
-/* === TARJETA DE VIDEO FLOTANTE === */
-@keyframes videoGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+/* === TARJETA DE VIDEO (TAMAÑO ORIGINAL) === */
 #videoCard {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: clamp(200px, 22vw, 320px);
+  width: clamp(200px, 20vw, 260px);
   border-radius: 12px;
   overflow: hidden;
-  background: linear-gradient(135deg, #FFD700, #0057B8, #EF3340);
-  background-size: 300% 300%;
-  animation: videoGradient 12s ease infinite;
+  background: linear-gradient(180deg, rgba(255,122,0,0.9), rgba(0,0,0,0.8));
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
   z-index: 9999;
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 #videoCard.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+
 #videoCard video {
   width: 100%;
   border-radius: 12px;
   display: block;
 }
+
 #videoControls {
   display: flex;
   justify-content: space-around;
@@ -998,7 +991,9 @@ body {
   opacity: 0;
   transition: opacity .3s ease-in-out;
 }
+
 #videoCard:hover #videoControls { opacity: 1; }
+
 #videoControls button {
   background: transparent;
   border: none;
@@ -1007,12 +1002,13 @@ body {
   cursor: pointer;
   transition: transform 0.2s, color 0.2s;
 }
+
 #videoControls button:hover {
   transform: scale(1.2);
   color: #FFD700;
 }
 
-/* === VIDEO GRANDE (SOLO PRIMERA ESCENA) === */
+/* === VIDEO GRANDE === */
 #bigVideoOverlay {
   background: rgba(0,0,0,0.85);
   backdrop-filter: blur(8px);
@@ -1023,8 +1019,11 @@ body {
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
   #sceneList {
-    width: 90vw;
-    left: 5vw;
+    width: 80vw;
+    left: -80vw;
+  }
+  #sceneList.enabled {
+    margin-left: 80vw;
   }
   #tecnoparque-card {
     top: 420px;
@@ -1045,11 +1044,10 @@ body {
   }
 }
 
-/* === INTERACTIVIDAD (NO BLOQUEAR EVENTOS) === */
+/* === INTERACTIVIDAD === */
 #sceneListToggle, #fullscreenToggle, #autorotateToggle, .viewControlButton, #videoIcon {
   z-index: 1200;
   pointer-events: auto;
 }
 .link-hotspot, .info-hotspot, .viewControlButton { pointer-events: auto; }
 #watermark-bg, #watermark-bg img, #watermark { pointer-events: none; }
-
