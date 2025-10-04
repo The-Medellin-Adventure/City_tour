@@ -1098,14 +1098,21 @@ body.view-control-buttons .viewControlButton {
 }
 
 
-/* === FINAL V10 OVERRIDES === */
+/* === FINAL V11 OVERRIDES === */
 
 /* =========================================================
-   STYLE FINAL V10
+   STYLE FINAL V11
    Diseño profesional turístico - Medellín Adventure Tour
    ========================================================= */
 
-/* 🟠 MENU LATERAL */
+/* 🎨 Animación tricolor suave */
+@keyframes smoothGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🟠 MENÚ LATERAL */
 #sceneList {
   position: fixed;
   top: 72px;
@@ -1113,38 +1120,36 @@ body.view-control-buttons .viewControlButton {
   width: 260px;
   max-height: 50vh;
   overflow-y: auto;
+  background: linear-gradient(135deg, rgba(255,215,0,0.6), rgba(0,87,183,0.6), rgba(206,17,38,0.6));
+  background-size: 400% 400%;
+  animation: smoothGradient 15s ease infinite;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  background: linear-gradient(135deg, #FFD700, #0057B7, #CE1126);
-  background-size: 400% 400%;
-  animation: gradientFlow 10s ease infinite;
-  box-shadow: 4px 0 20px rgba(0,0,0,0.4);
+  box-shadow: 4px 0 16px rgba(0,0,0,0.3);
   color: #fff;
-  z-index: 600;
+  font-size: 13px;
   padding: 10px;
-}
-@keyframes gradientFlow {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+  z-index: 600;
+  backdrop-filter: blur(6px);
 }
 #sceneList h2 {
-  font-size: 16px;
   text-align: center;
   margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 700;
   color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 #sceneList li.text {
-  background: rgba(255,255,255,0.15);
-  padding: 8px;
+  background: rgba(255,255,255,0.12);
+  padding: 7px 8px;
   border-radius: 6px;
   margin-bottom: 5px;
   transition: all 0.3s ease;
 }
 #sceneList li.text:hover {
   background: rgba(255,255,255,0.25);
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 /* ⚫ TARJETA TECNOPARQUE */
@@ -1153,17 +1158,24 @@ body.view-control-buttons .viewControlButton {
   top: calc(72px + 52vh);
   left: 0;
   width: 260px;
-  background: rgba(0,0,0,0.7);
-  border: 1px solid gold;
-  border-radius: 12px;
-  padding: 10px;
-  color: white;
+  background: rgba(10,10,10,0.7);
+  border: 1px solid rgba(255,215,0,0.6);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  padding: 8px;
+  color: #f0f0f0;
+  font-size: 12px;
+  text-align: center;
   z-index: 550;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+}
+#tecnoparque-card img {
+  width: 70%;
+  margin: 4px auto;
+  display: block;
 }
 
-/* 🟣 TARJETA INFERIOR FOOTER */
+/* 🔵 TARJETA INFERIOR (FOOTER) */
 #watermark-footer {
   position: fixed;
   bottom: 15px;
@@ -1172,19 +1184,22 @@ body.view-control-buttons .viewControlButton {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #FFD700, #0057B7, #CE1126);
+  background: linear-gradient(135deg, rgba(255,215,0,0.7), rgba(0,87,183,0.7), rgba(206,17,38,0.7));
   background-size: 400% 400%;
-  animation: gradientFlow 10s ease infinite;
+  animation: smoothGradient 15s ease infinite;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  padding: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  padding: 8px;
   z-index: 600;
   color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
 }
 #watermark-footer img {
-  width: 48px;
+  width: 40px;
   height: auto;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 .watermark-text {
   display: flex;
@@ -1194,13 +1209,13 @@ body.view-control-buttons .viewControlButton {
   overflow-wrap: break-word;
 }
 .watermark-text span {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
 }
 .watermark-text a {
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
+  font-size: 12px;
 }
 .watermark-text a.web {
   color: gold;
@@ -1217,18 +1232,19 @@ body.view-control-buttons .viewControlButton {
   color: #40ff80;
 }
 .whatsapp-icon {
-  width: 16px;
-  height: 16px;
+  width: 13px;
+  height: 13px;
   vertical-align: middle;
   margin-right: 4px;
 }
 
-/* 🎥 VIDEO CARDS */
+/* 🎥 VIDEO CARD */
 #videoCard {
-  background: linear-gradient(135deg, rgba(255,122,0,0.9), rgba(0,0,0,0.7));
+  background: linear-gradient(135deg, rgba(255,122,0,0.85), rgba(0,0,0,0.75));
   border-radius: 12px;
   width: clamp(180px, 22vw, 260px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  overflow: hidden;
 }
 #videoControls button {
   background: transparent;
@@ -1257,14 +1273,14 @@ body.view-control-buttons .viewControlButton {
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
   z-index: 9999;
-  animation: pulseIcon 2s infinite;
+  animation: pulseIcon 3s infinite;
 }
 @keyframes pulseIcon {
-  0%,100% {box-shadow: 0 0 10px #FFD700;}
-  50% {box-shadow: 0 0 20px #CE1126;}
+  0%,100% { box-shadow: 0 0 8px rgba(255,215,0,0.8); }
+  50% { box-shadow: 0 0 16px rgba(0,87,183,0.8); }
 }
 
-/* RESPONSIVE */
+/* 📱 RESPONSIVE */
 @media (max-width: 600px) {
   #sceneList, #tecnoparque-card, #watermark-footer {
     width: 90vw;
@@ -1274,7 +1290,6 @@ body.view-control-buttons .viewControlButton {
     flex-direction: row;
     gap: 6px;
   }
-  #watermark-footer img { width: 36px; }
-  .watermark-text span { font-size: 12px; }
+  #watermark-footer img { width: 32px; }
+  .watermark-text span, .watermark-text a { font-size: 11px; }
 }
-
