@@ -830,96 +830,226 @@ body.view-control-buttons .viewControlButton {
 }
 
 
-/* ======= PATCH: interactivity fixes applied ======= */
 
 /* =========================================================
-   🔧 CORRECCIONES PARA INTERACTIVIDAD (botones y escenas)
+   🇨🇴 ESTILO FINAL PROFESIONAL, ELEGANTE Y ATRACTIVO PARA TURISTAS
    ========================================================= */
 
-/* Asegurar que el visor (#pano) quede debajo de los elementos UI */
-#pano {
-  position: absolute;
+/* === GENERAL === */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* === BARRA DE TÍTULO === */
+#titleBar {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* importante: que esté por debajo */
+  right: 0;
+  z-index: 600;
+  background: linear-gradient(90deg, rgba(0,87,184,0.85), rgba(0,0,0,0.4), transparent);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Restaurar comportamiento 'off-canvas' del menú de escenas (compatibilidad con Marzipano)
-   Evita que el menú esté siempre encima y bloquee clics en el visor */
+#sceneTitle {
+  color: #FFD700; /* amarillo dorado */
+  text-shadow: 0 2px 8px rgba(239,51,64,0.6); /* sombra roja suave */
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+/* === MENÚ DE ESCENAS === */
 #sceneList {
-  position: absolute;
-  top: 0;
-  left: -220px;              /* oculto fuera de pantalla por defecto */
-  padding-top: 40px;
-  width: 220px;
-  max-height: 80%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin-left: 0;
-  -webkit-transition: margin-left 0.5s ease-in-out;
-  transition: margin-left 0.5s ease-in-out;
-  background: rgba(20,20,20,0.8);
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
-
-/* Cuando se activa (por JS que añade .enabled) se muestra en posición fija */
-#sceneList.enabled {
-  margin-left: 220px; /* mecanismo original para deslizar */
   position: fixed;
   top: 70px;
   left: 20px;
-  width: 280px;
-  z-index: 500;
-  max-height: calc(300px - 70px - 10px);
+  width: 260px;
+  background: rgba(10,10,10,0.75);
+  border: 1px solid rgba(0,87,184,0.3);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 14px;
+  max-height: 45vh;
+  overflow-y: auto;
+  z-index: 500;
+  transition: all 0.4s ease-in-out;
 }
 
-/* Mantener las escenas organizadas visualmente */
-#sceneList .scenes { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
-#sceneList .scenes li.text {
-  display: block;
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
+#sceneList li.text {
+  background: rgba(255,255,255,0.06);
   border-left: 3px solid transparent;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
   transition: all 0.3s ease;
 }
 
-/* Asegurar que los toggles/fuentes y botones UI estén por encima y reciban eventos del puntero */
+#sceneList li.text:hover {
+  background: linear-gradient(90deg, rgba(255,215,0,0.85), rgba(239,51,64,0.85));
+  border-left: 3px solid #FFD700;
+  transform: translateX(4px);
+  box-shadow: 0 2px 10px rgba(255,215,0,0.4);
+}
+
+/* === TARJETA TECNOPARQUE === */
+#tecnoparque-card {
+  position: fixed;
+  top: 340px;
+  left: 20px;
+  width: 260px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: inset 0 0 12px rgba(255,255,255,0.08), 0 4px 16px rgba(0,0,0,0.4);
+  color: #f8f8f8;
+  font-size: 14px;
+  z-index: 400;
+}
+#tecnoparque-card img {
+  width: 85%;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+.tecnoparque-texto {
+  font-size: 14px;
+  color: #fff;
+  margin: 4px 0 0;
+}
+
+/* === TARJETA INFERIOR (FOOTER) === */
+#watermark-footer {
+  position: fixed;
+  bottom: 15px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(0,87,184,0.9), rgba(0,0,0,0.8));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  padding: 6px 10px;
+  border-radius: 10px;
+  z-index: 300;
+  color: white;
+}
+#watermark-footer img {
+  height: 28px;
+  margin-right: 8px;
+}
+#watermark-footer a {
+  color: #FFD700;
+  font-weight: 600;
+  text-decoration: none;
+}
+#watermark-footer a:hover {
+  color: #EF3340;
+  text-decoration: underline;
+}
+
+/* === TARJETA DE VIDEO FLOTANTE === */
+@keyframes videoGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#videoCard {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: clamp(200px, 22vw, 320px);
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFD700, #0057B8, #EF3340);
+  background-size: 300% 300%;
+  animation: videoGradient 12s ease infinite;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+#videoCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#videoCard video {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+#videoControls {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  padding: 6px 0;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+#videoCard:hover #videoControls { opacity: 1; }
+#videoControls button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+#videoControls button:hover {
+  transform: scale(1.2);
+  color: #FFD700;
+}
+
+/* === VIDEO GRANDE (SOLO PRIMERA ESCENA) === */
+#bigVideoOverlay {
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  #sceneList {
+    width: 90vw;
+    left: 5vw;
+  }
+  #tecnoparque-card {
+    top: 420px;
+    width: 180px;
+    font-size: 12px;
+  }
+  #watermark-footer {
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 8px;
+  }
+  #videoCard {
+    width: 42vw;
+    min-width: 160px;
+    max-width: 200px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+/* === INTERACTIVIDAD (NO BLOQUEAR EVENTOS) === */
 #sceneListToggle, #fullscreenToggle, #autorotateToggle, .viewControlButton, #videoIcon {
   z-index: 1200;
   pointer-events: auto;
 }
-
-/* Forzar que hotspots e información sean interactivos (reciban clicks) */
-.link-hotspot,
-.link-hotspot *,
-.link-hotspot-icon,
-.info-hotspot,
-.info-hotspot *,
-.viewControlButton,
-.viewControlButton * {
-  pointer-events: auto;
-}
-
-/* Si hay overlays (watermark, backdrops) que no deben bloquear clics, dejar pointer-events: none */
+.link-hotspot, .info-hotspot, .viewControlButton { pointer-events: auto; }
 #watermark-bg, #watermark-bg img, #watermark { pointer-events: none; }
-#bigVideoBackdrop, #bigVideoOverlay { pointer-events: none; } /* cuando no estén visibles */
 
-
-/* Si existen reglas conflictivas que ocultaban controles por accidente,
-   estas declaraciones ayudan a priorizar la interacción sin cambiar estructura JS */
-#videoCard { z-index: 999; pointer-events: none; } /* queda no interactivo hasta que JS añada .visible */
-#videoCard.visible { z-index: 9999; pointer-events: auto; }
-
-/* Small helpful hint visuals (no behavior change) */
-#sceneList h2 { background: linear-gradient(90deg, #25D366, #0099CC); color: white; font-weight: 700; letter-spacing: 0.5px; border-radius: 8px; text-shadow: 0 2px 6px rgba(0,0,0,0.3); }
-#sceneTitle { color: #FF7A00; text-shadow: 0 2px 10px rgba(255,122,0,0.4); }
-
-/* Keep menu animations smooth */
-#sceneList { transition: all 0.4s ease-in-out; }
