@@ -1176,7 +1176,7 @@ window.APP_DATA = {
         {
           "yaw": -0.22817534947905216,
           "pitch": -0.11493432711867158,
-          "rotation": 3.141592653589793,
+          "rotation": 3.141592653589795,
           "target": "10-conexion-naturaleza"
         }
       ],
