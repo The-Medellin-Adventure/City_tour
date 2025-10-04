@@ -830,100 +830,96 @@ body.view-control-buttons .viewControlButton {
 }
 
 
-/* =========================================================
-   🔹 PERSONALIZACIÓN Y ESTILOS MODERNOS
-   ========================================================= */
+/* ======= PATCH: interactivity fixes applied ======= */
 
 /* =========================================================
-   🎨 NUEVA PALETA VIVA Y MODERNA
+   🔧 CORRECCIONES PARA INTERACTIVIDAD (botones y escenas)
    ========================================================= */
 
-/* Fondo general de menú */
+/* Asegurar que el visor (#pano) quede debajo de los elementos UI */
+#pano {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* importante: que esté por debajo */
+}
+
+/* Restaurar comportamiento 'off-canvas' del menú de escenas (compatibilidad con Marzipano)
+   Evita que el menú esté siempre encima y bloquee clics en el visor */
 #sceneList {
+  position: absolute;
+  top: 0;
+  left: -220px;              /* oculto fuera de pantalla por defecto */
+  padding-top: 40px;
+  width: 220px;
+  max-height: 80%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-left: 0;
+  -webkit-transition: margin-left 0.5s ease-in-out;
+  transition: margin-left 0.5s ease-in-out;
   background: rgba(20,20,20,0.8);
   border-radius: 12px;
   padding: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* Título principal */
-#sceneList h2 {
-  background: linear-gradient(90deg, #25D366, #0099CC);
-  color: white;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  border-radius: 8px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+/* Cuando se activa (por JS que añade .enabled) se muestra en posición fija */
+#sceneList.enabled {
+  margin-left: 220px; /* mecanismo original para deslizar */
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  width: 280px;
+  z-index: 500;
+  max-height: calc(300px - 70px - 10px);
+  backdrop-filter: blur(8px);
 }
 
-/* Elementos de lista */
-#sceneList li.text {
+/* Mantener las escenas organizadas visualmente */
+#sceneList .scenes { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+#sceneList .scenes li.text {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
   background: rgba(255,255,255,0.08);
   color: #fff;
   border-left: 3px solid transparent;
   transition: all 0.3s ease;
 }
 
-/* Hover dinámico */
-#sceneList li.text:hover {
-  background: linear-gradient(90deg, rgba(255,122,0,0.8), rgba(37,211,102,0.8));
-  border-left: 3px solid #FF7A00;
-  transform: translateX(4px);
-  box-shadow: 0 2px 10px rgba(255,122,0,0.4);
+/* Asegurar que los toggles/fuentes y botones UI estén por encima y reciban eventos del puntero */
+#sceneListToggle, #fullscreenToggle, #autorotateToggle, .viewControlButton, #videoIcon {
+  z-index: 1200;
+  pointer-events: auto;
 }
 
-/* Tarjeta inferior (footer) */
-#watermark-footer {
-  background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(20,20,20,0.9));
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+/* Forzar que hotspots e información sean interactivos (reciban clicks) */
+.link-hotspot,
+.link-hotspot *,
+.link-hotspot-icon,
+.info-hotspot,
+.info-hotspot *,
+.viewControlButton,
+.viewControlButton * {
+  pointer-events: auto;
 }
 
-/* Enlaces del footer */
-#watermark-footer a {
-  color: #25D366;
-  font-weight: 600;
-}
-#watermark-footer a:hover {
-  color: #FF7A00;
-  text-decoration: underline;
-}
+/* Si hay overlays (watermark, backdrops) que no deben bloquear clics, dejar pointer-events: none */
+#watermark-bg, #watermark-bg img, #watermark { pointer-events: none; }
+#bigVideoBackdrop, #bigVideoOverlay { pointer-events: none; } /* cuando no estén visibles */
 
-/* Tarjeta TecnoParque */
-#tecnoparque-card {
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  color: white;
-}
 
-/* Título superior de escena */
-#sceneTitle {
-  color: #FF7A00;
-  text-shadow: 0 2px 10px rgba(255,122,0,0.4);
-}
+/* Si existen reglas conflictivas que ocultaban controles por accidente,
+   estas declaraciones ayudan a priorizar la interacción sin cambiar estructura JS */
+#videoCard { z-index: 999; pointer-events: none; } /* queda no interactivo hasta que JS añada .visible */
+#videoCard.visible { z-index: 9999; pointer-events: auto; }
 
-/* Botones flotantes */
-.viewControlButton img, 
-#autorotateToggle img,
-#fullscreenToggle img {
-  filter: drop-shadow(0 0 4px #25D366);
-  transition: transform 0.3s ease;
-}
+/* Small helpful hint visuals (no behavior change) */
+#sceneList h2 { background: linear-gradient(90deg, #25D366, #0099CC); color: white; font-weight: 700; letter-spacing: 0.5px; border-radius: 8px; text-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+#sceneTitle { color: #FF7A00; text-shadow: 0 2px 10px rgba(255,122,0,0.4); }
 
-.viewControlButton img:hover,
-#autorotateToggle img:hover,
-#fullscreenToggle img:hover {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 6px #FF7A00);
-}
-
-/* Efecto glass para menú */
-#sceneList {
-  backdrop-filter: blur(8px);
-}
-
-/* Animación suave al abrir el menú */
-#sceneList {
-  transition: all 0.4s ease-in-out;
-}
+/* Keep menu animations smooth */
+#sceneList { transition: all 0.4s ease-in-out; }
