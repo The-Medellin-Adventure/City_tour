@@ -1,3 +1,6 @@
+/* =========================================================
+   1. BASE GLOBAL
+   ========================================================= */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1292,40 +1295,4 @@ body.view-control-buttons .viewControlButton {
   }
   #watermark-footer img { width: 32px; }
   .watermark-text span, .watermark-text a { font-size: 11px; }
-}
-
-
-/* === FIXES MERGED === */
-
-/* =========================================================
-   STYLE FINAL V11 FIX
-   Corrige margen izquierdo del menú y visibilidad de tooltips
-   ========================================================= */
-
-/* 🔧 MENÚ PEGADO A LA IZQUIERDA */
-#sceneList {
-  position: fixed !important;
-  left: 0 !important;
-  margin-left: 0 !important;
-  top: 72px !important;
-  z-index: 700 !important;
-}
-
-/* 🔧 TOOLTIP DE LINKHOTSPOTS (nombre de escena) */
-.link-hotspot-tooltip {
-  position: absolute;
-  top: 55px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.75);
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  opacity: 1 !important;
-  pointer-events: none;
-  z-index: 9999 !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
