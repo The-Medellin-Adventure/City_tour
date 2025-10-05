@@ -1,4 +1,4 @@
-* {
+E {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -255,7 +255,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 #sceneList {
   position: absolute;
-  top: 50;
+  top: 0;
   left: -220px;
   padding-top: 40px;
   width: 220px;
@@ -1717,4 +1717,119 @@ body, #sceneList li.text, #watermark-footer, #tecnoparque-card { -webkit-font-sm
   animation: none !important;
   box-shadow: 0 0 8px rgba(255,215,0,0.2), 0 6px 16px rgba(0,18,40,0.35) !important;
 }
+
+
+/* ========== OVERRIDES APLICADOS ========== */
+
+/* =========================================================
+   APLICACIÓN DE CAMBIOS SOLICITADOS (NO BORRA NINGUNA REGLA ORIGINAL)
+   - Inserto estos overrides al final del archivo original para garantizar
+     que TODO lo previo siga funcionando y sólo se ajusten las vistas.
+   - Cada bloque está numerado y contiene una breve nota de edición.
+   ========================================================= */
+
+/* === 1. MENÚ: POSICIÓN INMEDIATA DESPUÉS DEL BOTÓN DE TOGGLE === */
+/* Nota: si necesitas un ajuste exacto, cambia 'top' en la línea marcada. */
+#sceneList {
+  /* Posicionar inmediatamente debajo del control de mostrar/ocultar menú */
+  top: 50px !important; /* <-- AJUSTA AQUÍ para mover el menú exactamente debajo de #sceneListToggle */
+  left: 0 !important;
+  /* Mantener ancho de panel profesional */
+  width: var(--side-width,260px) !important;
+  border-radius: 0 !important;
+  padding: 12px 10px !important;
+  /* Tricolor diagonal animado (continuo, 15s) */
+  background: linear-gradient(135deg,
+    rgba(255,215,0,0.22),
+    rgba(0,74,173,0.18),
+    rgba(229,9,20,0.18)) !important;
+  background-size: 300% 300% !important;
+  animation: tricolorDiagonal 15s ease-in-out infinite !important;
+  /* Opacidad elegante (modifica aquí si deseas) */
+  opacity: 0.85 !important; /* <-- LÍNEA PARA CAMBIAR LA OPACIDAD DEL MENÚ */
+  backdrop-filter: blur(8px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+  box-shadow: 0 8px 28px rgba(0,18,40,0.28) !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  z-index: 1100 !important;
+}
+
+/* === 2. TARJETA TECNOPARQUE: TRANSPARENTE + BLUR SUTIL === */
+/* Nota: tarjeta mantiene logo y texto; ajusta blur u opacidad aquí */
+#tecnoparque-card {
+  background: rgba(255,255,255,0.02) !important; /* casi transparente */
+  backdrop-filter: blur(8px) !important;          /* blur sutil */
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 6px 8px !important;
+  width: auto !important;           /* se ajusta al contenido */
+  max-width: 200px !important;
+  font-size: 10px !important;
+  color: #eee !important;
+  opacity: 0.92 !important;         /* si quieres más discreta, bajar este valor */
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+/* Móvil: tarjeta aún más discreta (auto-ajuste) */
+@media (max-width: 700px) {
+  #tecnoparque-card {
+    bottom: 110px !important;
+    padding: 5px 6px !important;
+    font-size: 9px !important;
+    max-width: 160px !important;
+    opacity: 0.95 !important;
+  }
+  #tecnoparque-card img { height: 28px !important; }
+}
+
+/* === 3. FOOTER: MISMO ESTILO QUE MENÚ (TRICOLOR ANIMADO) === */
+/* Opacidad del footer: modifica la línea marcada si quieres otro nivel */
+#watermark-footer {
+  background: linear-gradient(135deg,
+    rgba(255,215,0,0.22),
+    rgba(0,74,173,0.18),
+    rgba(229,9,20,0.18)) !important;
+  background-size: 300% 300% !important;
+  animation: tricolorDiagonal 15s ease-in-out infinite !important;
+  opacity: 0.85 !important; /* <-- LÍNEA PARA CAMBIAR LA OPACIDAD DEL FOOTER */
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  box-shadow: 0 8px 28px rgba(0,18,40,0.28) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 1050 !important;
+}
+
+/* === 4. ICONO DE CÁMARA: GRIS + PULSO SUTIL MÁS VISIBLE (SOMBRA AMARILLA) === */
+@keyframes slowPulseMoreVisible {
+  0% { transform: scale(1); box-shadow: 0 0 8px rgba(255,215,0,0.18), 0 6px 14px rgba(0,18,40,0.30); }
+  50% { transform: scale(1.06); box-shadow: 0 0 20px rgba(255,215,0,0.36), 0 10px 26px rgba(0,18,40,0.40); }
+  100% { transform: scale(1); box-shadow: 0 0 8px rgba(255,215,0,0.18), 0 6px 14px rgba(0,18,40,0.30); }
+}
+
+/* Aplicar pulso cuando el video está cerrado (siempre por defecto suave) */
+#videoIcon {
+  background: rgba(180,180,180,0.12) !important;
+  color: #cfcfcf !important;
+  border-radius: 50% !important;
+  animation: slowPulseMoreVisible 3.8s ease-in-out infinite !important; /* pulso más visible */
+  transition: box-shadow .35s ease, transform .35s ease !important;
+  z-index: 9999 !important;
+}
+
+/* Si el overlay de video está abierto, disminuir efecto */
+#videoCard.visible ~ #videoIcon,
+#bigVideoOverlay.visible ~ #videoIcon {
+  animation: none !important;
+  box-shadow: 0 0 6px rgba(255,215,0,0.12) !important;
+}
+
+/* === 5. UTILES: líneas donde modificar opacidades y posición === */
+/* - Opacidad del menú: buscar 'opacity' en #sceneList (línea marcada arriba). */
+/* - Posición del menú: cambiar 'top: 50px' en #sceneList. */
+/* - Opacidad del footer: buscar 'opacity' en #watermark-footer. */
+/* - Blur de la tarjeta TecnoParque: cambiar 'backdrop-filter: blur(8px)'. */
 
