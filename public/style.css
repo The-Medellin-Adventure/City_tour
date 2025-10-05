@@ -1,4 +1,4 @@
-E {
+* {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1826,10 +1826,3 @@ body, #sceneList li.text, #watermark-footer, #tecnoparque-card { -webkit-font-sm
   animation: none !important;
   box-shadow: 0 0 6px rgba(255,215,0,0.12) !important;
 }
-
-/* === 5. UTILES: líneas donde modificar opacidades y posición === */
-/* - Opacidad del menú: buscar 'opacity' en #sceneList (línea marcada arriba). */
-/* - Posición del menú: cambiar 'top: 50px' en #sceneList. */
-/* - Opacidad del footer: buscar 'opacity' en #watermark-footer. */
-/* - Blur de la tarjeta TecnoParque: cambiar 'backdrop-filter: blur(8px)'. */
-
