@@ -1576,152 +1576,145 @@ html, body {
 body, #sceneList li.text, #watermark-footer, #tecnoparque-card { -webkit-font-smoothing: antialiased !important; -moz-osx-font-smoothing: grayscale !important; }
 
 
-/* ========== VIBRANTE OVERRIDES ========== */
+/* ========== ELEGANTE OPTIMIZADO FINAL ========== */
 
 /* =========================================================
-   VIBRANTE ADJUSTMENTS - Menu below titlebar, vivid tricolor,
-   larger bold menu text, vivid active scene, responsive TecnoParque auto-size,
-   footer matches menu, camera icon gray + subtle slow yellow pulse when video closed.
-   Placed at end to override safely.
+   ELEGANTE OPTIMIZADO FINAL
+   Mantiene fondo azul marino
+   - Barra de título eliminada
+   - Menú tricolor diagonal animado fluido, opaco sutil
+   - Tarjeta TecnoParque más pequeña y discreta
+   - Footer animado a juego
+   - Cámara gris con palpitación más visible + sombra amarilla
    ========================================================= */
 
-/* Ensure title bar is visible so menu sits after it */
+/* Eliminar barra de título */
 #titleBar {
-  display: block !important;
-  height: var(--titlebar-height) !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  background: rgba(0,0,0,0.35) !important;
-  backdrop-filter: blur(6px) !important;
-  z-index: 1000 !important;
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* Position menu just below title bar (with small gap) */
-#sceneList {
-  top: calc(var(--titlebar-height) + 8px) !important;
-  left: 0 !important;
-  transform: none !important;
-  width: var(--side-width) !important;
-  border-radius: 0 8px 8px 0 !important; /* panel professional but slightly softened */
-  padding: 14px 12px !important;
+/* Animación diagonal fluida */
+@keyframes tricolorDiagonal {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Vivid tricolor for menu (more saturated but still elegant and translucent) */
+/* Menú tricolor fluido */
 #sceneList {
-  background: linear-gradient(135deg, rgba(255,215,0,0.22), rgba(0,74,173,0.18), rgba(229,9,20,0.18)) !important;
-  background-size: 400% 400% !important;
-  animation: tricolorSubtle 12s ease-in-out infinite !important;
+  top: 10px !important;
+  left: 0 !important;
+  width: var(--side-width, 260px) !important;
+  border-radius: 0 !important;
+  padding: 12px 10px !important;
+  background: linear-gradient(135deg,
+    rgba(255,215,0,0.18),
+    rgba(0,74,173,0.16),
+    rgba(229,9,20,0.16)) !important;
+  background-size: 300% 300% !important;
+  animation: tricolorDiagonal 18s ease-in-out infinite !important;
   border: 1px solid rgba(255,255,255,0.04) !important;
+  box-shadow: 0 8px 28px rgba(0,18,40,0.3) !important;
+  backdrop-filter: blur(10px) saturate(120%) !important;
+  opacity: 0.93 !important;
 }
 
-/* Make menu labels larger and bolder */
+/* Texto del menú */
 #sceneList li.text {
   font-size: 16px !important;
   font-weight: 700 !important;
-  line-height: 1.6 !important;
   color: #ffffff !important;
-  padding: 10px 14px !important;
-  letter-spacing: 0.2px !important;
+  padding: 10px 12px !important;
+  border-radius: 6px !important;
+  transition: background .2s ease, transform .2s ease !important;
 }
-
-/* Hover remains subtle translucent */
 #sceneList li.text:hover {
   background: rgba(255,255,255,0.14) !important;
   transform: translateX(4px) !important;
 }
-
-/* Active scene vivid: stronger gradient + gold accent bar */
 #sceneList .scene.current li.text {
-  background: linear-gradient(90deg, rgba(255,215,0,0.30), rgba(0,74,173,0.22), rgba(229,9,20,0.22)) !important;
-  color: #fff !important;
-  border-left: 4px solid rgba(255,215,0,0.95) !important;
+  background: linear-gradient(90deg,
+    rgba(255,215,0,0.3),
+    rgba(0,74,173,0.25),
+    rgba(229,9,20,0.25)) !important;
+  border-left: 4px solid rgba(255,215,0,0.9) !important;
   box-shadow: 0 10px 30px rgba(0,40,80,0.3) !important;
-  transform: translateX(2px) scale(1.01) !important;
 }
 
-/* Make scene titles use the same family and stand out */
-#sceneList, #sceneList h2, #sceneList li.text { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
-
-/* TecnoParque card auto-sizing to content: width adapts to logo + text */
+/* Tarjeta TecnoParque discreta y adaptable */
 #tecnoparque-card {
-  width: auto !important;
-  max-width: var(--side-width) !important;
+  position: fixed !important;
+  bottom: 140px !important;
   left: 0 !important;
-  padding: 8px 10px !important;
-  display: inline-flex !important;
+  width: auto !important;
+  max-width: 200px !important;
+  background: linear-gradient(135deg,
+    rgba(255,215,0,0.15),
+    rgba(0,74,173,0.12),
+    rgba(229,9,20,0.12)) !important;
+  background-size: 300% 300% !important;
+  animation: tricolorDiagonal 20s ease-in-out infinite !important;
+  padding: 6px 8px !important;
+  border-radius: 0 6px 6px 0 !important;
+  box-shadow: 0 6px 22px rgba(0,18,40,0.25) !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  backdrop-filter: blur(8px) saturate(110%) !important;
+  display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
-  justify-content: flex-start !important;
-  box-shadow: 0 8px 22px rgba(0,30,60,0.30) !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  font-size: 10px !important;
+  opacity: 0.9 !important;
+  color: #eee !important;
 }
 #tecnoparque-card img {
   width: auto !important;
-  height: 40px !important;
-  max-height: 40px !important;
-  display: block !important;
+  height: 32px !important;
+  max-height: 32px !important;
+}
+@media (max-width: 700px) {
+  #tecnoparque-card {
+    bottom: 110px !important;
+    padding: 5px 6px !important;
+    font-size: 9px !important;
+    max-width: 160px !important;
+  }
+  #tecnoparque-card img { height: 28px !important; }
 }
 
-/* Footer matches the vivid menu style */
+/* Footer animado a juego */
 #watermark-footer {
-  background: linear-gradient(135deg, rgba(255,215,0,0.22), rgba(0,74,173,0.18), rgba(229,9,20,0.18)) !important;
-  background-size: 400% 400% !important;
-  animation: tricolorSubtle 12s ease-in-out infinite !important;
+  background: linear-gradient(135deg,
+    rgba(255,215,0,0.18),
+    rgba(0,74,173,0.15),
+    rgba(229,9,20,0.15)) !important;
+  background-size: 300% 300% !important;
+  animation: tricolorDiagonal 18s ease-in-out infinite !important;
+  opacity: 0.92 !important;
   border: 1px solid rgba(255,255,255,0.04) !important;
+  box-shadow: 0 8px 28px rgba(0,18,40,0.3) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
-/* Camera icon gray by default, subtle slow pulse when video is closed */
-/* default neutral gray appearance */
+/* Cámara gris con palpitación visible y sombra amarilla */
 #videoIcon {
-  background: rgba(200,200,200,0.10) !important;
+  background: rgba(180,180,180,0.12) !important;
   color: #cfcfcf !important;
-  box-shadow: 0 6px 18px rgba(0,18,40,0.35) !important;
-  transition: box-shadow .45s ease, transform .45s ease !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 14px rgba(255,215,0,0.35), 0 8px 22px rgba(0,18,40,0.4) !important;
+  animation: slowPulseVisible 3.5s ease-in-out infinite !important;
+  transition: all 0.4s ease !important;
 }
-
-/* Define the subtle slow pulse with yellow glow */
-@keyframes slowPulseYellow {
-  0% { transform: scale(1); box-shadow: 0 6px 18px rgba(0,18,40,0.25); }
-  50% { transform: scale(1.03); box-shadow: 0 10px 30px rgba(255,215,0,0.12); }
-  100% { transform: scale(1); box-shadow: 0 6px 18px rgba(0,18,40,0.25); }
+@keyframes slowPulseVisible {
+  0% { transform: scale(1); box-shadow: 0 0 10px rgba(255,215,0,0.25), 0 6px 18px rgba(0,18,40,0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,215,0,0.45), 0 10px 30px rgba(0,18,40,0.45); }
+  100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,215,0,0.25), 0 6px 18px rgba(0,18,40,0.4); }
 }
-
-/* Apply pulse when video is closed: if #videoCard is NOT visible, use sibling selector.
-   This works if #videoIcon comes after #videoCard in DOM (it does in index.html).
-   Fallback: always allow a gentle idle pulse */
-#videoCard:not(.visible) ~ #videoIcon,
-#videoIcon {
-  animation: slowPulseYellow 4.5s ease-in-out infinite !important;
-}
-
-/* When the big video overlay is open, reduce the glow */
-#bigVideoOverlay.visible ~ #videoIcon,
 #videoCard.visible ~ #videoIcon {
   animation: none !important;
-  box-shadow: 0 6px 18px rgba(0,18,40,0.25) !important;
+  box-shadow: 0 0 8px rgba(255,215,0,0.2), 0 6px 16px rgba(0,18,40,0.35) !important;
 }
 
-/* WhatsApp icon inline small with text */
-.watermark-text a img.whatsapp-icon { width: 12px !important; height: 12px !important; margin-right: 6px !important; vertical-align: middle !important; }
-
-/* Ensure selected scene's related hotspots/tooltips get an accent (subtle) */
-.scene.current .link-hotspot-tooltip,
-.scene.current .info-hotspot .info-hotspot-text {
-  box-shadow: 0 12px 36px rgba(0,40,80,0.35) !important;
-  border-color: rgba(255,215,0,0.14) !important;
-}
-
-/* Slight increase in z-index so menu and footer don't get overlapped */
-#sceneList { z-index: 1100 !important; }
-#watermark-footer { z-index: 1050 !important; }
-
-/* Mobile: ensure TecnoParque shrinks to content and remains discreet */
-@media (max-width: 700px) {
-  #tecnoparque-card { width: auto !important; bottom: 110px !important; padding: 6px 8px !important; }
-  #tecnoparque-card img { height: 34px !important; }
-  #sceneList { top: calc(var(--titlebar-height) + 6px) !important; width: 90vw !important; left: 5vw !important; }
-  #sceneList li.text { font-size: 15px !important; }
-}
-
-/* Small polish */
-#sceneList li.text { transition: background .18s ease, transform .18s ease, box-shadow .18s ease !important; }
