@@ -1331,19 +1331,20 @@ body.view-control-buttons .viewControlButton {
 }
 
 
-/* ========================================================= */
+/* ================= OVERRIDES ADDED BY REFINED COMPLETE ================ */
 
 /* =========================================================
-   OVERRIDES TURISMO - Azul marino elegante + Tricolor animado
-   Se colocan al final para no romper reglas funcionales de Marzipano
+   OVERRIDES REFINADO COMPLETO - Azul marino, tricolor animado sutil,
+   tarjetas translúcidas con sombra azul, tooltips dorados suaves.
+   Placed at the end to safely override visual properties.
    ========================================================= */
 
-/* --- Fondo general: azul marino con degradado sutil y animación --- */
+/* --- 1. Base: fondo azul marino con degradado sutil --- */
 html, body {
-  background: linear-gradient(135deg, #001424 0%, #002a46 50%, #003b5f 100%);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #001526 0%, #002b49 50%, #00395f 100%);
+  background-size: 220% 220%;
   animation: fondoAzul 28s ease-in-out infinite;
-  color: #f3f4f6;
+  color: #ffffff;
 }
 @keyframes fondoAzul {
   0% { background-position: 0% 50%; }
@@ -1351,116 +1352,134 @@ html, body {
   100% { background-position: 0% 50%; }
 }
 
-/* --- Tricolor animado (menú y footer) --- */
-@keyframes tricolorFluido {
+/* --- 2. Remove top title bar so controls are free --- */
+#titleBar { display: none !important; height: 0 !important; padding: 0 !important; }
+
+/* --- 3. Tricolor animation (subtle, translucent) --- */
+@keyframes tricolorSubtle {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* MENU LATERAL - pegado al borde izquierdo y visual tricolor */
+/* --- 4. Menu lateral: translucent glass with subtle tricolor movement and blue shadow --- */
 #sceneList {
   position: fixed !important;
   top: 72px !important;
   left: 0 !important;
-  margin-left: 0 !important;
   width: 260px !important;
-  padding: 12px !important;
+  padding: 14px !important;
   border-radius: 0 14px 14px 0 !important;
-  background: linear-gradient(135deg, #FFD700 0%, #004AAD 50%, #E50914 100%) !important;
+  background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(0,74,173,0.10), rgba(229,9,20,0.10)) !important;
   background-size: 400% 400% !important;
-  animation: tricolorFluido 14s ease infinite !important;
-  box-shadow: 6px 0 22px rgba(0,0,0,0.45) !important;
+  animation: tricolorSubtle 18s ease infinite !important;
+  box-shadow: 0 10px 30px rgba(3,30,60,0.45), inset 0 1px 0 rgba(255,255,255,0.03) !important;
   color: #fff !important;
   font-size: 13px !important;
-  backdrop-filter: blur(8px) !important;
-  z-index: 900 !important;
+  backdrop-filter: blur(8px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+  z-index: 950 !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
 }
 
-/* Scene items */
-#sceneList .scenes { background: transparent !important; }
+/* SceneList headline */
+#sceneList h2 {
+  color: rgba(255,255,255,0.95) !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+  font-weight: 700 !important;
+}
+
+/* Scene items: clean translucent hover */
 #sceneList li.text {
-  background: rgba(255,255,255,0.06) !important;
-  padding: 8px 10px !important;
+  background: rgba(255,255,255,0.04) !important;
+  padding: 9px 12px !important;
   border-radius: 8px !important;
-  margin-bottom: 6px !important;
-  transition: all 0.28s ease !important;
+  margin-bottom: 8px !important;
+  transition: background 220ms ease, transform 220ms ease, box-shadow 220ms ease !important;
   border-left: 3px solid transparent !important;
 }
 #sceneList li.text:hover {
-  background: rgba(255,255,255,0.16) !important;
-  transform: translateX(4px) !important;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35) !important;
+  background: rgba(255,255,255,0.12) !important;
+  transform: translateX(3px) !important;
+  box-shadow: 0 6px 20px rgba(0,30,60,0.35) !important;
 }
 
-/* Item current (activo) resaltado con tonalidad combinante */
+/* Active scene styling with subtle glow */
 #sceneList .scene.current li.text {
-  background: linear-gradient(90deg, rgba(255,215,0,0.95), rgba(0,74,173,0.9), rgba(229,9,20,0.9)) !important;
+  background: linear-gradient(90deg, rgba(255,215,0,0.12), rgba(0,74,173,0.09), rgba(229,9,20,0.09)) !important;
   color: #fff !important;
-  transform: scale(1.02) !important;
-  box-shadow: 0 6px 26px rgba(0,0,0,0.45) !important;
+  box-shadow: 0 8px 28px rgba(0,60,120,0.25) !important;
+  transform: scale(1.01) !important;
 }
 
-/* --- Tarjeta TecnoParque: más discreta y pequeña --- */
+/* Make sure scene list sits flush with left edge on all sizes */
+#sceneList { left: 0 !important; margin-left: 0 !important; position: fixed !important; }
+
+/* --- 5. TecnoParque card: smaller, glassy, discrete (mobile-friendly) --- */
 #tecnoparque-card {
   position: fixed !important;
   bottom: 160px !important;
   left: 0 !important;
-  width: 220px !important;
-  background: rgba(3,6,10,0.55) !important;
-  border: 1px solid rgba(255,215,0,0.28) !important;
-  border-radius: 0 10px 10px 0 !important;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.38) !important;
-  padding: 8px 10px !important;
-  color: #eaeaea !important;
-  font-size: 11px !important;
+  width: 170px !important;
+  background: linear-gradient(180deg, rgba(3,6,10,0.52), rgba(6,10,14,0.36)) !important;
+  border: 1px solid rgba(255,215,0,0.12) !important;
+  border-radius: 0 8px 8px 0 !important;
+  box-shadow: 0 8px 22px rgba(0,30,60,0.35), inset 0 1px 0 rgba(255,255,255,0.02) !important;
+  padding: 6px 8px !important;
+  font-size: 10px !important;
+  color: #eee !important;
   text-align: center !important;
-  backdrop-filter: blur(8px) !important;
-  z-index: 850 !important;
+  backdrop-filter: blur(6px) saturate(110%) !important;
+  z-index: 860 !important;
 }
-#tecnoparque-card img { width: 62% !important; margin: 6px auto !important; display: block !important; }
+#tecnoparque-card img { width: 56% !important; margin: 6px auto !important; display: block !important; }
 
-/* --- Footer con efecto tricolor animado --- */
+/* Mobile smaller */
+@media (max-width: 700px) {
+  #tecnoparque-card { width: 140px !important; bottom: 110px !important; padding: 5px 6px !important; font-size: 9px !important; }
+}
+
+/* --- 6. Footer: subtle tricolor animation but translucent and elegant --- */
 #watermark-footer {
   position: fixed !important;
   bottom: 15px !important;
   left: 0 !important;
   width: 260px !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  border-radius: 0 12px 12px 0 !important;
   padding: 10px !important;
-  background: linear-gradient(135deg, #FFD700 0%, #004AAD 50%, #E50914 100%) !important;
+  border-radius: 0 12px 12px 0 !important;
+  background: linear-gradient(135deg, rgba(255,215,0,0.10), rgba(0,74,173,0.09), rgba(229,9,20,0.09)) !important;
   background-size: 400% 400% !important;
-  animation: tricolorFluido 15s ease infinite !important;
+  animation: tricolorSubtle 20s ease infinite !important;
   color: #fff !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5) !important;
-  backdrop-filter: blur(6px) !important;
-  font-size: 12px !important;
-  font-weight: 500 !important;
-  z-index: 800 !important;
+  box-shadow: 0 10px 30px rgba(0,22,40,0.45) !important;
+  backdrop-filter: blur(6px) saturate(115%) !important;
+  z-index: 840 !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
 }
-#watermark-footer img { width: 40px !important; border-radius: 6px !important; }
+#watermark-footer img { width: 36px !important; border-radius: 6px !important; }
 
-/* --- Video card moderno: controles y botones --- */
+/* WhatsApp icon smaller and aligned with text */
+.watermark-text a img.whatsapp-icon { width: 12px !important; height: 12px !important; vertical-align: middle !important; margin-right: 6px !important; }
+
+/* --- 7. Video card and controls: modern, translucent with blue glow --- */
 #videoCard {
   position: fixed !important;
-  bottom: 20px !important;
+  bottom: 22px !important;
   right: 20px !important;
-  width: clamp(180px, 22vw, 280px) !important;
+  width: clamp(170px, 21vw, 280px) !important;
   border-radius: 12px !important;
   overflow: hidden !important;
-  background: linear-gradient(135deg, rgba(255,122,0,0.92), rgba(0,0,0,0.72)) !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
-  z-index: 9995 !important;
-  opacity: 0; pointer-events: none; transform: translateY(6px);
-  transition: opacity .35s ease, transform .35s ease;
+  background: linear-gradient(180deg, rgba(10,12,14,0.85), rgba(0,0,0,0.6)) !important;
+  box-shadow: 0 18px 40px rgba(0,18,40,0.6), inset 0 1px 0 rgba(255,255,255,0.02) !important;
+  z-index: 9980 !important;
+  transform: translateY(6px) !important;
+  transition: transform .35s ease, opacity .35s ease !important;
+  opacity: 0; pointer-events: none;
 }
 #videoCard.visible { opacity: 1 !important; pointer-events: auto !important; transform: translateY(0) !important; }
+#videoCard video { width: 100% !important; display: block !important; border-radius: 8px !important; background: #000 !important; }
 
-#videoCard video { width: 100% !important; display: block !important; border-radius: 8px !important; background: #000; }
-
+/* video controls */
 #videoControls {
   position: absolute !important;
   bottom: 0 !important;
@@ -1476,111 +1495,82 @@ html, body {
 #videoCard:hover #videoControls { opacity: 1 !important; }
 
 #videoControls button {
-  background: rgba(0,0,0,0.36) !important;
-  border: 1px solid rgba(255,215,0,0.6) !important;
-  border-radius: 10px !important;
-  color: #FFD700 !important;
-  font-size: 16px !important;
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  color: #dcdcdc !important;
+  font-size: 15px !important;
   padding: 8px 12px !important;
+  border-radius: 8px !important;
   cursor: pointer !important;
-  box-shadow: 0 0 10px rgba(255,215,0,0.22) !important;
   transition: transform .22s ease, box-shadow .22s ease !important;
+  box-shadow: 0 6px 20px rgba(2,40,80,0.18) !important;
 }
 #videoControls button:hover {
-  transform: scale(1.12) !important;
-  box-shadow: 0 0 18px rgba(255,215,0,0.5) !important;
+  transform: scale(1.06) !important;
+  box-shadow: 0 8px 28px rgba(2,60,120,0.28) !important;
   color: #fff !important;
-  background: rgba(255,215,0,0.12) !important;
+  background: linear-gradient(90deg, rgba(255,215,0,0.08), rgba(255,255,255,0.02)) !important;
 }
 
-/* --- Icono flotante de video --- */
-#videoIcon {
-  position: fixed !important;
-  bottom: 90px !important;
-  right: 20px !important;
-  background: linear-gradient(135deg, #FFD700, #004AAD, #E50914) !important;
-  color: #fff !important;
-  border-radius: 50% !important;
-  padding: 12px 16px !important;
-  font-size: 22px !important;
-  cursor: pointer !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6) !important;
-  z-index: 9999 !important;
-  animation: pulseIcon 3s infinite ease-in-out !important;
-}
-@keyframes pulseIcon { 0%,100%{ transform: scale(1); box-shadow: 0 0 10px rgba(255,215,0,0.45);} 50%{ transform: scale(1.08); box-shadow: 0 0 18px rgba(0,74,173,0.7);} }
+/* video icon floating (camera) gray style like other icons */
+#videoIcon { background: rgba(180,180,180,0.12) !important; color: #cfcfcf !important; box-shadow: 0 8px 26px rgba(0,18,40,0.45) !important; }
 
-/* --- Title bar (sutil overlay) --- */
-#titleBar {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 72px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: linear-gradient(180deg, rgba(0,0,0,0.42), rgba(0,0,0,0.12)) !important;
-  color: #fff !important;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5) !important;
-  z-index: 920 !important;
-  backdrop-filter: blur(6px) !important;
+/* --- 8. Camera / view control icons styled neutral gray to match --- */
+.viewControlButton img, #fullscreenToggle img, #autorotateToggle img, #sceneListToggle img {
+  filter: grayscale(80%) brightness(90%) !important;
+  opacity: 0.95 !important;
 }
 
-/* --- Tooltips dorado suave con fondo oscuro translúcido (elegante) --- */
-.link-hotspot-tooltip,
-.info-hotspot .info-hotspot-text,
-.info-hotspot-modal .info-hotspot-text {
-  background: linear-gradient(180deg, rgba(10,12,14,0.85), rgba(6,8,10,0.78)) !important;
-  color: #F7E9C7 !important; /* dorado suave */
+/* If camera has specific id/class */
+#cameraControl, .camera-button, .icon-camera { color: #bdbdbd !important; filter: grayscale(70%) brightness(90%) !important; }
+
+/* --- 9. Tooltips: dorado suave + dark translucent background --- */
+.link-hotspot-tooltip, .info-hotspot .info-hotspot-text, .info-hotspot-modal .info-hotspot-text {
+  background: rgba(6,8,10,0.72) !important;
+  color: #F7E9C7 !important;
   border: 1px solid rgba(255,215,0,0.12) !important;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6) !important;
-  padding: 8px 10px !important;
+  box-shadow: 0 10px 30px rgba(0,18,40,0.6) !important;
+  padding: 8px 12px !important;
   border-radius: 8px !important;
   backdrop-filter: blur(6px) !important;
-  font-size: 14px !important;
-  max-width: 320px !important;
-  z-index: 11000 !important;
+  font-size: 13px !important;
+  max-width: 340px !important;
+  z-index: 11050 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4) !important;
 }
 
-/* Ajuste para tooltip simple */
+/* Position tweak for simple link tooltip */
 .link-hotspot-tooltip {
   position: absolute !important;
   top: 55px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  opacity: 1 !important;
   pointer-events: none !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+  opacity: 1 !important;
 }
 
-/* --- Hotspots visibles y accesibles --- */
-.link-hotspot, .info-hotspot {
-  opacity: 0.95 !important;
-}
-
-/* --- Escena activa: cambio de color llamativo y combinación --- */
-/* Cuando se activa una escena, el elemento .scene.current ya se usa en tu HTML.
-   Aplicamos reglas que resaltan elementos visuales relacionados */
-.scene.current .text, .scene.current li.text {
-  background: linear-gradient(90deg, rgba(255,215,0,0.95), rgba(0,74,173,0.9), rgba(229,9,20,0.9)) !important;
-  color: #fff !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+/* --- 10. Active scene global accent: apply a subtle overlay on pano-container if needed --- */
+.scene.current .sceneName, .scene.current .text {
   transition: all .35s ease !important;
+  /* no heavy overrides, colors rely on menu/scene highlights */
 }
 
-/* --- Asegurar que controles de vista sigan visibles --- */
-.viewControlButton { z-index: 980 !important; }
+/* Ensure view control buttons remain above overlays */
+.viewControlButton { z-index: 960 !important; }
 
-/* --- Responsivo: mantener coherencia en móviles --- */
+/* --- 11. Responsive tweaks for mobile --- */
 @media (max-width: 900px) {
   :root { --side-width: 90vw; }
-  #sceneList, #tecnoparque-card, #watermark-footer { width: 90vw !important; left: 5vw !important; border-radius: 12px !important; }
-  #tecnoparque-card { bottom: 110px !important; }
+  #sceneList, #tecnoparque-card, #watermark-footer {
+    width: 90vw !important;
+    left: 5vw !important;
+    border-radius: 12px !important;
+  }
+  #tecnoparque-card { bottom: 110px !important; width: 150px !important; font-size: 9px !important; padding: 5px 6px !important; }
   #watermark-footer { bottom: 10px !important; left: 5vw !important; width: calc(90vw) !important; }
-  #videoCard { width: 45vw !important; min-width: 160px !important; right: 10px !important; }
+  #videoCard { width: 45vw !important; min-width: 150px !important; right: 10px !important; }
   #videoIcon { right: 10px !important; bottom: 80px !important; }
 }
 
-/* --- Pequeños ajustes de contraste y legibilidad --- */
+/* --- 12. Small legibility and smoothing fixes --- */
 body, #sceneList li.text, #watermark-footer, #tecnoparque-card { -webkit-font-smoothing: antialiased !important; -moz-osx-font-smoothing: grayscale !important; }
