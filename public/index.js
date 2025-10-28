@@ -764,40 +764,28 @@ var zoomSpeed = 1;
   // INTEGRACIÓN REAL: Movimiento 360 con giroscopio
   // Solo activa en móviles usando bowser
   // =========================
-if (bowser.mobile) {
+  if (bowser.mobile) {
   let basePitch = null;
   let baseYaw = null;
-  let smoothYaw = 0;
-  let smoothPitch = 0;
-  const smoothingFactor = 0.1;
 
-  function deviceOrientationHandler(event) {
+  window.addEventListener('deviceorientation', function (event) {
     let yaw = event.alpha ? event.alpha * Math.PI / 180 : 0;
     let pitch = event.beta ? event.beta * Math.PI / 180 : 0;
 
-    if (!activeView) {
-      return; // Espera que se inicialice
-    }
-
     if (basePitch === null) {
+      // Guardar valores base en la primera lectura para calibrar
       basePitch = pitch;
       baseYaw = yaw;
+      // Ajustar basePitch para evitar mirar al suelo (por ejemplo, subir 0.3 radianes)
       basePitch -= 0.3;
     }
 
-    let targetYaw = yaw - baseYaw;
-    let targetPitch = pitch - basePitch;
-
-    smoothYaw += (targetYaw - smoothYaw) * smoothingFactor;
-    smoothPitch += (targetPitch - smoothPitch) * smoothingFactor;
-
-    smoothPitch = Math.min(Math.max(smoothPitch, -Math.PI / 4), Math.PI / 4);
-
-    activeView.setYaw(smoothYaw);
-    activeView.setPitch(smoothPitch);
-  }
-
-  window.addEventListener('deviceorientation', deviceOrientationHandler, true);
+    if (activeView) {
+      // Calibrar respecto al valor base para que la vista inicial sea la deseada
+      activeView.setYaw(yaw - baseYaw);
+      activeView.setPitch(pitch - basePitch);
+    }
+  }, true);
 }
 
   // =========================
