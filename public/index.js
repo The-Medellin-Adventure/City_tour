@@ -123,9 +123,6 @@ function showErrorMessage(titulo, mensaje) {
   let bigOverlayOpen = false;
   let smallStartTimeout = null;
 
-  // =========================
-  // FUNCIÓN MOSTRAR CARRUSEL
-  // =========================
 // =========================
 // FUNCIÓN MOSTRAR CARRUSEL
 // =========================
@@ -295,6 +292,7 @@ var source = Marzipano.ImageUrlSource.fromString(
     bigVideo.src = bigSceneVideos[sceneId];
     bigVideo.load();
     bigVideo.play().catch(() => { /* autoplay puede fallar en algunos navegadores */ });
+
 
     // Controles
     if (playBtn) {
@@ -762,4 +760,38 @@ var zoomSpeed = 1;
   // Si no es mobile, mostramos la lista (pero switchScene la ocultará si no es la primera escena)
   if (!document.body.classList.contains('mobile')) showSceneList();
 
+    // =========================
+  // INTEGRACIÓN REAL: Movimiento 360 con giroscopio
+  // Solo activa en móviles usando bowser
+  // =========================
+  if (bowser.mobile) {
+    window.addEventListener('deviceorientation', function (event) {
+      let yaw = event.alpha ? event.alpha * Math.PI / 180 : 0;   // Horizontal
+      let pitch = event.beta ? event.beta * Math.PI / 180 : 0;  // Vertical
+      if (activeView) {
+        activeView.setYaw(yaw);
+        activeView.setPitch(pitch);
+      }
+    }, true);
+  }
+
+  // =========================
+  // Prevención de copia y descarga sencilla
+  // =========================
+
+  // Bloquear clic derecho
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Bloquear selección de texto
+  document.addEventListener('selectstart', e => e.preventDefault());
+
+  // Bloquear algunos atajos comunes para copiar, guardar, inspeccionar
+  document.addEventListener('keydown', e => {
+    if (
+      e.key === 'F12' || // Abrir consola
+      (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u')) // Ctrl+C, Ctrl+S, Ctrl+U
+    ) {
+      e.preventDefault();
+    }
+  });
 })();
