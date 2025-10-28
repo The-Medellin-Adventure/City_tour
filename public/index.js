@@ -783,7 +783,7 @@ var zoomSpeed = 1;
     if (activeView) {
       // Calibrar respecto al valor base para que la vista inicial sea la deseada
       activeView.setYaw(yaw - baseYaw);
-      activeView.setPitch(pitch - basePitch);
+      activeView.setPitch(-pitch - basePitch);
     }
   }, true);
 }
