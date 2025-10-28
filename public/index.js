@@ -764,26 +764,49 @@ var zoomSpeed = 1;
   // INTEGRACIÓN REAL: Movimiento 360 con giroscopio
   // Solo activa en móviles usando bowser
   // =========================
-  if (bowser.mobile) {
+if (bowser.mobile) {
   let basePitch = null;
   let baseYaw = null;
+
+  // Detecta la rotación de la pantalla para calibrar giroscopio
+  function getScreenOrientationAngle() {
+    if (window.screen.orientation && typeof window.screen.orientation.angle === 'number') {
+      return window.screen.orientation.angle;
+    }
+    return 0; // fallback si no existe
+  }
 
   window.addEventListener('deviceorientation', function (event) {
     let yaw = event.alpha ? event.alpha * Math.PI / 180 : 0;
     let pitch = event.beta ? event.beta * Math.PI / 180 : 0;
 
+    // Ajuste según la orientación de la pantalla
+    const screenAngleRad = getScreenOrientationAngle() * Math.PI / 180;
+
+    // Calibrar valores basados en la rotación de pantalla
+    // Esto es una aproximación, dependiendo del dispositivo y navegador puede variar
+    let adjustedYaw = yaw;
+    let adjustedPitch = pitch;
+
+    if (screenAngleRad === Math.PI / 2) { // 90°
+      adjustedYaw = pitch;
+      adjustedPitch = -yaw;
+    } else if (screenAngleRad === -Math.PI / 2 || screenAngleRad === 270 * Math.PI / 180) { // 270°
+      adjustedYaw = -pitch;
+      adjustedPitch = yaw;
+    } else if (screenAngleRad === Math.PI) { // 180°
+      adjustedYaw = -yaw;
+      adjustedPitch = -pitch;
+    }
+
     if (basePitch === null) {
-      // Guardar valores base en la primera lectura para calibrar
-      basePitch = pitch;
-      baseYaw = yaw;
-      // Ajustar basePitch para evitar mirar al suelo (por ejemplo, subir 0.3 radianes)
-      basePitch -= 0.1;
+      basePitch = adjustedPitch;
+      baseYaw = adjustedYaw;
     }
 
     if (activeView) {
-      // Calibrar respecto al valor base para que la vista inicial sea la deseada
-      activeView.setYaw(yaw - baseYaw);
-      activeView.setPitch(-pitch - basePitch);
+      activeView.setYaw(adjustedYaw - baseYaw);
+      activeView.setPitch(-(adjustedPitch - basePitch)); // invertido para sentido natural
     }
   }, true);
 }
