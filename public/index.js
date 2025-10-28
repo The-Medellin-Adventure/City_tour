@@ -764,18 +764,20 @@ var zoomSpeed = 1;
   // INTEGRACIÓN REAL: Movimiento 360 con giroscopio
   // Solo activa en móviles usando bowser
   // =========================
-  if (bowser.mobile) {
+if (bowser.mobile) {
   let basePitch = null;
   let baseYaw = null;
-    
-  // Variables para valores suavizados
   let smoothYaw = 0;
   let smoothPitch = 0;
-  const smoothingFactor = 0.1; // menor es más suave
-    
-  window.addEventListener('deviceorientation', function (event) {
+  const smoothingFactor = 0.1;
+
+  function deviceOrientationHandler(event) {
     let yaw = event.alpha ? event.alpha * Math.PI / 180 : 0;
     let pitch = event.beta ? event.beta * Math.PI / 180 : 0;
+
+    if (!activeView) {
+      return; // Espera que se inicialice
+    }
 
     if (basePitch === null) {
       basePitch = pitch;
@@ -783,23 +785,19 @@ var zoomSpeed = 1;
       basePitch -= 0.3;
     }
 
-    // Calcular diferencias
     let targetYaw = yaw - baseYaw;
     let targetPitch = pitch - basePitch;
 
-    // Suavizar valores (interpolación lineal simple)
     smoothYaw += (targetYaw - smoothYaw) * smoothingFactor;
     smoothPitch += (targetPitch - smoothPitch) * smoothingFactor;
 
-    // Limitar valores para evitar que gire demasiado
-    smoothPitch = Math.min(Math.max(smoothPitch, -Math.PI/4), Math.PI/4);
+    smoothPitch = Math.min(Math.max(smoothPitch, -Math.PI / 4), Math.PI / 4);
 
-    // Aplicar a la vista
-    if (activeView) {
-      activeView.setYaw(smoothYaw);
-      activeView.setPitch(smoothPitch);
-    }
-  }, true);
+    activeView.setYaw(smoothYaw);
+    activeView.setPitch(smoothPitch);
+  }
+
+  window.addEventListener('deviceorientation', deviceOrientationHandler, true);
 }
 
   // =========================
