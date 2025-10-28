@@ -765,15 +765,28 @@ var zoomSpeed = 1;
   // Solo activa en móviles usando bowser
   // =========================
   if (bowser.mobile) {
-    window.addEventListener('deviceorientation', function (event) {
-      let yaw = event.alpha ? event.alpha * Math.PI / 180 : 0;   // Horizontal
-      let pitch = event.beta ? event.beta * Math.PI / 180 : 0;  // Vertical
-      if (activeView) {
-        activeView.setYaw(yaw);
-        activeView.setPitch(pitch);
-      }
-    }, true);
-  }
+  let basePitch = null;
+  let baseYaw = null;
+
+  window.addEventListener('deviceorientation', function (event) {
+    let yaw = event.alpha ? event.alpha * Math.PI / 180 : 0;
+    let pitch = event.beta ? event.beta * Math.PI / 180 : 0;
+
+    if (basePitch === null) {
+      // Guardar valores base en la primera lectura para calibrar
+      basePitch = pitch;
+      baseYaw = yaw;
+      // Ajustar basePitch para evitar mirar al suelo (por ejemplo, subir 0.3 radianes)
+      basePitch -= 0.3;
+    }
+
+    if (activeView) {
+      // Calibrar respecto al valor base para que la vista inicial sea la deseada
+      activeView.setYaw(yaw - baseYaw);
+      activeView.setPitch(pitch - basePitch);
+    }
+  }, true);
+}
 
   // =========================
   // Prevención de copia y descarga sencilla
