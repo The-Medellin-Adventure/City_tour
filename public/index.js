@@ -805,8 +805,8 @@ if (bowser.mobile) {
     }
 
     if (activeView) {
-      activeView.setYaw(adjustedYaw - baseYaw);
-      activeView.setPitch(-(adjustedPitch - basePitch)); // invertido para sentido natural
+      activeView.setYaw(-(adjustedYaw - baseYaw));  // movimiento sentido horizontal
+      activeView.setPitch(-(adjustedPitch - basePitch));  // movimiento sentido vertical
     }
   }, true);
 }
