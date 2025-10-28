@@ -767,23 +767,37 @@ var zoomSpeed = 1;
   if (bowser.mobile) {
   let basePitch = null;
   let baseYaw = null;
-
+    
+  // Variables para valores suavizados
+  let smoothYaw = 0;
+  let smoothPitch = 0;
+  const smoothingFactor = 0.1; // menor es más suave
+    
   window.addEventListener('deviceorientation', function (event) {
     let yaw = event.alpha ? event.alpha * Math.PI / 180 : 0;
     let pitch = event.beta ? event.beta * Math.PI / 180 : 0;
 
     if (basePitch === null) {
-      // Guardar valores base en la primera lectura para calibrar
       basePitch = pitch;
       baseYaw = yaw;
-      // Ajustar basePitch para evitar mirar al suelo (por ejemplo, subir 0.3 radianes)
       basePitch -= 0.3;
     }
 
+    // Calcular diferencias
+    let targetYaw = yaw - baseYaw;
+    let targetPitch = pitch - basePitch;
+
+    // Suavizar valores (interpolación lineal simple)
+    smoothYaw += (targetYaw - smoothYaw) * smoothingFactor;
+    smoothPitch += (targetPitch - smoothPitch) * smoothingFactor;
+
+    // Limitar valores para evitar que gire demasiado
+    smoothPitch = Math.min(Math.max(smoothPitch, -Math.PI/4), Math.PI/4);
+
+    // Aplicar a la vista
     if (activeView) {
-      // Calibrar respecto al valor base para que la vista inicial sea la deseada
-      activeView.setYaw(yaw - baseYaw);
-      activeView.setPitch(pitch - basePitch);
+      activeView.setYaw(smoothYaw);
+      activeView.setPitch(smoothPitch);
     }
   }, true);
 }
