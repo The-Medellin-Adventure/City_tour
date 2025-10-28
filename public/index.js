@@ -777,7 +777,7 @@ var zoomSpeed = 1;
       basePitch = pitch;
       baseYaw = yaw;
       // Ajustar basePitch para evitar mirar al suelo (por ejemplo, subir 0.3 radianes)
-      basePitch -= 0.3;
+      basePitch -= 0.1;
     }
 
     if (activeView) {
