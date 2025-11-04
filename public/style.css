@@ -190,119 +190,64 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   display: none;
 }
 
-/* Botones de control uniformes */
-#sceneListToggle,
-#autorotateToggle,
-#fullscreenToggle {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  width: 44px !important;
-  height: 44px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  
-  background: rgba(255, 255, 255, 0.06) !important;
-  backdrop-filter: blur(8px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 10px !important;
-  
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+#sceneListToggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  background-color: rgb(103,115,131);
+  background-color: rgba(103,115,131,0.8);
 }
 
-.mobile #sceneListToggle,
-.mobile #autorotateToggle,
-.mobile #fullscreenToggle {
-  width: 44px !important;
-  height: 44px !important;
-}
-
-#sceneListToggle:hover,
-#autorotateToggle:hover,
-#fullscreenToggle:hover {
-  background: rgba(255, 215, 0, 0.15) !important;
-  border-color: rgba(255, 215, 0, 0.3) !important;
-  transform: scale(1.05) !important;
-  box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    0 0 15px rgba(255, 215, 0, 0.2) !important;
+.mobile #sceneListToggle {
+  width: 50px;
+  height: 50px;
 }
 
 #sceneListToggle .text {
-  display: none !important;
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  width: 100%;
+  line-height: 30px;
 }
 
-#sceneListToggle .icon,
-#autorotateToggle .icon,
-#fullscreenToggle .icon {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  width: 24px !important;
-  height: 24px !important;
-  margin: 0 !important;
-  filter: brightness(1.2) saturate(1.1) !important;
-  transition: filter 0.3s ease !important;
+#sceneListToggle .icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
 }
 
-.mobile #sceneListToggle .icon,
-.mobile #autorotateToggle .icon,
-.mobile #fullscreenToggle .icon {
-  width: 24px !important;
-  height: 24px !important;
+.mobile #sceneListToggle .icon {
+  top: 10px;
+  right: 10px;
 }
 
-#sceneListToggle:hover .icon,
-#autorotateToggle:hover .icon,
-#fullscreenToggle:hover .icon {
-  filter: brightness(1.4) saturate(1.3) !important;
+#sceneListToggle .icon.on {
+  display: none;
 }
 
-body.fullscreen-enabled #fullscreenToggle {
-  display: flex !important;
+#sceneListToggle .icon.off {
+  display: block;
 }
 
-/* Ajustar posición del menú para no solaparse con barra superior */
-#sceneList {
-  position: fixed !important;
-  top: 72px !important;
-  left: 0 !important;
-  width: var(--side-width) !important;
-  max-height: calc(100vh - 360px) !important;
-  padding: 20px 16px !important;
-  border-radius: 0 16px 16px 0 !important;
-  margin-left: 0 !important;
-  
-  background: linear-gradient(135deg,
-    rgba(255, 215, 0, 0.15) 0%,
-    rgba(0, 74, 173, 0.12) 50%,
-    rgba(229, 9, 20, 0.12) 100%) !important;
-  background-size: 300% 300% !important;
-  animation: tricolorFlow 20s ease infinite !important;
-  
-  backdrop-filter: blur(16px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-  
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 
-    0 8px 32px rgba(0, 20, 50, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-  
-  transform: translateX(-100%);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.4s ease !important;
-  opacity: 0;
-  z-index: 1050 !important;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+#sceneListToggle.enabled .icon.on {
+  display: block;
 }
+
+#sceneListToggle.enabled .icon.off {
+  display: none;
+}
+
+body.single-scene #sceneList, body.single-scene #sceneListToggle {
+  display: none;
+}
+
+/* Link hotspot */
 .link-hotspot {
   width: 60px;
   height: 60px;
@@ -780,79 +725,10 @@ html, body {
 
 /* === OCULTAR BARRA DE TÍTULO === */
 #titleBar {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  height: 60px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
+  display: none !important;
+  height: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
-  z-index: 1100 !important;
-  
-  background: linear-gradient(135deg,
-    rgba(255, 215, 0, 0.12),
-    rgba(0, 74, 173, 0.10),
-    rgba(229, 9, 20, 0.10)) !important;
-  background-size: 300% 300% !important;
-  animation: tricolorFlow 20s ease infinite !important;
-  
-  backdrop-filter: blur(16px) saturate(130%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-  
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(0, 10, 30, 0.3) !important;
-}
-
-.mobile #titleBar {
-  height: 60px !important;
-}
-
-/* Contenedor izquierdo - Toggle menú */
-#titleBar .left-controls {
-  display: flex !important;
-  align-items: center !important;
-  padding-left: 12px !important;
-  min-width: 60px !important;
-}
-
-/* Contenedor central - Nombre de escena */
-#titleBar .sceneName {
-  flex: 1 !important;
-  text-align: center !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
-  letter-spacing: 0.5px !important;
-  padding: 0 20px !important;
-  line-height: 60px !important;
-  height: 60px !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-  background: transparent !important;
-  -moz-user-select: text;
-  -webkit-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
-}
-
-.mobile #titleBar .sceneName {
-  font-size: 14px !important;
-  padding: 0 15px !important;
-}
-
-/* Contenedor derecho - Controles */
-#titleBar .right-controls {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  padding-right: 12px !important;
-  min-width: 60px !important;
 }
 
 /* === ANIMACIÓN TRICOLOR SUAVE === */
@@ -1155,12 +1031,11 @@ html, body {
 }
 
 .whatsapp-icon {
-  width: 11px !important;
-  height: 11px !important;
+  width: 14px !important;
+  height: 14px !important;
   filter: brightness(1.2) !important;
   vertical-align: middle !important;
-  margin-right: 3px !important;
-  display: inline-block !important;
+  margin-right: 4px !important;
 }
 
 /* === TARJETA DE VIDEO === */
@@ -1467,31 +1342,6 @@ html, body {
     --side-width: 88vw;
   }
 
-  #titleBar {
-    height: 56px !important;
-  }
-
-  #titleBar .sceneName {
-    font-size: 13px !important;
-    line-height: 56px !important;
-    height: 56px !important;
-    padding: 0 12px !important;
-  }
-
-  #sceneListToggle,
-  #autorotateToggle,
-  #fullscreenToggle {
-    width: 40px !important;
-    height: 40px !important;
-  }
-
-  #sceneListToggle .icon,
-  #autorotateToggle .icon,
-  #fullscreenToggle .icon {
-    width: 22px !important;
-    height: 22px !important;
-  }
-
   #sceneList,
   #tecnoparque-card,
   #watermark-footer {
@@ -1501,8 +1351,8 @@ html, body {
   }
 
   #sceneList {
-    top: 68px !important;
-    max-height: calc(100vh - 320px) !important;
+    top: 50px !important;
+    max-height: calc(100vh - 280px) !important;
   }
 
   #tecnoparque-card {
@@ -1532,44 +1382,6 @@ html, body {
 }
 
 @media (max-width: 600px) {
-  #titleBar {
-    height: 52px !important;
-  }
-
-  #titleBar .sceneName {
-    font-size: 12px !important;
-    line-height: 52px !important;
-    height: 52px !important;
-    padding: 0 10px !important;
-  }
-
-  #titleBar .left-controls {
-    padding-left: 8px !important;
-  }
-
-  #titleBar .right-controls {
-    padding-right: 8px !important;
-    gap: 6px !important;
-  }
-
-  #sceneListToggle,
-  #autorotateToggle,
-  #fullscreenToggle {
-    width: 38px !important;
-    height: 38px !important;
-  }
-
-  #sceneListToggle .icon,
-  #autorotateToggle .icon,
-  #fullscreenToggle .icon {
-    width: 20px !important;
-    height: 20px !important;
-  }
-
-  #sceneList {
-    top: 64px !important;
-  }
-
   #sceneList h2 {
     font-size: 14px !important;
     padding: 10px 6px !important;
