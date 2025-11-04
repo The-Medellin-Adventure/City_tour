@@ -429,7 +429,1029 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .desktop .info-hotspot.visible .info-hotspot-close-wrapper {
   visibility: visible;
   -ms-transform: perspective(200px) rotateY(0deg);
-  -webkit-transform: perspective(200px) rotateY
+  -webkit-transform: perspective(200px) rotateY(0deg);
+  transform: perspective(200px) rotateY(0deg);
+  -webkit-transition: -ms-transform 0.3s,
+                      -webkit-transform 0.3s,
+                      transform 0.3s,
+                      visibility 0s 0s;
+  transition: -ms-transform 0.3s,
+              -webkit-transform 0.3s,
+              transform 0.3s,
+              visibility 0s 0s;
+}
+
+.info-hotspot .info-hotspot-close-icon {
+  width: 70%;
+  height: 70%;
+  margin: 15%;
+}
+
+.info-hotspot .info-hotspot-text {
+  position: absolute;
+  width: 300px;
+  height: auto;
+  max-height: 200px;
+  top: 40px;
+  left: 0;
+  padding: 10px;
+  background-color: rgb(58,68,84);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow-y: auto;
+  visibility: hidden;
+  -ms-transform: perspective(200px) rotateX(-89.999deg);
+  -webkit-transform: perspective(200px) rotateX(-89.999deg);
+  transform: perspective(200px) rotateX(-89.999deg);
+  -ms-transform-origin: 50% 0 0;
+  -webkit-transform-origin: 50% 0 0;
+  transform-origin: 50% 0 0;
+  -webkit-transition: -ms-transform 0.3s,
+                      -webkit-transform 0.3s,
+                      transform 0.3s,
+                      visibility 0s 0.3s;
+  transition: -ms-transform 0.3s,
+              -webkit-transform 0.3s,
+              transform 0.3s,
+              visibility 0s 0.3s;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.desktop .info-hotspot.visible .info-hotspot-text {
+  visibility: visible;
+  -ms-transform: perspective(200px) rotateX(0deg);
+  -webkit-transform: perspective(200px) rotateX(0deg);
+  transform: perspective(200px) rotateX(0deg);
+  -webkit-transition: -ms-transform 0.3s 0.3s,
+                      -webkit-transform 0.3s 0.3s,
+                      transform 0.3s 0.3s,
+                      visibility 0s 0s;
+  transition: -ms-transform 0.3s 0.3s,
+              -webkit-transform 0.3s 0.3s,
+              transform 0.3s 0.3s,
+              visibility 0s 0s;
+}
+
+/* Info hotspot modal */
+.desktop .info-hotspot-modal {
+  display: none;
+}
+
+.info-hotspot-modal {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 11000 !important;
+  background-color: rgba(0,0,0,.5);
+  line-height: 1.2em;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.2s ease-in-out 0.5s,
+                      visibility 0s 0.7s;
+  transition: opacity 0.2s ease-in-out 0.5s,
+              visibility 0s 0.7s;
+}
+
+.info-hotspot-modal.visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.2s ease-in-out,
+                      visibility 0s 0s;
+  transition: opacity 0.2s ease-in-out,
+              visibility 0s 0s;
+}
+
+.info-hotspot-modal .info-hotspot-header {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  right: 10px;
+  width: auto;
+  height: 50px;
+  background-color: rgb(103,115,131);
+  background-color: rgba(103,115,131,0.8);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;
+}
+
+.info-hotspot-modal.visible .info-hotspot-header {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out 0.2s;
+  transition: opacity 0.3s ease-in-out 0.2s;
+}
+
+.info-hotspot-modal .info-hotspot-icon-wrapper {
+  width: 50px;
+  height: 50px;
+}
+
+.info-hotspot-modal .info-hotspot-icon {
+  width: 90%;
+  height: 90%;
+  margin: 5%;
+}
+
+.info-hotspot-modal .info-hotspot-title-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  right: 50px;
+  width: auto;
+  height: 50px;
+  padding: 0 10px;
+}
+
+.info-hotspot-modal .info-hotspot-title-wrapper:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.info-hotspot-modal .info-hotspot-title {
+  display: inline-block;
+  vertical-align: middle;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.info-hotspot-modal .info-hotspot-close-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(78,88,104);
+  background-color: rgba(78,88,104,0.8);
+  cursor: pointer;
+}
+
+.info-hotspot-modal .info-hotspot-close-icon {
+  width: 70%;
+  height: 70%;
+  margin: 15%;
+}
+
+.info-hotspot-modal .info-hotspot-text {
+  position: absolute;
+  top: 110px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: rgb(58,68,84);
+  background-color: rgba(58,68,84,0.8);
+  overflow-y: auto;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.info-hotspot-modal.visible .info-hotspot-text {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out 0.4s;
+  transition: opacity 0.3s ease-in-out 0.4s;
+}
+
+/* View control buttons */
+.viewControlButton {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  background-color: rgb(103,115,131);
+  background-color: rgba(103,115,131,0.8);
+}
+
+body.view-control-buttons .viewControlButton {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  body.view-control-buttons .viewControlButton {
+    display: none;
+  }
+}
+
+.viewControlButton .icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.viewControlButton-1 {
+  margin-left: -145px;
+}
+.viewControlButton-2 {
+  margin-left: -95px;
+}
+.viewControlButton-3 {
+  margin-left: -45px;
+}
+.viewControlButton-4 {
+  margin-left: 5px;
+}
+.viewControlButton-5 {
+  margin-left: 55px;
+}
+.viewControlButton-6 {
+  margin-left: 105px;
+}
+
+/* =========================================================
+   MEJORAS PROFESIONALES PERSONALIZADAS
+   Diseño moderno, elegante y optimizado para turistas
+   ========================================================= */
+
+:root {
+  --side-width: 280px;
+  --titlebar-height: 0px;
+  --primary-gold: #FFD700;
+  --primary-blue: #004AAD;
+  --primary-red: #E50914;
+  --accent-orange: #FF7A00;
+  --dark-overlay: rgba(10, 15, 25, 0.92);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.5);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === FONDO BASE === */
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  background: linear-gradient(135deg, 
+    #001526 0%, 
+    #002545 25%,
+    #003366 50%,
+    #002545 75%,
+    #001526 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 30s ease infinite;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* === OCULTAR BARRA DE TÍTULO === */
+#titleBar {
+  display: none !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* === ANIMACIÓN TRICOLOR SUAVE === */
+@keyframes tricolorFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === MENÚ LATERAL - REDISEÑADO === */
+#sceneList {
+  position: fixed !important;
+  top: 60px !important;
+  left: 0 !important;
+  width: var(--side-width) !important;
+  max-height: calc(100vh - 320px) !important;
+  padding: 20px 16px !important;
+  border-radius: 0 16px 16px 0 !important;
+  margin-left: 0 !important;
+  
+  background: linear-gradient(135deg,
+    rgba(255, 215, 0, 0.15) 0%,
+    rgba(0, 74, 173, 0.12) 50%,
+    rgba(229, 9, 20, 0.12) 100%) !important;
+  background-size: 300% 300% !important;
+  animation: tricolorFlow 20s ease infinite !important;
+  
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 20, 50, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s ease !important;
+  opacity: 0;
+  z-index: 1200 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+#sceneList.enabled {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+
+#sceneList::-webkit-scrollbar {
+  width: 6px;
+}
+
+#sceneList::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#sceneList::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-gold), var(--primary-blue));
+  border-radius: 10px;
+}
+
+#sceneList::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--primary-blue), var(--primary-red));
+}
+
+#sceneList h2 {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  margin: 0 0 16px 0 !important;
+  padding: 12px 8px !important;
+  background: linear-gradient(90deg, 
+    rgba(255, 215, 0, 0.15),
+    rgba(0, 74, 173, 0.12),
+    rgba(229, 9, 20, 0.12)) !important;
+  border-radius: 10px !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  letter-spacing: 0.5px !important;
+}
+
+#sceneList .scenes {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  background: transparent !important;
+}
+
+.mobile #sceneList .scenes {
+  height: auto !important;
+}
+
+#sceneList .scene {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+#sceneList li.text {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 12px 14px !important;
+  margin-bottom: 8px !important;
+  border-radius: 10px !important;
+  border-left: 3px solid transparent !important;
+  cursor: pointer !important;
+  transition: var(--transition-smooth) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  line-height: 1.4 !important;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+#sceneList li.text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 215, 0, 0.15),
+    transparent);
+  transition: left 0.6s ease;
+}
+
+#sceneList li.text:hover,
+.no-touch #sceneList .scene:hover li.text {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-left-color: var(--primary-gold) !important;
+  transform: translateX(4px) !important;
+  box-shadow: 
+    0 4px 16px rgba(255, 215, 0, 0.2),
+    0 2px 8px rgba(0, 74, 173, 0.15) !important;
+}
+
+#sceneList li.text:hover::before {
+  left: 100%;
+}
+
+#sceneList .scene.current,
+#sceneList .scene.current li.text {
+  background: linear-gradient(90deg,
+    rgba(255, 215, 0, 0.2),
+    rgba(0, 74, 173, 0.15),
+    rgba(229, 9, 20, 0.12)) !important;
+  border-left-color: var(--accent-orange) !important;
+  box-shadow: 
+    0 6px 20px rgba(255, 122, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  font-weight: 700 !important;
+  transform: scale(1.02) !important;
+}
+
+/* === TARJETA TECNOPARQUE === */
+#tecnoparque-card {
+  position: fixed !important;
+  bottom: 150px !important;
+  left: 0 !important;
+  width: auto !important;
+  max-width: 200px !important;
+  padding: 10px 12px !important;
+  border-radius: 0 12px 12px 0 !important;
+  
+  background: linear-gradient(135deg,
+    rgba(255, 215, 0, 0.08),
+    rgba(0, 74, 173, 0.06)) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 6px 24px rgba(0, 15, 35, 0.3) !important;
+  
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 10px !important;
+  text-align: center !important;
+  
+  opacity: 0.95 !important;
+  transition: var(--transition-smooth) !important;
+  z-index: 860 !important;
+}
+
+#tecnoparque-card:hover {
+  opacity: 1 !important;
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.15) !important;
+}
+
+#tecnoparque-card img {
+  width: auto !important;
+  height: 36px !important;
+  filter: brightness(1.1) !important;
+}
+
+/* === FOOTER MEJORADO === */
+#watermark-footer {
+  position: fixed !important;
+  bottom: 16px !important;
+  left: 0 !important;
+  width: var(--side-width) !important;
+  padding: 14px 16px !important;
+  border-radius: 0 14px 14px 0 !important;
+  
+  background: linear-gradient(135deg,
+    rgba(255, 215, 0, 0.15),
+    rgba(0, 74, 173, 0.12),
+    rgba(229, 9, 20, 0.12)) !important;
+  background-size: 300% 300% !important;
+  animation: tricolorFlow 20s ease infinite !important;
+  
+  backdrop-filter: blur(14px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
+  
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: var(--shadow-lg) !important;
+  
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  
+  color: #ffffff !important;
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+  
+  opacity: 0.92 !important;
+  transition: var(--transition-smooth) !important;
+  z-index: 1050 !important;
+}
+
+#watermark-footer:hover {
+  opacity: 1 !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 20, 50, 0.4),
+    0 0 20px rgba(255, 215, 0, 0.15) !important;
+}
+
+#watermark-footer img {
+  width: 42px !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.footer-text,
+.watermark-text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.footer-text span,
+.watermark-text span {
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.footer-text a,
+.watermark-text a {
+  color: var(--primary-gold) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  transition: color 0.3s ease !important;
+}
+
+.footer-text a:hover,
+.watermark-text a:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+.footer-text a.web,
+.watermark-text a.web {
+  color: var(--primary-gold) !important;
+}
+
+.footer-text a.whatsapp,
+.watermark-text a.whatsapp {
+  color: #25D366 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.footer-text a.whatsapp:hover,
+.watermark-text a.whatsapp:hover {
+  color: #40ff80 !important;
+}
+
+.whatsapp-icon {
+  width: 14px !important;
+  height: 14px !important;
+  filter: brightness(1.2) !important;
+  vertical-align: middle !important;
+  margin-right: 4px !important;
+}
+
+/* === TARJETA DE VIDEO === */
+#videoCard {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: clamp(200px, 24vw, 320px) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  
+  background: linear-gradient(135deg,
+    rgba(255, 122, 0, 0.15),
+    rgba(0, 20, 40, 0.85)) !important;
+  backdrop-filter: blur(10px) !important;
+  
+  box-shadow: var(--shadow-xl) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  pointer-events: none;
+  z-index: 9980 !important;
+  display: block;
+}
+
+#videoCard.visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+#videoCard video {
+  width: 100% !important;
+  display: block !important;
+  background: #000 !important;
+  border-radius: 8px !important;
+}
+
+#videoControls {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  padding: 10px 8px !important;
+  
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(0, 0, 0, 0.8)) !important;
+  backdrop-filter: blur(8px) !important;
+  
+  opacity: 0;
+  transition: opacity 0.3s ease !important;
+}
+
+#videoCard:hover #videoControls {
+  opacity: 1 !important;
+}
+
+#videoControls button {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--primary-gold) !important;
+  font-size: 16px !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+#videoControls button:hover {
+  background: rgba(255, 215, 0, 0.2) !important;
+  border-color: var(--primary-gold) !important;
+  color: #ffffff !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* === ÍCONO FLOTANTE DE CÁMARA === */
+#videoIcon {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 56px !important;
+  height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  background: rgba(220, 220, 220, 0.12) !important;
+  backdrop-filter: blur(8px) !important;
+  
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 24px !important;
+  border-radius: 50% !important;
+  
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  
+  animation: cameraPulse 3s ease-in-out infinite !important;
+  transition: all 0.4s ease !important;
+}
+
+@keyframes cameraPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 15px rgba(255, 215, 0, 0.3),
+      0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 
+      0 0 30px rgba(255, 215, 0, 0.5),
+      0 10px 32px rgba(0, 74, 173, 0.4);
+  }
+}
+
+#videoIcon:hover {
+  transform: scale(1.12) !important;
+  background: rgba(255, 215, 0, 0.15) !important;
+  border-color: var(--primary-gold) !important;
+  box-shadow: 
+    0 0 35px rgba(255, 215, 0, 0.6),
+    0 12px 40px rgba(0, 0, 0, 0.4) !important;
+  animation: none !important;
+}
+
+/* === OVERLAY DE VIDEO GRANDE === */
+#bigVideoBackdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(8px) !important;
+  z-index: 10000 !important;
+  opacity: 0;
+  transition: opacity 0.4s ease !important;
+}
+
+#bigVideoBackdrop.visible {
+  opacity: 1 !important;
+}
+
+#bigVideoOverlay {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(0.95) !important;
+  width: min(1100px, 90vw) !important;
+  background: rgba(0, 0, 0, 0.95) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+  z-index: 10001 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  pointer-events: none;
+}
+
+#bigVideoOverlay.visible {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+#bigVideoOverlay video {
+  width: 100% !important;
+  max-height: calc(85vh - 60px) !important;
+  object-fit: contain !important;
+  background: #000 !important;
+}
+
+#bigVideoControls {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 12px 16px !important;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8)) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+#bigVideoControls button {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: var(--primary-gold) !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+#bigVideoControls button:hover {
+  background: rgba(255, 215, 0, 0.2) !important;
+  color: #ffffff !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* === CONTROLES DE VISTA MEJORADOS === */
+.viewControlButton {
+  background: rgba(50, 60, 80, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.viewControlButton:hover {
+  background: rgba(70, 85, 110, 0.9) !important;
+  border-color: rgba(255, 215, 0, 0.4) !important;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 215, 0, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+.viewControlButton .icon {
+  filter: brightness(1.1) saturate(1.2) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.viewControlButton:hover .icon {
+  filter: brightness(1.3) saturate(1.4) !important;
+}
+
+/* === TOOLTIPS MEJORADOS === */
+.link-hotspot-tooltip {
+  position: absolute !important;
+  top: 55px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: rgba(10, 15, 25, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  color: rgba(255, 235, 200, 0.95) !important;
+  border: 1px solid rgba(255, 215, 0, 0.2) !important;
+  border-radius: 10px !important;
+  padding: 8px 14px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 215, 0, 0.15) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+}
+
+.info-hotspot .info-hotspot-text,
+.info-hotspot-modal .info-hotspot-text {
+  background: rgba(10, 15, 25, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  color: rgba(255, 235, 200, 0.95) !important;
+  border: 1px solid rgba(255, 215, 0, 0.15) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 215, 0, 0.15) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* === HOTSPOTS === */
+.hotspot {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.hotspot:hover {
+  filter: drop-shadow(0 6px 16px rgba(255, 215, 0, 0.4));
+  transform: scale(1.05);
+}
+
+.camera-hotspot-icon {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.camera-hotspot-icon:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 6px 16px rgba(255, 215, 0, 0.5));
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  :root {
+    --side-width: 88vw;
+  }
+
+  #sceneList,
+  #tecnoparque-card,
+  #watermark-footer {
+    width: var(--side-width) !important;
+    left: 6vw !important;
+    border-radius: 14px !important;
+  }
+
+  #sceneList {
+    top: 50px !important;
+    max-height: calc(100vh - 280px) !important;
+  }
+
+  #tecnoparque-card {
+    bottom: 120px !important;
+    max-width: 180px !important;
+  }
+
+  #watermark-footer {
+    bottom: 12px !important;
+    padding: 12px !important;
+  }
+
+  #videoCard {
+    width: 48vw !important;
+    min-width: 180px !important;
+    right: 12px !important;
+    bottom: 18px !important;
+  }
+
+  #videoIcon {
+    right: 12px !important;
+    bottom: 100px !important;
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #sceneList h2 {
+    font-size: 14px !important;
+    padding: 10px 6px !important;
+  }
+
+  #sceneList li.text {
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+  }
+
+  #watermark-footer,
+  .footer-text,
+  .watermark-text {
+    font-size: 10px !important;
+  }
+
+  #watermark-footer img {
+    width: 36px !important;
+  }
+
+  #tecnoparque-card {
+    font-size: 9px !important;
+    padding: 8px 10px !important;
+  }
+}
+
+/* === SCROLLBAR GLOBAL === */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 215, 0, 0.5) rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, 
+    var(--primary-gold), 
+    var(--primary-blue));
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, 
+    var(--primary-blue), 
+    var(--primary-red));
+}
+
+/* === ANIMACIONES SUAVES GLOBALES === */
+a, button, .scene, li {
+  transition: var(--transition-smooth);
+}
+
+/* === MEJORA EN LEGIBILIDAD === */
+body, 
+#sceneList li.text, 
+#watermark-footer, 
+#tecnoparque-card,
+.link-hotspot-tooltip,
+.info-hotspot-text {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
 
 /* === FONDO BASE === */
 html, body {
@@ -996,4 +2018,3 @@ a, button, .hotspot {
   filter: drop-shadow(0 6px 16px rgba(255, 215, 0, 0.4));
   transform: scale(1.05);
 }
-
