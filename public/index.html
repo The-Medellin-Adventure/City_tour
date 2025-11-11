@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>The Medellin Adventure - City Tour</title>
+<title>Medellín 360° - The Medellin Adventure</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Explora Medellín en 360° con The Medellin Adventure - Tour virtual interactivo">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="img/logo.png">
+
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="logo.png" />
-<!-- Swiper CSS para carrusel -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body class="multiple-scenes view-control-buttons">
 
 <div id="pano"></div>
 
-<!-- 🔴 Tarjeta de error -->
+<!-- Overlay de error -->
 <div id="errorOverlay" style="
   display: none;
   position: fixed;
@@ -24,186 +31,157 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.9);
   z-index: 20000;
   justify-content: center;
   align-items: center;
 ">
   <div style="
-    background: #ff4d4d;
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
     color: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 20px;
     text-align: center;
-    max-width: 400px;
-    font-size: 16px;
-    font-weight: bold;
+    max-width: 450px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   ">
-    🚫 Error: este enlace ya fue usado o ha expirado.<br><br>
+    🚫 <strong>Acceso Denegado</strong><br><br>
+    Este enlace ya fue usado o ha expirado.<br><br>
     <button onclick="document.getElementById('errorOverlay').style.display='none'" 
-      style="margin-top: 10px; padding: 8px 14px; border: none; border-radius: 6px; background: white; color: #ff4d4d; font-weight: bold; cursor: pointer;">
+      style="margin-top: 15px; padding: 12px 24px; border: none; border-radius: 12px; 
+      background: white; color: #FF6B35; font-weight: bold; cursor: pointer; font-size: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s;">
       Cerrar
     </button>
   </div>
 </div>
 
-   
-
-<!-- Título de la escena -->
+<!-- Barra superior con título de escena -->
 <div id="titleBar">
-  <h1 id="sceneName"></h1>
+  <div class="title-container">
+    <img src="img/logo.png" alt="The Medellin Adventure" class="title-logo">
+    <h1 id="sceneTitle">Medellín 360°</h1>
+  </div>
 </div>
 
-<!-- Menú escenas -->
+<!-- Menú de escenas -->
 <div id="sceneList">
-<h2 style="color:white; text-align:center; padding:10px; font-size:18px; background:rgba(0,0,0,0.6);">
-  🌆 Medellín 360°: Vive la Ciudad
-</h2>
-  <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
-        <li class="text">Plaza Botero</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe">
-        <li class="text">Museo de Antioquia y Plaza Botero</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="2-esculturas-y-tradicin">
-        <li class="text">Esculturas y Tradición</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="3-palacio-rafael-uribe-uribe">
-        <li class="text">Palacio Rafael Uribe Uribe</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="4-parque-de-las-luces">
-        <li class="text">Parque de las Luces</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="5-antiguo-ferrocarril">
-        <li class="text">Antiguo Ferrocarril</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="6-antigua-estacin-medelln">
-        <li class="text">Antigua Estación Medellín</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="7-alpujarra">
-        <li class="text">Alpujarra</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="8-transicin-ciudad-a-naturaleza">
-        <li class="text">Transición ciudad a naturaleza</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="9-pies_descalzos">
-        <li class="text">Pies Descalzos</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="10-conexin-naturaleza">
-        <li class="text">Conexión Naturaleza</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="11-laberinto-de-bamb">
-        <li class="text">Laberinto de Bambú</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="12-edificio-inteligente-epm">
-        <li class="text">Edificio Inteligente EPM</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="13-centro-de-convenciones-y-teatro">
-        <li class="text">Centro de convenciones y Teatro</li>
-      </a>
-          
-      <a href="javascript:void(0)" class="scene" data-id="14-pueblito-paisa">
-        <li class="text">Pueblito Paisa</li>
-      </a>
-    
- <!-- 🔹 Botón extra para instrucciones -->
-  <a href="javascript:void(0)" id="openInstructions"><li class="text">🎥 Instrucciones</li></a>
-
-  <div style="
-     background: rgba(0,0,0,0.6);
-     color: white;
-     padding: 10px;
-     margin: 10px;
-     border-radius: 8px;
-     text-align: center;
-     font-size: 10px;">
+  <div class="menu-header">
+    <h2>🌆 Explora Medellín</h2>
+    <p class="menu-subtitle">Selecciona un lugar</p>
   </div>
-
-</ul>
+  <ul class="scenes">
+    <a href="javascript:void(0)" class="scene" data-id="0-plaza-botero-botero">
+      <li class="text">📍 Plaza Botero</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="1-plaza-botero-y-palacio-rafael-uribe-uribe">
+      <li class="text">🏛️ Museo de Antioquia</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="2-esculturas-y-tradicin">
+      <li class="text">🎨 Esculturas y Tradición</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="3-palacio-rafael-uribe-uribe">
+      <li class="text">🏰 Palacio Rafael Uribe</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="4-parque-de-las-luces">
+      <li class="text">💡 Parque de las Luces</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="5-antiguo-ferrocarril">
+      <li class="text">🚂 Antiguo Ferrocarril</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="6-antigua-estacin-medelln">
+      <li class="text">🚉 Antigua Estación</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="7-alpujarra">
+      <li class="text">🏢 La Alpujarra</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="8-transicin-ciudad-a-naturaleza">
+      <li class="text">🌿 Transición Natural</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="9-pies_descalzos">
+      <li class="text">👣 Pies Descalzos</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="10-conexin-naturaleza">
+      <li class="text">🌳 Conexión Naturaleza</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="11-laberinto-de-bamb">
+      <li class="text">🎋 Laberinto de Bambú</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="12-edificio-inteligente-epm">
+      <li class="text">🏙️ Edificio Inteligente EPM</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="13-centro-de-convenciones-y-teatro">
+      <li class="text">🎭 Centro Convenciones</li>
+    </a>
+    <a href="javascript:void(0)" class="scene" data-id="14-pueblito-paisa">
+      <li class="text">🏘️ Pueblito Paisa</li>
+    </a>
+    <a href="javascript:void(0)" id="openInstructions">
+      <li class="text instructions-btn">🎥 Ver Instrucciones</li>
+    </a>
+  </ul>
 </div>
 
 <!-- Tarjeta TecnoParque -->
 <div id="tecnoparque-card">
-  <p class="tecnoparque-texto">🌎 Proyecto avalado por</p>
+  <p class="tecnoparque-texto">🌍 Proyecto avalado por</p>
   <img src="img/tecno.png" alt="Logo TecnoParque">
 </div>
 
-<!-- Botones de Marzipano (play, fullscreen, etc.) -->
-<a href="javascript:void(0)" id="autorotateToggle">
-  <img class="icon off" src="img/play.png">
-  <img class="icon on" src="img/pause.png">
+<!-- Controles de navegación -->
+<a href="javascript:void(0)" id="autorotateToggle" title="Rotación automática">
+  <img class="icon off" src="img/play.jpg" alt="Play">
+  <img class="icon on" src="img/pause.jpg" alt="Pause">
 </a>
 
-<a href="javascript:void(0)" id="fullscreenToggle">
-  <img class="icon off" src="img/fullscreen.png">
-  <img class="icon on" src="img/windowed.png">
+<a href="javascript:void(0)" id="musicToggle" title="Música de fondo">
+  <img class="icon on" src="img/sound-on.png" alt="Sonido activado">
+  <img class="icon off" src="img/sound-off.png" alt="Sonido desactivado">
 </a>
 
- 
-<a href="javascript:void(0)" id="sceneListToggle" class="scene-toggle-button">
-  <img class="icon off" src="img/expand.png">
-  <img class="icon on" src="img/collapse.png">
+<audio id="bg-music" autoplay loop>
+  <source src="audio/fondo.mp3" type="audio/mpeg">
+</audio>
+
+<a href="javascript:void(0)" id="fullscreenToggle" title="Pantalla completa">
+  <img class="icon off" src="img/fullscreen.png" alt="Pantalla completa">
+  <img class="icon on" src="img/windowed.png" alt="Ventana">
 </a>
 
-<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
-  <img class="icon" src="img/down.png">
-</a>
-<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
-  <img class="icon" src="img/up.png">
-</a>
-<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
-  <img class="icon" src="img/left.png">
-</a>
-<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
-  <img class="icon" src="img/right.png">
-</a>
-<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
-  <img class="icon" src="img/plus.png">
-</a>
-<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
-  <img class="icon" src="img/minus.png">
+<a href="javascript:void(0)" id="sceneListToggle" class="scene-toggle-button" title="Menú">
+  <img class="icon off" src="img/expand.png" alt="Expandir">
+  <img class="icon on" src="img/collapse.png" alt="Contraer">
 </a>
 
-<!-- CARRUSEL MODAL CON FONDO NEGRO TRANSLÚCIDO -->
-<!-- Contenedor del carrusel modal -->
-<div id="carruselContainer" style="
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.8);
-  z-index: 10000;
-  justify-content: center;
-  align-items: center;
-">
-  <div style="position: relative; max-width: 800px; width: 90%; background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px;">
-    <button id="cerrarCarrusel" style="position: absolute; top: 10px; right: 10px; font-size: 2rem; background: none; color: #fff; border: none; cursor: pointer;">&times;</button>
-    
-    <h2 id="carruselTitulo" style="color: white; text-align: center; margin-bottom: 15px;"></h2>
-    
-    <!-- Swiper -->
+<!-- Botones de dirección -->
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1" title="Mirar arriba">
+  <img class="icon" src="img/down.png" alt="Arriba">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2" title="Mirar abajo">
+  <img class="icon" src="img/up.png" alt="Abajo">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3" title="Mirar izquierda">
+  <img class="icon" src="img/left.png" alt="Izquierda">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4" title="Mirar derecha">
+  <img class="icon" src="img/right.png" alt="Derecha">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5" title="Acercar">
+  <img class="icon" src="img/plus.png" alt="Zoom in">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6" title="Alejar">
+  <img class="icon" src="img/minus.png" alt="Zoom out">
+</a>
+
+<!-- Modal del carrusel -->
+<div id="carruselContainer">
+  <div class="carrusel-content">
+    <button id="cerrarCarrusel" class="close-button">&times;</button>
+    <h2 id="carruselTitulo"></h2>
     <div id="carrusel" class="swiper carrusel-swiper">
-      <div class="swiper-wrapper">
-       
-<!-- Las diapositivas se insertan dinámicamente desde index.js -->
-      </div>
+      <div class="swiper-wrapper"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-pagination"></div>
@@ -211,91 +189,73 @@
   </div>
 </div>
 
-
-<!-- Tarjeta de Video flotante -->
+<!-- Tarjeta de video flotante -->
 <div id="videoCard">
   <video id="sceneVideo" playsinline muted>
     <source src="" type="video/mp4">
-    Tu navegador no soporta el video.
   </video>
   <div id="videoControls">
-    <button id="playPauseBtn">▶</button>
-    <button id="muteBtn">🔊</button>
-    <button id="closeBtn">✕</button>
+    <button id="playPauseBtn" title="Reproducir/Pausar">▶</button>
+    <button id="muteBtn" title="Silenciar">🔊</button>
+    <button id="closeBtn" title="Cerrar">✕</button>
   </div>
 </div>
 
-<!-- Icono flotante tarjeta lateral -->
-<div id="videoIcon" style="display:none;">🎥</div>
+<div id="videoIcon" style="display:none;" title="Abrir video">🎥</div>
 
-
-<!-- >>> NUEVO: Backdrop y Overlay de Video Grande <<< -->
-<div id="bigVideoBackdrop" style="display:none;"></div>
-<div id="bigVideoOverlay" style="display:none;">
+<!-- Overlay de video grande -->
+<div id="bigVideoBackdrop"></div>
+<div id="bigVideoOverlay">
   <video id="bigSceneVideo" playsinline muted>
     <source src="" type="video/mp4">
   </video>
-
-<!-- Controles personalizados dentro del video -->
   <div id="bigVideoControls">
-    <button id="bigPlayPauseBtn">▶</button>
-    <button id="bigMuteBtn">🔊</button>
-    <button id="bigCloseBtn">✕</button>
+    <button id="bigPlayPauseBtn" title="Reproducir/Pausar">▶</button>
+    <button id="bigMuteBtn" title="Silenciar">🔊</button>
+    <button id="bigCloseBtn" title="Cerrar">✕</button>
   </div>
 </div>
-
-
-<!-- Icono flotante cuando el video está cerrado -->
-<div id="videoIcon" style="display: none;">🎥</div>
-
-
-
-
-
 
 <!-- Marca de agua centrada -->
 <div id="watermark-bg">
   <img src="img/logo.png" alt="The Medellin Adventure">
 </div>
 
-<!-- Marca de agua inferior con texto -->
+<!-- Footer informativo -->
 <div id="watermark-footer">
-  <img src="img/logo.png" alt="The Medellin Adventure">
+  <img src="img/logo.png" alt="The Medellin Adventure" class="footer-logo">
   <div class="watermark-text">
-    <span>The Medellin Adventure Tour Operador</span>
-<a href="https://themedellinadventure-com.webnode.com.co/" 
-   target="_blank" 
-   style="color: white; text-decoration: underline;">
-  https://themedellinadventure-com.webnode.com.co/
-</a>
-    <a href="https://wa.me/573247615677?text=Hola,%20quiero%20conocer%20más%20tours" target="_blank" id="whatsappLink">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">+57 324 761 5677
-    </a>     
+    <span class="brand-name">The Medellin Adventure</span>
+    <span class="brand-subtitle">Tour Operador</span>
+    <a href="https://themedellinadventure-com.webnode.com.co/" target="_blank" class="web-link">
+      🌐 Visita nuestro sitio web
+    </a>
+    <a href="https://wa.me/573247615677?text=Hola,%20quiero%20conocer%20más%20tours" target="_blank" class="whatsapp-link">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+      +57 324 761 5677
+    </a>
+  </div>
 </div>
-</div>
-
 
 <script src="vendor/screenfull.min.js"></script>
 <script src="vendor/bowser.min.js"></script>
 <script src="vendor/marzipano.js"></script>
-
-<!-- Inyectar token ANTES de cargar data.js -->
-
 <script src="data.js"></script>
-<!-- Swiper JS para carrusel -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="index.js"></script>
 
-<!-- Script para abrir el video desde menú -->
 <script>
-  document.getElementById("openInstructions").addEventListener("click", () => {
-    const overlay = document.getElementById("bigVideoOverlay");
-    const backdrop = document.getElementById("bigVideoBackdrop");
-    overlay.style.display = "flex";
-    backdrop.style.display = "block";
+document.getElementById("openInstructions").addEventListener("click", () => {
+  const overlay = document.getElementById("bigVideoOverlay");
+  const backdrop = document.getElementById("bigVideoBackdrop");
+  overlay.style.display = "flex";
+  backdrop.style.display = "block";
+  setTimeout(() => {
     overlay.classList.add("visible");
     backdrop.classList.add("visible");
-  });
+  }, 10);
+});
 </script>
+
 </body>
 </html>
