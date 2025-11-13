@@ -251,14 +251,19 @@
       });
     });
 
-    // Camera Hotspots (ICONOS DE CÁMARA PARA CARRUSELES)
-    (sceneData.hotSpots || []).forEach(function (hotspot) {
+    // Camera Hotspots (TODOS LOS ICONOS DE CÁMARA)
+    console.log('📸 Creando hotspots de cámara para escena:', sceneData.id);
+    console.log('📸 Total de hotSpots en data:', sceneData.hotSpots ? sceneData.hotSpots.length : 0);
+    
+    (sceneData.hotSpots || []).forEach(function (hotspot, index) {
+      console.log(`📸 Hotspot ${index}:`, hotspot.type, hotspot.tooltip);
       if (hotspot.type === "camera") {
         var element = createCameraHotspot(hotspot);
         scene.hotspotContainer().createHotspot(element, { 
           yaw: hotspot.yaw, 
           pitch: hotspot.pitch 
         });
+        console.log(`✅ Icono de cámara creado en yaw:${hotspot.yaw}, pitch:${hotspot.pitch}`);
       }
     });
 
@@ -266,6 +271,7 @@
   }
 
   var scenes = (data.scenes || []).map(createScene);
+  console.log('🎬 Total de escenas creadas:', scenes.length);
 
   // ========== HOTSPOTS ==========
   function createLinkHotspotElement(hotspot) {
