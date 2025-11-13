@@ -13,7 +13,6 @@
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.15);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --font-main: 'Poppins', sans-serif;
-  --font-display: 'Playfair Display', serif;
 }
 
 /* ========== RESET Y BASE ========== */
@@ -23,13 +22,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: var(--font-main);
 }
 
 html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: var(--font-main);
   font-size: 16px;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   color: #fff;
@@ -46,54 +45,96 @@ html, body {
   overflow: hidden;
 }
 
-/* ========== BARRA DE TÍTULO SUPERIOR ========== */
-#titleBar {
+/* ========== BOTÓN TOGGLE MENÚ (ENCIMA DEL TÍTULO) ========== */
+#sceneListToggle {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(180deg, 
-    rgba(0, 20, 40, 0.95) 0%, 
-    rgba(0, 20, 40, 0.85) 70%, 
-    rgba(0, 20, 40, 0.4) 100%);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  z-index: 1100;
+  transition: var(--transition-smooth);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+#sceneListToggle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 215, 0, 0.25);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+}
+
+#sceneListToggle .icon {
+  width: 28px;
+  height: 28px;
+  display: none;
+}
+
+#sceneListToggle .icon.off {
+  display: block;
+}
+
+#sceneListToggle.enabled .icon.on {
+  display: block;
+}
+
+#sceneListToggle.enabled .icon.off {
+  display: none;
+}
+
+/* ========== BARRA DE TÍTULO SUPERIOR (MÁS DISCRETA) ========== */
+#titleBar {
+  position: fixed;
+  top: 0;
+  left: 70px;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(180deg, 
+    rgba(0, 20, 40, 0.75) 0%, 
+    rgba(0, 20, 40, 0.5) 70%, 
+    rgba(0, 20, 40, 0) 100%);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .title-container {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   animation: fadeInDown 0.6s ease-out;
 }
 
 .title-logo {
-  height: 50px;
+  height: 32px;
   width: auto;
-  filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.3));
+  filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
   animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-5px); }
 }
 
 #sceneTitle {
-  font-family: var(--font-display);
-  font-size: clamp(24px, 4vw, 42px);
-  font-weight: 700;
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 600;
   color: #fff;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5),
-               0 0 30px rgba(255, 215, 0, 0.3);
-  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5),
+               0 0 20px rgba(255, 215, 0, 0.2);
+  letter-spacing: 0.5px;
   margin: 0;
 }
 
@@ -111,7 +152,7 @@ html, body {
 /* ========== MENÚ LATERAL ========== */
 #sceneList {
   position: fixed;
-  top: 100px;
+  top: 70px;
   left: -320px;
   width: 320px;
   max-height: calc(100vh - 320px);
@@ -155,8 +196,7 @@ html, body {
 }
 
 .menu-header h2 {
-  font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 5px;
@@ -166,7 +206,7 @@ html, body {
 .menu-subtitle {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.8);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .scenes {
@@ -359,8 +399,7 @@ html, body {
 /* ========== CONTROLES DE NAVEGACIÓN ========== */
 #autorotateToggle,
 #musicToggle,
-#fullscreenToggle,
-#sceneListToggle {
+#fullscreenToggle {
   position: fixed;
   width: 50px;
   height: 50px;
@@ -378,29 +417,23 @@ html, body {
 }
 
 #autorotateToggle {
-  top: 100px;
+  top: 70px;
   right: 20px;
 }
 
 #musicToggle {
-  top: 170px;
+  top: 140px;
   right: 20px;
 }
 
 #fullscreenToggle {
-  top: 240px;
+  top: 210px;
   right: 20px;
-}
-
-#sceneListToggle {
-  top: 100px;
-  left: 20px;
 }
 
 #autorotateToggle:hover,
 #musicToggle:hover,
-#fullscreenToggle:hover,
-#sceneListToggle:hover {
+#fullscreenToggle:hover {
   transform: scale(1.1);
   background: rgba(255, 215, 0, 0.2);
   box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
@@ -408,8 +441,7 @@ html, body {
 
 #autorotateToggle .icon,
 #musicToggle .icon,
-#fullscreenToggle .icon,
-#sceneListToggle .icon {
+#fullscreenToggle .icon {
   width: 28px;
   height: 28px;
   display: none;
@@ -417,22 +449,19 @@ html, body {
 
 #autorotateToggle .icon.off,
 #musicToggle .icon.on,
-#fullscreenToggle .icon.off,
-#sceneListToggle .icon.off {
+#fullscreenToggle .icon.off {
   display: block;
 }
 
 #autorotateToggle.enabled .icon.on,
 #musicToggle.off .icon.off,
-#fullscreenToggle.enabled .icon.on,
-#sceneListToggle.enabled .icon.on {
+#fullscreenToggle.enabled .icon.on {
   display: block;
 }
 
 #autorotateToggle.enabled .icon.off,
 #musicToggle.off .icon.on,
-#fullscreenToggle.enabled .icon.off,
-#sceneListToggle.enabled .icon.off {
+#fullscreenToggle.enabled .icon.off {
   display: none;
 }
 
@@ -527,20 +556,45 @@ html, body {
   z-index: 10000;
 }
 
+/* ========== HOTSPOT DE CÁMARA (CON ANIMACIÓN) ========== */
 .camera-hotspot-icon {
-  animation: pulse 2.5s ease-in-out infinite;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 4px 12px rgba(255, 107, 53, 0.6));
+  animation: cameraPulse 2.5s ease-in-out infinite;
 }
 
+@keyframes cameraPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+  }
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.9);
+  }
+}
+
+.camera-hotspot-icon:hover {
+  transform: scale(1.2) !important;
+  box-shadow: 0 10px 35px rgba(255, 107, 53, 0.9) !important;
+}
+
+/* ========== INFO HOTSPOT (MEJORADO - SE VE AL LADO) ========== */
 .info-hotspot {
   line-height: 1.4;
-  opacity: 0.9;
+  opacity: 0.95;
   transition: var(--transition-smooth);
+  z-index: 5000;
 }
 
 .info-hotspot:hover {
   opacity: 1;
+  z-index: 6000;
 }
 
 .info-hotspot-header {
@@ -595,12 +649,14 @@ html, body {
   white-space: nowrap;
 }
 
+/* PANEL DE INFORMACIÓN SIEMPRE VISIBLE AL LADO */
 .info-hotspot-text {
   position: absolute;
-  top: 60px;
-  left: 0;
-  width: 350px;
-  max-height: 300px;
+  top: 0;
+  left: 100%;
+  margin-left: 15px;
+  width: 380px;
+  max-height: 400px;
   background: var(--light-overlay);
   backdrop-filter: blur(20px);
   color: #1a1a2e;
@@ -609,18 +665,92 @@ html, body {
   box-shadow: var(--shadow-strong);
   overflow-y: auto;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateX(-10px);
   transition: var(--transition-smooth);
   pointer-events: none;
   border: 1px solid rgba(255, 215, 0, 0.2);
+  z-index: 6001;
 }
 
 .info-hotspot.visible .info-hotspot-text {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
   pointer-events: all;
+}
+
+.info-hotspot-close-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.info-hotspot-close-wrapper:hover {
+  background: #ff8053;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.info-hotspot-close-icon {
+  width: 60%;
+  height: 60%;
+  filter: brightness(3);
+}
+
+/* Modal para info hotspot en móvil */
+.info-hotspot-modal {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .info-hotspot-text {
+    display: none !important;
+  }
+  
+  .info-hotspot-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 11000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .info-hotspot-modal.visible {
+    display: flex;
+  }
+  
+  .info-hotspot-modal .info-hotspot-header {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .info-hotspot-modal .info-hotspot-text {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+    transform: none;
+    opacity: 1;
+    display: block !important;
+  }
 }
 
 /* ========== CARRUSEL MODAL ========== */
@@ -685,6 +815,7 @@ html, body {
   align-items: center;
   justify-content: center;
   z-index: 10;
+  font-weight: bold;
 }
 
 .close-button:hover {
@@ -694,8 +825,7 @@ html, body {
 }
 
 #carruselTitulo {
-  font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--secondary-color);
   text-align: center;
@@ -727,7 +857,7 @@ html, body {
   margin-top: 16px;
   color: #1a1a2e;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: center;
   max-width: 700px;
 }
@@ -863,11 +993,13 @@ html, body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
+  display: none;
 }
 
 #bigVideoBackdrop.visible {
   opacity: 1;
   pointer-events: auto;
+  display: block;
 }
 
 #bigVideoOverlay {
@@ -882,7 +1014,7 @@ html, body {
   border-radius: 24px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
   z-index: 19500;
-  display: flex;
+  display: none;
   flex-direction: column;
   opacity: 0;
   pointer-events: none;
@@ -895,6 +1027,7 @@ html, body {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
+  display: flex;
 }
 
 #bigVideoOverlay video {
@@ -938,11 +1071,11 @@ html, body {
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 1024px) {
   #sceneTitle {
-    font-size: 28px;
+    font-size: 18px;
   }
   
   .title-logo {
-    height: 40px;
+    height: 28px;
   }
   
   #sceneList {
@@ -969,21 +1102,27 @@ html, body {
 
 @media (max-width: 768px) {
   #titleBar {
-    height: 70px;
+    height: 50px;
+    left: 60px;
+  }
+  
+  #sceneListToggle {
+    width: 45px;
+    height: 45px;
   }
   
   #sceneTitle {
-    font-size: 22px;
+    font-size: 16px;
   }
   
   .title-logo {
-    height: 35px;
+    height: 26px;
   }
   
   #sceneList {
     width: 100%;
     left: -100%;
-    top: 80px;
+    top: 60px;
     max-height: calc(100vh - 260px);
     border-radius: 0;
   }
@@ -1014,22 +1153,16 @@ html, body {
     right: 15px;
   }
   
-  #sceneListToggle {
-    width: 45px;
-    height: 45px;
-    left: 15px;
-  }
-  
   #autorotateToggle {
-    top: 90px;
+    top: 70px;
   }
   
   #musicToggle {
-    top: 150px;
+    top: 130px;
   }
   
   #fullscreenToggle {
-    top: 210px;
+    top: 190px;
   }
   
   .viewControlButton {
@@ -1057,14 +1190,17 @@ html, body {
   }
   
   #carruselTitulo {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 16px;
   }
   
   .info-hotspot-text {
-    width: 280px;
-    max-height: 250px;
-    padding: 16px;
+    width: 90vw;
+    max-height: 60vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
   }
   
   .link-hotspot-tooltip {
@@ -1075,29 +1211,38 @@ html, body {
 
 @media (max-width: 480px) {
   #titleBar {
-    height: 60px;
+    height: 45px;
+    left: 55px;
+    padding-left: 10px;
+  }
+  
+  #sceneListToggle {
+    width: 40px;
+    height: 40px;
+    top: 8px;
+    left: 8px;
   }
   
   .title-container {
-    gap: 12px;
+    gap: 8px;
   }
   
   #sceneTitle {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   .title-logo {
-    height: 30px;
+    height: 24px;
   }
   
   #sceneList {
-    top: 70px;
+    top: 55px;
     padding: 16px 12px;
     max-height: calc(100vh - 220px);
   }
   
   .menu-header h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
   
   .scenes li.text {
@@ -1137,22 +1282,21 @@ html, body {
   
   #autorotateToggle,
   #musicToggle,
-  #fullscreenToggle,
-  #sceneListToggle {
+  #fullscreenToggle {
     width: 40px;
     height: 40px;
   }
   
   #autorotateToggle {
-    top: 80px;
+    top: 60px;
   }
   
   #musicToggle {
-    top: 135px;
+    top: 115px;
   }
   
   #fullscreenToggle {
-    top: 190px;
+    top: 170px;
   }
   
   .close-button {
@@ -1177,48 +1321,6 @@ html, body {
   }
 }
 
-/* ========== ANIMACIONES ADICIONALES ========== */
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-.scenes li.text::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.scenes li.text:hover::before {
-  left: 100%;
-}
-
-/* ========== MEJORAS DE ACCESIBILIDAD ========== */
-*:focus {
-  outline: 2px solid var(--accent-gold);
-  outline-offset: 2px;
-}
-
-button:focus,
-a:focus {
-  outline: 2px solid var(--accent-gold);
-  outline-offset: 3px;
-}
-
 /* ========== SCROLLBAR PERSONALIZADA ========== */
 ::-webkit-scrollbar {
   width: 8px;
@@ -1240,105 +1342,31 @@ a:focus {
   background: linear-gradient(135deg, #ff8053, #0066b2);
 }
 
-/* ========== ESTADOS DE CARGA ========== */
-.loading {
-  animation: spin 1s linear infinite;
+/* ========== ACCESIBILIDAD ========== */
+*:focus {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+button:focus,
+a:focus {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+/* ========== ANIMACIONES ADICIONALES ========== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 1000px 0;
   }
-}
-
-/* ========== EFECTOS DE GLASSMORPHISM ========== */
-.glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-/* ========== TOOLTIPS MEJORADOS ========== */
-[title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px 12px;
-  background: var(--dark-bg);
-  backdrop-filter: blur(15px);
-  color: #fff;
-  font-size: 12px;
-  border-radius: 8px;
-  white-space: nowrap;
-  margin-bottom: 8px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  z-index: 10000;
-  animation: fadeIn 0.2s ease;
 }
 
 /* ========== MODO OSCURO OPTIMIZADO ========== */
 @media (prefers-color-scheme: dark) {
   #watermark-bg {
     opacity: 0.06;
-  }
-  
-  .info-hotspot-text {
-    background: rgba(26, 26, 46, 0.95);
-    color: #fff;
-  }
-  
-  .carrusel-content {
-    background: rgba(26, 26, 46, 0.98);
-  }
-  
-  #carruselTitulo,
-  .swiper-slide p {
-    color: #fff;
-  }
-}
-
-/* ========== OPTIMIZACIÓN DE RENDIMIENTO ========== */
-* {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-/* ========== ESTILOS PARA IMPRESIÓN ========== */
-@media print {
-  #titleBar,
-  #sceneList,
-  #tecnoparque-card,
-  #watermark-footer,
-  #autorotateToggle,
-  #musicToggle,
-  #fullscreenToggle,
-  #sceneListToggle,
-  .viewControlButton,
-  #videoCard,
-  #videoIcon,
-  #bigVideoBackdrop,
-  #bigVideoOverlay,
-  #carruselContainer {
-    display: none !important;
-  }
-  
-  #pano {
-    width: 100%;
-    height: 100vh;
   }
 }
