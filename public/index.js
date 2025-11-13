@@ -309,23 +309,7 @@
     icon.classList.add('info-hotspot-icon');
     iconWrapper.appendChild(icon);
 
-    var titleWrapper = document.createElement('div');
-    titleWrapper.classList.add('info-hotspot-title-wrapper');
-    var title = document.createElement('div');
-    title.classList.add('info-hotspot-title');
-    title.innerHTML = hotspot.title || '';
-    titleWrapper.appendChild(title);
-
-    var closeWrapper = document.createElement('div');
-    closeWrapper.classList.add('info-hotspot-close-wrapper');
-    var closeIcon = document.createElement('img');
-    closeIcon.src = 'img/close.png';
-    closeIcon.classList.add('info-hotspot-close-icon');
-    closeWrapper.appendChild(closeIcon);
-
     header.appendChild(iconWrapper);
-    header.appendChild(titleWrapper);
-    header.appendChild(closeWrapper);
 
     var text = document.createElement('div');
     text.classList.add('info-hotspot-text');
@@ -336,7 +320,7 @@
 
     // Modal para móvil
     var modal = document.createElement('div');
-    modal.innerHTML = wrapper.innerHTML;
+    modal.innerHTML = '<div class="info-hotspot-header">' + header.innerHTML + '</div><div class="info-hotspot-text">' + (hotspot.text || '') + '</div>';
     modal.classList.add('info-hotspot-modal');
     document.body.appendChild(modal);
 
@@ -345,12 +329,32 @@
       modal.classList.toggle('visible');
     };
 
-    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
+    header.addEventListener('click', toggle);
+    
+    // Cerrar al hacer clic en el área del panel (detecta clic cerca de la X)
+    text.addEventListener('click', function(e) {
+      var rect = text.getBoundingClientRect();
+      var clickX = e.clientX - rect.left;
+      var clickY = e.clientY - rect.top;
+      
+      // Si el clic está en la esquina superior derecha (donde está la X)
+      if (clickX > rect.width - 50 && clickY < 50) {
+        toggle();
+      }
+    });
     
     setTimeout(() => {
-      var modalClose = modal.querySelector('.info-hotspot-close-wrapper');
+      var modalClose = modal.querySelector('.info-hotspot-text');
       if (modalClose) {
-        modalClose.addEventListener('click', toggle);
+        modalClose.addEventListener('click', function(e) {
+          var rect = modalClose.getBoundingClientRect();
+          var clickX = e.clientX - rect.left;
+          var clickY = e.clientY - rect.top;
+          
+          if (clickX > rect.width - 50 && clickY < 50) {
+            toggle();
+          }
+        });
       }
     }, 100);
 
