@@ -15,6 +15,13 @@
   --font-main: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Sora', sans-serif;
 }
+html, body {
+font-family: var(--font-main) !important;
+}
+
+* {
+font-family: var(--font-main) !important;
+}
 
 /* ========== RESET Y BASE ========== */
 * {
