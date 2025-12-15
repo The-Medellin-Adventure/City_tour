@@ -571,14 +571,18 @@ html, body {
 
 /* ========== HOTSPOT DE CÁMARA (CON ANIMACIÓN) ========== */
 .camera-hotspot-icon {
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
   border-radius: 50%;
   box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 4px 12px rgba(255, 107, 53, 0.6));
   animation: cameraPulse 2.5s ease-in-out infinite;
+   position: relative;
+transform: translate(-50%, -50%);
+transform-origin: center center;
+pointer-events: auto;
 }
 
 @keyframes cameraPulse {
