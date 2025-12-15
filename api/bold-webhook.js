@@ -1,7 +1,8 @@
 // api/bold-webhook.js
-import { supabaseAdmin } from "../lib/_supabaseClient.js";
+import { supabaseAdmin } from '../lib/_supabaseClient.js';
 import { nanoid } from "nanoid";
 import nodemailer from "nodemailer";
+
 
 /**
  * 🚀 Webhook de Bold
@@ -31,13 +32,12 @@ export default async function handler(req, res) {
 
     // ====================================
     // 2️⃣ Obtener email del cliente
-    // Bold puede enviar el correo en distintos lugares según método de pago
     // ====================================
     const email =
       event.customer?.email ||
       event.data?.customer_email ||
       event.data?.payer?.email ||
-      event.data?.payer_email; // 👈 caso real visto en tus logs
+      event.data?.payer_email;
 
     if (!email) {
       console.error("❌ No se encontró email en el evento:", event);
@@ -57,7 +57,8 @@ export default async function handler(req, res) {
         token,
         email,
         status: "active",
-        expires_at: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(), // válido 7 días
+        type: "single",   // 👈 ahora marcamos que es de un solo uso
+        expires_at: null // 👈 ahora no caduca hasta que se use por primera vez
       })
       .select();
 
@@ -96,7 +97,7 @@ export default async function handler(req, res) {
         <h2>¡Gracias por tu compra!</h2>
         <p>Puedes acceder a tu tour virtual en el siguiente enlace:</p>
         <p><a href="${tourUrl}" target="_blank">${tourUrl}</a></p>
-        <p><b>Importante:</b> este enlace solo se puede abrir en un dispositivo y estará activo durante 7 días.</p>
+        <p><b>Importante:</b> este enlace solo se puede abrir en un dispositivo y estará activo durante 1 hora después de que lo uses por primera vez.</p>
         <br/>
         <p>Si tienes problemas con el acceso, responde a este correo.</p>
       `,
@@ -113,3 +114,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: e.message });
   }
 }
+

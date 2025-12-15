@@ -1,6 +1,7 @@
 // api/diag.js
 import { supabaseAdmin } from '../lib/_supabaseClient.js';
 
+
 export default async function handler(req, res) {
   try {
     const hasUrl = !!process.env.SUPABASE_URL;

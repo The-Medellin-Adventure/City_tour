@@ -1,7 +1,3 @@
-
-
-
-
 window.APP_DATA = {
   "scenes": [
     {
@@ -292,7 +288,7 @@ window.APP_DATA = {
     ]
   },  
 {
- "type": "camera",
+"type": "camera",
     "carrusel": true,
     "image": "img/Camara.png",
     "pitch": -0.1141,
@@ -398,6 +394,12 @@ window.APP_DATA = {
           "pitch": -0.130667924147728,
           "rotation": 0,
           "target": "2-esculturas-y-tradicin"
+        },
+         {
+          "yaw": -0.1240,
+          "pitch": -0.2417,
+          "rotation": 0,
+          "target": "0-plaza-botero-botero"
         }
       ],
 "infoHotspots": [
@@ -755,7 +757,13 @@ window.APP_DATA = {
           "pitch": -0.17417896287664014,
           "rotation": 0,
           "target": "5-antiguo-ferrocarril"
-        }
+        },
+          {
+          "yaw": -1.8206,
+          "pitch": -0.1468,
+          "rotation": 0,
+          "target": "0-plaza-botero-botero"
+        }  
       ],
       
 "infoHotspots": [
@@ -865,7 +873,7 @@ window.APP_DATA = {
           "pitch": -0.4630845139263542,
           "rotation": 0,
           "target": "6-antigua-estacin-medelln"
-        }
+        }          
       ],
 "infoHotspots": [
         {
@@ -940,17 +948,16 @@ window.APP_DATA = {
           "text": "En pleno centro de la ciudad se conserva uno de los íconos históricos más importantes de Medellín: la Antigua Estación del Ferrocarril de Antioquia. Este majestuoso edificio, inaugurado a comienzos del siglo XX, fue la puerta de entrada al progreso y el desarrollo de la región.<br>🏗️ Su arquitectura combina elegancia y solidez, con detalles clásicos que reflejan la grandeza de una época en la que el ferrocarril unió a Antioquia con el resto del país, facilitando el comercio, la cultura y el intercambio de ideas.<br>🌆 Actualmente, la estación hace parte del Complejo Administrativo de La Alpujarra, rodeada de edificios gubernamentales y espacios culturales, convirtiéndose en un lugar ideal para comprender la evolución urbana de Medellín.<br>📸 Para los visitantes, es un escenario perfecto para tomar fotos únicas: un contraste entre la memoria de los antiguos ferrocarriles y la modernidad de la ciudad que creció a su alrededor.<br>💡 Dato curioso: El Ferrocarril de Antioquia fue fundamental para la exportación del café, principal motor económico de la región, y su estación en Medellín es considerada un patrimonio arquitectónico y cultural de la ciudad.."
         },
         {
-          "yaw": 1.9686240729634203,
-          "pitch": -0.9771819737375758,
+          "yaw": 1.5361,
+          "pitch": -0.7933,
           "title": "Palacio de la Justicia José Félix de Restrepo ⚖️",
           "text": "En el corazón de Medellín se levanta el Palacio de la Justicia, un edificio imponente que concentra gran parte de la vida jurídica de la ciudad. Su diseño moderno, con líneas sobrias y firmes, transmite la idea de orden, respeto y equilibrio, valores esenciales en la administración de justicia.<br>👩‍⚖️ Dentro de sus muros funcionan los principales tribunales de la ciudad, donde cada día se toman decisiones que impactan la vida de los ciudadanos y la historia misma de Colombia. <br>🌆 Su ubicación lo convierte en un punto estratégico dentro del recorrido urbano: frente al Parque de las Luces, a pocos pasos de la Plaza de La Alpujarra y rodeado de edificios gubernamentales y culturales, es un sitio ideal para entender cómo la justicia se articula con la vida social y política de Medellín.<br>📸 Para los visitantes, es un lugar perfecto para capturar imágenes que reflejen el contraste entre la seriedad de la justicia y la energía vibrante del centro de la ciudad.<br>💡 Dato curioso: El Palacio lleva el nombre de José Félix de Restrepo, jurista antioqueño del siglo XIX que impulsó la abolición de la esclavitud en Colombia, convirtiéndose en un símbolo de lucha por la libertad y los derechos humanos."
         }
       ]
-    },
+    },  
+
    
 {
-   
-
 "id": "7-alpujarra",
       "name": "Alpujarra",
       "levels": [
@@ -1169,8 +1176,8 @@ window.APP_DATA = {
         {
           "yaw": -0.22817534947905216,
           "pitch": -0.11493432711867158,
-          "rotation": 3.141592653589793,
-          "target": "10-conexin-naturaleza"
+          "rotation": 3.141592653589795,
+          "target": "10-conexion-naturaleza"
         }
       ],
       
@@ -1186,7 +1193,7 @@ window.APP_DATA = {
     {
 
 
-"id": "10-conexin-naturaleza",
+"id": "10-conexion-naturaleza",
       "name": "Conexión Naturaleza",
       "levels": [
         {
@@ -1243,7 +1250,7 @@ window.APP_DATA = {
           "yaw": -0.744500712372604,
           "pitch": 0.31299920259097114,
           "title": "Despierta tus sentidos",
-          "text": "Al entrar, tus pies tocan la arena blanca, cálida y suave, que invita a desconectarte de la rutina. Es un espacio creado para andar sin zapatos, dejar huellas y reconectar con la tierra de forma natural."
+          "text": "Al pasar de la dinámica y vibrante vida del centro de Medellín hacia este rincón especial, sentirás de inmediato un contraste encantador. Dejamos atrás el bullicio de la ciudad y, de repente, encontramos un espacio que nos invita a la calma y la contemplación. <br>Aquí, la arena blanca y suave acaricia tus pies, recordándote que este es un lugar hecho para andar descalzo, liberar tensiones y reencontrarte con lo natural. <br>Entre jardines de bambú, zonas de agua y espacios verdes, cada paso es una experiencia sensorial: el movimiento urbano se transforma en quietud, y la rutina diaria da paso a un momento de juego, descanso y conexión con la tierra.<br> En este parque no solo caminas, despiertas tus sentidos y te regalas la oportunidad de sentir la ciudad de otra manera: más serena, más humana, más cercana a la naturaleza."
         },
         {
           "yaw": 2.5903191843063818,
@@ -1380,7 +1387,6 @@ window.APP_DATA = {
       { "src": "img/epm/EDIFICIO.jpg", "caption": "El Edificio Inteligente de EPM marcó un hito en la historia de Medellín y del país. En su momento fue la construcción más moderna de Colombia y una de las más avanzadas de Latinoamérica, gracias a su diseño arquitectónico vanguardista y a los sistemas tecnológicos integrados que lo convirtieron en un referente internacional." }
     ]
   },
-
   {
     "type": "camera",
     "carrusel": true,
@@ -1396,7 +1402,6 @@ window.APP_DATA = {
     ]
   }
 ],
-     
 
 "linkHotspots": [
         {
@@ -1407,15 +1412,13 @@ window.APP_DATA = {
         }
       ],
       
-
-"infoHotspots": [
-        
+"infoHotspots": [    
         {
           "yaw": -1.0881964642481812,
           "pitch": -0.08079930952018621,
           "title": "Una breve pausa",
-          "text": "Lo más encantador está justo afuera: un entorno lleno de fuentes interactivas, espejos de agua y zonas húmedas que invitan a jugar, refrescarse o simplemente disfrutar."
-        },
+          "text": "Justo al frente se alza el imponente edificio EPM, símbolo de innovación y energía en Medellín. A su costado el Parque de los Pies Descalzos, un refugio urbano que sorprende con espacios únicos como el laberinto de bambú, ideal para perderse entre su frescura y silencio. <br>Detrás, descubrirás unos pozos inspirados en los antiguos baños romanos, diseñados para lavar los pies y reconectar con el agua como parte de una experiencia sensorial. <br>Muy cerca también se encuentra el Museo del Agua, un espacio interactivo que nos recuerda la importancia vital de este recurso y su relación con la vida cotidiana.<br>En este entorno, rodeado de fuentes lúdicas, espejos de agua y zonas húmedas, la invitación es clara: detenerse un momento, refrescarse, jugar o simplemente contemplar cómo la ciudad también sabe regalar instantes de calma y disfrute."
+            },
         {
           "yaw": -2.9044878547184716,
           "pitch": 0.10748410970518307,
@@ -1424,9 +1427,7 @@ window.APP_DATA = {
         }
       ]
     },
-    {
-      
-
+{   
 "id": "13-centro-de-convenciones-y-teatro",
       "name": "Centro de convenciones y Teatro",
       "levels": [
@@ -1454,8 +1455,81 @@ window.APP_DATA = {
         "pitch": -0.18641169752651265,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [],
-      "infoHotspots": [
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.3960,
+    "yaw": -2.7794,
+    "tooltip": "🎭 Teatro Metropolitano José Gutiérrez Gómez",
+    "images": [
+      { "src": "img/Teatro/01cteatro.jpeg", "caption": "Uno de los escenarios más emblemáticos de la ciudad."},
+      { "src": "img/Teatro/02Teatro.jpeg", "caption": "" },
+      { "src": "img/Teatro/02teatropanoram.png", "caption": "En su interior se viven conciertos inolvidables, obras de teatro, festivales culturales y eventos académicos" },
+      { "src": "img/Teatro/03metropolitanomed.jpg", "caption": "" },  
+      { "src": "img/Teatro/258.png", "caption": "Su arquitectura y acústica lo convierten en un lugar mágico para disfrutar el arte en todas sus formas" }   
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  0.0093,
+    "yaw": -1.2577,
+    "tooltip": "🏢Centro de Eventos y Convenciones: Plaza Mayor",
+    "images": [
+      { "src": "img/convenciones/01plazam).png", "caption": "Un espacio versátil y moderno donde suceden ferias internacionales, exposiciones, congresos, conciertos y experiencias gastronómicas."},
+      { "src": "img/convenciones/04plazam.png", "caption": ""},
+      { "src": "img/convenciones/02plazam.png", "caption": "Su interior combina amplitud, diseño y tecnología, ideal para vivir Medellín desde su lado más innovador y vibrante" },
+      { "src": "img/convenciones/03plazam.png", "caption": "" },
+      { "src": "img/convenciones/05plazam.png", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0378,
+    "yaw":-1.5084,
+    "tooltip": "Eventos",
+    "images": [
+      { "src": "img/convenciones/01plazam(1).png", "caption": "Un espacio versátil y moderno donde suceden ferias internacionales, exposiciones, congresos, conciertos y experiencias gastronómicas" },
+      { "src": "img/convenciones/01plazam(2).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(3).png", "caption": "El complejo Plaza Mayor ocupa unos 70 000 m² y recibe más de 1 .5 millones de visitantes al año, distribuidos en unos 500 eventos aproximadamente" },
+      { "src": "img/convenciones/01plazam(4).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(5).png", "caption": "Sumando estos espacios principales, la capacidad máxima combinada podría acercarse o superar los 20.000 asistentes simultáneos." }
+    ]
+  },
+   {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0380,
+    "yaw":1.7301,
+    "tooltip": "Eventos",
+    "images": [
+      { "src": "img/convenciones/01plazam(6).png", "caption": "Considerando que cada pabellón puede recibir entre 2.000 y 5.000 personas, el Gran Salón 3.000, plus otros salones con menores aforos." },
+      { "src": "img/convenciones/01plazam(7).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(8).png", "caption": "La capacidad máxima combinada podría acercarse o superar los 20.000 asistentes simultáneos." },
+      { "src": "img/convenciones/01plazam(9).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(10).png", "caption": "" },
+      { "src": "img/convenciones/01plazam(11).png", "caption": "" }   
+     ]
+  }
+],
+      
+"linkHotspots": [
+       {
+          "yaw":-0.3935,
+          "pitch": -0.4025,
+          "rotation": 0,
+          "target": "14-pueblito-paisa"
+        }
+      ],
+
+"infoHotspots": [
         {
           "yaw": -1.3463471587051483,
           "pitch": 0.0027403894617243907,
@@ -1470,9 +1544,7 @@ window.APP_DATA = {
         }
       ]
     },
-
 {
-
 "id": "14-pueblito-paisa",
       "name": "Pueblito Paisa",
       "levels": [
@@ -1500,8 +1572,95 @@ window.APP_DATA = {
         "pitch": -0.11017891448759443,
         "fov": 1.2812361540040014
       },
-      "linkHotspots": [],
-      "infoHotspots": [
+
+"hotSpots": [
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.0449,
+    "yaw": 2.8445,
+    "tooltip": "Ingreso",
+    "images": [
+      { "src": "img/paisa/natura1.jpg", "caption": "La entrada al Cerro Nutibara ya te envuelve con naturaleza y vistas únicas de la ciudad."},
+      { "src": "img/paisa/natura2.jpg", "caption": "Podrás caminar por sus senderos" },
+      { "src": "img/paisa/natura.jpg", "caption": "Puedes subir caminando por senderos bien señalizados, también es común el ascenso en bicicleta, pero si prefieres algo más cómodo, puedes llegar en carro particular o taxi hasta la cima." }
+    ]
+  },
+{
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  -0.2033,
+    "yaw": 0.3315,
+    "tooltip": "El Pueblito Paisa",
+    "images": [
+      { "src": "img/paisa/IMG.jpg", "caption": ""},
+      { "src": "img/paisa/iglesia.jpg", "caption": ""},
+      { "src": "img/paisa/calle2.jpg", "caption": "" },
+      { "src": "img/paisa/balcones.jpg", "caption": "" },
+      { "src": "img/paisa/casapaisa.jpg", "caption": "" }
+    ]
+  },
+  {
+   "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch":  -0.1462,
+    "yaw": 2.2975,
+    "tooltip": "Cacique Nutibara",
+    "images": [
+      { "src": "img/paisa/Museociudad.jpg", "caption": "Un espacio que narra la transformación de Medellín a través de maquetas, fotos y arte urbano. Ubicado en la cima del cerro, ofrece historia y una vista panorámica espectacular. 🌆📸" },
+      { "src": "img/paisa/cacique.jpg", "caption": "Nutibara fue un líder indígena de la etnia Nutabe, reconocido por su sabiduría y capacidad de diálogo durante la época de la conquista."},
+      { "src": "img/paisa/caciquemural.jpg", "caption": "Gobernaba las tierras del valle de Aburrá y es símbolo de resistencia y dignidad ancestral. Su legado vive en el Cerro Nutibara, que hoy lleva su nombre como homenaje a sus raíces indígenas."}
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": -0.2393,
+    "yaw":0.6810,
+    "tooltip": "Visita y disfruta",
+    "images": [
+      { "src": "img/paisa/Iglesia3.jpg", "caption": "Expresada en iglesias, fiestas patronales y altares en casa, la fé antioqueña refleja una espiritualidad sencilla, fuerte y comunitaria." },
+      { "src": "img/paisa/Iglesia2.jpg", "caption": "La fe ha sido un pilar en la identidad antioqueña, profundamente arraigada en la vida cotidiana, la familia y las tradiciones." },
+      { "src": "img/paisa/balcones.jpg", "caption": "🌸 Balcones coloridos que miran al pasado, adornados con flores y llenos del encanto de los pueblos tradicionales antioqueños. 🏡🌺" },
+      { "src": "img/paisa/calle 1.jpg", "caption": "" },
+      { "src": "img/paisa/calles.jpg", "caption": "Calles empedradas y fachadas coloridas que evocan la vida tranquila de los antiguos pueblos antioqueños, llenos de historia y tradición." },
+      { "src": "img/paisa/fotopaisa.jpg", "caption": "" }
+    ]
+  },
+  {
+    "type": "camera",
+    "carrusel": true,
+    "image": "img/Camara.png",
+    "pitch": 0.2190,
+    "yaw":-0.7734,
+    "tooltip": "Replica Casa Antioqueña",
+    "images": [
+      { "src": "img/paisa/museo2.jpg", "caption": "" },
+      { "src": "img/paisa/museo3.jpg", "caption": "Típica sala antioqueña" },
+      { "src": "img/paisa/0habitacion.jpg", "caption": "Habitación con tejidos elaborados por nuesras madres y abuelas" },
+      { "src": "img/paisa/museo4.jpg", "caption": "Tradición hecha hilo: las mujeres antioqueñas bordaban a mano delicados cuadros en punto de cruz o lomillo, decorando sus hogares con mensajes, flores y escenas cotidianas. Más que adornos, eran símbolos de dedicación, fe y cuidado por el hogar. 🪡💐" },
+      { "src": "img/paisa/0comedor.jpg", "caption": "Comedores grandes, para familias grandes." },
+      { "src": "img/paisa/0cocina.jpg", "caption": "" },
+      { "src": "img/paisa/0corredor.jpg", "caption": "Estas casas eran amplias y ventiladas, con patios centrales, corredores generosos y zonas comunes pensadas para la vida en comunidad. Reflejan una época en la que la arquitectura respondía al clima, la cultura cafetera y el ritmo pausado de la vida rural." },   
+      { "src": "img/paisa/0patio.jpg", "caption": "Las puertas grandes facilitaban el ingreso de animales, herramientas y cargamentos de café, típicos de la vida rural.🌞🐴🌬️" }
+     ]
+  }
+],
+  
+"linkHotspots": [
+      {
+          "yaw": -1.3782,
+          "pitch": -0.1208,
+          "rotation": 0,
+          "target": "12-edificio-inteligente-epm"
+        }
+      ],
+  
+"infoHotspots": [
       {
           "yaw": 0.0099,
           "pitch": -0.3118,
@@ -1519,7 +1678,7 @@ window.APP_DATA = {
   ],
 
 
- "name": "Medellín 360, Vive la Ciudad",
+ "name": "Medellín 360°, Vive la Ciudad",
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": false,
