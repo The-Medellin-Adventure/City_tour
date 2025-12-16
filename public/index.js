@@ -61,9 +61,13 @@
       }
     })
     .catch(err => {
-      console.warn("Error verificando token:", err.message);
-    });
-  }
+  console.error("❌ Error verificando token:", err.message);
+  showErrorMessage(
+    "🚫 Acceso no válido",
+    "Este enlace ya fue utilizado, expiró o se abrió desde otro dispositivo."
+  );
+  ocultarUI();
+});
 
   // ========== FUNCIONES DE UI ==========
   function ocultarUI() {
@@ -369,29 +373,31 @@
   }
 
   // ========== HOTSPOT DE CÁMARA (CON ANIMACIÓN Y FUNCIONAL) ==========
-  function createCameraHotspot(hotspot) {
-    var element = document.createElement('img');
-    element.src = hotspot.image || 'img/Camara.png';
-    element.className = 'camera-hotspot-icon';
-    element.title = hotspot.tooltip || hotspot.title || "Ver galería 📸";
+ function createCameraHotspot(hotspot) {
+  var wrapper = document.createElement('div');
+  wrapper.className = 'hotspot camera-hotspot';
 
-    // Click handler
-    element.addEventListener('click', function (e) {
-      e.stopPropagation();
-      console.log('📸 Clic en cámara:', hotspot.tooltip, 'Imágenes:', hotspot.images ? hotspot.images.length : 0);
-      
-      if (hotspot.carrusel && hotspot.images && hotspot.images.length > 0) {
-        mostrarCarrusel(hotspot.images, hotspot.tooltip || hotspot.title || '');
-      } else if (hotspot.photo) {
-        showImageModal(hotspot.photo, hotspot.title);
-      } else {
-        console.warn('Hotspot de cámara sin imágenes:', hotspot);
-      }
-    });
-    
-    stopTouchAndScrollEventPropagation(element);
-    return element;
-  }
+  var icon = document.createElement('img');
+  icon.src = hotspot.image || 'img/Camara.png';
+  icon.className = 'camera-hotspot-icon';
+  icon.title = hotspot.tooltip || "Ver galería 📸";
+
+  icon.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (hotspot.carrusel && hotspot.images?.length) {
+      mostrarCarrusel(hotspot.images, hotspot.tooltip || hotspot.title || '');
+    } else if (hotspot.photo) {
+      showImageModal(hotspot.photo, hotspot.title);
+    } else {
+      console.warn('Hotspot de cámara sin imágenes:', hotspot);
+    }
+  });
+
+  wrapper.appendChild(icon);
+  stopTouchAndScrollEventPropagation(wrapper);
+  return wrapper;
+}
+
 
   function showImageModal(photoSrc, title) {
     var oldModal = document.getElementById('custom-image-modal');
@@ -443,87 +449,81 @@
 
   // ========== CAMBIO DE ESCENA ==========
   function switchScene(scene) {
-    if (!scene) return;
+  if (!scene) return;
 
-    // Limpiar videos y timers
-    try {
-      if (currentVideoTimeout) { 
-        clearTimeout(currentVideoTimeout); 
-        currentVideoTimeout = null; 
-      }
-      if (smallStartTimeout) { 
-        clearTimeout(smallStartTimeout); 
-        smallStartTimeout = null; 
-      }
-      
-      var smallV = document.getElementById('sceneVideo');
-      if (smallV) { 
-        smallV.pause(); 
-        try { smallV.currentTime = 0; } catch (e) {} 
-      }
-      
-      var bigV = document.getElementById('bigSceneVideo');
-      if (bigV) { 
-        bigV.pause(); 
-        try { bigV.currentTime = 0; } catch (e) {} 
-      }
-      
-      var overlay = document.getElementById('bigVideoOverlay');
-      var backdrop = document.getElementById('bigVideoBackdrop');
-      if (overlay) { 
-        overlay.classList.remove('visible'); 
-        setTimeout(() => { overlay.style.display = 'none'; }, 400);
-      }
-      if (backdrop) { 
-        backdrop.classList.remove('visible'); 
-        setTimeout(() => { backdrop.style.display = 'none'; }, 400);
-      }
-      bigOverlayOpen = false;
-    } catch (e) {
-      console.warn("Error limpiando videos:", e);
+  // ================= LIMPIAR VIDEOS Y TIMERS =================
+  try {
+    if (currentVideoTimeout) {
+      clearTimeout(currentVideoTimeout);
+      currentVideoTimeout = null;
+    }
+    if (smallStartTimeout) {
+      clearTimeout(smallStartTimeout);
+      smallStartTimeout = null;
     }
 
-    stopAutorotate();
-    try {
-      scene.view.setParameters(scene.data.initialViewParameters);
-    } catch (e) {}
-
-    scene.scene.switchTo({
-      transitionDuration: 1000
-    });
-    
-    updateSceneName(scene);
-    updateSceneList(scene);
-    activeView = scene.view;
-    currentScene = scene;
-
-    // Videos
-    showBigOverlayForScene(scene.data.id);
-    updateVideoForScene(scene.data.id);
-
-    // Menú visible solo en primera escena (desktop)
-    if (scene.data && scene.data.id === FIRST_SCENE_ID && window.innerWidth >= 768) {
-      showSceneList();
-    } else {
-      hideSceneList();
+    const smallV = document.getElementById('sceneVideo');
+    if (smallV) {
+      smallV.pause();
+      try { smallV.currentTime = 0; } catch (e) {}
     }
 
-    startAutorotate();
-  }
-
-  function updateSceneName(scene) {
-    if (sceneNameElement) {
-      sceneNameElement.innerHTML = escapeHtml(scene.data.name || 'Medellín 360°');
-      document.title = `${scene.data.name || 'Medellín 360°'} - The Medellin Adventure`;
+    const bigV = document.getElementById('bigSceneVideo');
+    if (bigV) {
+      bigV.pause();
+      try { bigV.currentTime = 0; } catch (e) {}
     }
+
+    const overlay = document.getElementById('bigVideoOverlay');
+    const backdrop = document.getElementById('bigVideoBackdrop');
+
+    if (overlay) {
+      overlay.classList.remove('visible');
+      setTimeout(() => overlay.style.display = 'none', 400);
+    }
+    if (backdrop) {
+      backdrop.classList.remove('visible');
+      setTimeout(() => backdrop.style.display = 'none', 400);
+    }
+
+    bigOverlayOpen = false;
+  } catch (e) {
+    console.warn("Error limpiando videos:", e);
   }
 
-  function updateSceneList(scene) {
-    Array.prototype.forEach.call(sceneElements || [], function (el) {
-      if (!el) return;
-      el.classList.toggle('current', el.getAttribute('data-id') === (scene && scene.data && scene.data.id));
-    });
+  // ================= CAMBIO DE ESCENA =================
+  stopAutorotate();
+
+  try {
+    scene.view.setParameters(scene.data.initialViewParameters);
+  } catch (e) {}
+
+  scene.scene.switchTo({
+    transitionDuration: 1000
+  });
+
+  updateSceneName(scene);
+  updateSceneList(scene);
+
+  activeView = scene.view;
+  currentScene = scene;
+
+  // ================= VIDEO LATERAL (✅ FIX REAL) =================
+  loadSceneVideo(scene.data.id);
+
+  // ================= VIDEO GRANDE (INSTRUCCIONES) =================
+  showBigOverlayForScene(scene.data.id);
+  updateVideoForScene(scene.data.id);
+
+  // ================= MENÚ =================
+  if (scene.data.id === FIRST_SCENE_ID && window.innerWidth >= 768) {
+    showSceneList();
+  } else {
+    hideSceneList();
   }
+
+  startAutorotate();
+}
 
   // ========== VIDEO GRANDE (OVERLAY) - AL INICIO ==========
   function showBigOverlayForScene(sceneId) {
