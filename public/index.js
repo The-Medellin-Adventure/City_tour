@@ -12,33 +12,56 @@
   var data = window.APP_DATA || {};
 
   // ========== CONFIGURACIÓN INICIAL ==========
-  window.token = new URLSearchParams(window.location.search).get("token");
-  const FIRST_SCENE_ID = "0-plaza-botero-botero";
+  /* ================== INICIALIZACIÓN BASE ================== */
 
-  var panoElement = document.querySelector('#pano');
-  var sceneNameElement = document.getElementById('sceneTitle');
-  var sceneListElement = document.querySelector('#sceneList');
-  var sceneElements = document.querySelectorAll('#sceneList .scene');
-  var sceneListToggleElement = document.querySelector('#sceneListToggle');
-  var autorotateToggleElement = document.querySelector('#autorotateToggle');
-  var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
-  var musicToggleElement = document.querySelector('#musicToggle');
+// Token desde la URL
+window.token = new URLSearchParams(window.location.search).get("token");
 
-  var viewerOpts = {
-    controls: {
-      mouseViewMode: (data.settings && data.settings.mouseViewMode) || 'drag'
-    }
-  };
-  var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
-  window.viewer = viewer;
+// Escena inicial
+const FIRST_SCENE_ID = "0-plaza-botero-botero";
 
-  var currentSwiper = null;
-  var activeView = null;
-  var currentScene = null;
-  var currentVideoSceneId = null;
-  var currentVideoTimeout = null;
-  var bigOverlayOpen = false;
-  var smallStartTimeout = null;
+// Elementos base del DOM
+var panoElement = document.getElementById('pano');
+var sceneNameElement = document.getElementById('sceneTitle');
+var sceneListElement = document.getElementById('sceneList');
+var sceneElements = document.querySelectorAll('#sceneList .scene');
+var sceneListToggleElement = document.getElementById('sceneListToggle');
+var autorotateToggleElement = document.getElementById('autorotateToggle');
+var fullscreenToggleElement = document.getElementById('fullscreenToggle');
+var musicToggleElement = document.getElementById('musicToggle');
+
+// 🔴 PROTECCIÓN CRÍTICA: si #pano no existe, abortar
+if (!panoElement) {
+  console.error('❌ No se encontró el contenedor #pano');
+  throw new Error('Contenedor pano inexistente');
+}
+
+// 🔴 PROTECCIÓN CRÍTICA: data debe existir
+if (typeof data === 'undefined' || !data.scenes) {
+  console.error('❌ El objeto data no existe o está vacío');
+  throw new Error('Data no cargada');
+}
+
+// Opciones del viewer
+var viewerOpts = {
+  controls: {
+    mouseViewMode: (data.settings && data.settings.mouseViewMode) || 'drag'
+  }
+};
+
+// ✅ CREACIÓN REAL DEL VIEWER
+var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
+window.viewer = viewer;
+
+// ================== ESTADO GLOBAL ==================
+var currentSwiper = null;
+var activeView = null;
+var currentScene = null;
+var currentVideoSceneId = null;
+var currentVideoTimeout = null;
+var bigOverlayOpen = false;
+var smallStartTimeout = null;
+
 
   // ========== VERIFICACIÓN DE TOKEN ==========
   if (window.token) {
