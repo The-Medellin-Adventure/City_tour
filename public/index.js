@@ -34,9 +34,14 @@
 
   function hidePremiumLoader() {
     const loader = document.getElementById('premiumLoader');
-    if (!loader) return;
-    loader.classList.add('hidden');
-    setTimeout(() => { loader.style.display = 'none'; }, 700);
+    if (loader) {
+      loader.classList.add('hidden');
+      setTimeout(() => { loader.style.display = 'none'; }, 700);
+    }
+    // Intenta iniciar la música al comenzar el tour. En algunos celulares
+    // el navegador solo permite audio después del primer toque del usuario;
+    // por eso también queda activado el inicio con la primera interacción.
+    if (typeof startTourMusic === 'function') startTourMusic();
   }
 
   function showPremiumLoader(message) {
@@ -528,23 +533,50 @@
   }
 
   var bgMusic = document.getElementById('bg-music');
-  if (musicToggleElement && bgMusic) {
-    bgMusic.volume = 0.3;
-    setTimeout(() => {
-      bgMusic.play().then(() => {
-        musicToggleElement.classList.remove("off");
-      }).catch(() => {
-        musicToggleElement.classList.add("off");
-      });
-    }, 500);
-    
-    musicToggleElement.addEventListener('click', () => {
-      if (bgMusic.paused) {
-        bgMusic.play().catch(() => {});
+  var userStoppedMusic = false;
+
+  function startTourMusic() {
+    if (!musicToggleElement || !bgMusic || userStoppedMusic) return;
+    bgMusic.volume = 0.26;
+    var playPromise = bgMusic.play();
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise.then(() => {
         musicToggleElement.classList.remove('off');
+        musicToggleElement.classList.add('enabled');
+      }).catch(() => {
+        // Normal en iPhone/Android hasta que el usuario toque la pantalla.
+        musicToggleElement.classList.add('off');
+        musicToggleElement.classList.remove('enabled');
+      });
+    }
+  }
+
+  // Intenta iniciar al cargar el tour y también con el primer toque/clic real del visitante.
+  if (musicToggleElement && bgMusic) {
+    bgMusic.volume = 0.26;
+
+    setTimeout(startTourMusic, 700);
+
+    const startMusicOnFirstInteraction = () => {
+      startTourMusic();
+      document.removeEventListener('click', startMusicOnFirstInteraction, true);
+      document.removeEventListener('touchstart', startMusicOnFirstInteraction, true);
+      document.removeEventListener('pointerdown', startMusicOnFirstInteraction, true);
+    };
+    document.addEventListener('click', startMusicOnFirstInteraction, true);
+    document.addEventListener('touchstart', startMusicOnFirstInteraction, true);
+    document.addEventListener('pointerdown', startMusicOnFirstInteraction, true);
+
+    musicToggleElement.addEventListener('click', (event) => {
+      event.stopPropagation();
+      if (bgMusic.paused) {
+        userStoppedMusic = false;
+        startTourMusic();
       } else {
+        userStoppedMusic = true;
         bgMusic.pause();
         musicToggleElement.classList.add('off');
+        musicToggleElement.classList.remove('enabled');
       }
     });
   }
