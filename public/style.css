@@ -1479,3 +1479,185 @@ ul.scenes,.scenes{
   #videoIcon::after{font-size:10.8px!important;}
   #videoCard{right:54px!important;width:100px!important;}
 }
+
+/* =========================================================
+   FIX REAL 2026: ICONOS LIMPIOS + MENU COMPACTO PREMIUM
+   Soluciona iconos extraños/blancos y exceso de espacio.
+========================================================= */
+
+/* Controles derechos: dejamos de depender de imágenes PNG/JPG para evitar cuadros blancos */
+#autorotateToggle,#musicToggle,#fullscreenToggle,#sceneListToggle{
+  background:linear-gradient(145deg,rgba(18,29,42,.78),rgba(45,61,77,.58))!important;
+  border:1px solid rgba(229,213,173,.32)!important;
+  box-shadow:0 12px 28px rgba(6,14,23,.28), inset 0 1px 0 rgba(255,255,255,.12)!important;
+  color:#F7F2EA!important;
+  overflow:hidden!important;
+}
+#autorotateToggle .icon,#musicToggle .icon,#fullscreenToggle .icon,#sceneListToggle .icon{
+  display:none!important;
+}
+#sceneListToggle::before,
+#autorotateToggle::before,
+#musicToggle::before,
+#fullscreenToggle::before{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  height:100%!important;
+  font-family:Inter, Sora, Arial, sans-serif!important;
+  font-weight:800!important;
+  color:#F7F2EA!important;
+  text-shadow:0 2px 7px rgba(0,0,0,.32)!important;
+  line-height:1!important;
+}
+#sceneListToggle::before{content:"☰"!important;font-size:24px!important;letter-spacing:-2px!important;}
+#sceneListToggle.enabled::before{content:"‹"!important;font-size:34px!important;}
+#autorotateToggle::before{content:"↻"!important;font-size:29px!important;}
+#musicToggle::before{content:"♪"!important;font-size:28px!important;}
+#musicToggle.off::before{content:"♪"!important;opacity:.45!important;}
+#fullscreenToggle::before{content:"⛶"!important;font-size:25px!important;}
+#autorotateToggle.enabled{
+  border-color:rgba(203,176,120,.58)!important;
+  box-shadow:0 14px 34px rgba(6,14,23,.30), 0 0 0 3px rgba(203,176,120,.12)!important;
+}
+
+/* Posiciones limpias de los controles derechos */
+#autorotateToggle{top:82px!important;right:18px!important;z-index:22000!important;display:flex!important;opacity:1!important;visibility:visible!important;}
+#musicToggle{top:142px!important;right:18px!important;z-index:21990!important;display:flex!important;opacity:1!important;visibility:visible!important;}
+#fullscreenToggle{top:202px!important;right:18px!important;z-index:21980!important;display:flex!important;opacity:1!important;visibility:visible!important;}
+
+/* Hotspots de información: más finos y menos raros */
+.info-hotspot-header{
+  background:rgba(18,29,42,.70)!important;
+  border:1px solid rgba(229,213,173,.42)!important;
+  box-shadow:0 10px 22px rgba(6,14,23,.26), inset 0 1px 0 rgba(255,255,255,.10)!important;
+}
+.info-hotspot-header::before{
+  content:"i"!important;
+  font-family:Georgia,serif!important;
+  color:#F7F2EA!important;
+}
+
+/* Menú lateral: listado tipo botones más junto, elegante y sin tanto aire */
+#sceneList{
+  width:304px!important;
+  left:-324px!important;
+  top:78px!important;
+  padding:14px!important;
+  max-height:calc(100vh - 170px)!important;
+  background:linear-gradient(160deg,rgba(16,27,40,.86),rgba(31,45,58,.76))!important;
+  border-right:1px solid rgba(203,176,120,.28)!important;
+}
+#sceneList.enabled{left:0!important;}
+.menu-header{
+  margin-bottom:8px!important;
+  padding-bottom:10px!important;
+}
+.menu-header h2{
+  font-size:19px!important;
+  margin:0!important;
+  line-height:1.05!important;
+}
+.menu-header h2::after{
+  font-size:8px!important;
+  margin-top:4px!important;
+  letter-spacing:.10em!important;
+}
+.menu-subtitle{
+  font-size:11.5px!important;
+  margin-top:4px!important;
+}
+ul.scenes,.scenes{
+  gap:4px!important;
+  row-gap:4px!important;
+}
+.scenes li.text{
+  min-height:34px!important;
+  height:auto!important;
+  padding:8px 30px 8px 12px!important;
+  border-radius:11px!important;
+  font-size:12.8px!important;
+  line-height:1.08!important;
+  margin:0!important;
+  background:rgba(247,242,234,.07)!important;
+  border:1px solid rgba(247,242,234,.105)!important;
+  border-left:2px solid transparent!important;
+  box-shadow:none!important;
+}
+.scenes li.text::after{
+  right:10px!important;
+  font-size:16px!important;
+  opacity:.55!important;
+}
+.scenes .scene.current li.text{
+  background:linear-gradient(90deg,rgba(203,176,120,.24),rgba(247,242,234,.07))!important;
+  border-left-color:#CBB078!important;
+}
+.instructions-btn{
+  min-height:34px!important;
+  margin-bottom:3px!important;
+  padding-top:8px!important;
+  padding-bottom:8px!important;
+}
+
+/* Video guía separado de controles derechos */
+#videoIcon{
+  right:88px!important;
+  bottom:80px!important;
+}
+#videoCard{
+  right:88px!important;
+  bottom:76px!important;
+}
+
+@media(max-width:640px){
+  #sceneListToggle,#autorotateToggle,#musicToggle,#fullscreenToggle{
+    width:42px!important;
+    height:42px!important;
+    border-radius:14px!important;
+  }
+  #sceneListToggle{top:10px!important;left:10px!important;}
+  #autorotateToggle{top:62px!important;right:8px!important;}
+  #musicToggle{top:110px!important;right:8px!important;}
+  #fullscreenToggle{top:158px!important;right:8px!important;}
+  #sceneListToggle::before{font-size:21px!important;}
+  #sceneListToggle.enabled::before{font-size:30px!important;}
+  #autorotateToggle::before{font-size:25px!important;}
+  #musicToggle::before{font-size:24px!important;}
+  #fullscreenToggle::before{font-size:22px!important;}
+
+  #sceneList{
+    top:62px!important;
+    width:78vw!important;
+    max-width:292px!important;
+    left:-82vw!important;
+    padding:11px!important;
+    max-height:calc(100vh - 120px)!important;
+    border-radius:0 18px 18px 0!important;
+  }
+  #sceneList.enabled{left:0!important;}
+  .menu-header{margin-bottom:7px!important;padding-bottom:8px!important;}
+  .menu-header h2{font-size:16.5px!important;}
+  .menu-subtitle{font-size:11px!important;}
+  ul.scenes,.scenes{gap:3px!important;row-gap:3px!important;}
+  .scenes li.text{
+    min-height:30px!important;
+    padding:7px 28px 7px 10px!important;
+    border-radius:10px!important;
+    font-size:11.8px!important;
+    line-height:1.05!important;
+  }
+  .scenes li.text::after{font-size:14px!important;right:9px!important;}
+  .instructions-btn{min-height:30px!important;margin-bottom:2px!important;}
+
+  #videoIcon{
+    right:56px!important;
+    bottom:70px!important;
+    min-width:74px!important;
+  }
+  #videoCard{
+    right:56px!important;
+    bottom:70px!important;
+  }
+}
