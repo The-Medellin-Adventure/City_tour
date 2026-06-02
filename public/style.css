@@ -330,3 +330,66 @@ border-bottom:
 
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; }
+
+
+/* ===== PARCHE VISUAL PROFESIONAL 2026 ===== */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background:
+radial-gradient(circle at top right, rgba(255,215,0,.12), transparent 35%),
+radial-gradient(circle at bottom left, rgba(0,174,255,.10), transparent 35%);
+z-index:1;
+}
+
+#titleBar{
+backdrop-filter:blur(18px)!important;
+background:rgba(10,20,35,.45)!important;
+border-bottom:1px solid rgba(255,255,255,.12)!important;
+}
+
+#sceneList{
+background:rgba(10,20,35,.88)!important;
+backdrop-filter:blur(22px)!important;
+}
+
+#sceneList .scene{
+border-radius:14px!important;
+transition:.25s!important;
+}
+
+#sceneList .scene:hover{
+transform:translateX(4px)!important;
+}
+
+.camera-hotspot-icon{
+filter:drop-shadow(0 0 12px rgba(255,215,0,.7));
+transition:.25s;
+}
+
+.camera-hotspot-icon:hover{
+transform:scale(1.15);
+}
+
+#sceneListToggle,
+#autorotateToggle,
+#musicToggle,
+#fullscreenToggle{
+box-shadow:0 10px 30px rgba(0,0,0,.35)!important;
+}
+
+#sceneTitle,
+#sceneList,
+.scene,
+.watermark-text,
+.info-hotspot-text,
+.info-hotspot-header,
+h1,h2,h3,h4,h5,h6,p,span,a{
+color:#fff!important;
+}
+
+@media (max-width:768px){
+#sceneTitle{font-size:18px!important;}
+}
