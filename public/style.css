@@ -916,3 +916,277 @@ body::before{
   #watermark-footer{display:none!important;}
   #videoCard{width:150px!important;}
 }
+
+/* =========================================================
+   AJUSTE FINAL UI/UX - PREMIUM SUAVE RESPONSIVE
+   Corrige: iconos inferiores invisibles, video tapando controles,
+   info-hotspots extraños y visual móvil compacta.
+========================================================= */
+
+/* 1) Iconos inferiores visibles: la regla global .icon los estaba ocultando */
+.viewControlButton .icon{
+  display:block!important;
+  opacity:.92!important;
+  width:24px!important;
+  height:24px!important;
+  object-fit:contain!important;
+}
+.viewControlButton{
+  z-index:1050!important;
+  background:rgba(17,28,41,.54)!important;
+  border:1px solid rgba(246,241,232,.22)!important;
+  box-shadow:0 12px 30px rgba(8,18,30,.30), inset 0 1px 0 rgba(255,255,255,.09)!important;
+}
+.viewControlButton:hover{
+  background:rgba(216,195,145,.22)!important;
+}
+
+/* 2) Video más editorial y menos invasivo en escritorio */
+#videoCard{
+  width:clamp(210px,18vw,260px)!important;
+  right:22px!important;
+  bottom:82px!important;
+  z-index:1040!important;
+  border-radius:22px!important;
+}
+#videoCard video{
+  max-height:min(58vh,520px)!important;
+  object-fit:cover!important;
+}
+#videoIcon{
+  right:22px!important;
+  bottom:82px!important;
+  z-index:1300!important;
+}
+
+/* 3) Hotspots de información limpios: círculo premium con letra i */
+.info-hotspot-header{
+  width:50px!important;
+  height:50px!important;
+  min-width:50px!important;
+  min-height:50px!important;
+  max-width:50px!important;
+  max-height:50px!important;
+  border-radius:999px!important;
+  background:rgba(17,28,41,.68)!important;
+  border:1px solid rgba(216,195,145,.42)!important;
+  box-shadow:0 0 0 4px rgba(216,195,145,.08), 0 12px 24px rgba(8,18,30,.26)!important;
+  position:relative!important;
+}
+.info-hotspot-icon-wrapper,
+.info-hotspot-icon{
+  display:none!important;
+}
+.info-hotspot-header::before{
+  content:"i"!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  height:100%!important;
+  font-family:Georgia,serif!important;
+  font-size:28px!important;
+  font-style:italic!important;
+  font-weight:700!important;
+  color:#F6F1E8!important;
+  line-height:1!important;
+  text-shadow:0 2px 6px rgba(0,0,0,.28)!important;
+}
+.info-hotspot-header:hover{
+  background:rgba(34,51,71,.78)!important;
+  border-color:rgba(216,195,145,.60)!important;
+  transform:scale(1.06)!important;
+}
+
+/* 4) Iconos de cámara y link más proporcionados */
+.camera-hotspot{width:60px!important;height:60px!important;margin:-30px 0 0 -30px!important;}
+.camera-hotspot-icon{
+  width:60px!important;
+  height:60px!important;
+  padding:7px!important;
+  box-shadow:0 0 0 5px rgba(200,169,106,.075),0 0 18px rgba(200,169,106,.28),0 12px 22px rgba(8,18,30,.24)!important;
+}
+.link-hotspot{width:62px!important;height:62px!important;margin:-31px 0 0 -31px!important;}
+.link-hotspot-tooltip{font-size:12.5px!important;padding:8px 14px!important;}
+
+/* 5) Menú lateral menos pesado y con scroll real */
+#sceneList{
+  max-height:calc(100vh - 230px)!important;
+  overflow-y:auto!important;
+  scrollbar-width:thin!important;
+}
+.scenes li.text{
+  min-height:44px!important;
+  display:flex!important;
+  align-items:center!important;
+}
+
+@media(min-width:901px){
+  /* Evita que la tarjeta de video choque con controles de navegación inferiores */
+  .viewControlButton{bottom:24px!important;}
+  #watermark-footer{z-index:1030!important;}
+  #tecnoparque-card{z-index:1031!important;}
+}
+
+/* ====================== MÓVIL / CELULAR ====================== */
+@media(max-width:640px){
+  body::before{
+    background:linear-gradient(180deg,rgba(13,23,35,.28),transparent 30%,rgba(13,23,35,.22))!important;
+  }
+
+  /* Barra superior compacta */
+  #titleBar{
+    top:10px!important;
+    left:66px!important;
+    width:calc(100vw - 76px)!important;
+    height:46px!important;
+    min-width:0!important;
+    max-width:none!important;
+    padding:0 12px!important;
+    border-radius:16px!important;
+  }
+  .title-container{gap:8px!important;min-width:0!important;}
+  .title-logo{width:28px!important;height:28px!important;flex:0 0 auto!important;}
+  #sceneTitle{
+    font-size:15.5px!important;
+    line-height:1.05!important;
+    white-space:normal!important;
+    overflow:hidden!important;
+    display:-webkit-box!important;
+    -webkit-line-clamp:2!important;
+    -webkit-box-orient:vertical!important;
+  }
+  #sceneTitle::after{display:none!important;}
+
+  /* Botones laterales más pequeños y sin amontonarse */
+  #sceneListToggle,#autorotateToggle,#musicToggle,#fullscreenToggle{
+    width:46px!important;
+    height:46px!important;
+    border-radius:15px!important;
+  }
+  #sceneListToggle{top:10px!important;left:10px!important;}
+  #autorotateToggle{top:74px!important;right:10px!important;}
+  #musicToggle{top:130px!important;right:10px!important;}
+  #fullscreenToggle{top:186px!important;right:10px!important;}
+  #sceneListToggle .icon,#autorotateToggle .icon,#musicToggle .icon,#fullscreenToggle .icon{
+    width:24px!important;height:24px!important;
+  }
+
+  /* Menú móvil: panel limpio, no pantalla completa fea */
+  #sceneList{
+    top:66px!important;
+    left:-86vw!important;
+    width:82vw!important;
+    max-width:320px!important;
+    height:auto!important;
+    max-height:calc(100vh - 142px)!important;
+    padding:16px!important;
+    border-radius:0 22px 22px 0!important;
+    background:linear-gradient(160deg,rgba(17,28,41,.86),rgba(34,51,71,.76))!important;
+    box-shadow:18px 0 50px rgba(8,18,30,.38)!important;
+  }
+  #sceneList.enabled{left:0!important;}
+  .menu-header{margin-bottom:12px!important;padding-bottom:12px!important;}
+  .menu-header h2{font-size:18px!important;line-height:1.1!important;}
+  .menu-header h2::after{font-size:9px!important;margin-top:5px!important;}
+  .menu-subtitle{font-size:12px!important;}
+  .scenes{gap:8px!important;}
+  .scenes li.text{
+    min-height:40px!important;
+    padding:11px 34px 11px 13px!important;
+    border-radius:13px!important;
+    font-size:13px!important;
+    line-height:1.15!important;
+  }
+  .scenes li.text::after{right:12px!important;font-size:18px!important;}
+
+  /* Mantener información de empresa en celular, pero compacta */
+  #watermark-footer{
+    display:flex!important;
+    left:10px!important;
+    bottom:10px!important;
+    width:186px!important;
+    min-height:58px!important;
+    padding:9px!important;
+    border-radius:17px!important;
+    gap:8px!important;
+    z-index:1025!important;
+  }
+  .footer-logo{width:38px!important;height:38px!important;border-radius:12px!important;}
+  .brand-name{font-size:11.5px!important;line-height:1.05!important;}
+  .brand-subtitle{display:none!important;}
+  .web-link{display:none!important;}
+  .whatsapp-link{font-size:10.5px!important;line-height:1!important;}
+  .whatsapp-icon{width:11px!important;height:11px!important;}
+  #tecnoparque-card{display:none!important;}
+
+  /* Video guía compacto para no tapar hotspots */
+  #videoCard{
+    width:116px!important;
+    right:10px!important;
+    bottom:10px!important;
+    border-radius:18px!important;
+    padding:4px!important;
+    z-index:1024!important;
+  }
+  #videoCard video{
+    border-radius:14px!important;
+    max-height:210px!important;
+  }
+  #videoControls{padding:22px 5px 6px!important;gap:4px!important;}
+  #videoControls button{
+    font-size:12px!important;
+    padding:5px 7px!important;
+  }
+  #videoIcon{right:10px!important;bottom:10px!important;padding:12px 14px!important;font-size:20px!important;}
+
+  /* Hotspots más pequeños: no se montan tanto en pantalla vertical */
+  .camera-hotspot{width:46px!important;height:46px!important;margin:-23px 0 0 -23px!important;}
+  .camera-hotspot-icon{width:46px!important;height:46px!important;padding:5px!important;}
+  .info-hotspot-header{width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;max-width:42px!important;max-height:42px!important;}
+  .info-hotspot-header::before{font-size:23px!important;}
+  .link-hotspot{width:48px!important;height:48px!important;margin:-24px 0 0 -24px!important;}
+  .link-hotspot-tooltip{
+    top:52px!important;
+    max-width:160px!important;
+    white-space:normal!important;
+    text-align:center!important;
+    font-size:10.5px!important;
+    line-height:1.1!important;
+    padding:6px 10px!important;
+  }
+
+  /* En móvil los botones inferiores no aportan y causan ruido visual */
+  .viewControlButton{display:none!important;}
+
+  /* Modal de info realmente usable en móvil */
+  .info-hotspot-modal{
+    padding:14px!important;
+    z-index:16000!important;
+  }
+  .info-hotspot-modal.visible{display:flex!important;}
+  .info-hotspot-modal .info-hotspot-header{display:none!important;}
+  .info-hotspot-modal .info-hotspot-text{
+    display:block!important;
+    position:relative!important;
+    top:auto!important;left:auto!important;margin:0!important;
+    transform:none!important;
+    opacity:1!important;
+    width:min(92vw,380px)!important;
+    max-width:92vw!important;
+    max-height:76vh!important;
+    overflow-y:auto!important;
+    padding:20px!important;
+    border-radius:20px!important;
+    pointer-events:auto!important;
+  }
+}
+
+/* Pantallas muy angostas */
+@media(max-width:380px){
+  #watermark-footer{width:168px!important;}
+  .brand-name{font-size:10.5px!important;}
+  .whatsapp-link{font-size:9.8px!important;}
+  #videoCard{width:104px!important;}
+  #sceneList{width:84vw!important;left:-88vw!important;}
+}
