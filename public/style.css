@@ -20,22 +20,72 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: linear-gra
   backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); box-shadow: var(--shadow);
   cursor: pointer; z-index: 1100; transition: var(--transition); display: flex; align-items: center; justify-content: center;
 }
-#sceneListToggle { top: 10px; left: 10px; }
-#autorotateToggle { top: 70px; right: 20px; }
-#musicToggle { top: 140px; right: 20px; }
-#fullscreenToggle { top: 210px; right: 20px; }
+.control-button{
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.15);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:all .3s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+}
+
+.control-button:hover{
+    transform:translateY(-3px) scale(1.05);
+
+    background:rgba(255,255,255,.18);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+}
 #sceneListToggle:hover, #autorotateToggle:hover, #musicToggle:hover, #fullscreenToggle:hover {
   transform: scale(1.1); background: rgba(30,40,60,0.95); box-shadow: 0 8px 30px rgba(255,215,0,0.4); border-color: var(--gold);
 }
-.icon { width: 28px; height: 28px; display: none; }
-#sceneListToggle .icon.off, #musicToggle .icon.on, #fullscreenToggle .icon.off { display: block; }
-#sceneListToggle.enabled .icon.on, #autorotateToggle.enabled .icon.on, #musicToggle.off .icon.off, #fullscreenToggle.enabled .icon.on { display: block; }
-#sceneListToggle.enabled .icon.off, #autorotateToggle.enabled .icon.off, #musicToggle.off .icon.on, #fullscreenToggle.enabled .icon.off { display: none; }
+.icon {
+    width: 28px;
+    height: 28px;
+    display: none;
+}
+
+#sceneListToggle .icon.off,
+#musicToggle .icon.on,
+#fullscreenToggle .icon.off {
+    display: block;
+}
+
+#sceneListToggle.enabled .icon.on,
+#autorotateToggle.enabled .icon.on,
+#musicToggle.off .icon.off,
+#fullscreenToggle.enabled .icon.on {
+    display: block;
+}
+
+#sceneListToggle.enabled .icon.off,
+#autorotateToggle.enabled .icon.off,
+#musicToggle.off .icon.on,
+#fullscreenToggle.enabled .icon.off {
+    display: none;
+}
 
 /* BARRA TITULO */
 #titleBar {
   position: fixed; top: 0; left: 70px; right: 0; height: 50px; 
-  background: linear-gradient(180deg, rgba(0,20,40,0.75) 0%, rgba(0,20,40,0) 100%);
+ background:
+rgba(0,0,0,.25);
+
+backdrop-filter:
+blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
   backdrop-filter: blur(15px); z-index: 1000; display: flex; align-items: center; padding-left: 20px;
 }
 .title-container { display: flex; align-items: center; gap: 12px; }
@@ -46,9 +96,28 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: linear-gra
 /* MENU LATERAL */
 #sceneList {
   position: fixed; top: 70px; left: -320px; width: 320px; max-height: calc(100vh - 320px); overflow-y: auto;
-  background: linear-gradient(135deg, rgba(255,107,53,0.95) 0%, rgba(0,78,137,0.95) 100%);
+  background: rgba(15,23,42,.92); backdrop-filter:blur(30px); border-right:1px solid rgba(255,255,255,.08);
   backdrop-filter: blur(20px); border-radius: 0 20px 20px 0; box-shadow: 8px 0 40px rgba(0,0,0,0.4);
   padding: 24px 20px; z-index: 900; transition: left 0.4s ease; border: 1px solid rgba(255,255,255,0.1);
+}
+#sceneList .scene{
+    border-radius:14px;
+
+    margin-bottom:10px;
+
+    padding:14px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    transition:.25s;
+}
+
+#sceneList .scene:hover{
+    background:
+    rgba(255,255,255,.12);
+
+    transform:translateX(4px);
 }
 #sceneList.enabled { left: 0; }
 #sceneList::-webkit-scrollbar { width: 6px; }
