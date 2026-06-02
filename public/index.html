@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" href="img/logo.png">
 
 <link rel="stylesheet" href="vendor/reset.min.css">
-<link rel="stylesheet" href="style.css?v=soft-premium-final-responsive-2026-06-02-v3">
+<link rel="stylesheet" href="style.css?v=performance-premium-mobile-2026-v1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 <!-- Google Fonts - Moderna y Profesional -->
@@ -22,6 +22,17 @@
 <body class="multiple-scenes view-control-buttons">
 
 <div id="pano"></div>
+<!-- Pantalla inicial premium de carga -->
+<div id="premiumLoader" aria-live="polite">
+  <div class="premium-loader-card">
+    <img src="img/logo.png" alt="The Medellin Adventure" class="premium-loader-logo">
+    <div class="premium-loader-kicker">Premium 360° Experience</div>
+    <div class="premium-loader-title">Preparando tu recorrido</div>
+    <div class="premium-loader-subtitle">Cargando solo lo necesario para una experiencia móvil más rápida.</div>
+    <div class="premium-loader-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
 
 <!-- Overlay de error -->
 <div id="errorOverlay" style="display: none;"></div>
@@ -162,7 +173,7 @@
 
 <!-- Tarjeta de video flotante -->
 <div id="videoCard">
-  <video id="sceneVideo" playsinline muted>
+  <video id="sceneVideo" playsinline muted preload="none">
     <source src="" type="video/mp4">
   </video>
   <div id="videoControls">
@@ -177,7 +188,7 @@
 <!-- Overlay de video grande -->
 <div id="bigVideoBackdrop"></div>
 <div id="bigVideoOverlay">
-  <video id="bigSceneVideo" playsinline muted>
+  <video id="bigSceneVideo" playsinline muted preload="none">
     <source src="" type="video/mp4">
   </video>
   <div id="bigVideoControls">

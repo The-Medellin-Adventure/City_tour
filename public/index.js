@@ -32,6 +32,28 @@
   var bigOverlayOpen = false;
   var smallStartTimeout = null;
 
+  function hidePremiumLoader() {
+    const loader = document.getElementById('premiumLoader');
+    if (!loader) return;
+    loader.classList.add('hidden');
+    setTimeout(() => { loader.style.display = 'none'; }, 700);
+  }
+
+  function showPremiumLoader(message) {
+    const loader = document.getElementById('premiumLoader');
+    if (!loader) return;
+    const title = loader.querySelector('.premium-loader-title');
+    if (title && message) title.textContent = message;
+    loader.style.display = 'flex';
+    loader.classList.remove('hidden');
+  }
+
+  function unloadVideoElement(videoEl) {
+    if (!videoEl) return;
+    try { videoEl.pause(); } catch (e) {}
+    try { videoEl.removeAttribute('src'); videoEl.load(); } catch (e) {}
+  }
+
   // ========== VERIFICACIÓN TOKEN ==========
   if (window.token) {
     fetch(`https://citytour360.vercel.app/api/verify-token?token=${window.token}`, { 
@@ -44,16 +66,19 @@
         ocultarUI();
       } else {
         mostrarUI();
+        setTimeout(hidePremiumLoader, 1200);
       }
     })
     .catch(err => {
       console.error("Error verificando token:", err);
       showErrorMessage("🚫 Error de Acceso", "No se pudo verificar el token");
       ocultarUI();
+      hidePremiumLoader();
     });
   } else {
     showErrorMessage("🚫 Token Requerido", "Necesitas un token válido");
     ocultarUI();
+    hidePremiumLoader();
   }
 
   function ocultarUI() {
@@ -310,7 +335,8 @@
     } catch (e) {}
     
     // Cambiar escena
-    scene.scene.switchTo({ transitionDuration: 1000 });
+    showPremiumLoader('Cargando destino');
+    scene.scene.switchTo({ transitionDuration: 700 });
     updateSceneName(scene);
     updateSceneList(scene);
     activeView = scene.view;
@@ -318,14 +344,15 @@
     
     try { scene.view.setParameters(scene.data.initialViewParameters); } catch (e) {}
     
-    // Videos
+    // Videos: modo Performance Mobile. No descargamos videos automáticamente.
     updateVideoForScene(scene.data.id);
-    showBigOverlayForScene(scene.data.id);
     
     // Menú
     if (scene.data.id === FIRST_SCENE_ID && window.innerWidth >= 768) {
       sceneListElement.classList.add('enabled');
     }
+
+    setTimeout(hidePremiumLoader, 900);
   }
 
   // ========== VIDEO GRANDE (INSTRUCCIONES) ==========
@@ -379,9 +406,10 @@
         backdrop.style.display = "none";
       }, 400);
       try { bigVideo.pause(); bigVideo.currentTime = 0; } catch (e) {}
+      unloadVideoElement(bigVideo);
       bigOverlayOpen = false;
       
-      smallStartTimeout = setTimeout(() => updateVideoForScene(sceneId, 0), 3000);
+      smallStartTimeout = setTimeout(() => updateVideoForScene(sceneId, 0), 800);
     }
     
     if (closeBtn) closeBtn.onclick = closeOverlay;
@@ -393,39 +421,26 @@
   function updateVideoForScene(sceneId, forceDelay) {
     const videoCard = document.getElementById("videoCard");
     const sceneVideo = document.getElementById("sceneVideo");
-    if (!videoCard || !sceneVideo) return;
-    
+    const videoIcon = document.getElementById("videoIcon");
+    if (!videoCard || !sceneVideo || !videoIcon) return;
+
     if (currentVideoTimeout) clearTimeout(currentVideoTimeout);
     if (smallStartTimeout) clearTimeout(smallStartTimeout);
-    
-    if (currentVideoSceneId && currentVideoSceneId !== sceneId) {
-      sceneVideo.pause();
-      try { sceneVideo.currentTime = 0; } catch (e) {}
-    }
-    
+
+    videoCard.classList.remove("visible");
+    unloadVideoElement(sceneVideo);
+
     if ((bigSceneVideos[sceneId] && bigOverlayOpen) || !sceneVideos[sceneId]) {
-      videoCard.classList.remove("visible");
+      videoIcon.style.display = "none";
       currentVideoSceneId = null;
       return;
     }
-    
+
+    // Performance Premium Mobile 2026:
+    // Solo mostramos el botón. El video se descarga cuando el usuario lo toca.
     currentVideoSceneId = sceneId;
-    sceneVideo.src = sceneVideos[sceneId];
-    sceneVideo.load();
-    videoCard.classList.add("visible");
-    
-    let delay = typeof forceDelay === "number" ? forceDelay : (sceneId === FIRST_SCENE_ID ? 0 : 3000);
-    
-    currentVideoTimeout = setTimeout(() => {
-      sceneVideo.play().catch(() => {});
-    }, delay);
-    
-    sceneVideo.onended = () => {
-      if (currentVideoSceneId === sceneId) {
-        sceneVideo.pause();
-        try { sceneVideo.currentTime = sceneVideo.duration; } catch (e) {}
-      }
-    };
+    sceneVideo.dataset.src = sceneVideos[sceneId];
+    videoIcon.style.display = "block";
   }
 
   // ========== CONTROLES DE VIDEO ==========
@@ -448,14 +463,21 @@
     });
     
     closeVideoBtn.addEventListener("click", () => {
-      video.pause();
+      unloadVideoElement(video);
       videoCardEl.classList.remove("visible");
-      setTimeout(() => videoIcon.style.display = "block", 400);
+      setTimeout(() => videoIcon.style.display = currentVideoSceneId ? "block" : "none", 300);
     });
     
     videoIcon.addEventListener("click", () => {
+      const src = video.dataset.src || (currentVideoSceneId ? sceneVideos[currentVideoSceneId] : "");
+      if (src && video.getAttribute("src") !== src) {
+        video.src = src;
+        video.load();
+      }
       videoCardEl.classList.add("visible");
       videoIcon.style.display = "none";
+      video.play().catch(() => {});
+      playPauseBtn.textContent = "⏸";
     });
   }
 
