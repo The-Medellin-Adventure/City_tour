@@ -149,9 +149,23 @@ border-bottom:
 }
 
 .camera-hotspot { width: 60px; height: 60px; margin: -30px 0 0 -30px; pointer-events: auto; }
-.camera-hotspot-icon {
-  width: 100%; height: 100%; cursor: pointer; border-radius: 50%; box-shadow: 0 6px 20px rgba(255,107,53,0.6);
-  transition: var(--transition); filter: drop-shadow(0 4px 12px rgba(255,107,53,0.6)); animation: cameraPulse 2.5s ease-in-out infinite;
+.camera-hotspot-icon{
+
+    width:72px;
+
+    transition:.3s;
+
+    filter:
+    drop-shadow(
+      0 0 15px rgba(255,180,0,.7)
+    );
+}
+
+.camera-hotspot-icon:hover{
+
+    transform:
+    scale(1.2);
+
 }
 @keyframes cameraPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
 .camera-hotspot-icon:hover { transform: scale(1.2); }
